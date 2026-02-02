@@ -44,3 +44,7 @@ Thumbs.db
 # nx graph output
 graph.html
 static/
+
+.angular
+
+__screenshots__/
