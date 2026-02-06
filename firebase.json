@@ -17,7 +17,7 @@
       "port": 9099
     },
     "functions": {
-      "port": 5001
+      "port": 5101
     },
     "firestore": {
       "port": 8080
@@ -30,7 +30,7 @@
     },
     "ui": {
       "enabled": true,
-      "port": 4000
+      "port": 4100
     },
     "singleProjectMode": true
   }
