@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@chirimen-device-dashboard/shared-types": ["libs/shared-types/src/index.ts"]
+      "@chirimen-device-dashboard/shared-types": ["libs/shared-types/src/index.ts"],
+      "@chirimen-device-dashboard/api/*": ["apps/api/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
