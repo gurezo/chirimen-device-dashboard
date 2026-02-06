@@ -7,8 +7,12 @@
     "rootDir": "src",
     "strict": true,
     "target": "ES2022",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@api/*": ["../../apps/api/src/*"]
+    }
   },
   "compileOnSave": true,
-  "include": ["src"]
+  "include": ["src/**/*", "../../apps/api/src/**/*"]
 }
