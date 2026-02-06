@@ -1,6 +1,6 @@
 import type { Application } from "express";
 import { NestFactory } from "@nestjs/core";
-import { AppModule } from "../../apps/api/src/app/app.module";
+import { AppModule } from "@chirimen-device-dashboard/api/app/app.module";
 
 let appPromise: Promise<Application> | null = null;
 

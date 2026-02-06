@@ -10,9 +10,8 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@api/*": ["../../apps/api/src/*"]
     }
   },
   "compileOnSave": true,
-  "include": ["src/**/*", "../../apps/api/src/**/*"]
+  "include": ["src/**/*"]
 }
