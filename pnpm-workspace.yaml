@@ -1,3 +1,4 @@
-packages: []
+packages:
+  - "functions"
 
 storeDir: /Users/akihiko.kigure/Library/pnpm/store/v10
