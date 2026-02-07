@@ -6,6 +6,30 @@
       "options": {
         "command": "echo 'Build complete'"
       }
+    },
+    "emulators:start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "firebase emulators:start --only functions,firestore,storage",
+        "cwd": "."
+      }
+    },
+    "web:serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx serve web --proxy-config apps/web/proxy.conf.json",
+        "cwd": "."
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "parallel": true,
+        "commands": [
+          { "command": "nx run chirimen-device-dashboard:emulators:start" },
+          { "command": "nx run chirimen-device-dashboard:web:serve" }
+        ]
+      }
     }
   }
 }
