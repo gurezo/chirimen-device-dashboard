@@ -80,6 +80,9 @@
     "@nestjs/platform-express": "^11.0.0",
     "axios": "^1.6.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "~7.8.0"
+    "rxjs": "~7.8.0",
+    "class-validator": "^0.14.1",
+    "class-transformer": "^0.5.1",
+    "firebase-admin": "^12.0.0"
   }
 }
