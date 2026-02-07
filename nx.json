@@ -27,22 +27,13 @@
     },
     "@angular/build:unit-test": {
       "cache": true,
-      "inputs": ["default", "^production"]
+      "inputs": ["default", "^production"],
+      "options": { "watch": false }
     }
   },
   "plugins": [
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
+    { "plugin": "@nx/playwright/plugin", "options": { "targetName": "e2e" } },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
     {
       "plugin": "@nx/webpack/plugin",
       "options": {

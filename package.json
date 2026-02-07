@@ -7,8 +7,13 @@
     "prepare": "husky",
     "start": "nx serve web",
     "build": "nx build web",
+    "build:all": "nx run-many --target=build --all",
     "test": "nx test web",
+    "test:all": "nx run-many --target=test --all",
     "lint": "nx lint web",
+    "lint:all": "nx run-many --target=lint --all",
+    "serve": "nx serve web",
+    "serve:all": "nx run-many --target=serve --all",
     "e2e": "nx e2e web-e2e"
   },
   "packageManager": "pnpm@10.28.0",
