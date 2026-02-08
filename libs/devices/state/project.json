@@ -1,0 +1,7 @@
+{
+  "name": "devices-state",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/devices/state/src",
+  "projectType": "library",
+  "tags": []
+}
