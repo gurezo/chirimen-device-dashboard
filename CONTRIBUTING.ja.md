@@ -29,12 +29,12 @@
 | `shared-types` | 共有型定義 (libs/shared-types) |
 | `functions` | Firebase Functions (functions/) |
 | `workspace` | ルート・ツール・設定など |
-| `devices-data-access` | devices データアクセス (libs/devices/data-access) |
-| `devices-ui` | devices UI コンポーネント (libs/devices/ui) |
-| `devices-state` | devices 状態管理 (libs/devices/state) |
-| `devices-feature-list` | devices 一覧 feature (libs/devices/feature-list) |
-| `devices-feature-create` | devices 新規 feature (libs/devices/feature-create) |
-| `devices-feature-edit` | devices 編集 feature (libs/devices/feature-edit) |
+| `libs-data-access` | devices データアクセス (libs/devices/data-access) |
+| `libs-ui` | devices UI コンポーネント (libs/devices/ui) |
+| `libs-state` | devices 状態管理 (libs/devices/state) |
+| `libs-feature-list` | devices 一覧 feature (libs/devices/feature-list) |
+| `libs-feature-create` | devices 新規 feature (libs/devices/feature-create) |
+| `libs-feature-edit` | devices 編集 feature (libs/devices/feature-edit) |
 
 ### 例
 

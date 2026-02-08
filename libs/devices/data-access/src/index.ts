@@ -1,1 +1,1 @@
-// Public API for devices-data-access (implementation in #39)
+// Public API for libs-data-access (implementation in #39)

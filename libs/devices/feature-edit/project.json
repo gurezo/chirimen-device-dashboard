@@ -1,7 +1,23 @@
 {
-  "name": "devices-feature-edit",
+  "name": "libs-feature-edit",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/devices/feature-edit/src",
   "projectType": "library",
-  "tags": []
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/devices/feature-edit",
+        "main": "libs/devices/feature-edit/src/index.ts",
+        "tsConfig": "libs/devices/feature-edit/tsconfig.lib.json",
+        "assets": []
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      }
+    }
+  }
 }

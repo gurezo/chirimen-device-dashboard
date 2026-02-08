@@ -1,1 +1,1 @@
-// Public API for devices-state (ComponentStore when needed)
+// Public API for libs-state (ComponentStore when needed)

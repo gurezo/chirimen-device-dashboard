@@ -1,1 +1,1 @@
-// Public API for devices-feature-edit (implementation in #43)
+// Public API for libs-feature-edit (implementation in #43)

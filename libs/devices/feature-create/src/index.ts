@@ -1,1 +1,1 @@
-// Public API for devices-feature-create (implementation in #42)
+// Public API for libs-feature-create (implementation in #42)

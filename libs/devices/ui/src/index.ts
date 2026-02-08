@@ -1,1 +1,1 @@
-// Public API for devices-ui (implementation in #40)
+// Public API for libs-ui (implementation in #40)

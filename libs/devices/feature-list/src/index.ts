@@ -1,1 +1,1 @@
-// Public API for devices-feature-list (implementation in #41)
+// Public API for libs-feature-list (implementation in #41)

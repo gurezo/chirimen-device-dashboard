@@ -1,7 +1,23 @@
 {
-  "name": "devices-feature-create",
+  "name": "libs-feature-create",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/devices/feature-create/src",
   "projectType": "library",
-  "tags": []
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/devices/feature-create",
+        "main": "libs/devices/feature-create/src/index.ts",
+        "tsConfig": "libs/devices/feature-create/tsconfig.lib.json",
+        "assets": []
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      }
+    }
+  }
 }
