@@ -1,0 +1,7 @@
+{
+  "name": "devices-feature-create",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/devices/feature-create/src",
+  "projectType": "library",
+  "tags": []
+}
