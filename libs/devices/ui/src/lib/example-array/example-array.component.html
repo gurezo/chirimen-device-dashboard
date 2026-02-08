@@ -1,0 +1,32 @@
+<div class="example-array">
+  <div class="header">
+    <span class="label">Example（ハードウェア・コード）</span>
+    <button mat-stroked-button type="button" (click)="addRow()">
+      <mat-icon>add</mat-icon>
+      行を追加
+    </button>
+  </div>
+  @for (item of items(); track $index) {
+    <div class="row" [formGroup]="item">
+      <mat-form-field appearance="outline" class="field hardware">
+        <mat-label>hardware</mat-label>
+        <input matInput formControlName="hardware" />
+        <chirimen-field-error [control]="item.get('hardware')" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="field code">
+        <mat-label>code</mat-label>
+        <input matInput formControlName="code" />
+        <chirimen-field-error [control]="item.get('code')" />
+      </mat-form-field>
+      <button
+        mat-icon-button
+        type="button"
+        color="warn"
+        (click)="removeRow($index)"
+        [attr.aria-label]="'行を削除'"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  }
+</div>

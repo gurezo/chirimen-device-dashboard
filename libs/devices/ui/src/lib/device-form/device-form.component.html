@@ -1,0 +1,52 @@
+@if (formGroup()) {
+  <form [formGroup]="formGroup()!" (ngSubmit)="onSubmit()" class="device-form">
+    <input type="hidden" formControlName="id" />
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>デバイス名</mat-label>
+      <input matInput formControlName="deviceName" />
+      <chirimen-field-error [control]="formGroup()!.get('deviceName')" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>タグ</mat-label>
+      <mat-select formControlName="tag">
+        <mat-option value="GPIO">GPIO</mat-option>
+        <mat-option value="I2C">I2C</mat-option>
+        <mat-option value="Other">Other</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>カテゴリ</mat-label>
+      <input matInput formControlName="category" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>説明</mat-label>
+      <textarea matInput formControlName="description" rows="3"></textarea>
+    </mat-form-field>
+    <div class="full-width">
+      <chirimen-device-image-uploader
+        [currentImageUrl]="currentImageUrl()"
+        (imageChanged)="onImageChanged($event)"
+      />
+    </div>
+    <ng-container formGroupName="product">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Product URL</mat-label>
+        <input matInput formControlName="url" />
+      </mat-form-field>
+      <chirimen-example-array [formArray]="exampleFormArray()" />
+    </ng-container>
+    <div class="actions">
+      <button mat-stroked-button type="button" (click)="onCancel()">
+        {{ cancelLabel() }}
+      </button>
+      <button
+        mat-flat-button
+        type="submit"
+        color="primary"
+        [disabled]="formGroup()!.invalid"
+      >
+        {{ submitLabel() }}
+      </button>
+    </div>
+  </form>
+}
