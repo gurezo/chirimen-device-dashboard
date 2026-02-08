@@ -17,6 +17,7 @@
     "paths": {
       "@chirimen-device-dashboard/shared-types": ["libs/shared-types/src/index.ts"],
       "@chirimen-device-dashboard/devices-data-access": ["libs/devices/data-access/src/index.ts"],
+      "@chirimen-device-dashboard/devices-ui": ["libs/devices/ui/src/index.ts"],
       "@chirimen-device-dashboard/api/*": ["apps/api/src/*"]
     }
   },

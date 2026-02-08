@@ -1,0 +1,7 @@
+{
+  "name": "devices-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/devices/ui/src",
+  "projectType": "library",
+  "tags": []
+}
