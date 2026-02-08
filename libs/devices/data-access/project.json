@@ -12,7 +12,9 @@
         "outputPath": "dist/libs/devices/data-access",
         "main": "libs/devices/data-access/src/index.ts",
         "tsConfig": "libs/devices/data-access/tsconfig.lib.json",
-        "assets": []
+        "assets": [],
+        "generatePackageJson": false,
+        "rootDir": "."
       },
       "configurations": {
         "production": {},
@@ -25,7 +27,9 @@
         "tsConfig": "libs/devices/data-access/tsconfig.spec.json"
       },
       "configurations": {
-        "ci": { "watch": false }
+        "ci": {
+          "watch": false
+        }
       }
     }
   }

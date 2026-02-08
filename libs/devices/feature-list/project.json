@@ -12,7 +12,9 @@
         "outputPath": "dist/libs/devices/feature-list",
         "main": "libs/devices/feature-list/src/index.ts",
         "tsConfig": "libs/devices/feature-list/tsconfig.lib.json",
-        "assets": []
+        "assets": [],
+        "generatePackageJson": false,
+        "rootDir": "."
       },
       "configurations": {
         "production": {},

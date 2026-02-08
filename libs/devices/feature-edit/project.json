@@ -12,7 +12,9 @@
         "outputPath": "dist/libs/devices/feature-edit",
         "main": "libs/devices/feature-edit/src/index.ts",
         "tsConfig": "libs/devices/feature-edit/tsconfig.lib.json",
-        "assets": []
+        "assets": [],
+        "generatePackageJson": false,
+        "rootDir": "."
       },
       "configurations": {
         "production": {},
