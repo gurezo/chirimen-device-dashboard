@@ -1,0 +1,7 @@
+{
+  "name": "devices-feature-list",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/devices/feature-list/src",
+  "projectType": "library",
+  "tags": []
+}

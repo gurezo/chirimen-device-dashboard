@@ -19,6 +19,7 @@
       "@chirimen-device-dashboard/devices-data-access": ["libs/devices/data-access/src/index.ts"],
       "@chirimen-device-dashboard/devices-ui": ["libs/devices/ui/src/index.ts"],
       "@chirimen-device-dashboard/devices-state": ["libs/devices/state/src/index.ts"],
+      "@chirimen-device-dashboard/devices-feature-list": ["libs/devices/feature-list/src/index.ts"],
       "@chirimen-device-dashboard/api/*": ["apps/api/src/*"]
     }
   },
