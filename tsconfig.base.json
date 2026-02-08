@@ -21,6 +21,7 @@
       "@chirimen-device-dashboard/devices-state": ["libs/devices/state/src/index.ts"],
       "@chirimen-device-dashboard/devices-feature-list": ["libs/devices/feature-list/src/index.ts"],
       "@chirimen-device-dashboard/devices-feature-create": ["libs/devices/feature-create/src/index.ts"],
+      "@chirimen-device-dashboard/devices-feature-edit": ["libs/devices/feature-edit/src/index.ts"],
       "@chirimen-device-dashboard/api/*": ["apps/api/src/*"]
     }
   },
