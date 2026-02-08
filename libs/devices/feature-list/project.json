@@ -1,0 +1,32 @@
+{
+  "name": "libs-feature-list",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/devices/feature-list/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/devices/feature-list",
+        "main": "libs/devices/feature-list/src/index.ts",
+        "tsConfig": "libs/devices/feature-list/tsconfig.lib.json",
+        "assets": []
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      }
+    },
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "tsConfig": "libs/devices/feature-list/tsconfig.spec.json"
+      },
+      "configurations": {
+        "ci": { "watch": false }
+      }
+    }
+  }
+}

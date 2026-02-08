@@ -1,0 +1,32 @@
+{
+  "name": "libs-state",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/devices/state/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/devices/state",
+        "main": "libs/devices/state/src/index.ts",
+        "tsConfig": "libs/devices/state/tsconfig.lib.json",
+        "assets": []
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      }
+    },
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "tsConfig": "libs/devices/state/tsconfig.spec.json"
+      },
+      "configurations": {
+        "ci": { "watch": false }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "libs-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/devices/ui/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/devices/ui",
+        "main": "libs/devices/ui/src/index.ts",
+        "tsConfig": "libs/devices/ui/tsconfig.lib.json",
+        "assets": []
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      }
+    },
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "tsConfig": "libs/devices/ui/tsconfig.spec.json"
+      },
+      "configurations": {
+        "ci": { "watch": false }
+      }
+    }
+  }
+}
