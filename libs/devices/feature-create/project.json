@@ -12,7 +12,9 @@
         "outputPath": "dist/libs/devices/feature-create",
         "main": "libs/devices/feature-create/src/index.ts",
         "tsConfig": "libs/devices/feature-create/tsconfig.lib.json",
-        "assets": []
+        "assets": [],
+        "generatePackageJson": false,
+        "rootDir": "."
       },
       "configurations": {
         "production": {},

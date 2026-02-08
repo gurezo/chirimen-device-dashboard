@@ -12,7 +12,9 @@
         "outputPath": "dist/libs/devices/ui",
         "main": "libs/devices/ui/src/index.ts",
         "tsConfig": "libs/devices/ui/tsconfig.lib.json",
-        "assets": []
+        "assets": [],
+        "generatePackageJson": false,
+        "rootDir": "."
       },
       "configurations": {
         "production": {},
