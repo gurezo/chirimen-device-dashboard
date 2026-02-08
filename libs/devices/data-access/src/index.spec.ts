@@ -15,7 +15,10 @@ describe('libs-data-access', () => {
   });
 
   it('provideDeviceRepository() should return provider for DEVICE_REPOSITORY', () => {
-    const provider = provideDeviceRepository();
+    const provider = provideDeviceRepository() as {
+      provide: typeof DEVICE_REPOSITORY;
+      useClass: typeof MockDeviceRepository;
+    };
     expect(provider.provide).toBe(DEVICE_REPOSITORY);
     expect(provider.useClass).toBe(MockDeviceRepository);
   });
