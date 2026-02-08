@@ -1,0 +1,77 @@
+<div class="device-list">
+  <div class="device-list__toolbar">
+    <mat-form-field appearance="outline" class="device-list__search">
+      <mat-label>検索</mat-label>
+      <input
+        matInput
+        [ngModel]="query()"
+        (ngModelChange)="onQueryChange($event)"
+        placeholder="ID・名前・タグ・カテゴリ・説明"
+      />
+    </mat-form-field>
+  </div>
+
+  @if (error$ | async; as error) {
+    <div class="device-list__error">{{ error }}</div>
+  }
+
+  @if (loading$ | async) {
+    <div class="device-list__loading">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+  } @else {
+    <div class="device-list__table-container">
+      <table
+        mat-table
+        [dataSource]="(filteredDevices$ | async) ?? []"
+        class="device-list__table"
+      >
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        </ng-container>
+        <ng-container matColumnDef="deviceName">
+          <th mat-header-cell *matHeaderCellDef>デバイス名</th>
+          <td mat-cell *matCellDef="let row">{{ row.deviceName }}</td>
+        </ng-container>
+        <ng-container matColumnDef="tag">
+          <th mat-header-cell *matHeaderCellDef>タグ</th>
+          <td mat-cell *matCellDef="let row">{{ row.tag }}</td>
+        </ng-container>
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>カテゴリ</th>
+          <td mat-cell *matCellDef="let row">{{ row.category }}</td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>説明</th>
+          <td mat-cell *matCellDef="let row">{{ row.description }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let row">
+            <button
+              mat-icon-button
+              color="warn"
+              aria-label="削除"
+              (click)="confirmDelete(row)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+        ></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+            デバイスがありません。
+          </td>
+        </tr>
+      </table>
+    </div>
+  }
+</div>
