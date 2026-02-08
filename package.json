@@ -66,6 +66,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "@ngrx/component-store": "^21.0.0",
     "@angular/animations": "^21.1.2",
     "@angular/cdk": "^21.1.2",
     "@angular/common": "~21.1.0",
