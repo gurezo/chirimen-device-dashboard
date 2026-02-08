@@ -1,1 +1,6 @@
-// Public API for libs-data-access (implementation in #39)
+export {
+  type DeviceRepository,
+  DEVICE_REPOSITORY,
+} from './lib/device.repository';
+export { MockDeviceRepository } from './lib/mock-device.repository';
+export { provideDeviceRepository } from './lib/providers';
