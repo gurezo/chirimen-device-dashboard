@@ -1,0 +1,37 @@
+<div class="uploader">
+  <div class="preview-area">
+    @if (currentImageUrl()) {
+      <img
+        [src]="currentImageUrl()"
+        alt="Device preview"
+        class="preview-img"
+      />
+    } @else {
+      <span class="placeholder">画像なし</span>
+    }
+  </div>
+  <div class="actions">
+    <input
+      #fileInput
+      type="file"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+      class="file-input"
+    />
+    <button mat-stroked-button type="button" (click)="fileInput.click()">
+      <mat-icon>add_photo_alternate</mat-icon>
+      画像を選択
+    </button>
+    @if (currentImageUrl()) {
+      <button
+        mat-stroked-button
+        type="button"
+        color="warn"
+        (click)="onClear()"
+      >
+        <mat-icon>delete</mat-icon>
+        削除
+      </button>
+    }
+  </div>
+</div>
