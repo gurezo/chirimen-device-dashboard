@@ -1,18 +1,23 @@
-import { describe, it, expect, beforeEach } from "vitest";
 import { TestBed } from "@angular/core/testing";
+import { provideNoopAnimations } from "@angular/platform-browser/animations";
+import { provideRouter } from "@angular/router";
+import { beforeEach, describe, expect, it } from "vitest";
 import { App } from "./app";
 
 describe("App", () => {
   beforeEach(async () => {
-    await TestBed.configureTestingModule({}).compileComponents();
+    await TestBed.configureTestingModule({
+      imports: [App],
+      providers: [provideRouter([]), provideNoopAnimations()],
+    }).compileComponents();
   });
 
-  it("should render title", async () => {
+  it("should render header", async () => {
     const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector("h1")?.textContent).toContain(
-      "Chirimen Device Dashboard",
-    );
+    const header = compiled.querySelector("app-header");
+    expect(header).toBeTruthy();
   });
 });
