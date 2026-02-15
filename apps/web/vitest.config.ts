@@ -6,8 +6,8 @@ const projectRoot = __dirname;
 
 export default defineConfig({
   root: projectRoot,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Vite/Rollup version mismatch with @analogjs/vite-plugin-angular
-  plugins: [angular()] as any,
+  // @ts-expect-error Vite/Rollup のバージョン差により @analogjs/vite-plugin-angular と型が不整合
+  plugins: [angular()],
   test: {
     globals: true,
     environment: "jsdom",
