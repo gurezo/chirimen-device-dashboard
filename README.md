@@ -10,6 +10,13 @@ pnpm nx graph
 pnpm nx build
 ```
 
+## Running Tests
+
+```bash
+pnpm test          # web のユニットテスト
+pnpm test:all      # 全プロジェクトのテスト
+```
+
 ## Learn More
 
 - [Nx Documentation](https://nx.dev/getting-started/intro)

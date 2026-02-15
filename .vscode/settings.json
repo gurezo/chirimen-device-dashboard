@@ -1,0 +1,6 @@
+{
+  "vitest.enable": true,
+  "vitest.commandLine": "pnpm exec nx test web",
+  "jest.autoEnable": false,
+  "jest.enable": false
+}
