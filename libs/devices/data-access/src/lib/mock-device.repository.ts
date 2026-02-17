@@ -1,9 +1,12 @@
 import { Observable, of, throwError } from 'rxjs';
 import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
 import type { DeviceRepository } from './device.repository';
+import { MOCK_DEVICES } from './mock-device.data';
 
 export class MockDeviceRepository implements DeviceRepository {
-  private readonly store = new Map<string, DeviceInfo>();
+  private readonly store = new Map<string, DeviceInfo>(
+    MOCK_DEVICES.map((device) => [device.id, device])
+  );
 
   list(): Observable<DeviceInfo[]> {
     return of(Array.from(this.store.values()));
