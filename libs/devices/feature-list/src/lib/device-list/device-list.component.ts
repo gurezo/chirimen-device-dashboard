@@ -45,7 +45,7 @@ export class DeviceListComponent implements OnInit {
   private readonly dialog = inject(MatDialog);
 
   readonly displayedColumns: string[] = [
-    'id',
+    'image',
     'deviceName',
     'tag',
     'category',
