@@ -22,6 +22,7 @@
       "@chirimen-device-dashboard/libs-feature-list": ["libs/devices/feature-list/src/index.ts"],
       "@chirimen-device-dashboard/libs-feature-create": ["libs/devices/feature-create/src/index.ts"],
       "@chirimen-device-dashboard/libs-feature-edit": ["libs/devices/feature-edit/src/index.ts"],
+      "@chirimen-device-dashboard/libs-feature-delete-confirm-dialog": ["libs/devices/feature-delete-confirm-dialog/src/index.ts"],
       "@chirimen-device-dashboard/api/*": ["apps/api/src/*"]
     }
   },

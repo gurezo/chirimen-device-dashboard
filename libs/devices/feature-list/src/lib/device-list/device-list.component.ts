@@ -19,7 +19,7 @@ import {
   provideDeviceListStore,
 } from '@chirimen-device-dashboard/libs-state';
 import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
-import { DeleteConfirmDialogComponent } from '../delete-confirm-dialog/delete-confirm-dialog.component';
+import { DeleteConfirmDialogComponent } from '@chirimen-device-dashboard/libs-feature-delete-confirm-dialog';
 
 @Component({
   selector: 'chirimen-device-list',
