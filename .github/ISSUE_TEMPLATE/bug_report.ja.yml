@@ -89,3 +89,12 @@ body:
       options:
         - label: README の Quick Start を確認しました
           required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 作業上の留意点
+
+        - 作業を実施する時は、Conventional Commits に準拠したブランチを作成して作業を開始してください
+        - 差分を Conventional Commits に準拠したコミットメッセージで、コミットしてください
+        - プッシュして `.github/pull_request_template.md` に沿った Conventional Commits に準拠したプルリクエストの概要とタイトルを作成してください
