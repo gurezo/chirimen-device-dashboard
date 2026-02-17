@@ -1,9 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideNoopAnimations } from '@angular/platform-browser/animations';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DeleteConfirmDialogComponent } from './delete-confirm-dialog.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { provideNoopAnimations } from "@angular/platform-browser/animations";
+import { beforeEach, describe, expect, it } from "vitest";
+import { DeleteConfirmDialogComponent } from "./delete-confirm-dialog.component";
 
-describe('DeleteConfirmDialogComponent', () => {
+describe("DeleteConfirmDialogComponent", () => {
   let component: DeleteConfirmDialogComponent;
   let fixture: ComponentFixture<DeleteConfirmDialogComponent>;
 
@@ -14,11 +15,19 @@ describe('DeleteConfirmDialogComponent', () => {
         provideNoopAnimations(),
         {
           provide: MatDialogRef,
-          useValue: { close: (): void => { return; } },
+          useValue: {
+            close: (): void => {
+              return;
+            },
+          },
         },
         {
           provide: MAT_DIALOG_DATA,
-          useValue: { deviceName: 'Test Device', deviceId: 'test-1' },
+          useValue: {
+            deviceName: "Test Device",
+            deviceId: "test-1",
+            deviceImage: "https://example.com/device.png",
+          },
         },
       ],
     }).compileComponents();
@@ -28,7 +37,14 @@ describe('DeleteConfirmDialogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should display device image when deviceImage is provided", () => {
+    const img = fixture.nativeElement.querySelector(".confirm-dialog__image");
+    expect(img).toBeTruthy();
+    expect(img.getAttribute("src")).toBe("https://example.com/device.png");
+    expect(img.getAttribute("alt")).toBe("Test Device");
   });
 });

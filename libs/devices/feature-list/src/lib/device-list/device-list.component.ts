@@ -1,28 +1,28 @@
+import { AsyncPipe } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
   inject,
   OnInit,
   signal,
-} from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatTableModule } from '@angular/material/table';
-import { AsyncPipe } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+} from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { MatButtonModule } from "@angular/material/button";
+import { MatDialog, MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatTableModule } from "@angular/material/table";
+import { DeleteConfirmDialogComponent } from "@chirimen-device-dashboard/libs-feature-delete-confirm-dialog";
 import {
   DeviceListStore,
   provideDeviceListStore,
-} from '@chirimen-device-dashboard/libs-state';
-import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
-import { DeleteConfirmDialogComponent } from '@chirimen-device-dashboard/libs-feature-delete-confirm-dialog';
+} from "@chirimen-device-dashboard/libs-state";
+import type { DeviceInfo } from "@chirimen-device-dashboard/shared-types";
 
 @Component({
-  selector: 'chirimen-device-list',
+  selector: "chirimen-device-list",
   standalone: true,
   providers: [provideDeviceListStore()],
   imports: [
@@ -36,8 +36,8 @@ import { DeleteConfirmDialogComponent } from '@chirimen-device-dashboard/libs-fe
     MatProgressSpinnerModule,
     MatTableModule,
   ],
-  templateUrl: './device-list.component.html',
-  styleUrl: './device-list.component.scss',
+  templateUrl: "./device-list.component.html",
+  styleUrl: "./device-list.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeviceListComponent implements OnInit {
@@ -45,12 +45,12 @@ export class DeviceListComponent implements OnInit {
   private readonly dialog = inject(MatDialog);
 
   readonly displayedColumns: string[] = [
-    'image',
-    'deviceName',
-    'tag',
-    'category',
-    'description',
-    'actions',
+    "image",
+    "deviceName",
+    "tag",
+    "category",
+    "description",
+    "actions",
   ];
 
   readonly filteredDevices$ = this.store.filteredDevices$;
@@ -58,7 +58,7 @@ export class DeviceListComponent implements OnInit {
   readonly error$ = this.store.error$;
 
   /** Two-way binding target for search query (template uses ngModel) */
-  readonly query = signal('');
+  readonly query = signal("");
 
   ngOnInit(): void {
     this.store.loadDevices(undefined as never);
@@ -71,8 +71,12 @@ export class DeviceListComponent implements OnInit {
 
   confirmDelete(device: DeviceInfo): void {
     const dialogRef = this.dialog.open(DeleteConfirmDialogComponent, {
-      data: { deviceName: device.deviceName, deviceId: device.id },
-      width: '400px',
+      data: {
+        deviceName: device.deviceName,
+        deviceId: device.id,
+        deviceImage: device.image,
+      },
+      width: "400px",
     });
     dialogRef.afterClosed().subscribe((confirmed) => {
       if (confirmed) {

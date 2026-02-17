@@ -1,5 +1,12 @@
 <h2 mat-dialog-title>{{ title() }}</h2>
 <mat-dialog-content>
+  @if (imageUrl()) {
+    <img
+      [src]="imageUrl()"
+      [alt]="imageAlt()"
+      class="confirm-dialog__image"
+    />
+  }
   <p>{{ message() }}</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
