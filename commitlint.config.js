@@ -18,6 +18,7 @@ module.exports = {
         'libs-feature-list',
         'libs-feature-create',
         'libs-feature-edit',
+        'libs-feature-delete-confirm-dialog',
       ],
     ],
   },
