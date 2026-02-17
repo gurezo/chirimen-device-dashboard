@@ -1,5 +1,7 @@
 import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
 
+export type { DeviceInfo };
+
 const IMAGE_BASE_URL =
   'https://raw.githubusercontent.com/gurezo/chirimen.org/master/';
 

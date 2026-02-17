@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { firstValueFrom, lastValueFrom } from 'rxjs';
-import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
-import { MOCK_DEVICES } from './mock-device.data';
+import { MOCK_DEVICES, type DeviceInfo } from './mock-device.data';
 import { MockDeviceRepository } from './mock-device.repository';
 
 function createDevice(overrides: Partial<DeviceInfo> = {}): DeviceInfo {
