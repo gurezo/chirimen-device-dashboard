@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { firstValueFrom, lastValueFrom } from 'rxjs';
 import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
+import { MOCK_DEVICES } from './mock-device.data';
 import { MockDeviceRepository } from './mock-device.repository';
 
 function createDevice(overrides: Partial<DeviceInfo> = {}): DeviceInfo {
@@ -17,21 +18,24 @@ function createDevice(overrides: Partial<DeviceInfo> = {}): DeviceInfo {
 }
 
 describe('MockDeviceRepository', () => {
-  it('list() returns empty array when no devices', async () => {
+  it('list() returns initial mock devices', async () => {
     const repo = new MockDeviceRepository();
     const list = await firstValueFrom(repo.list());
-    expect(list).toEqual([]);
+    expect(list).toHaveLength(MOCK_DEVICES.length);
+    expect(list.map((d) => d.id).sort()).toEqual(
+      MOCK_DEVICES.map((d) => d.id).sort()
+    );
   });
 
   it('create() and list() return created device', async () => {
     const repo = new MockDeviceRepository();
-    const device = createDevice();
+    const device = createDevice({ id: 'test-device-created' });
     const created = await firstValueFrom(repo.create(device));
     expect(created).toEqual(device);
 
     const list = await firstValueFrom(repo.list());
-    expect(list).toHaveLength(1);
-    expect(list[0]).toEqual(device);
+    expect(list).toHaveLength(MOCK_DEVICES.length + 1);
+    expect(list).toContainEqual(device);
   });
 
   it('get() returns null for missing id', async () => {
@@ -50,8 +54,7 @@ describe('MockDeviceRepository', () => {
 
   it('create() throws when id already exists', async () => {
     const repo = new MockDeviceRepository();
-    const device = createDevice({ id: 'dup' });
-    await firstValueFrom(repo.create(device));
+    const device = createDevice({ id: 'i2c-ads1015' });
     await expect(
       lastValueFrom(repo.create(device))
     ).rejects.toThrow(/already exists/);
@@ -59,13 +62,11 @@ describe('MockDeviceRepository', () => {
 
   it('update() returns updated device', async () => {
     const repo = new MockDeviceRepository();
-    const device = createDevice({ id: 'upd', deviceName: 'Original' });
-    await firstValueFrom(repo.create(device));
     const updated = await firstValueFrom(
-      repo.update('upd', { deviceName: 'Updated Name' })
+      repo.update('i2c-ads1015', { deviceName: 'Updated Name' })
     );
     expect(updated.deviceName).toBe('Updated Name');
-    expect(updated.id).toBe('upd');
+    expect(updated.id).toBe('i2c-ads1015');
   });
 
   it('update() throws when device not found', async () => {
@@ -77,12 +78,12 @@ describe('MockDeviceRepository', () => {
 
   it('delete() removes device', async () => {
     const repo = new MockDeviceRepository();
-    const device = createDevice({ id: 'del' });
+    const device = createDevice({ id: 'test-device-to-delete' });
     await firstValueFrom(repo.create(device));
-    await firstValueFrom(repo.delete('del'));
+    await firstValueFrom(repo.delete('test-device-to-delete'));
     const list = await firstValueFrom(repo.list());
-    expect(list).toHaveLength(0);
-    const got = await firstValueFrom(repo.get('del'));
+    expect(list).toHaveLength(MOCK_DEVICES.length);
+    const got = await firstValueFrom(repo.get('test-device-to-delete'));
     expect(got).toBeNull();
   });
 
