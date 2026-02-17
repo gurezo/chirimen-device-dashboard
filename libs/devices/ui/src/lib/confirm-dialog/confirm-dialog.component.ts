@@ -12,6 +12,8 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 export class ConfirmDialogComponent {
   readonly title = input<string>('確認');
   readonly message = input<string>('実行してもよろしいですか？');
+  readonly imageUrl = input<string | null>(null);
+  readonly imageAlt = input<string>('');
   readonly confirmLabel = input<string>('OK');
   readonly cancelLabel = input<string>('キャンセル');
 
