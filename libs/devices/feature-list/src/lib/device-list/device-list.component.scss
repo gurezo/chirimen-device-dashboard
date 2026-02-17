@@ -1,7 +1,11 @@
 .device-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding: 1rem;
 
   &__toolbar {
+    flex-shrink: 0;
     margin-bottom: 1rem;
   }
 
@@ -11,18 +15,23 @@
   }
 
   &__error {
+    flex-shrink: 0;
     color: var(--mat-error-default, #b00020);
     margin-bottom: 1rem;
   }
 
   &__loading {
+    flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 2rem;
   }
 
   &__table-container {
-    overflow-x: auto;
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
   }
 
   &__table {
