@@ -15,8 +15,11 @@ app-header {
   display: flex;
   flex-direction: column;
 
-  > *:not(router-outlet) {
+  router-outlet + * {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     min-height: 0;
+    overflow: hidden;
   }
 }
