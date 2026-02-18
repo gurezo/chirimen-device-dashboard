@@ -1,0 +1,36 @@
+{
+  "name": "libs-card-list",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/devices/card-list/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/devices/card-list",
+        "main": "libs/devices/card-list/src/index.ts",
+        "tsConfig": "libs/devices/card-list/tsconfig.lib.json",
+        "assets": [],
+        "generatePackageJson": false,
+        "rootDir": "."
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      }
+    },
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "tsConfig": "libs/devices/card-list/tsconfig.spec.json"
+      },
+      "configurations": {
+        "ci": {
+          "watch": false
+        }
+      }
+    }
+  }
+}

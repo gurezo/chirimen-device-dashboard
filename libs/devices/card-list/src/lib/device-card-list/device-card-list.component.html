@@ -1,0 +1,50 @@
+<div class="device-card-list">
+  @if (error$ | async; as error) {
+    <div class="device-card-list__error">{{ error }}</div>
+  }
+
+  @if (loading$ | async) {
+    <div class="device-card-list__loading">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+  } @else {
+    <div class="device-card-list__grid">
+      @for (device of filteredDevices$ | async; track device.id) {
+        <div class="device-card-list__card-wrapper">
+        <mat-card class="device-card-list__card">
+          <img
+            mat-card-image
+            [src]="device.image"
+            [alt]="device.deviceName"
+            class="device-card-list__image"
+          />
+          <mat-card-header>
+            <mat-card-title>{{ device.deviceName }}</mat-card-title>
+            <mat-card-subtitle>
+              <span class="device-card-list__tag">{{ device.tag }}</span>
+              {{ device.category }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="device-card-list__description">
+              {{ device.description | truncate : 60 }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button
+              mat-icon-button
+              color="warn"
+              aria-label="削除"
+              (click)="confirmDelete(device)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+        </div>
+      } @empty {
+        <div class="device-card-list__empty">デバイスがありません。</div>
+      }
+    </div>
+  }
+</div>

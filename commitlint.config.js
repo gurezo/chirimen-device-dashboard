@@ -19,6 +19,7 @@ module.exports = {
         'libs-feature-create',
         'libs-feature-edit',
         'libs-feature-delete-confirm-dialog',
+        'libs-card-list',
       ],
     ],
   },

@@ -5,41 +5,33 @@ import {
   inject,
 } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
-import { MatDialog, MatDialogModule } from "@angular/material/dialog";
+import { MatCardModule } from "@angular/material/card";
+import { MatDialog } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { MatTableModule } from "@angular/material/table";
 import { DeleteConfirmDialogComponent } from "@chirimen-device-dashboard/libs-feature-delete-confirm-dialog";
 import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
 import type { DeviceInfo } from "@chirimen-device-dashboard/shared-types";
+import { TruncatePipe } from "../truncate.pipe";
 
 @Component({
-  selector: "chirimen-device-list",
+  selector: "chirimen-device-card-list",
   standalone: true,
   imports: [
     AsyncPipe,
     MatButtonModule,
-    MatDialogModule,
+    MatCardModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatTableModule,
+    TruncatePipe,
   ],
-  templateUrl: "./device-list.component.html",
-  styleUrl: "./device-list.component.scss",
+  templateUrl: "./device-card-list.component.html",
+  styleUrl: "./device-card-list.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DeviceListComponent {
+export class DeviceCardListComponent {
   private readonly store = inject(DeviceListStore);
   private readonly dialog = inject(MatDialog);
-
-  readonly displayedColumns: string[] = [
-    "image",
-    "deviceName",
-    "tag",
-    "category",
-    "description",
-    "actions",
-  ];
 
   readonly filteredDevices$ = this.store.filteredDevices$;
   readonly loading$ = this.store.loading$;

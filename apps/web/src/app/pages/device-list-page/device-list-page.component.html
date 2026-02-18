@@ -1,0 +1,28 @@
+<div class="device-list-page">
+  <div class="device-list-page__toolbar">
+    <mat-form-field appearance="outline" class="device-list-page__search">
+      <mat-label>検索</mat-label>
+      <input
+        matInput
+        [ngModel]="query()"
+        (ngModelChange)="onQueryChange($event)"
+        placeholder="名前・タグ・カテゴリ・説明"
+      />
+    </mat-form-field>
+    <mat-button-toggle-group
+      [value]="viewMode()"
+      (valueChange)="setViewMode($event)"
+      aria-label="表示形式"
+    >
+      <mat-button-toggle value="table">テーブル表示</mat-button-toggle>
+      <mat-button-toggle value="card">カード表示</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div class="device-list-page__content">
+    @if (viewMode() === 'table') {
+      <chirimen-device-list />
+    } @else {
+      <chirimen-device-card-list />
+    }
+  </div>
+</div>
