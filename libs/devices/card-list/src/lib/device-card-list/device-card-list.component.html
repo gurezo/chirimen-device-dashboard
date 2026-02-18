@@ -1,16 +1,4 @@
 <div class="device-card-list">
-  <div class="device-card-list__toolbar">
-    <mat-form-field appearance="outline" class="device-card-list__search">
-      <mat-label>検索</mat-label>
-      <input
-        matInput
-        [ngModel]="query()"
-        (ngModelChange)="onQueryChange($event)"
-        placeholder="名前・タグ・カテゴリ・説明"
-      />
-    </mat-form-field>
-  </div>
-
   @if (error$ | async; as error) {
     <div class="device-card-list__error">{{ error }}</div>
   }
@@ -22,6 +10,7 @@
   } @else {
     <div class="device-card-list__grid">
       @for (device of filteredDevices$ | async; track device.id) {
+        <div class="device-card-list__card-wrapper">
         <mat-card class="device-card-list__card">
           <img
             mat-card-image
@@ -37,7 +26,9 @@
             </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <p>{{ device.description }}</p>
+            <p class="device-card-list__description">
+              {{ device.description | truncate : 60 }}
+            </p>
           </mat-card-content>
           <mat-card-actions align="end">
             <button
@@ -50,6 +41,7 @@
             </button>
           </mat-card-actions>
         </mat-card>
+        </div>
       } @empty {
         <div class="device-card-list__empty">デバイスがありません。</div>
       }

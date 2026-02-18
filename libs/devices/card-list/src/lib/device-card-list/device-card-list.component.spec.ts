@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { provideNoopAnimations } from "@angular/platform-browser/animations";
+import { provideDeviceListStore } from "@chirimen-device-dashboard/libs-state";
 import { beforeEach, describe, expect, it } from "vitest";
 import { DeviceCardListComponent } from "./device-card-list.component";
 
@@ -10,7 +11,7 @@ describe("DeviceCardListComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DeviceCardListComponent],
-      providers: [provideNoopAnimations()],
+      providers: [provideNoopAnimations(), provideDeviceListStore()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DeviceCardListComponent);
