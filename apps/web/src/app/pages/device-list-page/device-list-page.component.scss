@@ -6,12 +6,21 @@
 
   &__toolbar {
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     padding: 0.5rem 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 
     @media (prefers-color-scheme: dark) {
       border-bottom-color: rgba(255, 255, 255, 0.12);
     }
+  }
+
+  &__search {
+    flex: 1;
+    max-width: 24rem;
   }
 
   &__content {
