@@ -1,16 +1,4 @@
 <div class="device-list">
-  <div class="device-list__toolbar">
-    <mat-form-field appearance="outline" class="device-list__search">
-      <mat-label>検索</mat-label>
-      <input
-        matInput
-        [ngModel]="query()"
-        (ngModelChange)="onQueryChange($event)"
-        placeholder="名前・タグ・カテゴリ・説明"
-      />
-    </mat-form-field>
-  </div>
-
   @if (error$ | async; as error) {
     <div class="device-list__error">{{ error }}</div>
   }

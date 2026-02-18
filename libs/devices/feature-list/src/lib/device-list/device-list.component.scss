@@ -12,16 +12,6 @@
   height: 100%;
   padding: 1rem;
 
-  &__toolbar {
-    flex-shrink: 0;
-    margin-bottom: 1rem;
-  }
-
-  &__search {
-    width: 100%;
-    max-width: 24rem;
-  }
-
   &__error {
     flex-shrink: 0;
     color: var(--mat-error-default, #b00020);
