@@ -4,6 +4,8 @@ export const appRoutes: Route[] = [
   {
     path: "",
     loadComponent: () =>
-      import("@chirimen-device-dashboard/libs-feature-list").then((m) => m.DeviceListComponent),
+      import("./pages/device-list-page/device-list-page.component").then(
+        (m) => m.DeviceListPageComponent
+      ),
   },
 ];
