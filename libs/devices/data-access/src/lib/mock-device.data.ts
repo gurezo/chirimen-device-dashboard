@@ -23,11 +23,11 @@ function buildExample(
 
 /**
  * モックデバイス一覧データ
- * chirimen.org partslist.csv の L2-L11 (I2C)、L56-L65 (GPIO) より作成
+ * chirimen.org partslist.csv の L2-L55 (I2C)、L56-L75 (GPIO) より作成
  * @see https://github.com/gurezo/chirimen.org/blob/master/_data/partslist.csv
  */
 export const MOCK_DEVICES: DeviceInfo[] = [
-  // I2C L2-L11
+  // I2C L2-L55
   {
     id: 'i2c-ads1015',
     deviceName: 'ADS1015',
@@ -215,7 +215,842 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       datasheet: 'https://www.pololu.com/file/0J1187/VL53L0X.pdf',
     },
   },
-  // GPIO L56-L65
+  // I2C L12-L55
+  {
+    id: 'i2c-vl53l1x',
+    deviceName: 'VL53L1X',
+    tag: 'I2C',
+    category: '距離センサ',
+    description: 'VL53L0Xより高出力長距離タイプ',
+    image: imageUrl('partsImgs/VL53L1X.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/3938/',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-VL53L1X',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C_VL53L1X',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_vl53l1x'
+      ),
+    },
+  },
+  {
+    id: 'i2c-vl6180x',
+    deviceName: 'VL6180X',
+    tag: 'I2C',
+    category: '距離センサ',
+    description:
+      '短距離(0mm-255mm)をレーザを使って精密に測定するセンサです',
+    image: imageUrl('partsImgs/VL6180X.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/dp/B093WQHFK5/',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_vl6180x'
+      ),
+      datasheet: 'https://www.st.com/resource/en/datasheet/vl6180x.pdf',
+    },
+  },
+  {
+    id: 'i2c-grove-gesture-paj7620u2',
+    deviceName: 'Grove-Gesture (PAJ7620U2)',
+    tag: 'I2C',
+    category: 'ジェスチャーセンサ',
+    description:
+      '手を「上、下、左、右、遠ざかる、近づく、時計回り、反時計回り、手を振る」と動かしたときにそれらを検出するセンサです',
+    image: imageUrl('partsImgs/Grove-Gesture.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/2645/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-Grove-Gesture',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_paj7620'
+      ),
+      circuit:
+        'https://github.com/SeeedDocument/Grove_Gesture_V_1.0/raw/master/res/Grove_-_Gesture_v1.0_sch_pcb.zip',
+      datasheet:
+        'https://github.com/SeeedDocument/Grove_Gesture_V_1.0/raw/master/res/PAJ7620U2_Datasheet_V0.8_20140611.pdf',
+      reference: 'http://wiki.seeedstudio.com/Grove-Gesture_v1.0/',
+    },
+  },
+  {
+    id: 'i2c-grove-light-tsl2561',
+    deviceName: 'Grove-Light (TSL2561)',
+    tag: 'I2C',
+    category: '光センサ',
+    description: '0.1lx から 40000lx まで測定可能な照度センサです',
+    image: imageUrl('partsImgs/Grove-Light.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/1174/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-Grove-Light',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_tsl2561'
+      ),
+      circuit:
+        'https://github.com/SeeedDocument/Grove-Digital_Light_Sensor/raw/master/res/Digital%20light%20sensor%20v1.0%20Sch.pdf',
+      datasheet:
+        'https://raw.githubusercontent.com/SeeedDocument/Grove-Digital_Light_Sensor/master/res/TSL2561T.pdf',
+      reference: 'https://wiki.seeedstudio.com/Grove-Digital_Light_Sensor/',
+    },
+  },
+  {
+    id: 'i2c-tsl2591',
+    deviceName: 'TSL2591',
+    tag: 'I2C',
+    category: '環境光センサ',
+    description: '環境光センサです',
+    image: imageUrl('partsImgs/TSL2591.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/s?k=TSL2591',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_tsl2591'
+      ),
+      datasheet:
+        'https://cdn-shop.adafruit.com/datasheets/TSL25911_Datasheet_EN_v1.pdf',
+      reference: 'https://ams.com/ja/tsl25911',
+    },
+  },
+  {
+    id: 'i2c-grove-oleddisplay-ssd1308',
+    deviceName: 'Grove-OledDisplay (SSD1308)',
+    tag: 'I2C',
+    category: '小型ディスプレイ',
+    description: '0.96inch、128x64dot の小型 OLED (有機 EL) ディスプレイです',
+    image: imageUrl('partsImgs/SSD1306.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/829/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-Grove-OledDisplay',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ssd1308'
+      ),
+      reference: 'http://wiki.seeedstudio.com/Grove-OLED_Display_0.96inch/',
+    },
+  },
+  {
+    id: 'i2c-ssd1306',
+    deviceName: 'SSD1306',
+    tag: 'I2C',
+    category: '小型ディスプレイ',
+    description: '0.96inch、128x64dot の小型 OLED (有機 EL) ディスプレイです',
+    image: imageUrl('partsImgs/SSD1306.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g112031/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-Grove-OledDisplay',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ssd1306'
+      ),
+      datasheet: 'https://akizukidenshi.com/catalog/g/g112031/',
+    },
+  },
+  {
+    id: 'i2c-grove-touch-mpr121',
+    deviceName: 'Grove-Touch (MPR121)',
+    tag: 'I2C',
+    category: 'タッチセンサ',
+    description: '指などの接触を検出するセンサです',
+    image: imageUrl('partsImgs/LED.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/825/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-Grove-Touch',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mpr121'
+      ),
+      datasheet: 'https://www.sparkfun.com/datasheets/Components/MPR121.pdf',
+      reference: 'http://wiki.seeedstudio.com/Grove-I2C_Touch_Sensor/',
+    },
+  },
+  {
+    id: 'i2c-m5-qr-scanner',
+    deviceName: 'm5 QRコードスキャナーユニット (STM32F030)',
+    tag: 'I2C',
+    category: 'QRコードリーダ',
+    description: 'QRコードのリーダです',
+    image: imageUrl('partsImgs/m5QRscanner.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/products/9508',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_qrcodescanner'
+      ),
+      reference: 'https://shop.m5stack.com/products/qr-code-scanner-unit-stm32f030',
+    },
+  },
+  {
+    id: 'i2c-m5-rfid2-ws1850s',
+    deviceName: 'm5 RFID 2 (WS1850S)',
+    tag: 'I2C',
+    category: 'RFIDリーダ',
+    description: '13.56MHzのRFIDのリーダ/ライターです',
+    image: imageUrl('partsImgs/RFID2_WS1850S.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/products/8301',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ws1850s'
+      ),
+      reference: 'https://docs.m5stack.com/en/unit/rfid2',
+    },
+  },
+  {
+    id: 'i2c-s11059',
+    deviceName: 'S11059',
+    tag: 'I2C',
+    category: 'カラーセンサ',
+    description: 'RGB 各色と赤外線の強度を測定するセンサです',
+    image: imageUrl('partsImgs/S11059.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g108316/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-S11059',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C4_S11059',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_s11059'
+      ),
+      datasheet:
+        'http://akizukidenshi.com/download/ds/hamamatsu/s11059-02dt.pdf',
+    },
+  },
+  {
+    id: 'i2c-veml6070',
+    deviceName: 'VEML6070',
+    tag: 'I2C',
+    category: '紫外線(UV)センサ',
+    description: '紫外線の強度を測定できるセンサです',
+    image: imageUrl('partsImgs/VEML6070.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/2748/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-VEML6070',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C_VEML6070',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_veml6070'
+      ),
+      datasheet:
+        'https://cdn-shop.adafruit.com/product-files/2899/C4170_veml6070.pdf',
+    },
+  },
+  {
+    id: 'i2c-ltr390',
+    deviceName: 'LTR390',
+    tag: 'I2C',
+    category: '紫外線(UV)センサ',
+    description: '紫外線の強度を測定できるセンサです',
+    image: imageUrl('partsImgs/LTR390.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g116365/',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ltr390'
+      ),
+      datasheet:
+        'https://cdn-learn.adafruit.com/downloads/pdf/adafruit-ltr390-uv-sensor.pdf',
+      note: 'https://www.adafruit.com/product/4831',
+    },
+  },
+  {
+    id: 'i2c-as3935',
+    deviceName: 'AS3935',
+    tag: 'I2C',
+    category: '雷センサ',
+    description: '雷を検出しその距離を推定できるセンサです',
+    image: imageUrl('partsImgs/AS3935.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g108685/',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_as3935'
+      ),
+      datasheet:
+        'https://www.sciosense.com/wp-content/uploads/documents/AS3935-Data-Sheet.pdf',
+      reference:
+        'https://www.sciosense.com/products/wireless-sensor-nodes/as3935-franklin-lightning-sensor-ic/',
+      note: 'https://akizukidenshi.com/download/ds/akizuki/AE-AS3935_20230208.pdf',
+    },
+  },
+  {
+    id: 'i2c-grove-accelerometer-adxl345',
+    deviceName: 'Grove-Accelerometer (ADXL345)',
+    tag: 'I2C',
+    category: '3軸加速度センサ',
+    description: '3軸の加速度を検出できるセンサです',
+    image: imageUrl('partsImgs/LED.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/972/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-Grove-Accelerometer',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_adxl345'
+      ),
+      reference:
+        'http://wiki.seeedstudio.com/Grove-3-Axis_Digital_Accelerometer-16g/',
+    },
+  },
+  {
+    id: 'i2c-mpu6050',
+    deviceName: 'MPU6050',
+    tag: 'I2C',
+    category: '3軸加速度+ジャイロ 複合センサ',
+    description:
+      '3軸の加速度に加え、ジャイロの測定も可能な複合センサです',
+    image: imageUrl('partsImgs/MPU6050.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/5025/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-MPU6050',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C_MPU6050',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mpu6050'
+      ),
+      circuit:
+        'http://aitendo3.sakura.ne.jp/aitendo_data/product_img/sensor/accelerometer/MPU6050/MPU6050-sch.jpg',
+      datasheet:
+        'http://aitendo3.sakura.ne.jp/aitendo_data/product_img/sensor/accelerometer/MPU6050/PS-MPU-6000A-00_v1.0.pdf',
+    },
+  },
+  {
+    id: 'i2c-mpu9250',
+    deviceName: 'MPU9250',
+    tag: 'I2C',
+    category: '3軸加速度+ジャイロ+磁気 複合センサ',
+    description:
+      '3軸の加速度、ジャイロのほか、磁気も測定可能な複合センサです',
+    image: imageUrl('partsImgs/MPU9250_.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/HiLetgo%C2%AE-MPU9250-9%E8%87%AA%E7%94%B1%E5%BA%A61-%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AD%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%97-%E7%A3%81%E6%B0%97%E3%82%BB%E3%83%B3%E3%82%B5/dp/B0154PM102/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-MPU9250',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C_MPU9250',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mpu9250'
+      ),
+      spec: 'https://strawberry-linux.com/pub/PS-MPU-9250A-01.pdf',
+      instructions: 'https://strawberry-linux.com/pub/RM-MPU-9250A-00.pdf',
+    },
+  },
+  {
+    id: 'i2c-icm20948',
+    deviceName: 'ICM20948',
+    tag: 'I2C',
+    category: '3軸加速度+ジャイロ+磁気 複合センサ',
+    description:
+      '3軸の加速度、ジャイロのほか、磁気も測定可能な複合センサです',
+    image: imageUrl('partsImgs/ICM20948.jpg'),
+    product: {
+      url: 'https://strawberry-linux.com/catalog/items?code=20948',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_icm20948'
+      ),
+      datasheet:
+        'https://invensense.tdk.com/download-pdf/icm-20948-datasheet/',
+      reference: 'https://www.switch-science.com/products/5854',
+      spec: 'https://strawberry-linux.com/pub/PS-MPU-9250A-01.pdf',
+      instructions: 'https://strawberry-linux.com/pub/icm-20948-manual.pdf',
+    },
+  },
+  {
+    id: 'i2c-as5600',
+    deviceName: 'AS5600',
+    tag: 'I2C',
+    category: '磁気式エンコーダ(回転角センサ)',
+    description: '非接触で高分解能の角度を検出できるエンコーダです',
+    image: imageUrl('partsImgs/AS5600.jpg'),
+    product: {
+      url: 'https://electronicwork.shop/items/64205dc6cd92fe0096fb7d5c',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_as5600'
+      ),
+      reference:
+        'https://ams-osram.com/ja/products/sensors/position-sensors/ams-as5600-position-sensor',
+    },
+  },
+  {
+    id: 'i2c-neopixel-led-controller',
+    deviceName: 'Neopixel LEDコントローラ',
+    tag: 'I2C',
+    category: 'フルカラーLED アレイ',
+    description:
+      '多数のフルカラー LED を個々に制御可能なコントローラです(詳細はExamplesをご覧ください)',
+    image: imageUrl('partsImgs/neopixelI2c.jpg'),
+    product: {
+      url: 'https://chirimen.org/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-NEOPIXEL_I2C',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C5_NEOPIXEL',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_neopixel-i2c'
+      ),
+    },
+  },
+  {
+    id: 'i2c-neopixel-led-8x8',
+    deviceName: 'Neopixel LED 8x8',
+    tag: 'I2C',
+    category: 'フルカラーLED アレイ',
+    description: 'NEOPIXEL対応の 8x8 LED パネルです',
+    image: imageUrl('partsImgs/neopixel64.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/dp/B07KG3Y2BG/',
+      example: buildExample(
+        undefined,
+        undefined,
+        undefined
+      ),
+      reference: 'https://learn.adafruit.com/adafruit-neopixel-uberguide',
+    },
+  },
+  {
+    id: 'i2c-neopixel-led-12x12',
+    deviceName: 'Neopixel LED 12x12',
+    tag: 'I2C',
+    category: 'フルカラーLED アレイ',
+    description: '円形のパネルです',
+    image: imageUrl('partsImgs/neopixel12.jpg'),
+    product: {
+      url: 'https://chirimen.org/',
+      example: buildExample(undefined, undefined, undefined),
+    },
+  },
+  {
+    id: 'i2c-neopixel-led-60x60',
+    deviceName: 'Neopixel LED 60x60',
+    tag: 'I2C',
+    category: 'フルカラーLED アレイ',
+    description:
+      '20個のパネルを3つ組み合わせることで60個のパネルとなります',
+    image: imageUrl('partsImgs/neopixel60.jpg'),
+    product: {
+      url: 'https://chirimen.org/',
+      example: buildExample(undefined, undefined, undefined),
+    },
+  },
+  {
+    id: 'i2c-ht16k33-8x8-1',
+    deviceName: 'HT16K33搭載 8x8LEDモジュール（その１）',
+    tag: 'I2C',
+    category: 'LED マトリックス',
+    description:
+      'マトリクス LED 制御可能なコントローラが搭載されたLEDモジュールです(詳細はExamplesをご覧ください)。 Adafruitの8x8LED搭載品と　Keyestudio KS0336 8*8 Matrix Module I2Cはピン配置を除き同等品です',
+    image: imageUrl('partsImgs/HT16K33.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/products/1493',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-HT16K33',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33'
+      ),
+      circuit: 'https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf',
+      datasheet: 'https://www.adafruit.com/product/870',
+      reference: 'https://learn.adafruit.com/adafruit-led-backpack',
+      guide: 'https://ja.aliexpress.com/item/32886174149.html',
+    },
+  },
+  {
+    id: 'i2c-ht16k33-8x8-2',
+    deviceName: 'HT16K33搭載 8x8LEDモジュール（その２）',
+    tag: 'I2C',
+    category: 'LED マトリックス',
+    description:
+      '上記と同等のコントローラですが、LEDの論理配列が異なるaitendo製8x8LEDモジュールです。ドライバの設定が若干個なります。',
+    image: imageUrl('partsImgs/HT16K33_8x8ait.jpg'),
+    product: {
+      url: 'https://www.aitendo.com/product/12822',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-HT16K33',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33'
+      ),
+      circuit: 'https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf',
+    },
+  },
+  {
+    id: 'i2c-ht16k33-16x8',
+    deviceName: 'HT16K33搭載 16x8LEDモジュール',
+    tag: 'I2C',
+    category: 'LED マトリックス',
+    description: '上記と同等のコントローラが載った、16x8マトリクスLEDのモジュールです。',
+    image: imageUrl('partsImgs/HT16K33_16x8.jpg'),
+    product: {
+      url: 'https://www.aitendo.com/product/16658',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-HT16K33',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33'
+      ),
+      circuit: 'https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf',
+    },
+  },
+  {
+    id: 'i2c-ht16k33-7seg',
+    deviceName: 'HT16K33搭載 7セグメントLEDモジュール',
+    tag: 'I2C',
+    category: 'LED マトリックス',
+    description: '上記と同等のコントローラが載った、7セグメントLEDのモジュールです。',
+    image: imageUrl('partsImgs/HT16K33_7seg.jpg'),
+    product: {
+      url: 'https://www.aitendo.com/product/14540',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-HT16K33',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33'
+      ),
+      circuit: 'https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf',
+    },
+  },
+  {
+    id: 'i2c-ht16k33-14seg',
+    deviceName: 'HT16K33搭載 14セグメントLEDモジュール',
+    tag: 'I2C',
+    category: 'LED マトリックス',
+    description: '上記と同等のコントローラが載った、14セグメントLEDのモジュールです。',
+    image: imageUrl('partsImgs/HT16K33_14seg.jpg'),
+    product: {
+      url: 'https://www.aitendo.com/product/20812',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-HT16K33',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33'
+      ),
+      circuit: 'https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf',
+    },
+  },
+  {
+    id: 'i2c-pca9685',
+    deviceName: 'PCA9685',
+    tag: 'I2C',
+    category: 'サーボモータ・DCモータ コントローラ',
+    description:
+      'サーボモータ(アームを指定した角度に動かすことのできるアクチュエータ)を PWMで制御できる部品で、サーボモータを利用する際に必要です(モータ本体はアクチュエータの項を参照)',
+    image: imageUrl('partsImgs/PCA9685.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/961/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-PCA9685',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C8_PCA9685',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685'
+      ),
+      datasheet: 'https://cdn-shop.adafruit.com/datasheets/PCA9685.pdf',
+      guide: 'https://learn.adafruit.com/16-channel-pwm-servo-driver',
+    },
+  },
+  {
+    id: 'i2c-pca9685-pwm',
+    deviceName: 'PCA9685 PWM',
+    tag: 'I2C',
+    category: 'サーボモータ・DCモータ コントローラ',
+    description: '詳細はExamplesをご覧ください',
+    image: imageUrl('partsImgs/PCA9685.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/961/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-I2C-PWMHBridge-1',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_hbridge2-pca9685pwm'
+      ),
+    },
+  },
+  {
+    id: 'i2c-sht30-31',
+    deviceName: 'SHT30/31',
+    tag: 'I2C',
+    category: '温湿度複合センサ',
+    description: '温度と湿度の両方が測定可能なセンサ',
+    image: imageUrl('partsImgs/SHT30.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/6559/',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-SHT30',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C7_SHT30',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_sht30'
+      ),
+      datasheet:
+        'https://sensirion.com/media/documents/213E6A3B/63A5A569/Datasheet_SHT3x_DIS.pdf',
+    },
+  },
+  {
+    id: 'i2c-sht40-41',
+    deviceName: 'SHT40/41',
+    tag: 'I2C',
+    category: '温湿度複合センサ',
+    description: '温度と湿度の両方が測定可能なセンサ',
+    image: imageUrl('partsImgs/SHT40.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g116366/',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_sht40'
+      ),
+      reference: 'https://sensirion.com/jp/products/product-catalog/SHT40',
+    },
+  },
+  {
+    id: 'i2c-aht10',
+    deviceName: 'AHT10',
+    tag: 'I2C',
+    category: '温湿度複合センサ',
+    description: '温度と湿度の両方が測定可能なセンサ',
+    image: imageUrl('partsImgs/AHT10.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/gp/product/B09PR278XN',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_aht10'
+      ),
+    },
+  },
+  {
+    id: 'i2c-aht20',
+    deviceName: 'AHT20',
+    tag: 'I2C',
+    category: '温湿度複合センサ',
+    description: '温度と湿度の両方が測定可能なセンサ',
+    image: imageUrl('partsImgs/ENS160_AHT20.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/dp/B0D2WVHPDN?th=1',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_aht20'
+      ),
+      datasheet:
+        'https://files.seeedstudio.com/wiki/Grove-AHT20_I2C_Industrial_Grade_Temperature_and_Humidity_Sensor/AHT20-datasheet-2020-4-16.pdf',
+    },
+  },
+  {
+    id: 'i2c-htu21d',
+    deviceName: 'HTU21D',
+    tag: 'I2C',
+    category: '温湿度複合センサ',
+    description: '温度と湿度の両方が測定可能なセンサ',
+    image: imageUrl('partsImgs/HTU21D.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/dp/B08R5Z5DQM/',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-HTU21D',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_htu21d'
+      ),
+      datasheet: 'https://cdn-shop.adafruit.com/datasheets/1899_HTU21D.pdf',
+    },
+  },
+  {
+    id: 'i2c-tcs34725',
+    deviceName: 'TCS34725',
+    tag: 'I2C',
+    category: '色センサ',
+    description: 'I2C接続の色センサー',
+    image: imageUrl('partsImgs/TCS34725.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g108220/',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-TCS34725',
+        undefined,
+        undefined
+      ),
+    },
+  },
+  {
+    id: 'i2c-ina219',
+    deviceName: 'INA219',
+    tag: 'I2C',
+    category: '電流センサ',
+    description: '比較的大きなDC電流を測定するセンサ',
+    image: imageUrl('partsImgs/INA219.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g108221/',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-INA219',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C_INA219',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ina219'
+      ),
+    },
+  },
+  {
+    id: 'i2c-mlx90614',
+    deviceName: 'MLX90614',
+    tag: 'I2C',
+    category: '非接触温度センサ',
+    description: '赤外線を利用した非接触型温度センサー',
+    image: imageUrl('partsImgs/MLX90614.jpg'),
+    product: {
+      url: 'https://www.sengoku.co.jp/mod/sgk_cart/detail.php?code=EEHD-4EZP',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-MLX90614',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C_MLX90614',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mlx90614'
+      ),
+    },
+  },
+  {
+    id: 'i2c-apds9960',
+    deviceName: 'APDS9960',
+    tag: 'I2C',
+    category: '近接・環境光・ジェスチャーセンサー',
+    description: '近接・環境光・ジェスチャーを読み取るセンサー',
+    image: imageUrl('partsImgs/APDS9960.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/3531/',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-APDS9960',
+        undefined,
+        undefined
+      ),
+    },
+  },
+  {
+    id: 'i2c-seesaw',
+    deviceName: 'seesaw',
+    tag: 'I2C',
+    category: '多目的インターフェイス',
+    description:
+      'デジタル・アナログ入力・PWM出力・NeopixelLEDドライブ等の機能を持つ多目的ボード',
+    image: imageUrl('partsImgs/seesaw.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/3551/',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-seesaw',
+        undefined,
+        undefined
+      ),
+    },
+  },
+  {
+    id: 'i2c-bh1750',
+    deviceName: 'BH1750',
+    tag: 'I2C',
+    category: '照度センサー',
+    description: '照度センサー',
+    image: imageUrl('partsImgs/BH1750.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/dp/B011IGZD7E',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-BH1750',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C_BH1750',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_bh1750'
+      ),
+    },
+  },
+  {
+    id: 'i2c-scd40',
+    deviceName: 'SCD40',
+    tag: 'I2C',
+    category: 'CO2センサ',
+    description:
+      'CO2センサ(CO2濃度がPPM値で高精度に計測できるセンサーです)',
+    image: imageUrl('partsImgs/SCD40.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/products/7169',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-SCD40',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_scd40'
+      ),
+      datasheet:
+        'https://cdn.sparkfun.com/assets/d/4/9/a/d/Sensirion_CO2_Sensors_SCD4x_Datasheet.pdf',
+      reference:
+        'https://www.macnica.co.jp/business/semiconductor/articles/sensirion/140173/',
+    },
+  },
+  {
+    id: 'i2c-ccs811',
+    deviceName: 'CCS811',
+    tag: 'I2C',
+    category: 'CO2+TVOCセンサ',
+    description: 'CO2+TVOCセンサ',
+    image: imageUrl('partsImgs/CCS811.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/dp/B086HCSM6N/',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-CCS811',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C_CCS811',
+        undefined
+      ),
+    },
+  },
+  {
+    id: 'i2c-ens160',
+    deviceName: 'ENS160',
+    tag: 'I2C',
+    category: 'CO2+TVOCセンサ',
+    description: 'CO2+TVOCセンサ',
+    image: imageUrl('partsImgs/ENS160_AHT20.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/dp/B0D41R4V3Z',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ens160'
+      ),
+      datasheet:
+        'https://www.mouser.com/datasheet/2/1081/SC_001224_DS_1_ENS160_Datasheet_Rev_0_95-2258311.pdf',
+      reference:
+        'https://www.sciosense.com/ens16x-digital-metal-oxide-multi-gas-sensor-family/',
+    },
+  },
+  {
+    id: 'i2c-sgp40',
+    deviceName: 'SGP40',
+    tag: 'I2C',
+    category: 'VOC(ガス)センサ',
+    description: '揮発性有機化合物（VOC）センサ',
+    image: imageUrl('partsImgs/SGP40.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/products/7287',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_sgp40'
+      ),
+      datasheet:
+        'https://docs.rs-online.com/1956/A700000007055193.pdf',
+      reference: 'https://sensirion.com/products/catalog/SGP40',
+    },
+  },
+  {
+    id: 'i2c-bme680',
+    deviceName: 'BME680',
+    tag: 'I2C',
+    category: '温度, 湿度, 気圧, ガス 複合センサ',
+    description: '温度、湿度、気圧さらにガスが測れる複合センサです',
+    image: imageUrl('partsImgs/BME680.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/gK-14469/',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-BME680',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C_BME680',
+        undefined
+      ),
+    },
+  },
+  {
+    id: 'i2c-waveshare-20471',
+    deviceName: 'WAVESHARE-20471',
+    tag: 'I2C',
+    category: '複合センサブレークアウト',
+    description:
+      '照度(TSL25911FN)+UV(LTR390)+温度/湿度/気圧(BME280)+VOC(ガス SGP40)+9軸モーション(ICM20948)センサを搭載',
+    image: imageUrl('partsImgs/WAVESHARE-20471.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/products/7540',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_waveshare20471'
+      ),
+      reference: 'https://www.waveshare.com/environment-sensor-hat.htm',
+      guide: 'https://www.waveshare.com/wiki/Environment_Sensor_HAT',
+    },
+  },
+  // GPIO L56-L75
   {
     id: 'gpio-led-red',
     deviceName: '赤色LED',
@@ -387,6 +1222,183 @@ export const MOCK_DEVICES: DeviceInfo[] = [
         'https://tutorial.chirimen.org/pizero/esm-examples/gpio-onchange/index.html#gpio',
       datasheet:
         'https://files.seeedstudio.com/wiki/Grove-Touch_Sensor/res/TTP223.pdf',
+    },
+  },
+  // GPIO L66-L75
+  {
+    id: 'gpio-2sk4017',
+    deviceName: '2SK4017',
+    tag: 'GPIO',
+    category: 'Nch パワーMOSFET',
+    description: '直流電流の On/Off 制御を行う部品です',
+    image: imageUrl('partsImgs/FET.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g107597/',
+      example: buildExample(
+        'https://tutorial.chirimen.org/raspi/section1#section-9',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO3',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+      ),
+      circuit: 'https://tutorial.chirimen.org/raspi/section1#section-9',
+    },
+  },
+  {
+    id: 'gpio-irf520',
+    deviceName: 'IRF520 (ドライバモジュール)',
+    tag: 'GPIO',
+    category: 'Nch パワーMOSFETモジュール',
+    description:
+      '上のFETを利用したモーター制御と同等の回路が組まれたモジュールです IRF520 パワーMOSFETが用られています',
+    image: imageUrl('partsImgs/FET2.jpg'),
+    product: {
+      url: 'https://www.aitendo.com/product/18055',
+      example: buildExample(
+        'https://tutorial.chirimen.org/raspi/section1#section-9',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO3',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+      ),
+      circuit: 'https://tutorial.chirimen.org/raspi/section1#section-9',
+      datasheet:
+        'http://aitendo3.sakura.ne.jp/aitendo_data/product_img/motor/M520S3/M520S3.pdf',
+    },
+  },
+  {
+    id: 'gpio-d4184',
+    deviceName: 'D4184 (ドライバモジュール)',
+    tag: 'GPIO',
+    category: 'Nch パワーMOSFETモジュール',
+    description:
+      '上のFETを利用したモーター制御と同等の回路が組まれたモジュールです D4184 パワーMOSFETが用られています',
+    image: imageUrl('partsImgs/D4184.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/dp/B084VNKLFL',
+      example: buildExample(
+        'https://tutorial.chirimen.org/raspi/section1#section-9',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO3',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+      ),
+      circuit: 'https://tutorial.chirimen.org/raspi/section1#section-9',
+      reference:
+        'https://forum.fritzing.org/t/xy-mos-d4184-dual-mosfet/12920/14',
+    },
+  },
+  {
+    id: 'gpio-l298n',
+    deviceName: 'L298N (ドライバモジュール)',
+    tag: 'GPIO',
+    category: 'DCモーター 正逆転コントローラ',
+    description:
+      'STマイクロ社のフルブリッジドライバである L298N を使用したDCモーターコントローラです',
+    image: imageUrl('partsImgs/L298N.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g106680/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-HBridge',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1'
+      ),
+    },
+  },
+  {
+    id: 'gpio-l9110s',
+    deviceName: 'L9110S',
+    tag: 'GPIO',
+    category: 'DCモータ 正逆転コントローラ',
+    description: 'L9110を使用したDCモータコントローラです',
+    image: imageUrl('partsImgs/L9110S.jpeg'),
+    product: {
+      url: 'https://www.amazon.co.jp/HiLetgo-L9110S-H%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8-%E3%83%A2%E3%83%BC%E3%82%BF%E3%83%89%E3%83%A9%E3%82%A4%E3%83%96-%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%9C%E3%83%BC%E3%83%89/dp/B011DT3OAY',
+      example: buildExample(
+        undefined,
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1'
+      ),
+      datasheet: 'https://www.elecrow.com/download/datasheet-l9110.pdf',
+    },
+  },
+  {
+    id: 'gpio-mx1508',
+    deviceName: 'MX1508',
+    tag: 'GPIO',
+    category: 'DCモータ 正逆転コントローラ',
+    description: 'L298N を使用したDCモータコントローラです',
+    image: imageUrl('partsImgs/MX1508.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/MX1508-%E3%83%A2%E3%83%BC%E3%82%BF%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-%E9%80%9F%E5%BA%A6%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB-%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%E3%82%B9%E3%83%86%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%83%A2%E3%83%BC%E3%82%BF%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%9C%E3%83%BC%E3%83%89%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-L298N/dp/B07P2TL2SF',
+      example: buildExample(
+        undefined,
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1'
+      ),
+      datasheet: 'https://akizukidenshi.com/download/ds/st/l298n.pdf',
+    },
+  },
+  {
+    id: 'gpio-tb6612fng',
+    deviceName: 'TB6612FNG',
+    tag: 'GPIO',
+    category: 'DCモータ 正逆転コントローラ',
+    description: 'TOSHIBA製 TB6612FNG を利用したモータドライバです',
+    image: imageUrl('partsImgs/TB6612FNG.jpg'),
+    product: {
+      url: 'https://www.switch-science.com/catalog/385/',
+      example: buildExample(undefined, undefined, undefined),
+      datasheet:
+        'http://doc.switch-science.com/datasheets/TB6612FNG_datasheet_ja_20141001.pdf',
+    },
+  },
+  {
+    id: 'gpio-kp-ir412',
+    deviceName: 'KP-IR412',
+    tag: 'GPIO',
+    category: '赤外線人感センサ',
+    description: '人体に反応するセンサです',
+    image: imageUrl('partsImgs/pyro1.jpg'),
+    product: {
+      url: 'https://eleshop.jp/shop/g/gE3336G/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-pirSensor',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_PYR',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+      ),
+      datasheet:
+        'http://www.kyohritsu.sakura.ne.jp/prowiki/index.php?%BF%CD%C2%CE%C0%D6%B3%B0%C0%FE%B4%B6%C3%CE%C1%C7%BB%D2%2FKP-IR412',
+    },
+  },
+  {
+    id: 'gpio-hc-sr501',
+    deviceName: 'HC-SR501',
+    tag: 'GPIO',
+    category: '赤外線人感センサ',
+    description: '人体に反応するセンサです',
+    image: imageUrl('partsImgs/pyro2.jpg'),
+    product: {
+      url: 'https://chirimen.org/chirimen-micro-bit/examples/GPIO_PYR/GPIO0b.html',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-pirSensor',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_PYR',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+      ),
+      datasheet: 'https://www.mpja.com/download/31227sc.pdf',
+    },
+  },
+  {
+    id: 'gpio-a4988',
+    deviceName: 'A4988',
+    tag: 'GPIO',
+    category: 'ステッピングモータコントローラ',
+    description: 'バイポーラステッピングモータを制御するドライバです',
+    image: imageUrl('partsImgs/A4988.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/s?k=A4988&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-A4988',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_a4988'
+      ),
+      circuit: 'https://r.chirimen.org/examples/#GPIO-A4988',
+      datasheet:
+        'http://www.pololu.com/file/download/a4988_DMOS_microstepping_driver_with_translator.pdf?file_id=0J450',
     },
   },
 ];
