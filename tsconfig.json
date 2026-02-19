@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "references": [
+    { "path": "apps/api" },
+    { "path": "apps/web" },
+    { "path": "apps/web-e2e" },
+    { "path": "libs/devices/state" },
+    { "path": "libs/devices/data-access" },
+    { "path": "libs/devices/ui" },
+    { "path": "libs/devices/card-list" },
+    { "path": "libs/devices/feature-list" },
+    { "path": "libs/devices/feature-create" },
+    { "path": "libs/devices/feature-edit" },
+    { "path": "libs/devices/feature-delete-confirm-dialog" },
+    { "path": "libs/shared-types" }
+  ]
+}
