@@ -4,7 +4,7 @@
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>デバイス名</mat-label>
       <input matInput formControlName="deviceName" />
-      <chirimen-field-error [control]="formGroup()!.get('deviceName')" />
+      <choh-field-error [control]="formGroup()!.get('deviceName')" />
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>タグ</mat-label>
@@ -23,7 +23,7 @@
       <textarea matInput formControlName="description" rows="3"></textarea>
     </mat-form-field>
     <div class="full-width">
-      <chirimen-device-image-uploader
+      <choh-device-image-uploader
         [currentImageUrl]="currentImageUrl()"
         (imageChanged)="onImageChanged($event)"
       />
@@ -33,7 +33,7 @@
         <mat-label>Product URL</mat-label>
         <input matInput formControlName="url" />
       </mat-form-field>
-      <chirimen-example-array [formArray]="exampleFormArray()" />
+      <choh-example-array [formArray]="exampleFormArray()" />
     </ng-container>
     <div class="actions">
       <button mat-stroked-button type="button" (click)="onCancel()">

@@ -12,7 +12,7 @@ import { ExampleArrayComponent } from '../example-array/example-array.component'
 import { FieldErrorComponent } from '../field-error/field-error.component';
 
 @Component({
-  selector: 'chirimen-device-form',
+  selector: 'choh-device-form',
   imports: [
     ReactiveFormsModule,
     MatButtonModule,

@@ -5,7 +5,7 @@ import { HeaderComponent } from "./components/header/header.component";
 
 @Component({
   imports: [RouterModule, MatButtonModule, HeaderComponent],
-  selector: "app-root",
+  selector: "choh-root",
   templateUrl: "./app.html",
   styleUrl: "./app.scss",
 })

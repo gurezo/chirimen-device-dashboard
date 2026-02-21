@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'chirimen-device-image-uploader',
+  selector: 'choh-device-image-uploader',
   imports: [MatButtonModule, MatIconModule],
   templateUrl: './device-image-uploader.component.html',
   styleUrl: './device-image-uploader.component.scss',

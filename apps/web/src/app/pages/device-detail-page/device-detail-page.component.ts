@@ -9,7 +9,7 @@ import { map } from 'rxjs';
 import { DeviceDetailComponent } from '@chirimen-device-dashboard/libs-device-detail';
 
 @Component({
-  selector: 'app-device-detail-page',
+  selector: 'choh-device-detail-page',
   standalone: true,
   imports: [DeviceDetailComponent],
   templateUrl: './device-detail-page.component.html',

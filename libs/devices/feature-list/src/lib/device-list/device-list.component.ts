@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
 
 @Component({
-  selector: "chirimen-device-list",
+  selector: "choh-device-list",
   standalone: true,
   imports: [
     AsyncPipe,

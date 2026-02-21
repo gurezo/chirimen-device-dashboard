@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 
 @Component({
-  selector: 'chirimen-field-error',
+  selector: 'choh-field-error',
   templateUrl: './field-error.component.html',
   styleUrl: './field-error.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

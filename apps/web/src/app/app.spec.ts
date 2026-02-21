@@ -17,7 +17,7 @@ describe("App", () => {
     fixture.detectChanges();
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    const header = compiled.querySelector("app-header");
+    const header = compiled.querySelector("choh-header");
     expect(header).toBeTruthy();
   });
 });

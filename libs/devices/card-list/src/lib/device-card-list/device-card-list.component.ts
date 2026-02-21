@@ -11,7 +11,7 @@ import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
 import { TruncatePipe } from "../truncate.pipe";
 
 @Component({
-  selector: "chirimen-device-card-list",
+  selector: "choh-device-card-list",
   standalone: true,
   imports: [
     AsyncPipe,

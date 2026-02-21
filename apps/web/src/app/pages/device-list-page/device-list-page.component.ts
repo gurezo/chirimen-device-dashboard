@@ -19,7 +19,7 @@ import {
 type ViewMode = "table" | "card";
 
 @Component({
-  selector: "app-device-list-page",
+  selector: "choh-device-list-page",
   standalone: true,
   providers: [provideDeviceListStore()],
   imports: [
