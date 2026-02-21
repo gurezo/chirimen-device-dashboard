@@ -17,6 +17,7 @@ module.exports = {
         'libs-state',
         'libs-feature-list',
         'libs-card-list',
+        'libs-device-detail',
       ],
     ],
   },
