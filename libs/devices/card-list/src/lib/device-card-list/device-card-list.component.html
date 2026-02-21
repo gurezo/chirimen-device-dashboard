@@ -30,16 +30,6 @@
               {{ device.description | truncate : 60 }}
             </p>
           </mat-card-content>
-          <mat-card-actions align="end">
-            <button
-              mat-icon-button
-              color="warn"
-              aria-label="削除"
-              (click)="confirmDelete(device)"
-            >
-              <mat-icon>delete</mat-icon>
-            </button>
-          </mat-card-actions>
         </mat-card>
         </div>
       } @empty {

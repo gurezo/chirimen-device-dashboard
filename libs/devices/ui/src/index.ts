@@ -12,7 +12,3 @@ export { DeviceImageUploaderComponent } from './lib/device-image-uploader/device
 export { ExampleArrayComponent } from './lib/example-array/example-array.component';
 export { DeviceFormComponent } from './lib/device-form/device-form.component';
 export { ConfirmDialogComponent } from './lib/confirm-dialog/confirm-dialog.component';
-export {
-  DeleteConfirmDialogComponent,
-  type DeleteConfirmDialogData,
-} from './lib/delete-confirm-dialog/delete-confirm-dialog.component';

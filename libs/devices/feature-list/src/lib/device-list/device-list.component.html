@@ -40,19 +40,6 @@
           <th mat-header-cell *matHeaderCellDef>説明</th>
           <td mat-cell *matCellDef="let row">{{ row.description }}</td>
         </ng-container>
-        <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let row">
-            <button
-              mat-icon-button
-              color="warn"
-              aria-label="削除"
-              (click)="confirmDelete(row)"
-            >
-              <mat-icon>delete</mat-icon>
-            </button>
-          </td>
-        </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
