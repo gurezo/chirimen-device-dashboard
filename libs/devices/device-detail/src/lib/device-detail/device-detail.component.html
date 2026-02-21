@@ -3,11 +3,17 @@
   @if (result) {
     @if (result.error) {
       <div class="device-detail__error">{{ result.error }}</div>
-      <a mat-button routerLink="/">一覧に戻る</a>
+      <a mat-stroked-button routerLink="/" color="primary">
+        <mat-icon>arrow_back</mat-icon>
+        一覧に戻る
+      </a>
     } @else if (result.device) {
       <div class="device-detail__content">
         <div class="device-detail__header">
-          <a mat-button routerLink="/">一覧に戻る</a>
+          <a mat-stroked-button routerLink="/" color="primary">
+            <mat-icon>arrow_back</mat-icon>
+            一覧に戻る
+          </a>
         </div>
         <div class="device-detail__main">
           <div class="device-detail__image-section">
@@ -34,7 +40,10 @@
       </div>
     } @else {
       <div class="device-detail__not-found">デバイスが見つかりません。</div>
-      <a mat-button routerLink="/">一覧に戻る</a>
+      <a mat-stroked-button routerLink="/" color="primary">
+        <mat-icon>arrow_back</mat-icon>
+        一覧に戻る
+      </a>
     }
   } @else {
     <div class="device-detail__loading">

@@ -31,4 +31,26 @@ describe('ExampleInfoComponent', () => {
     expect(compiled.textContent).toContain('Raspberry Pi');
     expect(compiled.textContent).toContain('https://example.com/code');
   });
+
+  it('should render URL code as link', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const link = compiled.querySelector('a.example-info__code--link');
+    expect(link).toBeTruthy();
+    expect(link?.getAttribute('href')).toBe('https://example.com/code');
+    expect(link?.getAttribute('target')).toBe('_blank');
+    expect(link?.getAttribute('rel')).toBe('noopener noreferrer');
+  });
+
+  it('should render non-URL code as text', () => {
+    fixture.componentRef.setInput('example', {
+      hardware: 'chirimen',
+      code: 'const x = 1;',
+    });
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const link = compiled.querySelector('a');
+    expect(link).toBeFalsy();
+    expect(compiled.textContent).toContain('const x = 1;');
+  });
 });

@@ -29,8 +29,10 @@ describe('ProductInfoComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display product url', () => {
+  it('should display product link with correct href', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('https://example.com/product');
+    const link = compiled.querySelector('a[href="https://example.com/product"]');
+    expect(link).toBeTruthy();
+    expect(link?.textContent?.trim()).toBe('商品ページを見る');
   });
 });

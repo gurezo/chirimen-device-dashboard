@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 import { catchError, map, of, switchMap } from 'rxjs';
@@ -19,6 +20,7 @@ import { ProductInfoComponent } from '../product-info/product-info.component';
   imports: [
     AsyncPipe,
     MatButtonModule,
+    MatIconModule,
     MatProgressSpinnerModule,
     RouterModule,
     ProductInfoComponent,

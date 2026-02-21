@@ -1,9 +1,9 @@
 <div class="product-info">
   @if (product().url) {
-    <div class="product-info__section">
+    <div class="product-info__section product-info__section--primary">
       <h3 class="product-info__heading">商品リンク</h3>
-      <a [href]="product().url" target="_blank" rel="noopener noreferrer" class="product-info__link">
-        {{ product().url }}
+      <a [href]="product().url" target="_blank" rel="noopener noreferrer" class="product-info__link product-info__link--button">
+        商品ページを見る
       </a>
     </div>
   }

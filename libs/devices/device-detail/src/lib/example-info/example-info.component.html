@@ -1,4 +1,19 @@
 <div class="example-info">
   <div class="example-info__hardware">{{ example().hardware }}</div>
-  <div class="example-info__code">{{ example().code }}</div>
+  @if (isUrl(example().code)) {
+    @let safeUrl = getSanitizedUrl(example().code);
+    @if (safeUrl) {
+      <a
+        [href]="safeUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="example-info__code example-info__code--link"
+        >{{ example().code }}</a
+      >
+    } @else {
+      <div class="example-info__code">{{ example().code }}</div>
+    }
+  } @else {
+    <div class="example-info__code">{{ example().code }}</div>
+  }
 </div>
