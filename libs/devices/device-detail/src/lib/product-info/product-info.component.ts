@@ -18,4 +18,8 @@ import { ExampleInfoComponent } from '../example-info/example-info.component';
 })
 export class ProductInfoComponent {
   readonly product = input.required<ProductInfo>();
+
+  protected isUrl(value: string): boolean {
+    return value.startsWith('http://') || value.startsWith('https://');
+  }
 }
