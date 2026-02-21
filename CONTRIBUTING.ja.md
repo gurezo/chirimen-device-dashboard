@@ -33,9 +33,6 @@
 | `libs-ui` | devices UI コンポーネント (libs/devices/ui) |
 | `libs-state` | devices 状態管理 (libs/devices/state) |
 | `libs-feature-list` | devices 一覧 feature (libs/devices/feature-list) |
-| `libs-feature-create` | devices 新規 feature (libs/devices/feature-create) |
-| `libs-feature-edit` | devices 編集 feature (libs/devices/feature-edit) |
-| `libs-feature-delete-confirm-dialog` | devices 削除確認ダイアログ feature (libs/devices/feature-delete-confirm-dialog) |
 
 ### 例
 

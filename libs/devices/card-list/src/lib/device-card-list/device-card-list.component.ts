@@ -9,7 +9,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatDialog } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { DeleteConfirmDialogComponent } from "@chirimen-device-dashboard/libs-feature-delete-confirm-dialog";
+import { DeleteConfirmDialogComponent } from "@chirimen-device-dashboard/libs-ui";
 import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
 import type { DeviceInfo } from "@chirimen-device-dashboard/shared-types";
 import { TruncatePipe } from "../truncate.pipe";

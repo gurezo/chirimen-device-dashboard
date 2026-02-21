@@ -10,9 +10,6 @@
     { "path": "libs/devices/ui" },
     { "path": "libs/devices/card-list" },
     { "path": "libs/devices/feature-list" },
-    { "path": "libs/devices/feature-create" },
-    { "path": "libs/devices/feature-edit" },
-    { "path": "libs/devices/feature-delete-confirm-dialog" },
     { "path": "libs/shared-types" }
   ]
 }

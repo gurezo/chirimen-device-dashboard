@@ -9,7 +9,7 @@ import {
   MatDialogModule,
   MatDialogRef,
 } from "@angular/material/dialog";
-import { ConfirmDialogComponent } from "@chirimen-device-dashboard/libs-ui";
+import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
 
 export interface DeleteConfirmDialogData {
   deviceName: string;
