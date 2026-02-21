@@ -1,2 +1,1 @@
-// libs-device-detail - Device detail feature
-export {};
+export { ExampleInfoComponent } from './lib/example-info/example-info.component';

@@ -1,0 +1,14 @@
+.example-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  &__hardware {
+    font-weight: 500;
+  }
+
+  &__code {
+    font-family: monospace;
+    font-size: 0.875rem;
+  }
+}
