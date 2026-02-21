@@ -49,14 +49,26 @@
   @if (product().spec) {
     <div class="product-info__section">
       <h3 class="product-info__heading">仕様</h3>
-      <p class="product-info__text">{{ product().spec }}</p>
+      @if (isUrl(product().spec!)) {
+        <a [href]="product().spec" target="_blank" rel="noopener noreferrer" class="product-info__link">
+          {{ product().spec }}
+        </a>
+      } @else {
+        <p class="product-info__text">{{ product().spec }}</p>
+      }
     </div>
   }
 
   @if (product().instructions) {
     <div class="product-info__section">
       <h3 class="product-info__heading">使用方法</h3>
-      <p class="product-info__text">{{ product().instructions }}</p>
+      @if (isUrl(product().instructions!)) {
+        <a [href]="product().instructions" target="_blank" rel="noopener noreferrer" class="product-info__link">
+          {{ product().instructions }}
+        </a>
+      } @else {
+        <p class="product-info__text">{{ product().instructions }}</p>
+      }
     </div>
   }
 
