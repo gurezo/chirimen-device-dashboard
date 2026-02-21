@@ -8,4 +8,11 @@ export const appRoutes: Route[] = [
         (m) => m.DeviceListPageComponent
       ),
   },
+  {
+    path: "devices/:id",
+    loadComponent: () =>
+      import("./pages/device-detail-page/device-detail-page.component").then(
+        (m) => m.DeviceDetailPageComponent
+      ),
+  },
 ];

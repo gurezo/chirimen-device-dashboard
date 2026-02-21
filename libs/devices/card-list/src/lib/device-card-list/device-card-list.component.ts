@@ -6,6 +6,7 @@ import {
 } from "@angular/core";
 import { MatCardModule } from "@angular/material/card";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { RouterModule } from "@angular/router";
 import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
 import { TruncatePipe } from "../truncate.pipe";
 
@@ -16,6 +17,7 @@ import { TruncatePipe } from "../truncate.pipe";
     AsyncPipe,
     MatCardModule,
     MatProgressSpinnerModule,
+    RouterModule,
     TruncatePipe,
   ],
   templateUrl: "./device-card-list.component.html",
