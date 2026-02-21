@@ -10,10 +10,7 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -24,34 +21,18 @@
       "@chirimen-device-dashboard/libs-data-access": [
         "libs/devices/data-access/src/index.ts"
       ],
-      "@chirimen-device-dashboard/libs-ui": [
-        "libs/devices/ui/src/index.ts"
-      ],
+      "@chirimen-device-dashboard/libs-ui": ["libs/devices/ui/src/index.ts"],
       "@chirimen-device-dashboard/libs-state": [
         "libs/devices/state/src/index.ts"
       ],
       "@chirimen-device-dashboard/libs-feature-list": [
         "libs/devices/feature-list/src/index.ts"
       ],
-      "@chirimen-device-dashboard/libs-feature-create": [
-        "libs/devices/feature-create/src/index.ts"
-      ],
-      "@chirimen-device-dashboard/libs-feature-edit": [
-        "libs/devices/feature-edit/src/index.ts"
-      ],
-      "@chirimen-device-dashboard/libs-feature-delete-confirm-dialog": [
-        "libs/devices/feature-delete-confirm-dialog/src/index.ts"
-      ],
-      "@chirimen-device-dashboard/api/*": [
-        "apps/api/src/*"
-      ],
+      "@chirimen-device-dashboard/api/*": ["apps/api/src/*"],
       "@chirimen-device-dashboard/libs-card-list": [
         "libs/devices/card-list/src/index.ts"
       ]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

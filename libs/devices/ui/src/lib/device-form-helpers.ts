@@ -32,7 +32,7 @@ function createProductFormGroup(product: Partial<ProductInfo> = {}): FormGroup {
 
 /**
  * Device 用 FormGroup を生成する。
- * feature-create / feature-edit で同一のフォーム構造を使うために利用する。
+ * デバイスフォームの共通構造を提供する。
  * @param value 初期値（編集時は get で取得した DeviceInfo を渡す）
  */
 export function createDeviceFormGroup(
