@@ -33,6 +33,7 @@
 | `libs-ui` | devices UI コンポーネント (libs/devices/ui) |
 | `libs-state` | devices 状態管理 (libs/devices/state) |
 | `libs-feature-list` | devices 一覧 feature (libs/devices/feature-list) |
+| `libs-device-detail` | devices 詳細 feature (libs/devices/device-detail) |
 
 ### 例
 

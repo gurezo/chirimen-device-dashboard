@@ -1,0 +1,78 @@
+<div class="product-info">
+  @if (product().url) {
+    <div class="product-info__section product-info__section--primary">
+      <h3 class="product-info__heading">商品リンク</h3>
+      <a [href]="product().url" target="_blank" rel="noopener noreferrer" class="product-info__link product-info__link--button">
+        商品ページを見る
+      </a>
+    </div>
+  }
+
+  @if (product().example.length) {
+    <div class="product-info__section">
+      <h3 class="product-info__heading">サンプル</h3>
+      <div class="product-info__examples">
+        @for (item of product().example; track item.hardware) {
+          <chirimen-example-info [example]="item" />
+        }
+      </div>
+    </div>
+  }
+
+  @if (product().circuit) {
+    <div class="product-info__section">
+      <h3 class="product-info__heading">回路図</h3>
+      <a [href]="product().circuit" target="_blank" rel="noopener noreferrer" class="product-info__link">
+        {{ product().circuit }}
+      </a>
+    </div>
+  }
+
+  @if (product().datasheet) {
+    <div class="product-info__section">
+      <h3 class="product-info__heading">データシート</h3>
+      <a [href]="product().datasheet" target="_blank" rel="noopener noreferrer" class="product-info__link">
+        {{ product().datasheet }}
+      </a>
+    </div>
+  }
+
+  @if (product().reference) {
+    <div class="product-info__section">
+      <h3 class="product-info__heading">リファレンス</h3>
+      <a [href]="product().reference" target="_blank" rel="noopener noreferrer" class="product-info__link">
+        {{ product().reference }}
+      </a>
+    </div>
+  }
+
+  @if (product().spec) {
+    <div class="product-info__section">
+      <h3 class="product-info__heading">仕様</h3>
+      <p class="product-info__text">{{ product().spec }}</p>
+    </div>
+  }
+
+  @if (product().instructions) {
+    <div class="product-info__section">
+      <h3 class="product-info__heading">使用方法</h3>
+      <p class="product-info__text">{{ product().instructions }}</p>
+    </div>
+  }
+
+  @if (product().guide) {
+    <div class="product-info__section">
+      <h3 class="product-info__heading">ガイド</h3>
+      <a [href]="product().guide" target="_blank" rel="noopener noreferrer" class="product-info__link">
+        {{ product().guide }}
+      </a>
+    </div>
+  }
+
+  @if (product().note) {
+    <div class="product-info__section">
+      <h3 class="product-info__heading">備考</h3>
+      <p class="product-info__text">{{ product().note }}</p>
+    </div>
+  }
+</div>

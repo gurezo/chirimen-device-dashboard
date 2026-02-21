@@ -48,6 +48,10 @@
     }
   }
 
+  &__row--clickable {
+    cursor: pointer;
+  }
+
   &__thumbnail {
     width: 48px;
     height: 48px;

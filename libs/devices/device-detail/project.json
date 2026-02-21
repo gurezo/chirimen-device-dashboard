@@ -1,0 +1,36 @@
+{
+  "name": "libs-device-detail",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/devices/device-detail/src",
+  "prefix": "chirimen",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/devices/device-detail",
+        "main": "libs/devices/device-detail/src/index.ts",
+        "tsConfig": "libs/devices/device-detail/tsconfig.lib.json",
+        "assets": [],
+        "generatePackageJson": false,
+        "rootDir": "."
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../../coverage/libs/devices/device-detail"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

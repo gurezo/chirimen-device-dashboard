@@ -1,0 +1,53 @@
+<div class="device-detail">
+  @let result = result$ | async;
+  @if (result) {
+    @if (result.error) {
+      <div class="device-detail__error">{{ result.error }}</div>
+      <a mat-stroked-button routerLink="/" color="primary">
+        <mat-icon>arrow_back</mat-icon>
+        一覧に戻る
+      </a>
+    } @else if (result.device) {
+      <div class="device-detail__content">
+        <div class="device-detail__header">
+          <a mat-stroked-button routerLink="/" color="primary">
+            <mat-icon>arrow_back</mat-icon>
+            一覧に戻る
+          </a>
+        </div>
+        <div class="device-detail__main">
+          <div class="device-detail__image-section">
+            <img
+              [src]="result.device.image"
+              [alt]="result.device.deviceName"
+              class="device-detail__image"
+            />
+          </div>
+          <div class="device-detail__info">
+            <h1 class="device-detail__title">{{ result.device.deviceName }}</h1>
+            <div class="device-detail__meta">
+              <span class="device-detail__tag">{{ result.device.tag }}</span>
+              <span class="device-detail__category">{{ result.device.category }}</span>
+            </div>
+            @if (result.device.description) {
+              <p class="device-detail__description">{{ result.device.description }}</p>
+            }
+            @if (result.device.product) {
+              <chirimen-product-info [product]="result.device.product" />
+            }
+          </div>
+        </div>
+      </div>
+    } @else {
+      <div class="device-detail__not-found">デバイスが見つかりません。</div>
+      <a mat-stroked-button routerLink="/" color="primary">
+        <mat-icon>arrow_back</mat-icon>
+        一覧に戻る
+      </a>
+    }
+  } @else {
+    <div class="device-detail__loading">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+  }
+</div>

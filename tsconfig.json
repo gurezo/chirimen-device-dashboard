@@ -10,6 +10,7 @@
     { "path": "libs/devices/ui" },
     { "path": "libs/devices/card-list" },
     { "path": "libs/devices/feature-list" },
+    { "path": "libs/devices/device-detail" },
     { "path": "libs/shared-types" }
   ]
 }
