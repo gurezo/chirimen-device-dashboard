@@ -10,7 +10,10 @@
   } @else {
     <div class="device-card-list__grid">
       @for (device of filteredDevices$ | async; track device.id) {
-        <div class="device-card-list__card-wrapper">
+        <a
+          class="device-card-list__card-wrapper"
+          [routerLink]="['/devices', device.id]"
+        >
         <mat-card class="device-card-list__card">
           <img
             mat-card-image
@@ -31,7 +34,7 @@
             </p>
           </mat-card-content>
         </mat-card>
-        </div>
+        </a>
       } @empty {
         <div class="device-card-list__empty">デバイスがありません。</div>
       }

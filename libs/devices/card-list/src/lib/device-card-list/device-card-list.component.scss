@@ -39,9 +39,12 @@
   }
 
   &__card-wrapper {
+    display: block;
     position: relative;
     height: 100%;
     border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
     overflow: hidden;
     box-shadow:
       0 2px 4px rgba(0, 0, 0, 0.06),

@@ -1,0 +1,8 @@
+<div class="device-detail-page">
+  <div class="device-detail-page__back">
+    <a mat-button routerLink="/">一覧に戻る</a>
+  </div>
+  @if (deviceId$ | async; as deviceId) {
+    <chirimen-device-detail [deviceId]="deviceId" />
+  }
+</div>

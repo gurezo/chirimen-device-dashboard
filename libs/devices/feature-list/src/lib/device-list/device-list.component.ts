@@ -5,6 +5,7 @@ import {
   inject,
 } from "@angular/core";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { RouterLink } from "@angular/router";
 import { MatTableModule } from "@angular/material/table";
 import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
 
@@ -14,6 +15,7 @@ import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
   imports: [
     AsyncPipe,
     MatProgressSpinnerModule,
+    RouterLink,
     MatTableModule,
   ],
   templateUrl: "./device-list.component.html",

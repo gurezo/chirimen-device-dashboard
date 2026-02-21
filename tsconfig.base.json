@@ -31,6 +31,9 @@
       "@chirimen-device-dashboard/api/*": ["apps/api/src/*"],
       "@chirimen-device-dashboard/libs-card-list": [
         "libs/devices/card-list/src/index.ts"
+      ],
+      "@chirimen-device-dashboard/libs-feature-detail": [
+        "libs/devices/feature-detail/src/index.ts"
       ]
     }
   },

@@ -4,6 +4,7 @@ import {
   Component,
   inject,
 } from "@angular/core";
+import { RouterLink } from "@angular/router";
 import { MatCardModule } from "@angular/material/card";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
@@ -14,6 +15,7 @@ import { TruncatePipe } from "../truncate.pipe";
   standalone: true,
   imports: [
     AsyncPipe,
+    RouterLink,
     MatCardModule,
     MatProgressSpinnerModule,
     TruncatePipe,

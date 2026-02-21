@@ -1,0 +1,100 @@
+<div class="device-detail">
+  @switch ((device$ | async) ?? undefined) {
+    @case (undefined) {
+      <div class="device-detail__loading">
+        <mat-spinner diameter="40"></mat-spinner>
+        <p class="device-detail__loading-text">読み込み中...</p>
+      </div>
+    }
+    @case (null) {
+      <div class="device-detail__not-found">
+        <p>デバイスが見つかりませんでした。</p>
+      </div>
+    }
+    @default {
+      @let device = $value;
+      <div class="device-detail__content">
+      <div class="device-detail__image-section">
+        <img
+          [src]="device.image"
+          [alt]="device.deviceName"
+          class="device-detail__image"
+        />
+      </div>
+      <div class="device-detail__info-section">
+        <h1 class="device-detail__title">{{ device.deviceName }}</h1>
+        <div class="device-detail__meta">
+          <span class="device-detail__tag">{{ device.tag }}</span>
+          <span class="device-detail__category">{{ device.category }}</span>
+        </div>
+        <p class="device-detail__description">{{ device.description }}</p>
+
+        @if (device.product) {
+          <div class="device-detail__product">
+            <h2 class="device-detail__product-title">製品情報</h2>
+            <ul class="device-detail__links">
+              @if (device.product.url) {
+                <li>
+                  <a [href]="device.product.url" target="_blank" rel="noopener noreferrer">
+                    購入リンク
+                  </a>
+                </li>
+              }
+              @if (device.product.circuit) {
+                <li>
+                  <a [href]="device.product.circuit" target="_blank" rel="noopener noreferrer">
+                    回路図
+                  </a>
+                </li>
+              }
+              @if (device.product.datasheet) {
+                <li>
+                  <a [href]="device.product.datasheet" target="_blank" rel="noopener noreferrer">
+                    データシート
+                  </a>
+                </li>
+              }
+              @if (device.product.reference) {
+                <li>
+                  <a [href]="device.product.reference" target="_blank" rel="noopener noreferrer">
+                    リファレンス
+                  </a>
+                </li>
+              }
+              @if (device.product.guide) {
+                <li>
+                  <a [href]="device.product.guide" target="_blank" rel="noopener noreferrer">
+                    ガイド
+                  </a>
+                </li>
+              }
+            </ul>
+            @if (device.product.note) {
+              <p class="device-detail__note">{{ device.product.note }}</p>
+            }
+            @if (device.product.spec) {
+              <p class="device-detail__spec">{{ device.product.spec }}</p>
+            }
+            @if (device.product.instructions) {
+              <p class="device-detail__instructions">{{ device.product.instructions }}</p>
+            }
+            @if (device.product.example?.length) {
+              <div class="device-detail__examples">
+                <h3 class="device-detail__examples-title">使用例</h3>
+                @for (ex of device.product.example; track ex.hardware) {
+                  <div class="device-detail__example">
+                    <span class="device-detail__example-hardware">{{ ex.hardware }}</span>
+                    @if (ex.code) {
+                      <pre class="device-detail__example-code">{{ ex.code }}</pre>
+                    }
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+    }
+  }
+</div>

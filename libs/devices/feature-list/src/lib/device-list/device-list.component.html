@@ -42,7 +42,12 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          [routerLink]="['/devices', row.id]"
+          class="device-list__row-link"
+        ></tr>
 
         <tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" [attr.colspan]="displayedColumns.length">
