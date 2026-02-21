@@ -6,7 +6,7 @@ import {
 } from "@angular/core";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatTableModule } from "@angular/material/table";
-import { RouterModule } from "@angular/router";
+import { Router } from "@angular/router";
 import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
 
 @Component({
@@ -16,7 +16,6 @@ import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
     AsyncPipe,
     MatProgressSpinnerModule,
     MatTableModule,
-    RouterModule,
   ],
   templateUrl: "./device-list.component.html",
   styleUrl: "./device-list.component.scss",
@@ -24,6 +23,7 @@ import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
 })
 export class DeviceListComponent {
   private readonly store = inject(DeviceListStore);
+  private readonly router = inject(Router);
 
   readonly displayedColumns: string[] = [
     "image",
@@ -36,4 +36,8 @@ export class DeviceListComponent {
   readonly filteredDevices$ = this.store.filteredDevices$;
   readonly loading$ = this.store.loading$;
   readonly error$ = this.store.error$;
+
+  navigateToDetail(id: string): void {
+    this.router.navigate(["/devices", id]);
+  }
 }
