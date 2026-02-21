@@ -9,7 +9,7 @@ import type { ProductInfo } from '@chirimen-device-dashboard/shared-types';
 import { ExampleInfoComponent } from '../example-info/example-info.component';
 
 @Component({
-  selector: 'chirimen-product-info',
+  selector: 'choh-product-info',
   standalone: true,
   imports: [MatIconModule, MatListModule, ExampleInfoComponent],
   templateUrl: './product-info.component.html',

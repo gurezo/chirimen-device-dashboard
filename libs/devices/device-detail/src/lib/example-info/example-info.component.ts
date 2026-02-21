@@ -9,7 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import type { ExampleInfo } from '@chirimen-device-dashboard/shared-types';
 
 @Component({
-  selector: 'chirimen-example-info',
+  selector: 'choh-example-info',
   standalone: true,
   imports: [],
   templateUrl: './example-info.component.html',

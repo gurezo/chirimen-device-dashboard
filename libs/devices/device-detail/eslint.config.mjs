@@ -12,7 +12,7 @@ export default [
         "error",
         {
           type: "attribute",
-          prefix: "chirimen",
+          prefix: "choh",
           style: "camelCase",
         },
       ],
@@ -20,7 +20,7 @@ export default [
         "error",
         {
           type: "element",
-          prefix: "chirimen",
+          prefix: "choh",
           style: "kebab-case",
         },
       ],

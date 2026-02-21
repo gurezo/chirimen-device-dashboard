@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'chirimen-confirm-dialog',
+  selector: 'choh-confirm-dialog',
   imports: [MatDialogModule, MatButtonModule],
   templateUrl: './confirm-dialog.component.html',
   styleUrl: './confirm-dialog.component.scss',

@@ -15,7 +15,7 @@ import { DEVICE_REPOSITORY } from '@chirimen-device-dashboard/libs-data-access';
 import { ProductInfoComponent } from '../product-info/product-info.component';
 
 @Component({
-  selector: 'chirimen-device-detail',
+  selector: 'choh-device-detail',
   standalone: true,
   imports: [
     AsyncPipe,

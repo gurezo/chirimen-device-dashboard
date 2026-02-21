@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FieldErrorComponent } from '../field-error/field-error.component';
 
 @Component({
-  selector: 'chirimen-example-array',
+  selector: 'choh-example-array',
   imports: [
     ReactiveFormsModule,
     MatButtonModule,
