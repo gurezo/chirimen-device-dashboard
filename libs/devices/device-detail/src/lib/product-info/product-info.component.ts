@@ -13,7 +13,6 @@ import { ExampleInfoComponent } from '../example-info/example-info.component';
   standalone: true,
   imports: [MatIconModule, MatListModule, ExampleInfoComponent],
   templateUrl: './product-info.component.html',
-  styleUrl: './product-info.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductInfoComponent {

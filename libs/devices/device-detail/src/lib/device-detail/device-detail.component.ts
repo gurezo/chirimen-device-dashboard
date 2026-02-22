@@ -26,7 +26,6 @@ import { ProductInfoComponent } from '../product-info/product-info.component';
     ProductInfoComponent,
   ],
   templateUrl: './device-detail.component.html',
-  styleUrl: './device-detail.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeviceDetailComponent {
