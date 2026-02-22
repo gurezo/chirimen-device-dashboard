@@ -13,7 +13,9 @@ import { DeviceDetailComponent } from '@chirimen-device-dashboard/libs-device-de
   standalone: true,
   imports: [DeviceDetailComponent],
   templateUrl: './device-detail-page.component.html',
-  styleUrl: './device-detail-page.component.scss',
+  host: {
+    class: 'flex flex-col flex-1 min-h-0 overflow-y-auto overflow-x-hidden',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeviceDetailPageComponent {
