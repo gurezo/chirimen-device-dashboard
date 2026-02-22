@@ -10,10 +10,7 @@ describe('DeviceDetailComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DeviceDetailComponent],
-      providers: [
-        provideRouter([]),
-        provideDeviceRepository(),
-      ],
+      providers: [provideRouter([]), provideDeviceRepository()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DeviceDetailComponent);

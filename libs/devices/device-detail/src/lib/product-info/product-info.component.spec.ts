@@ -8,9 +8,7 @@ describe('ProductInfoComponent', () => {
 
   const mockProduct: ProductInfo = {
     url: 'https://example.com/product',
-    example: [
-      { hardware: 'Raspberry Pi', code: 'https://example.com/code' },
-    ],
+    example: [{ hardware: 'Raspberry Pi', code: 'https://example.com/code' }],
     datasheet: 'https://example.com/datasheet.pdf',
   };
 
@@ -31,7 +29,9 @@ describe('ProductInfoComponent', () => {
 
   it('should display product link with correct href', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const link = compiled.querySelector('a[href="https://example.com/product"]');
+    const link = compiled.querySelector(
+      'a[href="https://example.com/product"]',
+    );
     expect(link).toBeTruthy();
     expect(link?.textContent?.trim()).toBe('商品ページを見る');
   });

@@ -1,17 +1,13 @@
-import { AsyncPipe } from "@angular/common";
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-} from "@angular/core";
-import { MatCardModule } from "@angular/material/card";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { RouterModule } from "@angular/router";
-import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
-import { TruncatePipe } from "../truncate.pipe";
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RouterModule } from '@angular/router';
+import { DeviceListStore } from '@chirimen-device-dashboard/libs-state';
+import { TruncatePipe } from '../truncate.pipe';
 
 @Component({
-  selector: "choh-device-card-list",
+  selector: 'choh-device-card-list',
   standalone: true,
   imports: [
     AsyncPipe,
@@ -20,9 +16,9 @@ import { TruncatePipe } from "../truncate.pipe";
     RouterModule,
     TruncatePipe,
   ],
-  templateUrl: "./device-card-list.component.html",
+  templateUrl: './device-card-list.component.html',
   host: {
-    class: "flex flex-col flex-1 min-h-0 overflow-hidden",
+    class: 'flex flex-col flex-1 min-h-0 overflow-hidden',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

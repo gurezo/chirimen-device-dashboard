@@ -1,18 +1,18 @@
-import { Route } from "@angular/router";
+import { Route } from '@angular/router';
 
 export const appRoutes: Route[] = [
   {
-    path: "",
+    path: '',
     loadComponent: () =>
-      import("./pages/device-list-page/device-list-page.component").then(
-        (m) => m.DeviceListPageComponent
+      import('./pages/device-list-page/device-list-page.component').then(
+        (m) => m.DeviceListPageComponent,
       ),
   },
   {
-    path: "devices/:id",
+    path: 'devices/:id',
     loadComponent: () =>
-      import("./pages/device-detail-page/device-detail-page.component").then(
-        (m) => m.DeviceDetailPageComponent
+      import('./pages/device-detail-page/device-detail-page.component').then(
+        (m) => m.DeviceDetailPageComponent,
       ),
   },
 ];

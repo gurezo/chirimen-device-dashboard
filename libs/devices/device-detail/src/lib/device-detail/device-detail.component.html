@@ -2,7 +2,11 @@
   @let result = result$ | async;
   @if (result) {
     @if (result.error) {
-      <div class="text-[var(--mat-error-default,#d32f2f)] mb-4 p-4 bg-[rgba(211,47,47,0.08)] rounded-lg">{{ result.error }}</div>
+      <div
+        class="text-[var(--mat-error-default,#d32f2f)] mb-4 p-4 bg-[rgba(211,47,47,0.08)] rounded-lg"
+      >
+        {{ result.error }}
+      </div>
       <a mat-stroked-button routerLink="/" color="primary">
         <mat-icon class="mr-1">arrow_back</mat-icon>
         一覧に戻る
@@ -15,8 +19,12 @@
             一覧に戻る
           </a>
         </div>
-        <div class="grid grid-cols-1 gap-8 items-start md:grid-cols-[320px_1fr]">
-          <div class="bg-white md:sticky md:top-4 rounded-xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.08)] border border-black/6 dark:bg-white/5 dark:border-white/[0.08] dark:shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
+        <div
+          class="grid grid-cols-1 gap-8 items-start md:grid-cols-[320px_1fr]"
+        >
+          <div
+            class="bg-white md:sticky md:top-4 rounded-xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.08)] border border-black/6 dark:bg-white/5 dark:border-white/[0.08] dark:shadow-[0_1px_3px_rgba(0,0,0,0.2)]"
+          >
             <img
               [src]="result.device.image"
               [alt]="result.device.deviceName"
@@ -24,13 +32,27 @@
             />
           </div>
           <div class="min-w-0">
-            <h1 class="text-[1.75rem] font-semibold leading-tight mb-3 text-black/87 dark:text-white/87">{{ result.device.deviceName }}</h1>
+            <h1
+              class="text-[1.75rem] font-semibold leading-tight mb-3 text-black/87 dark:text-white/87"
+            >
+              {{ result.device.deviceName }}
+            </h1>
             <div class="flex flex-wrap gap-2 mb-5">
-              <span class="text-[0.8125rem] font-medium py-1.5 px-3 bg-black/6 rounded-md text-black/70 dark:bg-white/10 dark:text-white/80">{{ result.device.tag }}</span>
-              <span class="text-[0.8125rem] font-medium py-1.5 px-3 bg-black/6 rounded-md text-black/70 dark:bg-white/10 dark:text-white/80">{{ result.device.category }}</span>
+              <span
+                class="text-[0.8125rem] font-medium py-1.5 px-3 bg-black/6 rounded-md text-black/70 dark:bg-white/10 dark:text-white/80"
+                >{{ result.device.tag }}</span
+              >
+              <span
+                class="text-[0.8125rem] font-medium py-1.5 px-3 bg-black/6 rounded-md text-black/70 dark:bg-white/10 dark:text-white/80"
+                >{{ result.device.category }}</span
+              >
             </div>
             @if (result.device.description) {
-              <p class="m-0 mb-6 text-[0.9375rem] leading-relaxed text-black/75 whitespace-pre-wrap dark:text-white/75">{{ result.device.description }}</p>
+              <p
+                class="m-0 mb-6 text-[0.9375rem] leading-relaxed text-black/75 whitespace-pre-wrap dark:text-white/75"
+              >
+                {{ result.device.description }}
+              </p>
             }
             @if (result.device.product) {
               <choh-product-info [product]="result.device.product" />
@@ -39,7 +61,11 @@
         </div>
       </div>
     } @else {
-      <div class="text-[var(--mat-error-default,#d32f2f)] mb-4 p-4 bg-[rgba(211,47,47,0.08)] rounded-lg">デバイスが見つかりません。</div>
+      <div
+        class="text-[var(--mat-error-default,#d32f2f)] mb-4 p-4 bg-[rgba(211,47,47,0.08)] rounded-lg"
+      >
+        デバイスが見つかりません。
+      </div>
       <a mat-stroked-button routerLink="/" color="primary">
         <mat-icon class="mr-1">arrow_back</mat-icon>
         一覧に戻る

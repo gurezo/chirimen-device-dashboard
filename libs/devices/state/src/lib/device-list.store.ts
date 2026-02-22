@@ -61,7 +61,7 @@ export class DeviceListStore extends ComponentStore<DeviceListState> {
           return false;
         return true;
       });
-    }
+    },
   );
 
   readonly setQuery = this.updater((state, query: string) => ({
@@ -69,15 +69,19 @@ export class DeviceListStore extends ComponentStore<DeviceListState> {
     query,
   }));
 
-  readonly setFilterTag = this.updater((state, filterTag: DeviceInfo['tag'] | undefined) => ({
-    ...state,
-    filterTag,
-  }));
+  readonly setFilterTag = this.updater(
+    (state, filterTag: DeviceInfo['tag'] | undefined) => ({
+      ...state,
+      filterTag,
+    }),
+  );
 
-  readonly setFilterCategory = this.updater((state, filterCategory: string | undefined) => ({
-    ...state,
-    filterCategory,
-  }));
+  readonly setFilterCategory = this.updater(
+    (state, filterCategory: string | undefined) => ({
+      ...state,
+      filterCategory,
+    }),
+  );
 
   readonly loadDevices = this.effect((trigger$) =>
     trigger$.pipe(
@@ -85,7 +89,7 @@ export class DeviceListStore extends ComponentStore<DeviceListState> {
         this.patchState({ loading: true, error: undefined });
         return this.repository.list().pipe(
           tap((devices) =>
-            this.patchState({ devices, loading: false, error: undefined })
+            this.patchState({ devices, loading: false, error: undefined }),
           ),
           catchError((error: Error) => {
             this.patchState({
@@ -93,10 +97,10 @@ export class DeviceListStore extends ComponentStore<DeviceListState> {
               error: error?.message ?? 'Failed to load devices',
             });
             return of([]);
-          })
+          }),
         );
-      })
-    )
+      }),
+    ),
   );
 
   constructor() {

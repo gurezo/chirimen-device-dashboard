@@ -22,7 +22,7 @@ describe('MockDeviceRepository', () => {
     const list = await firstValueFrom(repo.list());
     expect(list).toHaveLength(MOCK_DEVICES.length);
     expect(list.map((d) => d.id).sort()).toEqual(
-      MOCK_DEVICES.map((d) => d.id).sort()
+      MOCK_DEVICES.map((d) => d.id).sort(),
     );
   });
 
@@ -54,15 +54,15 @@ describe('MockDeviceRepository', () => {
   it('create() throws when id already exists', async () => {
     const repo = new MockDeviceRepository();
     const device = createDevice({ id: 'i2c-ads1015' });
-    await expect(
-      lastValueFrom(repo.create(device))
-    ).rejects.toThrow(/already exists/);
+    await expect(lastValueFrom(repo.create(device))).rejects.toThrow(
+      /already exists/,
+    );
   });
 
   it('update() returns updated device', async () => {
     const repo = new MockDeviceRepository();
     const updated = await firstValueFrom(
-      repo.update('i2c-ads1015', { deviceName: 'Updated Name' })
+      repo.update('i2c-ads1015', { deviceName: 'Updated Name' }),
     );
     expect(updated.deviceName).toBe('Updated Name');
     expect(updated.id).toBe('i2c-ads1015');
@@ -71,7 +71,7 @@ describe('MockDeviceRepository', () => {
   it('update() throws when device not found', async () => {
     const repo = new MockDeviceRepository();
     await expect(
-      lastValueFrom(repo.update('missing', { deviceName: 'X' }))
+      lastValueFrom(repo.update('missing', { deviceName: 'X' })),
     ).rejects.toThrow(/not found/);
   });
 
@@ -89,7 +89,7 @@ describe('MockDeviceRepository', () => {
   it('delete() throws when device not found', async () => {
     const repo = new MockDeviceRepository();
     await expect(lastValueFrom(repo.delete('missing'))).rejects.toThrow(
-      /not found/
+      /not found/,
     );
   });
 });
