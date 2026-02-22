@@ -13,7 +13,6 @@ module.exports = {
         'functions',
         'workspace',
         'libs-data-access',
-        'libs-ui',
         'libs-state',
         'libs-feature-list',
         'libs-card-list',

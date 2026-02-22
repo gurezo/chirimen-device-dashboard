@@ -2,15 +2,32 @@
   "extends": "./tsconfig.base.json",
   "files": [],
   "references": [
-    { "path": "apps/api" },
-    { "path": "apps/web" },
-    { "path": "apps/web-e2e" },
-    { "path": "libs/devices/state" },
-    { "path": "libs/devices/data-access" },
-    { "path": "libs/devices/ui" },
-    { "path": "libs/devices/card-list" },
-    { "path": "libs/devices/feature-list" },
-    { "path": "libs/devices/device-detail" },
-    { "path": "libs/shared-types" }
+    {
+      "path": "apps/api"
+    },
+    {
+      "path": "apps/web"
+    },
+    {
+      "path": "apps/web-e2e"
+    },
+    {
+      "path": "libs/devices/state"
+    },
+    {
+      "path": "libs/devices/data-access"
+    },
+    {
+      "path": "libs/devices/card-list"
+    },
+    {
+      "path": "libs/devices/feature-list"
+    },
+    {
+      "path": "libs/devices/device-detail"
+    },
+    {
+      "path": "libs/shared-types"
+    }
   ]
 }
