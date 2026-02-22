@@ -23,7 +23,7 @@ function buildExample(
 
 /**
  * モックデバイス一覧データ
- * chirimen.org partslist.csv の L2-L55 (I2C)、L56-L75 (GPIO) より作成
+ * chirimen.org partslist.csv の L2-L55 (I2C)、L56-L75 (GPIO)、L76-L108 (Analog, Actuator, Other, BoardComputer, GPIO) より作成
  * @see https://github.com/gurezo/chirimen.org/blob/master/_data/partslist.csv
  */
 export const MOCK_DEVICES: DeviceInfo[] = [
@@ -1399,6 +1399,449 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       circuit: 'https://r.chirimen.org/examples/#GPIO-A4988',
       datasheet:
         'http://www.pololu.com/file/download/a4988_DMOS_microstepping_driver_with_translator.pdf?file_id=0J450',
+    },
+  },
+  // Analog L76-L80
+  {
+    id: 'analog-rd-4p',
+    deviceName: 'RD-4P',
+    tag: 'Analog',
+    category: '雨センサ',
+    description: '雨(水)を検出するセンサです(GPIO)',
+    image: imageUrl('partsImgs/rain.jpg'),
+    product: {
+      url: 'https://www.aitendo.com/product/10280',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+      ),
+    },
+  },
+  {
+    id: 'analog-m-wl-j3y',
+    deviceName: 'M-WL-J3Y',
+    tag: 'Analog',
+    category: '水センサ',
+    description: '水を検出するセンサです',
+    image: imageUrl('partsImgs/water.jpg'),
+    product: {
+      url: 'https://www.aitendo.com/product/7434',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+      ),
+    },
+  },
+  {
+    id: 'analog-fsr-400',
+    deviceName: 'FSR 400',
+    tag: 'Analog',
+    category: '圧力センサ(小)',
+    description: '圧力が検知できるセンサです',
+    image: imageUrl('partsImgs/pressureS.jpg'),
+    product: {
+      url: 'https://www.interlinkelectronics.com/fsr-400',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15'
+      ),
+    },
+  },
+  {
+    id: 'analog-tsr-3386',
+    deviceName: 'TSR-3386',
+    tag: 'Analog',
+    category: '可変抵抗',
+    description: '抵抗値を変化させられる抵抗です',
+    image: imageUrl('partsImgs/VR.jpg'),
+    product: {
+      url: 'https://chirimen.org/',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15'
+      ),
+      datasheet: 'http://akizukidenshi.com/download/ds/suntan/tsr-3386.pdf',
+    },
+  },
+  {
+    id: 'analog-loadcell',
+    deviceName: 'ジェネリック品多種',
+    tag: 'Analog',
+    category: 'ロードセル',
+    description:
+      '加重により抵抗値が微少に変化する素子。差動入力にしたADS1115で利用可能です',
+    image: imageUrl('partsImgs/LoadCell.jpg'),
+    product: {
+      url: 'https://chirimen.org/',
+      example: buildExample(
+        'http://chirimen.org/chirimen/gc/top/examples/#I2C-ADS1115-LoadCell',
+        'https://chirimen.org/chirimen-micro-bit/examples/#I2C_ADS1115_LoadCell',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1115-loadcell'
+      ),
+      reference: 'https://akizukidenshi.com/catalog/c/cloadcell/',
+    },
+  },
+  // Actuator L81-L88
+  {
+    id: 'actuator-sg90',
+    deviceName: 'SG90',
+    tag: 'Actuator',
+    category: 'サーボモータ',
+    description:
+      'Tower Pro 製の小型サーボモータです　同一型番の互換品も多数流通しています',
+    image: imageUrl(''),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g108761/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-PCA9685',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685'
+      ),
+      circuit: 'http://akizukidenshi.com/download/ds/towerpro/SG90_a.pdf',
+    },
+  },
+  {
+    id: 'actuator-mg90s',
+    deviceName: 'MG90S',
+    tag: 'Actuator',
+    category: 'サーボモータ',
+    description:
+      'Tower Pro 製の小型サーボモータ　SG90と同サイズですがメタルギヤが使われています　同一型番の互換品も多数流通（写真はその一例）',
+    image: imageUrl('partsImgs/MG90S.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g113227/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-PCA9685',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685'
+      ),
+      circuit: 'https://www.towerpro.com.tw/product/mg90s-3/',
+    },
+  },
+  {
+    id: 'actuator-es08maii',
+    deviceName: 'ES08MAII',
+    tag: 'Actuator',
+    category: 'サーボモータ',
+    description: 'E-MAXの小型サーボモータです　メタルギヤが使われています',
+    image: imageUrl('partsImgs/ES08MAII.jpg'),
+    product: {
+      url: 'https://www.kkhobby.com/SHOP/SV070.html',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-PCA9685',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685'
+      ),
+      circuit:
+        'https://emax-usa.com/products/emx-sv-0275-es08ma-ii-metal-analog-servo',
+    },
+  },
+  {
+    id: 'actuator-mg995',
+    deviceName: 'MG995',
+    tag: 'Actuator',
+    category: 'サーボモータ',
+    description:
+      'Tower Pro 製のサーボモータです　メタルギヤが使われています　同一型番の互換品も多数流通（写真はその一例）',
+    image: imageUrl('partsImgs/MG995.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/s?k=MG995&i=hobby',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#I2C-PCA9685',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685'
+      ),
+      circuit: 'https://www.towerpro.com.tw/product/mg995/',
+    },
+  },
+  {
+    id: 'actuator-dc-motor',
+    deviceName: 'DCモータ',
+    tag: 'Actuator',
+    category: 'DCモータ',
+    description: '各 Examples をご確認ください',
+    image: imageUrl(''),
+    product: {
+      url: 'https://chirimen.org/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-HBridge',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1'
+      ),
+    },
+  },
+  {
+    id: 'actuator-stepper-motor',
+    deviceName: '多種(例はTS3692N65)',
+    tag: 'Actuator',
+    category: '2相バイポーラステッピングモータ',
+    description: 'A4988をご確認ください',
+    image: imageUrl('partsImgs/StepperMotor.jpg'),
+    product: {
+      url: 'https://wakamatsu.co.jp/biz/products/detail.php?product_id=62020023',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-A4988',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_HBridge',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_a4988'
+      ),
+      circuit: 'https://r.chirimen.org/examples/#GPIO-A4988',
+    },
+  },
+  {
+    id: 'actuator-chibi-gear-motor',
+    deviceName: 'ちびギヤモータ',
+    tag: 'Actuator',
+    category: 'ギヤードモータ',
+    description: '小型のギヤードモータです',
+    image: imageUrl('partsImgs/chibiGear.jpg'),
+    product: {
+      url: 'https://tiisaishop.dip.jp/product/sg/',
+      example: buildExample(
+        undefined,
+        'https://tutorial.chirimen.org/microbit/iot_actuate',
+        'https://tutorial.chirimen.org/pizero/#gpio-2'
+      ),
+      reference: 'https://tiisai.dip.jp/?p=2676',
+      guide: 'https://tutorial.chirimen.org/raspi/section1#section-9',
+    },
+  },
+  {
+    id: 'actuator-n20-gear-motor',
+    deviceName: 'N20マイクロギヤモータ',
+    tag: 'Actuator',
+    category: 'ギヤードモータ',
+    description: '小型のギヤードモータです',
+    image: imageUrl('partsImgs/N20_GearMotor.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/gM-15143/',
+      example: buildExample(
+        undefined,
+        'https://tutorial.chirimen.org/microbit/iot_actuate',
+        'https://tutorial.chirimen.org/pizero/#gpio-2'
+      ),
+      datasheet:
+        'https://akizukidenshi.com/download/ds/mercurymotor/MG1012-0669-150L.pdf',
+      guide: 'https://tutorial.chirimen.org/raspi/section1#section-9',
+    },
+  },
+  // Other L89-L93
+  {
+    id: 'other-breadboard',
+    deviceName: 'ブレッドボード',
+    tag: 'Other',
+    category: 'その他',
+    description: '',
+    image: imageUrl('partsImgs/breadBoardS.jpg'),
+    product: {
+      url: 'https://chirimen.org/',
+      example: buildExample(),
+    },
+  },
+  {
+    id: 'other-jumper-wire',
+    deviceName: 'ジャンパー線',
+    tag: 'Other',
+    category: 'その他',
+    description: '',
+    image: imageUrl('partsImgs/jumperFM.jpg'),
+    product: {
+      url: 'https://chirimen.org/',
+      example: buildExample(),
+    },
+  },
+  {
+    id: 'other-camera',
+    deviceName: 'カメラ',
+    tag: 'Other',
+    category: 'その他',
+    description: '',
+    image: imageUrl('partsImgs/camera.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/dp/B073RCXGQS/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#OTHERS-CAMERA',
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-camera'
+      ),
+    },
+  },
+  {
+    id: 'other-fan',
+    deviceName: 'ファン',
+    tag: 'Other',
+    category: 'その他',
+    description: '',
+    image: imageUrl('partsImgs/fan.jpg'),
+    product: {
+      url: 'https://chirimen.org/',
+      example: buildExample(),
+    },
+  },
+  {
+    id: 'other-resistor',
+    deviceName: '抵抗',
+    tag: 'Other',
+    category: 'その他',
+    description: '',
+    image: imageUrl('partsImgs/register.jpg'),
+    product: {
+      url: 'https://chirimen.org/',
+      example: buildExample(),
+    },
+  },
+  // BoardComputer L94-L95
+  {
+    id: 'boardcomputer-microbit',
+    deviceName: 'マイクロビット',
+    tag: 'BoardComputer',
+    category: 'ボードコンピューター',
+    description: '',
+    image: imageUrl('partsImgs/microbit.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/dp/B074N6D55L',
+      example: buildExample(undefined, 'https://microbit.org/ja/guide/', undefined),
+    },
+  },
+  {
+    id: 'boardcomputer-breakout',
+    deviceName: 'ブレークアウト',
+    tag: 'BoardComputer',
+    category: 'ボードコンピューター',
+    description: '',
+    image: imageUrl('partsImgs/microbitBreakout.jpg'),
+    product: {
+      url: 'https://chirimen.org/',
+      example: buildExample(),
+    },
+  },
+  // GPIO L97-L102
+  {
+    id: 'gpio-led-flexible-green',
+    deviceName: 'フレキシブルＬＥＤ　緑色',
+    tag: 'GPIO',
+    category: 'LED',
+    description:
+      '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
+    image: imageUrl('partsImgs/M-18007.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g118007/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-Blink',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+      ),
+    },
+  },
+  {
+    id: 'gpio-led-flexible-red',
+    deviceName: 'フレキシブルＬＥＤ　赤色',
+    tag: 'GPIO',
+    category: 'LED',
+    description:
+      '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
+    image: imageUrl('partsImgs/M-18006.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g118006/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-Blink',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+      ),
+    },
+  },
+  {
+    id: 'gpio-led-flexible-yellow',
+    deviceName: 'フレキシブルＬＥＤ　黄色',
+    tag: 'GPIO',
+    category: 'LED',
+    description:
+      '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
+    image: imageUrl('partsImgs/M-18010.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g118010/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-Blink',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+      ),
+    },
+  },
+  {
+    id: 'gpio-led-flexible-pink',
+    deviceName: 'フレキシブルＬＥＤ　ピンク色',
+    tag: 'GPIO',
+    category: 'LED',
+    description:
+      '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
+    image: imageUrl('partsImgs/M-18009.jpg'),
+    product: {
+      url: 'https://akizukidenshi.com/catalog/g/g118009/',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-Blink',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+      ),
+    },
+  },
+  {
+    id: 'gpio-isd1820',
+    deviceName: 'ISD1820',
+    tag: 'GPIO',
+    category: 'ボイスレコーダ',
+    description:
+      '内蔵マイクで録音した音声(最大10秒)を再生する基板です。GPIOで再生や録音のコントロールができます',
+    image: imageUrl('partsImgs/ISD1820.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/s?k=ISD1820',
+      example: buildExample(
+        'https://r.chirimen.org/examples/#GPIO-Blink',
+        'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_isd1820'
+      ),
+      circuit: 'https://tutorial.chirimen.org/pizero/esm-examples/gpio-onchange/index.html#gpio',
+      instructions: 'https://www.kyohritsu.jp/eclib/PROD/MANUAL/kpisd1820.pdf',
+    },
+  },
+  {
+    id: 'gpio-dfplayer-mini',
+    deviceName: 'DFPlayer Mini',
+    tag: 'GPIO',
+    category: 'MP3プレーヤー基板',
+    description:
+      'DFPlayer Miniおよびその互換品。microSDに保存したMP3ファイルの再生をコントロールできます',
+    image: imageUrl('partsImgs/DFPlayerMini.jpg'),
+    product: {
+      url: 'https://www.amazon.co.jp/s?k=DFPlayer',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_dfplayer'
+      ),
+      reference: 'https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299',
+    },
+  },
+  // Other L103
+  {
+    id: 'other-gy-gps6mv2',
+    deviceName: 'GY-GPS6MV2',
+    tag: 'Other',
+    category: 'GPSレシーバ',
+    description:
+      'NEO6Mモジュールを使用した、シリアル接続のGPSレシーバです。',
+    image: imageUrl('partsImgs/GY-GPS6MV2.jpg'),
+    product: {
+      url: 'https://electronicwork.shop/items/625c1ca99fe3d707d725cbe1',
+      example: buildExample(
+        undefined,
+        undefined,
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_serial_gps'
+      ),
+      datasheet:
+        'https://content.u-blox.com/sites/default/files/products/documents/NEO-6_DataSheet_%28GPS.G6-HW-09005%29.pdf',
     },
   },
 ];

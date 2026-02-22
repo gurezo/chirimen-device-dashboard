@@ -68,8 +68,8 @@ export class CreateDeviceDto {
   @IsNotEmpty()
   deviceName!: string;
 
-  @IsIn(['GPIO', 'I2C', 'Other'])
-  tag!: 'GPIO' | 'I2C' | 'Other';
+  @IsIn(['GPIO', 'I2C', 'Analog', 'Actuator', 'Other', 'BoardComputer'])
+  tag!: 'GPIO' | 'I2C' | 'Analog' | 'Actuator' | 'Other' | 'BoardComputer';
 
   @IsString()
   @IsNotEmpty()
@@ -94,8 +94,8 @@ export class UpdateDeviceDto {
   @IsNotEmpty()
   deviceName?: string;
   @IsOptional()
-  @IsIn(['GPIO', 'I2C', 'Other'])
-  tag?: 'GPIO' | 'I2C' | 'Other';
+  @IsIn(['GPIO', 'I2C', 'Analog', 'Actuator', 'Other', 'BoardComputer'])
+  tag?: 'GPIO' | 'I2C' | 'Analog' | 'Actuator' | 'Other' | 'BoardComputer';
   @IsOptional()
   @IsString()
   @IsNotEmpty()
