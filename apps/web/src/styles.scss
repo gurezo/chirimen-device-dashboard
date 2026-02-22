@@ -33,6 +33,30 @@ body {
   background-color: rgba(0, 0, 0, 0.04);
 }
 
+/* 列幅とヘッダ折り返し防止 */
+.device-list-table {
+  .mat-mdc-header-cell,
+  .mat-header-cell {
+    white-space: nowrap;
+  }
+  .mat-column-image {
+    width: 4rem; /* 画像 w-12 (48px) 用 */
+    min-width: 4rem;
+  }
+  .mat-column-deviceName {
+    min-width: 8rem;
+  }
+  .mat-column-tag {
+    min-width: 6rem;
+  }
+  .mat-column-category {
+    min-width: 6rem;
+  }
+  .mat-column-description {
+    min-width: 10rem;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .device-list-table tr.mat-mdc-row:hover,
   .device-list-table tr.mat-row:hover {
