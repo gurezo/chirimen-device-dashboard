@@ -1,5 +1,9 @@
-<div class="flex flex-col gap-1.5 py-3 px-4 bg-black/[0.02] rounded-md border-l-4 border-l-[rgba(25,118,210,0.5)] dark:bg-white/[0.04] dark:border-l-[rgba(25,118,210,0.6)]">
-  <div class="text-[0.8125rem] font-semibold text-black/70 dark:text-white/80">{{ example().hardware }}</div>
+<div
+  class="flex flex-col gap-1.5 py-3 px-4 bg-black/[0.02] rounded-md border-l-4 border-l-[rgba(25,118,210,0.5)] dark:bg-white/[0.04] dark:border-l-[rgba(25,118,210,0.6)]"
+>
+  <div class="text-[0.8125rem] font-semibold text-black/70 dark:text-white/80">
+    {{ example().hardware }}
+  </div>
   @if (isUrl(example().code)) {
     @let safeUrl = getSanitizedUrl(example().code);
     @if (safeUrl) {
@@ -11,9 +15,15 @@
         >{{ example().code }}</a
       >
     } @else {
-      <div class="font-mono text-sm break-all text-[#1976d2] dark:text-[#42a5f5]">{{ example().code }}</div>
+      <div
+        class="font-mono text-sm break-all text-[#1976d2] dark:text-[#42a5f5]"
+      >
+        {{ example().code }}
+      </div>
     }
   } @else {
-    <div class="font-mono text-sm break-all text-[#1976d2] dark:text-[#42a5f5]">{{ example().code }}</div>
+    <div class="font-mono text-sm break-all text-[#1976d2] dark:text-[#42a5f5]">
+      {{ example().code }}
+    </div>
   }
 </div>

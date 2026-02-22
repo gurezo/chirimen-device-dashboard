@@ -1,25 +1,17 @@
-import { AsyncPipe } from "@angular/common";
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-} from "@angular/core";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { MatTableModule } from "@angular/material/table";
-import { Router } from "@angular/router";
-import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { DeviceListStore } from '@chirimen-device-dashboard/libs-state';
 
 @Component({
-  selector: "choh-device-list",
+  selector: 'choh-device-list',
   standalone: true,
-  imports: [
-    AsyncPipe,
-    MatProgressSpinnerModule,
-    MatTableModule,
-  ],
-  templateUrl: "./device-list.component.html",
+  imports: [AsyncPipe, MatProgressSpinnerModule, MatTableModule],
+  templateUrl: './device-list.component.html',
   host: {
-    class: "flex flex-col flex-1 min-h-0 overflow-hidden",
+    class: 'flex flex-col flex-1 min-h-0 overflow-hidden',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -28,11 +20,11 @@ export class DeviceListComponent {
   private readonly router = inject(Router);
 
   readonly displayedColumns: string[] = [
-    "image",
-    "deviceName",
-    "tag",
-    "category",
-    "description",
+    'image',
+    'deviceName',
+    'tag',
+    'category',
+    'description',
   ];
 
   readonly filteredDevices$ = this.store.filteredDevices$;
@@ -40,6 +32,6 @@ export class DeviceListComponent {
   readonly error$ = this.store.error$;
 
   navigateToDetail(id: string): void {
-    this.router.navigate(["/devices", id]);
+    this.router.navigate(['/devices', id]);
   }
 }

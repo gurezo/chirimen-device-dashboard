@@ -1,5 +1,5 @@
-import { onRequest } from "firebase-functions/v2/https";
-import { getApp } from "./main";
+import { onRequest } from 'firebase-functions/v2/https';
+import { getApp } from './main';
 
 /**
  * HTTP function for /api/** rewrites from Firebase Hosting.

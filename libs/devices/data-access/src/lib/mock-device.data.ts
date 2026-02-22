@@ -12,7 +12,7 @@ function imageUrl(path: string): string {
 function buildExample(
   chirimen?: string,
   microbit?: string,
-  piZero?: string
+  piZero?: string,
 ): { hardware: string; code: string }[] {
   const examples: { hardware: string; code: string }[] = [];
   if (chirimen) examples.push({ hardware: 'chirimen', code: chirimen });
@@ -41,7 +41,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-ADS1015',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1015'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1015',
       ),
       circuit: 'https://github.com/adafruit/ADS1X15-Breakout-Board-PCBs',
       datasheet: 'https://cdn-shop.adafruit.com/datasheets/ads1015.pdf',
@@ -60,7 +60,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-ADS1115',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_ADS1115',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15',
       ),
     },
   },
@@ -69,15 +69,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'PCF8591',
     tag: 'I2C',
     category: 'ADC, DAC(アナログ電圧出力) 複合',
-    description:
-      'ADC と DAC が一つになった部品です(デジタル側は 8bit)',
+    description: 'ADC と DAC が一つになった部品です(デジタル側は 8bit)',
     image: imageUrl('partsImgs/PCF8591.jpg'),
     product: {
       url: 'http://www.aitendo.com/product/10938',
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-PCF8591',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pcf8591'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pcf8591',
       ),
     },
   },
@@ -93,7 +92,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-ADT7410',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C1_ADT7410',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_adt7410'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_adt7410',
       ),
       circuit: 'https://github.com/adafruit/ADS1X15-Breakout-Board-PCBs',
       datasheet: 'https://cdn-shop.adafruit.com/datasheets/ads1115.pdf',
@@ -112,7 +111,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-AMG8833',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_AMG8833',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_amg8833'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_amg8833',
       ),
       circuit:
         'https://docid81hrs3j1.cloudfront.net/medialibrary/2017/11/AMG8833_breakout.pdf',
@@ -132,7 +131,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-BME280',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C6_BME280',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_bme280'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_bme280',
       ),
       datasheet:
         'https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280-DS002.pdf',
@@ -150,7 +149,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-BMP180',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_BMP180',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_bmp180'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_bmp180',
       ),
       datasheet:
         'http://aitendo3.sakura.ne.jp/aitendo_data/product_img/sensor/BMP180/BMP180.pdf',
@@ -169,7 +168,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-BMP280',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C2_BMP280',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_bmp280'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_bmp280',
       ),
       datasheet:
         'http://aitendo3.sakura.ne.jp/aitendo_data/product_img/sensor/BMP280/BST-BMP280-DS001-11.pdf',
@@ -188,10 +187,9 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-GP2Y0E03',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_gp2y0e03'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_gp2y0e03',
       ),
-      datasheet:
-        'https://akizukidenshi.com/download/ds/sharp/gp2y0e03_e.pdf',
+      datasheet: 'https://akizukidenshi.com/download/ds/sharp/gp2y0e03_e.pdf',
       note: 'https://akizukidenshi.com/download/ds/sharp/GP2Y0E02_an_20180829.pdf',
     },
   },
@@ -208,7 +206,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-VL53L0X',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C3_VL53L0X',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_vl53l0x'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_vl53l0x',
       ),
       circuit:
         'https://www.pololu.com/file/0J1188/vl53l0x-time-of-flight-distance-sensor-carrier-schematic.pdf',
@@ -228,7 +226,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-VL53L1X',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_VL53L1X',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_vl53l1x'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_vl53l1x',
       ),
     },
   },
@@ -237,15 +235,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'VL6180X',
     tag: 'I2C',
     category: '距離センサ',
-    description:
-      '短距離(0mm-255mm)をレーザを使って精密に測定するセンサです',
+    description: '短距離(0mm-255mm)をレーザを使って精密に測定するセンサです',
     image: imageUrl('partsImgs/VL6180X.jpg'),
     product: {
       url: 'https://www.amazon.co.jp/dp/B093WQHFK5/',
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_vl6180x'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_vl6180x',
       ),
       datasheet: 'https://www.st.com/resource/en/datasheet/vl6180x.pdf',
     },
@@ -263,7 +260,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-Grove-Gesture',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_paj7620'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_paj7620',
       ),
       circuit:
         'https://github.com/SeeedDocument/Grove_Gesture_V_1.0/raw/master/res/Grove_-_Gesture_v1.0_sch_pcb.zip',
@@ -284,7 +281,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-Grove-Light',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_tsl2561'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_tsl2561',
       ),
       circuit:
         'https://github.com/SeeedDocument/Grove-Digital_Light_Sensor/raw/master/res/Digital%20light%20sensor%20v1.0%20Sch.pdf',
@@ -305,7 +302,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_tsl2591'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_tsl2591',
       ),
       datasheet:
         'https://cdn-shop.adafruit.com/datasheets/TSL25911_Datasheet_EN_v1.pdf',
@@ -324,7 +321,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-Grove-OledDisplay',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ssd1308'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ssd1308',
       ),
       reference: 'http://wiki.seeedstudio.com/Grove-OLED_Display_0.96inch/',
     },
@@ -341,7 +338,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-Grove-OledDisplay',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ssd1306'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ssd1306',
       ),
       datasheet: 'https://akizukidenshi.com/catalog/g/g112031/',
     },
@@ -358,7 +355,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-Grove-Touch',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mpr121'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mpr121',
       ),
       datasheet: 'https://www.sparkfun.com/datasheets/Components/MPR121.pdf',
       reference: 'http://wiki.seeedstudio.com/Grove-I2C_Touch_Sensor/',
@@ -376,9 +373,10 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_qrcodescanner'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_qrcodescanner',
       ),
-      reference: 'https://shop.m5stack.com/products/qr-code-scanner-unit-stm32f030',
+      reference:
+        'https://shop.m5stack.com/products/qr-code-scanner-unit-stm32f030',
     },
   },
   {
@@ -393,7 +391,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ws1850s'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ws1850s',
       ),
       reference: 'https://docs.m5stack.com/en/unit/rfid2',
     },
@@ -410,7 +408,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-S11059',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C4_S11059',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_s11059'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_s11059',
       ),
       datasheet:
         'http://akizukidenshi.com/download/ds/hamamatsu/s11059-02dt.pdf',
@@ -428,7 +426,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-VEML6070',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_VEML6070',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_veml6070'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_veml6070',
       ),
       datasheet:
         'https://cdn-shop.adafruit.com/product-files/2899/C4170_veml6070.pdf',
@@ -446,7 +444,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ltr390'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ltr390',
       ),
       datasheet:
         'https://cdn-learn.adafruit.com/downloads/pdf/adafruit-ltr390-uv-sensor.pdf',
@@ -465,7 +463,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_as3935'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_as3935',
       ),
       datasheet:
         'https://www.sciosense.com/wp-content/uploads/documents/AS3935-Data-Sheet.pdf',
@@ -486,7 +484,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-Grove-Accelerometer',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_adxl345'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_adxl345',
       ),
       reference:
         'http://wiki.seeedstudio.com/Grove-3-Axis_Digital_Accelerometer-16g/',
@@ -497,15 +495,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'MPU6050',
     tag: 'I2C',
     category: '3軸加速度+ジャイロ 複合センサ',
-    description:
-      '3軸の加速度に加え、ジャイロの測定も可能な複合センサです',
+    description: '3軸の加速度に加え、ジャイロの測定も可能な複合センサです',
     image: imageUrl('partsImgs/MPU6050.jpg'),
     product: {
       url: 'https://www.switch-science.com/catalog/5025/',
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-MPU6050',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_MPU6050',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mpu6050'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mpu6050',
       ),
       circuit:
         'http://aitendo3.sakura.ne.jp/aitendo_data/product_img/sensor/accelerometer/MPU6050/MPU6050-sch.jpg',
@@ -518,15 +515,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'MPU9250',
     tag: 'I2C',
     category: '3軸加速度+ジャイロ+磁気 複合センサ',
-    description:
-      '3軸の加速度、ジャイロのほか、磁気も測定可能な複合センサです',
+    description: '3軸の加速度、ジャイロのほか、磁気も測定可能な複合センサです',
     image: imageUrl('partsImgs/MPU9250_.jpg'),
     product: {
       url: 'https://www.amazon.co.jp/HiLetgo%C2%AE-MPU9250-9%E8%87%AA%E7%94%B1%E5%BA%A61-%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AD%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%97-%E7%A3%81%E6%B0%97%E3%82%BB%E3%83%B3%E3%82%B5/dp/B0154PM102/',
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-MPU9250',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_MPU9250',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mpu9250'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mpu9250',
       ),
       spec: 'https://strawberry-linux.com/pub/PS-MPU-9250A-01.pdf',
       instructions: 'https://strawberry-linux.com/pub/RM-MPU-9250A-00.pdf',
@@ -537,18 +533,16 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'ICM20948',
     tag: 'I2C',
     category: '3軸加速度+ジャイロ+磁気 複合センサ',
-    description:
-      '3軸の加速度、ジャイロのほか、磁気も測定可能な複合センサです',
+    description: '3軸の加速度、ジャイロのほか、磁気も測定可能な複合センサです',
     image: imageUrl('partsImgs/ICM20948.jpg'),
     product: {
       url: 'https://strawberry-linux.com/catalog/items?code=20948',
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_icm20948'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_icm20948',
       ),
-      datasheet:
-        'https://invensense.tdk.com/download-pdf/icm-20948-datasheet/',
+      datasheet: 'https://invensense.tdk.com/download-pdf/icm-20948-datasheet/',
       reference: 'https://www.switch-science.com/products/5854',
       spec: 'https://strawberry-linux.com/pub/PS-MPU-9250A-01.pdf',
       instructions: 'https://strawberry-linux.com/pub/icm-20948-manual.pdf',
@@ -566,7 +560,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_as5600'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_as5600',
       ),
       reference:
         'https://ams-osram.com/ja/products/sensors/position-sensors/ams-as5600-position-sensor',
@@ -585,7 +579,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-NEOPIXEL_I2C',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C5_NEOPIXEL',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_neopixel-i2c'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_neopixel-i2c',
       ),
     },
   },
@@ -598,11 +592,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     image: imageUrl('partsImgs/neopixel64.jpg'),
     product: {
       url: 'https://www.amazon.co.jp/dp/B07KG3Y2BG/',
-      example: buildExample(
-        undefined,
-        undefined,
-        undefined
-      ),
+      example: buildExample(undefined, undefined, undefined),
       reference: 'https://learn.adafruit.com/adafruit-neopixel-uberguide',
     },
   },
@@ -623,8 +613,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'Neopixel LED 60x60',
     tag: 'I2C',
     category: 'フルカラーLED アレイ',
-    description:
-      '20個のパネルを3つ組み合わせることで60個のパネルとなります',
+    description: '20個のパネルを3つ組み合わせることで60個のパネルとなります',
     image: imageUrl('partsImgs/neopixel60.jpg'),
     product: {
       url: 'https://chirimen.org/',
@@ -644,7 +633,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-HT16K33',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33',
       ),
       circuit: 'https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf',
       datasheet: 'https://www.adafruit.com/product/870',
@@ -665,7 +654,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-HT16K33',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33',
       ),
       circuit: 'https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf',
     },
@@ -675,14 +664,15 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'HT16K33搭載 16x8LEDモジュール',
     tag: 'I2C',
     category: 'LED マトリックス',
-    description: '上記と同等のコントローラが載った、16x8マトリクスLEDのモジュールです。',
+    description:
+      '上記と同等のコントローラが載った、16x8マトリクスLEDのモジュールです。',
     image: imageUrl('partsImgs/HT16K33_16x8.jpg'),
     product: {
       url: 'https://www.aitendo.com/product/16658',
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-HT16K33',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33',
       ),
       circuit: 'https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf',
     },
@@ -692,14 +682,15 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'HT16K33搭載 7セグメントLEDモジュール',
     tag: 'I2C',
     category: 'LED マトリックス',
-    description: '上記と同等のコントローラが載った、7セグメントLEDのモジュールです。',
+    description:
+      '上記と同等のコントローラが載った、7セグメントLEDのモジュールです。',
     image: imageUrl('partsImgs/HT16K33_7seg.jpg'),
     product: {
       url: 'https://www.aitendo.com/product/14540',
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-HT16K33',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33',
       ),
       circuit: 'https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf',
     },
@@ -709,14 +700,15 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'HT16K33搭載 14セグメントLEDモジュール',
     tag: 'I2C',
     category: 'LED マトリックス',
-    description: '上記と同等のコントローラが載った、14セグメントLEDのモジュールです。',
+    description:
+      '上記と同等のコントローラが載った、14セグメントLEDのモジュールです。',
     image: imageUrl('partsImgs/HT16K33_14seg.jpg'),
     product: {
       url: 'https://www.aitendo.com/product/20812',
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-HT16K33',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33',
       ),
       circuit: 'https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf',
     },
@@ -734,7 +726,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-PCA9685',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C8_PCA9685',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685',
       ),
       datasheet: 'https://cdn-shop.adafruit.com/datasheets/PCA9685.pdf',
       guide: 'https://learn.adafruit.com/16-channel-pwm-servo-driver',
@@ -752,7 +744,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-I2C-PWMHBridge-1',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_hbridge2-pca9685pwm'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_hbridge2-pca9685pwm',
       ),
     },
   },
@@ -768,7 +760,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-SHT30',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C7_SHT30',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_sht30'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_sht30',
       ),
       datasheet:
         'https://sensirion.com/media/documents/213E6A3B/63A5A569/Datasheet_SHT3x_DIS.pdf',
@@ -786,7 +778,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_sht40'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_sht40',
       ),
       reference: 'https://sensirion.com/jp/products/product-catalog/SHT40',
     },
@@ -803,7 +795,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_aht10'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_aht10',
       ),
     },
   },
@@ -819,7 +811,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_aht20'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_aht20',
       ),
       datasheet:
         'https://files.seeedstudio.com/wiki/Grove-AHT20_I2C_Industrial_Grade_Temperature_and_Humidity_Sensor/AHT20-datasheet-2020-4-16.pdf',
@@ -837,7 +829,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-HTU21D',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_htu21d'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_htu21d',
       ),
       datasheet: 'https://cdn-shop.adafruit.com/datasheets/1899_HTU21D.pdf',
     },
@@ -854,7 +846,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-TCS34725',
         undefined,
-        undefined
+        undefined,
       ),
     },
   },
@@ -870,7 +862,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-INA219',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_INA219',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ina219'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ina219',
       ),
     },
   },
@@ -886,7 +878,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-MLX90614',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_MLX90614',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mlx90614'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_mlx90614',
       ),
     },
   },
@@ -902,7 +894,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-APDS9960',
         undefined,
-        undefined
+        undefined,
       ),
     },
   },
@@ -919,7 +911,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-seesaw',
         undefined,
-        undefined
+        undefined,
       ),
     },
   },
@@ -935,7 +927,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-BH1750',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_BH1750',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_bh1750'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_bh1750',
       ),
     },
   },
@@ -944,15 +936,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'SCD40',
     tag: 'I2C',
     category: 'CO2センサ',
-    description:
-      'CO2センサ(CO2濃度がPPM値で高精度に計測できるセンサーです)',
+    description: 'CO2センサ(CO2濃度がPPM値で高精度に計測できるセンサーです)',
     image: imageUrl('partsImgs/SCD40.jpg'),
     product: {
       url: 'https://www.switch-science.com/products/7169',
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-SCD40',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_scd40'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_scd40',
       ),
       datasheet:
         'https://cdn.sparkfun.com/assets/d/4/9/a/d/Sensirion_CO2_Sensors_SCD4x_Datasheet.pdf',
@@ -972,7 +963,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-CCS811',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_CCS811',
-        undefined
+        undefined,
       ),
     },
   },
@@ -988,7 +979,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ens160'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ens160',
       ),
       datasheet:
         'https://www.mouser.com/datasheet/2/1081/SC_001224_DS_1_ENS160_Datasheet_Rev_0_95-2258311.pdf',
@@ -1008,10 +999,9 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_sgp40'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_sgp40',
       ),
-      datasheet:
-        'https://docs.rs-online.com/1956/A700000007055193.pdf',
+      datasheet: 'https://docs.rs-online.com/1956/A700000007055193.pdf',
       reference: 'https://sensirion.com/products/catalog/SGP40',
     },
   },
@@ -1027,7 +1017,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-BME680',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_BME680',
-        undefined
+        undefined,
       ),
     },
   },
@@ -1044,7 +1034,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_waveshare20471'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_waveshare20471',
       ),
       reference: 'https://www.waveshare.com/environment-sensor-hat.htm',
       guide: 'https://www.waveshare.com/wiki/Environment_Sensor_HAT',
@@ -1056,15 +1046,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: '赤色LED',
     tag: 'GPIO',
     category: 'LED',
-    description:
-      '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
+    description: '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
     image: imageUrl('partsImgs/LED.jpg'),
     product: {
       url: 'https://akizukidenshi.com/catalog/g/g100624/',
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Blink',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
     },
   },
@@ -1073,15 +1062,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: '黄色LED',
     tag: 'GPIO',
     category: 'LED',
-    description:
-      '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
+    description: '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
     image: imageUrl('partsImgs/LED.jpg'),
     product: {
       url: 'https://akizukidenshi.com/catalog/g/g100626/',
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Blink',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
     },
   },
@@ -1090,15 +1078,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: '黄緑色LED',
     tag: 'GPIO',
     category: 'LED',
-    description:
-      '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
+    description: '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
     image: imageUrl('partsImgs/LED.jpg'),
     product: {
       url: 'https://akizukidenshi.com/catalog/g/g100625/',
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Blink',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
     },
   },
@@ -1115,7 +1102,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Blink',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
     },
   },
@@ -1132,7 +1119,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Blink',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
     },
   },
@@ -1149,7 +1136,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Blink',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
     },
   },
@@ -1166,7 +1153,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Button',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO0',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange',
       ),
     },
   },
@@ -1183,7 +1170,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Button',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO0',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange',
       ),
     },
   },
@@ -1199,7 +1186,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Button',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO0',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange',
       ),
     },
   },
@@ -1216,7 +1203,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange',
       ),
       circuit:
         'https://tutorial.chirimen.org/pizero/esm-examples/gpio-onchange/index.html#gpio',
@@ -1237,7 +1224,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://tutorial.chirimen.org/raspi/section1#section-9',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO3',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
       circuit: 'https://tutorial.chirimen.org/raspi/section1#section-9',
     },
@@ -1255,7 +1242,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://tutorial.chirimen.org/raspi/section1#section-9',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO3',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
       circuit: 'https://tutorial.chirimen.org/raspi/section1#section-9',
       datasheet:
@@ -1275,7 +1262,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://tutorial.chirimen.org/raspi/section1#section-9',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO3',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
       circuit: 'https://tutorial.chirimen.org/raspi/section1#section-9',
       reference:
@@ -1295,7 +1282,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-HBridge',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1',
       ),
     },
   },
@@ -1311,7 +1298,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1',
       ),
       datasheet: 'https://www.elecrow.com/download/datasheet-l9110.pdf',
     },
@@ -1328,7 +1315,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1',
       ),
       datasheet: 'https://akizukidenshi.com/download/ds/st/l298n.pdf',
     },
@@ -1359,7 +1346,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-pirSensor',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_PYR',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange',
       ),
       datasheet:
         'http://www.kyohritsu.sakura.ne.jp/prowiki/index.php?%BF%CD%C2%CE%C0%D6%B3%B0%C0%FE%B4%B6%C3%CE%C1%C7%BB%D2%2FKP-IR412',
@@ -1377,7 +1364,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-pirSensor',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_PYR',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange',
       ),
       datasheet: 'https://www.mpja.com/download/31227sc.pdf',
     },
@@ -1394,7 +1381,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-A4988',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_a4988'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_a4988',
       ),
       circuit: 'https://r.chirimen.org/examples/#GPIO-A4988',
       datasheet:
@@ -1414,7 +1401,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange',
       ),
     },
   },
@@ -1430,7 +1417,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange',
       ),
     },
   },
@@ -1446,7 +1433,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15',
       ),
     },
   },
@@ -1462,7 +1449,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15',
       ),
       datasheet: 'http://akizukidenshi.com/download/ds/suntan/tsr-3386.pdf',
     },
@@ -1480,7 +1467,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'http://chirimen.org/chirimen/gc/top/examples/#I2C-ADS1115-LoadCell',
         'https://chirimen.org/chirimen-micro-bit/examples/#I2C_ADS1115_LoadCell',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1115-loadcell'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1115-loadcell',
       ),
       reference: 'https://akizukidenshi.com/catalog/c/cloadcell/',
     },
@@ -1499,7 +1486,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-PCA9685',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685',
       ),
       circuit: 'http://akizukidenshi.com/download/ds/towerpro/SG90_a.pdf',
     },
@@ -1517,7 +1504,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-PCA9685',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685',
       ),
       circuit: 'https://www.towerpro.com.tw/product/mg90s-3/',
     },
@@ -1534,7 +1521,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-PCA9685',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685',
       ),
       circuit:
         'https://emax-usa.com/products/emx-sv-0275-es08ma-ii-metal-analog-servo',
@@ -1553,7 +1540,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#I2C-PCA9685',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685',
       ),
       circuit: 'https://www.towerpro.com.tw/product/mg995/',
     },
@@ -1570,7 +1557,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-HBridge',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1',
       ),
     },
   },
@@ -1586,7 +1573,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-A4988',
         'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_HBridge',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_a4988'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_a4988',
       ),
       circuit: 'https://r.chirimen.org/examples/#GPIO-A4988',
     },
@@ -1603,7 +1590,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         'https://tutorial.chirimen.org/microbit/iot_actuate',
-        'https://tutorial.chirimen.org/pizero/#gpio-2'
+        'https://tutorial.chirimen.org/pizero/#gpio-2',
       ),
       reference: 'https://tiisai.dip.jp/?p=2676',
       guide: 'https://tutorial.chirimen.org/raspi/section1#section-9',
@@ -1621,7 +1608,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         'https://tutorial.chirimen.org/microbit/iot_actuate',
-        'https://tutorial.chirimen.org/pizero/#gpio-2'
+        'https://tutorial.chirimen.org/pizero/#gpio-2',
       ),
       datasheet:
         'https://akizukidenshi.com/download/ds/mercurymotor/MG1012-0669-150L.pdf',
@@ -1665,7 +1652,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#OTHERS-CAMERA',
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-camera'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-camera',
       ),
     },
   },
@@ -1703,7 +1690,11 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     image: imageUrl('partsImgs/microbit.jpg'),
     product: {
       url: 'https://www.amazon.co.jp/dp/B074N6D55L',
-      example: buildExample(undefined, 'https://microbit.org/ja/guide/', undefined),
+      example: buildExample(
+        undefined,
+        'https://microbit.org/ja/guide/',
+        undefined,
+      ),
     },
   },
   {
@@ -1724,15 +1715,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'フレキシブルＬＥＤ　緑色',
     tag: 'GPIO',
     category: 'LED',
-    description:
-      '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
+    description: '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
     image: imageUrl('partsImgs/M-18007.jpg'),
     product: {
       url: 'https://akizukidenshi.com/catalog/g/g118007/',
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Blink',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
     },
   },
@@ -1741,15 +1731,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'フレキシブルＬＥＤ　赤色',
     tag: 'GPIO',
     category: 'LED',
-    description:
-      '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
+    description: '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
     image: imageUrl('partsImgs/M-18006.jpg'),
     product: {
       url: 'https://akizukidenshi.com/catalog/g/g118006/',
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Blink',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
     },
   },
@@ -1758,15 +1747,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'フレキシブルＬＥＤ　黄色',
     tag: 'GPIO',
     category: 'LED',
-    description:
-      '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
+    description: '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
     image: imageUrl('partsImgs/M-18010.jpg'),
     product: {
       url: 'https://akizukidenshi.com/catalog/g/g118010/',
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Blink',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
     },
   },
@@ -1775,15 +1763,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'フレキシブルＬＥＤ　ピンク色',
     tag: 'GPIO',
     category: 'LED',
-    description:
-      '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
+    description: '通電すると光る部品です(必ず抵抗を挟んで利用してください)',
     image: imageUrl('partsImgs/M-18009.jpg'),
     product: {
       url: 'https://akizukidenshi.com/catalog/g/g118009/',
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Blink',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world',
       ),
     },
   },
@@ -1800,9 +1787,10 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         'https://r.chirimen.org/examples/#GPIO-Blink',
         'https://chirimen.org/chirimen-micro-bit/examples/#GPIO1',
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_isd1820'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_isd1820',
       ),
-      circuit: 'https://tutorial.chirimen.org/pizero/esm-examples/gpio-onchange/index.html#gpio',
+      circuit:
+        'https://tutorial.chirimen.org/pizero/esm-examples/gpio-onchange/index.html#gpio',
       instructions: 'https://www.kyohritsu.jp/eclib/PROD/MANUAL/kpisd1820.pdf',
     },
   },
@@ -1819,7 +1807,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_dfplayer'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_dfplayer',
       ),
       reference: 'https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299',
     },
@@ -1830,15 +1818,14 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     deviceName: 'GY-GPS6MV2',
     tag: 'Other',
     category: 'GPSレシーバ',
-    description:
-      'NEO6Mモジュールを使用した、シリアル接続のGPSレシーバです。',
+    description: 'NEO6Mモジュールを使用した、シリアル接続のGPSレシーバです。',
     image: imageUrl('partsImgs/GY-GPS6MV2.jpg'),
     product: {
       url: 'https://electronicwork.shop/items/625c1ca99fe3d707d725cbe1',
       example: buildExample(
         undefined,
         undefined,
-        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_serial_gps'
+        'https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_serial_gps',
       ),
       datasheet:
         'https://content.u-blox.com/sites/default/files/products/documents/NEO-6_DataSheet_%28GPS.G6-HW-09005%29.pdf',

@@ -1,6 +1,6 @@
-import type { Application } from "express";
-import { NestFactory } from "@nestjs/core";
-import { AppModule } from "@chirimen-device-dashboard/api/app/app.module";
+import type { Application } from 'express';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from '@chirimen-device-dashboard/api/app/app.module';
 
 let appPromise: Promise<Application> | null = null;
 
@@ -11,7 +11,7 @@ export function getApp(): Promise<Application> {
   if (!appPromise) {
     appPromise = (async () => {
       const app = await NestFactory.create(AppModule);
-      app.setGlobalPrefix("api");
+      app.setGlobalPrefix('api');
       await app.init();
       return app.getHttpAdapter().getInstance() as Application;
     })();

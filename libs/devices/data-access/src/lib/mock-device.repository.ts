@@ -5,7 +5,7 @@ import { MOCK_DEVICES } from './mock-device.data';
 
 export class MockDeviceRepository implements DeviceRepository {
   private readonly store = new Map<string, DeviceInfo>(
-    MOCK_DEVICES.map((device) => [device.id, device])
+    MOCK_DEVICES.map((device) => [device.id, device]),
   );
 
   list(): Observable<DeviceInfo[]> {
@@ -20,7 +20,7 @@ export class MockDeviceRepository implements DeviceRepository {
   create(device: DeviceInfo): Observable<DeviceInfo> {
     if (this.store.has(device.id)) {
       return throwError(
-        () => new Error(`Device with id "${device.id}" already exists`)
+        () => new Error(`Device with id "${device.id}" already exists`),
       );
     }
     this.store.set(device.id, { ...device });

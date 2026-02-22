@@ -41,9 +41,9 @@ export class DeviceDetailComponent {
           of({
             device: null,
             error: err?.message ?? 'Failed to load device',
-          })
-        )
-      )
-    )
+          }),
+        ),
+      ),
+    ),
   );
 }

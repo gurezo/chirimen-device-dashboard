@@ -1,7 +1,7 @@
-import { Module } from "@nestjs/common";
-import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
-import { DeviceModule } from "./devices/device.module";
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { DeviceModule } from './devices/device.module';
 
 @Module({
   imports: [DeviceModule],

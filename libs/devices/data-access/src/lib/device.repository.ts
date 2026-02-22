@@ -11,5 +11,5 @@ export interface DeviceRepository {
 }
 
 export const DEVICE_REPOSITORY = new InjectionToken<DeviceRepository>(
-  'DeviceRepository'
+  'DeviceRepository',
 );

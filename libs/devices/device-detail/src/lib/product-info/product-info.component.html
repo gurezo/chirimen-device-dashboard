@@ -1,16 +1,33 @@
 <div class="flex flex-col gap-4">
   @if (product().url) {
-    <div class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-      <h3 class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87">商品リンク</h3>
-      <a [href]="product().url" target="_blank" rel="noopener noreferrer" class="inline-flex py-2 px-4 bg-[#1976d2] text-white rounded-md font-medium transition-all duration-150 hover:bg-[#1565c0] hover:no-underline dark:bg-[#42a5f5] dark:text-black dark:hover:bg-[#64b5f6] after:content-['↗'] after:opacity-90">
+    <div
+      class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
+    >
+      <h3
+        class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87"
+      >
+        商品リンク
+      </h3>
+      <a
+        [href]="product().url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex py-2 px-4 bg-[#1976d2] text-white rounded-md font-medium transition-all duration-150 hover:bg-[#1565c0] hover:no-underline dark:bg-[#42a5f5] dark:text-black dark:hover:bg-[#64b5f6] after:content-['↗'] after:opacity-90"
+      >
         商品ページを見る
       </a>
     </div>
   }
 
   @if (product().example.length) {
-    <div class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-      <h3 class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87">サンプル</h3>
+    <div
+      class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
+    >
+      <h3
+        class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87"
+      >
+        サンプル
+      </h3>
       <div class="flex flex-col gap-3">
         @for (item of product().example; track item.hardware) {
           <choh-example-info [example]="item" />
@@ -20,71 +37,155 @@
   }
 
   @if (product().circuit) {
-    <div class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-      <h3 class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87">回路図</h3>
-      <a [href]="product().circuit" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70">
+    <div
+      class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
+    >
+      <h3
+        class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87"
+      >
+        回路図
+      </h3>
+      <a
+        [href]="product().circuit"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+      >
         {{ product().circuit }}
       </a>
     </div>
   }
 
   @if (product().datasheet) {
-    <div class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-      <h3 class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87">データシート</h3>
-      <a [href]="product().datasheet" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70">
+    <div
+      class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
+    >
+      <h3
+        class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87"
+      >
+        データシート
+      </h3>
+      <a
+        [href]="product().datasheet"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+      >
         {{ product().datasheet }}
       </a>
     </div>
   }
 
   @if (product().reference) {
-    <div class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-      <h3 class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87">リファレンス</h3>
-      <a [href]="product().reference" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70">
+    <div
+      class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
+    >
+      <h3
+        class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87"
+      >
+        リファレンス
+      </h3>
+      <a
+        [href]="product().reference"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+      >
         {{ product().reference }}
       </a>
     </div>
   }
 
   @if (product().spec) {
-    <div class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-      <h3 class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87">仕様</h3>
+    <div
+      class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
+    >
+      <h3
+        class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87"
+      >
+        仕様
+      </h3>
       @if (isUrl(product().spec!)) {
-        <a [href]="product().spec" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70">
+        <a
+          [href]="product().spec"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+        >
           {{ product().spec }}
         </a>
       } @else {
-        <p class="m-0 text-[0.9375rem] leading-relaxed text-black/75 whitespace-pre-wrap dark:text-white/75">{{ product().spec }}</p>
+        <p
+          class="m-0 text-[0.9375rem] leading-relaxed text-black/75 whitespace-pre-wrap dark:text-white/75"
+        >
+          {{ product().spec }}
+        </p>
       }
     </div>
   }
 
   @if (product().instructions) {
-    <div class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-      <h3 class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87">使用方法</h3>
+    <div
+      class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
+    >
+      <h3
+        class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87"
+      >
+        使用方法
+      </h3>
       @if (isUrl(product().instructions!)) {
-        <a [href]="product().instructions" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70">
+        <a
+          [href]="product().instructions"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+        >
           {{ product().instructions }}
         </a>
       } @else {
-        <p class="m-0 text-[0.9375rem] leading-relaxed text-black/75 whitespace-pre-wrap dark:text-white/75">{{ product().instructions }}</p>
+        <p
+          class="m-0 text-[0.9375rem] leading-relaxed text-black/75 whitespace-pre-wrap dark:text-white/75"
+        >
+          {{ product().instructions }}
+        </p>
       }
     </div>
   }
 
   @if (product().guide) {
-    <div class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-      <h3 class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87">ガイド</h3>
-      <a [href]="product().guide" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70">
+    <div
+      class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
+    >
+      <h3
+        class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87"
+      >
+        ガイド
+      </h3>
+      <a
+        [href]="product().guide"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+      >
         {{ product().guide }}
       </a>
     </div>
   }
 
   @if (product().note) {
-    <div class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-      <h3 class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87">備考</h3>
-      <p class="m-0 text-[0.9375rem] leading-relaxed text-black/75 whitespace-pre-wrap dark:text-white/75">{{ product().note }}</p>
+    <div
+      class="bg-white rounded-lg p-4 px-5 border border-black/6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-white/[0.04] dark:border-white/[0.08] dark:shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
+    >
+      <h3
+        class="text-sm font-semibold mb-3 pb-2 border-b border-black/8 text-black/87 dark:border-white/10 dark:text-white/87"
+      >
+        備考
+      </h3>
+      <p
+        class="m-0 text-[0.9375rem] leading-relaxed text-black/75 whitespace-pre-wrap dark:text-white/75"
+      >
+        {{ product().note }}
+      </p>
     </div>
   }
 </div>
