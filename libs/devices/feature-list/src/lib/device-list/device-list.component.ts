@@ -18,7 +18,9 @@ import { DeviceListStore } from "@chirimen-device-dashboard/libs-state";
     MatTableModule,
   ],
   templateUrl: "./device-list.component.html",
-  styleUrl: "./device-list.component.scss",
+  host: {
+    class: "flex flex-col flex-1 min-h-0 overflow-hidden",
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeviceListComponent {

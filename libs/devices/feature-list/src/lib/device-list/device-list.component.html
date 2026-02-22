@@ -1,18 +1,18 @@
-<div class="device-list">
+<div class="flex flex-col h-full p-4">
   @if (error$ | async; as error) {
-    <div class="device-list__error">{{ error }}</div>
+    <div class="flex-shrink-0 text-[var(--mat-error-default,#b00020)] mb-4">{{ error }}</div>
   }
 
   @if (loading$ | async) {
-    <div class="device-list__loading">
+    <div class="flex flex-1 justify-center items-center p-8">
       <mat-spinner diameter="40"></mat-spinner>
     </div>
   } @else {
-    <div class="device-list__table-container">
+    <div class="flex flex-1 min-h-0 overflow-auto">
       <table
         mat-table
         [dataSource]="(filteredDevices$ | async) ?? []"
-        class="device-list__table"
+        class="w-full device-list-table"
       >
         <ng-container matColumnDef="image">
           <th mat-header-cell *matHeaderCellDef>イメージ</th>
@@ -20,7 +20,7 @@
             <img
               [src]="row.image"
               [alt]="row.deviceName"
-              class="device-list__thumbnail"
+              class="w-12 h-12 object-cover rounded"
             />
           </td>
         </ng-container>
@@ -46,7 +46,7 @@
           mat-row
           *matRowDef="let row; columns: displayedColumns"
           (click)="navigateToDetail(row.id)"
-          class="device-list__row--clickable"
+          class="cursor-pointer"
         ></tr>
 
         <tr class="mat-row" *matNoDataRow>
