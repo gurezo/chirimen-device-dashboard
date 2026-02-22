@@ -1,6 +1,6 @@
 import { ComponentStore } from '@ngrx/component-store';
 import { inject } from '@angular/core';
-import { Observable, switchMap, tap, catchError, of } from 'rxjs';
+import { switchMap, tap, catchError, of } from 'rxjs';
 import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
 import { DEVICE_REPOSITORY } from '@chirimen-device-dashboard/libs-data-access';
 
@@ -96,23 +96,6 @@ export class DeviceListStore extends ComponentStore<DeviceListState> {
           })
         );
       })
-    )
-  );
-
-  /** Call with device id to delete. Triggers reload on success. */
-  readonly deleteDevice = this.effect((id$: Observable<string>) =>
-    id$.pipe(
-      switchMap((id) =>
-        this.repository.delete(id).pipe(
-          tap(() => this.loadDevices()),
-          catchError((error: Error) => {
-            this.patchState({
-              error: error?.message ?? 'Failed to delete device',
-            });
-            return of(undefined);
-          })
-        )
-      )
     )
   );
 
