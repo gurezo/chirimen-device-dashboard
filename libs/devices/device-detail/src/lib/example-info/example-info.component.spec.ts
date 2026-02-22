@@ -34,7 +34,7 @@ describe('ExampleInfoComponent', () => {
 
   it('should render URL code as link', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const link = compiled.querySelector('a.example-info__code--link');
+    const link = compiled.querySelector('a[href="https://example.com/code"]');
     expect(link).toBeTruthy();
     expect(link?.getAttribute('href')).toBe('https://example.com/code');
     expect(link?.getAttribute('target')).toBe('_blank');

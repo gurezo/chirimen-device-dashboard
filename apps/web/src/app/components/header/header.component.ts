@@ -5,6 +5,8 @@ import { RouterLink } from "@angular/router";
   selector: "choh-header",
   imports: [RouterLink],
   templateUrl: "./header.component.html",
-  styleUrl: "./header.component.scss",
+  host: {
+    class: "flex-shrink-0",
+  },
 })
 export class HeaderComponent {}

@@ -7,7 +7,9 @@ import { HeaderComponent } from "./components/header/header.component";
   imports: [RouterModule, MatButtonModule, HeaderComponent],
   selector: "choh-root",
   templateUrl: "./app.html",
-  styleUrl: "./app.scss",
+  host: {
+    class: "flex flex-col h-full min-h-0 overflow-hidden",
+  },
 })
 export class App {
   protected title = "web";

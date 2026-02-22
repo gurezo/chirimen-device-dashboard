@@ -1,5 +1,5 @@
-<div class="example-info">
-  <div class="example-info__hardware">{{ example().hardware }}</div>
+<div class="flex flex-col gap-1.5 py-3 px-4 bg-black/[0.02] rounded-md border-l-4 border-l-[rgba(25,118,210,0.5)] dark:bg-white/[0.04] dark:border-l-[rgba(25,118,210,0.6)]">
+  <div class="text-[0.8125rem] font-semibold text-black/70 dark:text-white/80">{{ example().hardware }}</div>
   @if (isUrl(example().code)) {
     @let safeUrl = getSanitizedUrl(example().code);
     @if (safeUrl) {
@@ -7,13 +7,13 @@
         [href]="safeUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="example-info__code example-info__code--link"
+        class="font-mono text-sm break-all text-[#1976d2] no-underline hover:underline dark:text-[#42a5f5]"
         >{{ example().code }}</a
       >
     } @else {
-      <div class="example-info__code">{{ example().code }}</div>
+      <div class="font-mono text-sm break-all text-[#1976d2] dark:text-[#42a5f5]">{{ example().code }}</div>
     }
   } @else {
-    <div class="example-info__code">{{ example().code }}</div>
+    <div class="font-mono text-sm break-all text-[#1976d2] dark:text-[#42a5f5]">{{ example().code }}</div>
   }
 </div>

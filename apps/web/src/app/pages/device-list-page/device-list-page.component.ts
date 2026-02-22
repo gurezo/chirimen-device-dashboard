@@ -31,7 +31,9 @@ type ViewMode = "table" | "card";
     DeviceCardListComponent,
   ],
   templateUrl: "./device-list-page.component.html",
-  styleUrl: "./device-list-page.component.scss",
+  host: {
+    class: "flex flex-col flex-1 min-h-0 overflow-hidden",
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeviceListPageComponent implements OnInit {
