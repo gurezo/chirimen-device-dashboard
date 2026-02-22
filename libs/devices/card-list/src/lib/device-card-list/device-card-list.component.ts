@@ -21,7 +21,9 @@ import { TruncatePipe } from "../truncate.pipe";
     TruncatePipe,
   ],
   templateUrl: "./device-card-list.component.html",
-  styleUrl: "./device-card-list.component.scss",
+  host: {
+    class: "flex flex-col flex-1 min-h-0 overflow-hidden",
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeviceCardListComponent {

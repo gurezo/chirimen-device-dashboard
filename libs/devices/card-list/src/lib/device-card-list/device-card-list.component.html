@@ -1,39 +1,39 @@
-<div class="device-card-list">
+<div class="flex flex-col h-full p-4 flex-1 min-h-0 overflow-hidden">
   @if (error$ | async; as error) {
-    <div class="device-card-list__error">{{ error }}</div>
+    <div class="flex-shrink-0 text-[var(--mat-error-default,#b00020)] mb-4">{{ error }}</div>
   }
 
   @if (loading$ | async) {
-    <div class="device-card-list__loading">
+    <div class="flex flex-1 justify-center items-center p-8">
       <mat-spinner diameter="40"></mat-spinner>
     </div>
   } @else {
-    <div class="device-card-list__grid">
+    <div class="flex flex-1 min-h-0 overflow-auto grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] auto-rows-[320px] gap-6 content-start p-1">
       @for (device of filteredDevices$ | async; track device.id) {
-        <a [routerLink]="['/devices', device.id]" class="device-card-list__card-wrapper">
-        <mat-card class="device-card-list__card">
+        <a [routerLink]="['/devices', device.id]" class="block relative h-full rounded-xl overflow-hidden no-underline text-inherit shadow-[0_2px_4px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-[250ms] hover:shadow-[0_8px_16px_rgba(0,0,0,0.12),0_4px_8px_rgba(0,0,0,0.08)] hover:-translate-y-1 after:content-[''] after:absolute after:inset-0 after:rounded-xl after:pointer-events-none after:transition-colors after:duration-[250ms] after:z-[1] after:bg-transparent hover:after:bg-black/5 dark:shadow-[0_2px_4px_rgba(0,0,0,0.2),0_4px_12px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_8px_16px_rgba(0,0,0,0.3),0_4px_8px_rgba(0,0,0,0.2)] dark:hover:after:bg-white/[0.08]">
+        <mat-card class="flex flex-col h-full relative z-0 [&_mat-card-header]:flex-shrink-0 [&_mat-card-content]:flex-1 [&_mat-card-content]:min-h-0">
           <img
             mat-card-image
             [src]="device.image"
             [alt]="device.deviceName"
-            class="device-card-list__image"
+            class="h-40 object-cover"
           />
           <mat-card-header>
             <mat-card-title>{{ device.deviceName }}</mat-card-title>
             <mat-card-subtitle>
-              <span class="device-card-list__tag">{{ device.tag }}</span>
+              <span class="inline-block py-0.5 px-2 mr-2 text-xs font-medium bg-black/10 rounded dark:bg-white/20">{{ device.tag }}</span>
               {{ device.category }}
             </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <p class="device-card-list__description">
+            <p class="m-0 overflow-hidden line-clamp-2">
               {{ device.description | truncate : 60 }}
             </p>
           </mat-card-content>
         </mat-card>
         </a>
       } @empty {
-        <div class="device-card-list__empty">デバイスがありません。</div>
+        <div class="col-span-full p-8 text-center text-black/60 dark:text-white/60">デバイスがありません。</div>
       }
     </div>
   }
