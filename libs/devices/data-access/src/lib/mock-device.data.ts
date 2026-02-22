@@ -315,7 +315,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     tag: 'I2C',
     category: '小型ディスプレイ',
     description: '0.96inch、128x64dot の小型 OLED (有機 EL) ディスプレイです',
-    image: imageUrl('partsImgs/SSD1306.jpg'),
+    image: './no_image.png',
     product: {
       url: 'https://www.switch-science.com/catalog/829/',
       example: buildExample(
@@ -349,7 +349,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     tag: 'I2C',
     category: 'タッチセンサ',
     description: '指などの接触を検出するセンサです',
-    image: imageUrl('partsImgs/LED.jpg'),
+    image: './no_image.png',
     product: {
       url: 'https://www.switch-science.com/catalog/825/',
       example: buildExample(
@@ -478,7 +478,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     tag: 'I2C',
     category: '3軸加速度センサ',
     description: '3軸の加速度を検出できるセンサです',
-    image: imageUrl('partsImgs/LED.jpg'),
+    image: './no_image.png',
     product: {
       url: 'https://www.switch-science.com/catalog/972/',
       example: buildExample(
@@ -1480,7 +1480,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     category: 'サーボモータ',
     description:
       'Tower Pro 製の小型サーボモータです　同一型番の互換品も多数流通しています',
-    image: imageUrl(''),
+    image: './no_image.png',
     product: {
       url: 'https://akizukidenshi.com/catalog/g/g108761/',
       example: buildExample(
@@ -1551,7 +1551,7 @@ export const MOCK_DEVICES: DeviceInfo[] = [
     tag: 'Actuator',
     category: 'DCモータ',
     description: '各 Examples をご確認ください',
-    image: imageUrl(''),
+    image: './no_image.png',
     product: {
       url: 'https://chirimen.org/',
       example: buildExample(
