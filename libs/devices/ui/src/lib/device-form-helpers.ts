@@ -45,7 +45,9 @@ export function createDeviceFormGroup(
       nonNullable: true,
       validators: [Validators.required],
     }),
-    tag: new FormControl<'GPIO' | 'I2C' | 'Other'>(value?.tag ?? 'Other', {
+    tag: new FormControl<
+      'GPIO' | 'I2C' | 'Analog' | 'Actuator' | 'Other' | 'BoardComputer'
+    >(value?.tag ?? 'Other', {
       nonNullable: true,
     }),
     category: new FormControl(value?.category ?? '', { nonNullable: true }),
