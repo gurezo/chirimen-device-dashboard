@@ -18,7 +18,7 @@ export interface ProductInfo {
 export interface DeviceInfo {
   id: string;
   deviceName: string;
-  tag: 'GPIO' | 'I2C' | 'Other';
+  tag: 'GPIO' | 'I2C' | 'Analog' | 'Actuator' | 'Other' | 'BoardComputer';
   category: string;
   description: string;
   image: string;
