@@ -1,14 +1,18 @@
 import { ComponentStore } from '@ngrx/component-store';
 import { inject } from '@angular/core';
-import { switchMap, tap, catchError, of } from 'rxjs';
+import { switchMap, tap, catchError, of, EMPTY, take } from 'rxjs';
 import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
 import { DEVICE_REPOSITORY } from '@chirimen-device-dashboard/libs-data-access';
+
+export type ViewMode = 'table' | 'card';
 
 export interface DeviceListState {
   devices: DeviceInfo[];
   loading: boolean;
+  loaded: boolean;
   error: string | undefined;
   query: string;
+  viewMode: ViewMode;
   filterTag: DeviceInfo['tag'] | undefined;
   filterCategory: string | undefined;
 }
@@ -16,8 +20,10 @@ export interface DeviceListState {
 const initialState: DeviceListState = {
   devices: [],
   loading: false,
+  loaded: false,
   error: undefined,
   query: '',
+  viewMode: 'table',
   filterTag: undefined,
   filterCategory: undefined,
 };
@@ -41,6 +47,7 @@ export class DeviceListStore extends ComponentStore<DeviceListState> {
   readonly loading$ = this.select((s) => s.loading);
   readonly error$ = this.select((s) => s.error);
   readonly query$ = this.select((s) => s.query);
+  readonly viewMode$ = this.select((s) => s.viewMode);
   readonly filterTag$ = this.select((s) => s.filterTag);
   readonly filterCategory$ = this.select((s) => s.filterCategory);
 
@@ -69,6 +76,11 @@ export class DeviceListStore extends ComponentStore<DeviceListState> {
     query,
   }));
 
+  readonly setViewMode = this.updater((state, viewMode: ViewMode) => ({
+    ...state,
+    viewMode,
+  }));
+
   readonly setFilterTag = this.updater(
     (state, filterTag: DeviceInfo['tag'] | undefined) => ({
       ...state,
@@ -89,7 +101,12 @@ export class DeviceListStore extends ComponentStore<DeviceListState> {
         this.patchState({ loading: true, error: undefined });
         return this.repository.list().pipe(
           tap((devices) =>
-            this.patchState({ devices, loading: false, error: undefined }),
+            this.patchState({
+              devices,
+              loading: false,
+              loaded: true,
+              error: undefined,
+            }),
           ),
           catchError((error: Error) => {
             this.patchState({
@@ -100,6 +117,37 @@ export class DeviceListStore extends ComponentStore<DeviceListState> {
           }),
         );
       }),
+    ),
+  );
+
+  readonly loadDevicesIfNeeded = this.effect((trigger$) =>
+    trigger$.pipe(
+      switchMap(() =>
+        this.select((s) => s.loaded).pipe(
+          take(1),
+          switchMap((loaded) => {
+            if (loaded) return EMPTY;
+            this.patchState({ loading: true, error: undefined });
+            return this.repository.list().pipe(
+              tap((devices) =>
+                this.patchState({
+                  devices,
+                  loading: false,
+                  loaded: true,
+                  error: undefined,
+                }),
+              ),
+              catchError((error: Error) => {
+                this.patchState({
+                  loading: false,
+                  error: error?.message ?? 'Failed to load devices',
+                });
+                return of([]);
+              }),
+            );
+          }),
+        ),
+      ),
     ),
   );
 
