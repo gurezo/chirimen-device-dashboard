@@ -5,6 +5,7 @@ import {
 import { provideRouter } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideDeviceRepository } from '@chirimen-device-dashboard/libs-data-access';
+import { provideDeviceListStore } from '@chirimen-device-dashboard/libs-state';
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -13,5 +14,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     provideAnimations(),
     provideDeviceRepository(),
+    provideDeviceListStore(),
   ],
 };

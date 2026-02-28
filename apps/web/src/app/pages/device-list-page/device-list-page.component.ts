@@ -1,3 +1,4 @@
+import { toSignal } from '@angular/core/rxjs-interop';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -11,17 +12,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DeviceCardListComponent } from '@chirimen-device-dashboard/libs-card-list';
 import { DeviceListComponent } from '@chirimen-device-dashboard/libs-feature-list';
-import {
-  DeviceListStore,
-  provideDeviceListStore,
-} from '@chirimen-device-dashboard/libs-state';
+import { DeviceListStore } from '@chirimen-device-dashboard/libs-state';
 
 type ViewMode = 'table' | 'card';
 
 @Component({
   selector: 'choh-device-list-page',
   standalone: true,
-  providers: [provideDeviceListStore()],
   imports: [
     FormsModule,
     MatButtonToggleModule,
@@ -40,7 +37,7 @@ export class DeviceListPageComponent implements OnInit {
   private readonly store = inject(DeviceListStore);
 
   readonly viewMode = signal<ViewMode>('table');
-  readonly query = signal('');
+  readonly query = toSignal(this.store.query$, { initialValue: '' });
 
   ngOnInit(): void {
     this.store.loadDevices(undefined as never);
@@ -51,7 +48,6 @@ export class DeviceListPageComponent implements OnInit {
   }
 
   onQueryChange(value: string): void {
-    this.query.set(value);
     this.store.setQuery(value);
   }
 }
