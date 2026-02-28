@@ -22,7 +22,7 @@
       }
     },
     "test": {
-      "executor": "@angular/build:unit-test",
+      "executor": "@nx/vitest:test",
       "options": {
         "tsConfig": "libs/devices/data-access/tsconfig.spec.json"
       },
