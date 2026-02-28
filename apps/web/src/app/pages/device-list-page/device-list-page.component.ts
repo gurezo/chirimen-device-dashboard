@@ -4,7 +4,6 @@ import {
   Component,
   inject,
   OnInit,
-  signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -12,9 +11,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DeviceCardListComponent } from '@chirimen-device-dashboard/libs-card-list';
 import { DeviceListComponent } from '@chirimen-device-dashboard/libs-feature-list';
-import { DeviceListStore } from '@chirimen-device-dashboard/libs-state';
-
-type ViewMode = 'table' | 'card';
+import {
+  DeviceListStore,
+  type ViewMode,
+} from '@chirimen-device-dashboard/libs-state';
 
 @Component({
   selector: 'choh-device-list-page',
@@ -36,15 +36,15 @@ type ViewMode = 'table' | 'card';
 export class DeviceListPageComponent implements OnInit {
   private readonly store = inject(DeviceListStore);
 
-  readonly viewMode = signal<ViewMode>('table');
+  readonly viewMode = toSignal(this.store.viewMode$, { initialValue: 'table' });
   readonly query = toSignal(this.store.query$, { initialValue: '' });
 
   ngOnInit(): void {
-    this.store.loadDevices(undefined as never);
+    this.store.loadDevicesIfNeeded(undefined as never);
   }
 
   setViewMode(mode: ViewMode | null): void {
-    if (mode) this.viewMode.set(mode);
+    if (mode) this.store.setViewMode(mode);
   }
 
   onQueryChange(value: string): void {
