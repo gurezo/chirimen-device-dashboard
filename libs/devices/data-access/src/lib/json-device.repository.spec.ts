@@ -1,4 +1,3 @@
-import { TestBed } from '@angular/core/testing';
 import { firstValueFrom } from 'rxjs';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
@@ -36,10 +35,7 @@ describe('JsonDeviceRepository', () => {
     });
     vi.stubGlobal('fetch', fetchMock);
 
-    TestBed.configureTestingModule({
-      providers: [JsonDeviceRepository],
-    });
-    repo = TestBed.inject(JsonDeviceRepository);
+    repo = new JsonDeviceRepository();
   });
 
   afterEach(() => {
