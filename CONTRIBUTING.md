@@ -23,11 +23,8 @@
 | スコープ             | 説明                                              |
 | -------------------- | ------------------------------------------------- |
 | `web`                | フロントエンドアプリ (apps/web)                   |
-| `api`                | API サーバー (apps/api)                           |
-| `api-e2e`            | API E2E テスト (apps/api-e2e)                     |
 | `web-e2e`            | Web E2E テスト (apps/web-e2e)                     |
 | `shared-types`       | 共有型定義 (libs/shared-types)                    |
-| `functions`          | Firebase Functions (functions/)                   |
 | `workspace`          | ルート・ツール・設定など                          |
 | `libs-data-access`   | devices データアクセス (libs/devices/data-access) |
 | `libs-state`         | devices 状態管理 (libs/devices/state)             |
@@ -38,7 +35,7 @@
 
 ```
 feat(web): add device list component
-fix(api): correct CORS for serial port requests
+fix(web): correct device list display
 docs(workspace): update README quick start
 build(workspace): add commitlint and husky
 ```

@@ -14,9 +14,7 @@ flowchart TB
 
     subgraph apps["apps/"]
         web["web (Angular SPA)"]
-        api["api (NestJS API)"]
         webE2e["web-e2e (Playwright E2E)"]
-        apiE2e["api-e2e (Jest E2E)"]
     end
 
     subgraph libs["libs/"]
@@ -30,13 +28,8 @@ flowchart TB
         end
     end
 
-    subgraph other["その他"]
-        functionsNode["functions (Firebase Cloud Functions)"]
-    end
-
     root --> apps
     root --> libs
-    root --> other
 ```
 
 ### プロジェクト依存関係グラフ
@@ -45,9 +38,7 @@ flowchart TB
 flowchart LR
     subgraph apps["Applications"]
         web["web"]
-        api["api"]
         webE2e["web-e2e"]
-        apiE2e["api-e2e"]
     end
 
     subgraph libs["Libraries"]
@@ -59,13 +50,8 @@ flowchart LR
         deviceDetail["libs-device-detail"]
     end
 
-    subgraph funcs["Functions"]
-        functionsNode["functions"]
-    end
-
     sharedTypes --> dataAccess
     sharedTypes --> stateLib
-    sharedTypes --> api
     sharedTypes --> deviceDetail
 
     dataAccess --> stateLib
@@ -82,9 +68,6 @@ flowchart LR
     web --> deviceDetail
 
     webE2e -.->|implicit| web
-    apiE2e -.->|implicit| api
-
-    functionsNode --> api
 ```
 
 ### レイヤー別アーキテクチャ
@@ -113,11 +96,6 @@ flowchart TB
         sharedTypes["shared-types"]
     end
 
-    subgraph backend["Backend"]
-        api["api (NestJS)"]
-        functionsNode["functions (Firebase)"]
-    end
-
     web --> featureList
     web --> cardList
     web --> deviceDetail
@@ -130,9 +108,6 @@ flowchart TB
     stateLib --> sharedTypes
     dataAccess --> sharedTypes
     deviceDetail --> sharedTypes
-
-    api --> sharedTypes
-    functionsNode --> api
 ```
 
 ### プロジェクト一覧
@@ -140,16 +115,13 @@ flowchart TB
 | プロジェクト | パス | 種別 | 説明 |
 | --- | --- | --- | --- |
 | web | apps/web | Application | Angular フロントエンド (ポート 4200) |
-| api | apps/api | Application | NestJS REST API |
 | web-e2e | apps/web-e2e | E2E | Playwright による Web E2E テスト |
-| api-e2e | apps/api-e2e | E2E | Jest による API E2E テスト |
 | shared-types | libs/shared-types | Library | DeviceInfo, ProductInfo 等の共有型 |
 | libs-data-access | libs/devices/data-access | Library | デバイスリポジトリ・データアクセス |
 | libs-state | libs/devices/state | Library | DeviceListStore 等の状態管理 |
 | libs-feature-list | libs/devices/feature-list | Library | デバイス一覧 UI コンポーネント |
 | libs-card-list | libs/devices/card-list | Library | デバイスカード一覧 UI |
 | libs-device-detail | libs/devices/device-detail | Library | デバイス詳細 UI |
-| functions | functions | Library | Firebase Cloud Functions |
 
 ## Quick Start
 

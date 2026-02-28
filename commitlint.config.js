@@ -6,11 +6,8 @@ module.exports = {
       'always',
       [
         'web',
-        'api',
-        'api-e2e',
         'web-e2e',
         'shared-types',
-        'functions',
         'workspace',
         'libs-data-access',
         'libs-state',
