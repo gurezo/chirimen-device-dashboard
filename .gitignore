@@ -46,6 +46,7 @@ graph.html
 static/
 
 .angular
+.pnpm-store
 
 __screenshots__/
 
