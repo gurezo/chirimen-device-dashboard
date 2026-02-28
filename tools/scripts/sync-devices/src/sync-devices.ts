@@ -36,7 +36,7 @@ const INTERFACE_TO_TAG: Record<string, DeviceTag> = {
   ボードコンピューター: 'BoardComputer',
 };
 
-function parseCsv(text: string): string[][] {
+export function parseCsv(text: string): string[][] {
   const rows: string[][] = [];
   let current: string[] = [];
   let field = '';
@@ -82,7 +82,7 @@ function parseCsv(text: string): string[][] {
   return rows;
 }
 
-function toSlug(str: string): string {
+export function toSlug(str: string): string {
   return (
     str
       .toLowerCase()
@@ -106,14 +106,14 @@ function buildExample(
   return examples;
 }
 
-function toImageUrl(imageUrl: string): string {
+export function toImageUrl(imageUrl: string): string {
   const trimmed = imageUrl?.trim() ?? '';
   if (!trimmed) return './no_image.png';
   if (trimmed.startsWith('http')) return trimmed;
   return `${IMAGE_BASE_URL}${trimmed}`;
 }
 
-function rowToDeviceInfo(row: string[]): DeviceInfo | null {
+export function rowToDeviceInfo(row: string[]): DeviceInfo | null {
   const padded = [...row, ...Array(16).fill('')].slice(0, 16);
   const [
     iface,
@@ -167,7 +167,7 @@ function rowToDeviceInfo(row: string[]): DeviceInfo | null {
   };
 }
 
-function assignUniqueIds(devices: DeviceInfo[]): DeviceInfo[] {
+export function assignUniqueIds(devices: DeviceInfo[]): DeviceInfo[] {
   const idCount = new Map<string, number>();
 
   return devices.map((d) => {
@@ -213,7 +213,9 @@ async function main(): Promise<void> {
   console.log(`Wrote ${uniqueDevices.length} devices to ${OUTPUT_PATH}`);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (!process.env.VITEST) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
