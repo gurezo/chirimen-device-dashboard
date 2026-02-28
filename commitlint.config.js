@@ -17,6 +17,8 @@ module.exports = {
         'libs-feature-list',
         'libs-card-list',
         'libs-device-detail',
+        'sync-devices',
+        'ci',
       ],
     ],
   },
