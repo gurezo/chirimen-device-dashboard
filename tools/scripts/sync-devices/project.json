@@ -1,0 +1,45 @@
+{
+  "name": "sync-devices",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "tools/scripts/sync-devices/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/scripts/sync-devices",
+        "main": "tools/scripts/sync-devices/src/sync-devices.ts",
+        "tsConfig": "tools/scripts/sync-devices/tsconfig.lib.json",
+        "assets": [],
+        "generatePackageJson": false,
+        "rootDir": "."
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../../coverage/tools/scripts/sync-devices"
+      },
+      "configurations": {
+        "ci": {
+          "watch": false
+        }
+      }
+    },
+    "sync": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/apps/web/public/devices.json"],
+      "options": {
+        "command": "node -r @swc-node/register/register tools/scripts/sync-devices/src/sync-devices.ts",
+        "cwd": "{workspaceRoot}"
+      },
+      "configurations": {}
+    }
+  }
+}
