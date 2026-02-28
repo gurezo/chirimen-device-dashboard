@@ -1,0 +1,17 @@
+{
+  "name": "sync-devices",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "tools/scripts/sync-devices/src",
+  "targets": {
+    "sync": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/apps/web/public/devices.json"],
+      "options": {
+        "command": "node -r @swc-node/register/register tools/scripts/sync-devices/src/sync-devices.ts",
+        "cwd": "{workspaceRoot}"
+      },
+      "configurations": {}
+    }
+  }
+}
