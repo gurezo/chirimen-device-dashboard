@@ -8,7 +8,6 @@ export default [
     ignores: [
       '**/dist',
       '**/out-tsc',
-      '**/functions/lib',
       '**/vitest.config.*.timestamp*',
     ],
   },
@@ -21,7 +20,6 @@ export default [
           enforceBuildableLibDependency: true,
           allow: [
             '^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$',
-            '@chirimen-device-dashboard/api/**',
           ],
           depConstraints: [
             {

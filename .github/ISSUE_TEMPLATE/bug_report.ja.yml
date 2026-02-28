@@ -23,8 +23,6 @@ body:
       label: 対象アプリ
       options:
         - web (Angular)
-        - api (NestJS)
-        - functions (Firebase)
         - Other
     validations:
       required: true
