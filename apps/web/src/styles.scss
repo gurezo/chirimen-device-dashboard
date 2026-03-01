@@ -27,13 +27,6 @@ body {
 @tailwind components;
 @tailwind utilities;
 
-/* router-outlet: take remaining flex space without changing display (avoids width constraint) */
-main router-outlet {
-  flex: 1 1 0;
-  min-height: 0;
-  overflow: hidden;
-}
-
 /* Device list table row hover (Angular Material table) */
 .device-list-table tr.mat-mdc-row:hover,
 .device-list-table tr.mat-row:hover {
