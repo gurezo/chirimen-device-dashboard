@@ -16,6 +16,7 @@ module.exports = {
         'libs-device-detail',
         'sync-devices',
         'ci',
+        'mcp',
       ],
     ],
   },
