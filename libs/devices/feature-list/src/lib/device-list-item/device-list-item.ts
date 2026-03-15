@@ -7,6 +7,13 @@ import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
   standalone: true,
   imports: [],
   templateUrl: './device-list-item.html',
+  host: {
+    class:
+      'col-span-full grid grid-cols-subgrid items-center min-h-14 cursor-pointer border-b border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10',
+    role: 'button',
+    tabindex: '0',
+    '(click)': 'navigateToDetail()',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeviceListItemComponent {
