@@ -1,4 +1,4 @@
-<div class="flex flex-col h-full p-4">
+<div class="flex flex-col h-full min-h-0 p-4">
   @if (error$ | async; as error) {
     <div class="flex-shrink-0 text-[var(--mat-error-default,#b00020)] mb-4">
       {{ error }}
@@ -10,18 +10,23 @@
       <mat-spinner diameter="40"></mat-spinner>
     </div>
   } @else {
-    <div class="flex flex-1 min-h-0 overflow-auto flex flex-col">
-      <choh-device-list-header />
-      @let devices = filteredDevices$ | async;
-      @if (devices && devices.length > 0) {
-        @for (device of devices; track device.id) {
-          <choh-device-list-item [device]="device" />
+    <div class="flex-1 min-h-0 min-w-0 overflow-auto">
+      <div
+        class="grid gap-x-4 px-4 grid-auto-rows-[minmax(3.5rem,auto)] w-full"
+        style="grid-template-columns: 4rem minmax(8rem, 1fr) minmax(6rem, auto) minmax(6rem, auto) minmax(10rem, 1fr);"
+      >
+        <choh-device-list-header />
+        @let devices = filteredDevices$ | async;
+        @if (devices && devices.length > 0) {
+          @for (device of devices; track device.id) {
+            <choh-device-list-item [device]="device" />
+          }
+        } @else {
+          <div class="flex flex-1 items-center justify-center p-8 text-gray-500 col-span-full min-h-14">
+            デバイスがありません。
+          </div>
         }
-      } @else {
-        <div class="flex flex-1 items-center justify-center p-8 text-gray-500">
-          デバイスがありません。
-        </div>
-      }
+      </div>
     </div>
   }
 </div>
