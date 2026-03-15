@@ -1,0 +1,18 @@
+<div
+  class="grid grid-cols-[4rem_minmax(8rem,1fr)_minmax(6rem,auto)_minmax(6rem,auto)_minmax(10rem,1fr)] gap-x-4 px-4 items-center min-h-14 cursor-pointer hover:bg-black/5 dark:hover:bg-white/10"
+  (click)="navigateToDetail()"
+  role="button"
+  tabindex="0"
+>
+  <div>
+    <img
+      [src]="device().image"
+      [alt]="device().deviceName"
+      class="w-12 h-12 object-cover rounded"
+    />
+  </div>
+  <div>{{ device().deviceName }}</div>
+  <div>{{ device().tag }}</div>
+  <div>{{ device().category }}</div>
+  <div>{{ device().description }}</div>
+</div>

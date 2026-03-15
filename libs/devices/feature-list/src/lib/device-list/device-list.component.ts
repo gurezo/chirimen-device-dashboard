@@ -2,8 +2,8 @@ import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DeviceListStore } from '@chirimen-device-dashboard/libs-state';
-import { DeviceListHeaderComponent } from './device-list-header';
-import { DeviceListItemComponent } from './device-list-item';
+import { DeviceListHeaderComponent } from '../device-list-header/device-list-header';
+import { DeviceListItemComponent } from '../device-list-item/device-list-item';
 
 @Component({
   selector: 'choh-device-list',

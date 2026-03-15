@@ -7,7 +7,6 @@ import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
   standalone: true,
   imports: [],
   templateUrl: './device-list-item.html',
-  styleUrl: './device-list-item.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeviceListItemComponent {

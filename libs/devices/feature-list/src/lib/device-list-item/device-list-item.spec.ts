@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
+import { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { DeviceListItemComponent } from './device-list-item';
 
 const mockDevice: DeviceInfo = {
@@ -11,7 +12,7 @@ const mockDevice: DeviceInfo = {
   description: 'Test description',
   image: 'https://example.com/image.png',
   product: { url: '', example: [] },
-};
+} as const;
 
 describe('DeviceListItemComponent', () => {
   let component: DeviceListItemComponent;
