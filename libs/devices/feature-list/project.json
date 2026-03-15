@@ -22,9 +22,10 @@
       }
     },
     "test": {
-      "executor": "@angular/build:unit-test",
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "tsConfig": "libs/devices/feature-list/tsconfig.spec.json"
+        "reportsDirectory": "../../../coverage/libs/devices/feature-list"
       },
       "configurations": {
         "ci": { "watch": false }
