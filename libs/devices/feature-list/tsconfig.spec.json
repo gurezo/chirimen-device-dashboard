@@ -3,7 +3,16 @@
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc",
     "types": ["vitest/globals"],
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "baseUrl": "../../..",
+    "paths": {
+      "@chirimen-device-dashboard/shared-types": ["libs/shared-types/src/index.ts"],
+      "@chirimen-device-dashboard/libs-data-access": ["libs/devices/data-access/src/index.ts"],
+      "@chirimen-device-dashboard/libs-state": ["libs/devices/state/src/index.ts"],
+      "@chirimen-device-dashboard/libs-feature-list": ["libs/devices/feature-list/src/index.ts"],
+      "@chirimen-device-dashboard/libs-card-list": ["libs/devices/card-list/src/index.ts"],
+      "@chirimen-device-dashboard/libs-device-detail": ["libs/devices/device-detail/src/index.ts"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts"]
 }

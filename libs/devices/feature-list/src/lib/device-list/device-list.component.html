@@ -1,4 +1,4 @@
-<div class="flex flex-col h-full p-4">
+<div class="flex flex-col h-full min-h-0 p-4">
   @if (error$ | async; as error) {
     <div class="flex-shrink-0 text-[var(--mat-error-default,#b00020)] mb-4">
       {{ error }}
@@ -10,56 +10,23 @@
       <mat-spinner diameter="40"></mat-spinner>
     </div>
   } @else {
-    <div class="flex flex-1 min-h-0 overflow-auto">
-      <table
-        mat-table
-        [dataSource]="(filteredDevices$ | async) ?? []"
-        class="w-full device-list-table"
+    <div class="flex-1 min-h-0 min-w-0 overflow-auto">
+      <div
+        class="grid gap-x-4 px-4 grid-auto-rows-[minmax(3.5rem,auto)] w-full"
+        style="grid-template-columns: 4rem minmax(8rem, 1fr) minmax(6rem, auto) minmax(6rem, auto) minmax(10rem, 1fr);"
       >
-        <ng-container matColumnDef="image">
-          <th mat-header-cell *matHeaderCellDef>イメージ</th>
-          <td mat-cell *matCellDef="let row">
-            <img
-              [src]="row.image"
-              [alt]="row.deviceName"
-              class="w-12 h-12 object-cover rounded"
-            />
-          </td>
-        </ng-container>
-        <ng-container matColumnDef="deviceName">
-          <th mat-header-cell *matHeaderCellDef>デバイス名</th>
-          <td mat-cell *matCellDef="let row">{{ row.deviceName }}</td>
-        </ng-container>
-        <ng-container matColumnDef="tag">
-          <th mat-header-cell *matHeaderCellDef>タグ</th>
-          <td mat-cell *matCellDef="let row">{{ row.tag }}</td>
-        </ng-container>
-        <ng-container matColumnDef="category">
-          <th mat-header-cell *matHeaderCellDef>カテゴリ</th>
-          <td mat-cell *matCellDef="let row">{{ row.category }}</td>
-        </ng-container>
-        <ng-container matColumnDef="description">
-          <th mat-header-cell *matHeaderCellDef>説明</th>
-          <td mat-cell *matCellDef="let row">{{ row.description }}</td>
-        </ng-container>
-
-        <tr
-          mat-header-row
-          *matHeaderRowDef="displayedColumns; sticky: true"
-        ></tr>
-        <tr
-          mat-row
-          *matRowDef="let row; columns: displayedColumns"
-          (click)="navigateToDetail(row.id)"
-          class="cursor-pointer"
-        ></tr>
-
-        <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+        <choh-device-list-header />
+        @let devices = filteredDevices$ | async;
+        @if (devices && devices.length > 0) {
+          @for (device of devices; track device.id) {
+            <choh-device-list-item [device]="device" />
+          }
+        } @else {
+          <div class="flex flex-1 items-center justify-center p-8 text-gray-500 col-span-full min-h-14">
             デバイスがありません。
-          </td>
-        </tr>
-      </table>
+          </div>
+        }
+      </div>
     </div>
   }
 </div>

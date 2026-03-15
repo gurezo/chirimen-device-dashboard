@@ -1,0 +1,11 @@
+<div>
+  <img
+    [src]="device().image"
+    [alt]="device().deviceName"
+    class="w-12 h-12 object-cover rounded"
+  />
+</div>
+<div>{{ device().deviceName }}</div>
+<div>{{ device().tag }}</div>
+<div>{{ device().category }}</div>
+<div>{{ device().description }}</div>
