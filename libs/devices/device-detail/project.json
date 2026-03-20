@@ -8,7 +8,9 @@
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/libs/devices/device-detail",
         "main": "libs/devices/device-detail/src/index.ts",
@@ -24,9 +26,11 @@
     },
     "test": {
       "executor": "@nx/vitest:test",
-      "outputs": ["{options.reportsDirectory}"],
+      "outputs": [
+        "{options.reportsDirectory}"
+      ],
       "options": {
-        "reportsDirectory": "../../../coverage/libs/devices/device-detail"
+        "reportsDirectory": "{projectRoot}/../../../coverage/libs/devices/device-detail"
       }
     },
     "lint": {

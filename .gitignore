@@ -58,3 +58,6 @@ firebase-debug.log
 firebase-debug.*.log
 
 vitest.config.*.timestamp*
+
+.claude/worktrees
+.claude/settings.local.json

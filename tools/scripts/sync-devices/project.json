@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/tools/scripts/sync-devices",
         "main": "tools/scripts/sync-devices/src/sync-devices.ts",
@@ -22,9 +24,11 @@
     },
     "test": {
       "executor": "@nx/vitest:test",
-      "outputs": ["{options.reportsDirectory}"],
+      "outputs": [
+        "{options.reportsDirectory}"
+      ],
       "options": {
-        "reportsDirectory": "../../../coverage/tools/scripts/sync-devices"
+        "reportsDirectory": "{projectRoot}/../../../coverage/tools/scripts/sync-devices"
       },
       "configurations": {
         "ci": {
@@ -34,7 +38,9 @@
     },
     "sync": {
       "executor": "nx:run-commands",
-      "outputs": ["{workspaceRoot}/apps/web/public/devices.json"],
+      "outputs": [
+        "{workspaceRoot}/apps/web/public/devices.json"
+      ],
       "options": {
         "command": "node -r @swc-node/register/register tools/scripts/sync-devices/src/sync-devices.ts",
         "cwd": "{workspaceRoot}"
