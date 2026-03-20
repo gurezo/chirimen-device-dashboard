@@ -48,6 +48,16 @@ chore(ci): update GitHub Actions workflow
 chore(mcp): update mcp.json
 ```
 
+### Nx Release と Conventional Commits
+
+Nx Release を自動バージョン決定に利用している場合、コミットメッセージの `type` から semver の bump を決定します。
+
+- `fix` -> patch
+- `feat` -> minor
+
+この挙動は、`nx.json` の `release.version.conventionalCommits` を有効化することで有効になります。
+そのため、バージョンに影響させたい変更は `feat` / `fix` を適切に付与してください。
+
 ## Git フックのセットアップ（commitlint）
 
 コミット時にメッセージ形式を自動検証するため、[Husky](https://typicode.github.io/husky/) と [commitlint](https://commitlint.js.org/) を利用しています。
