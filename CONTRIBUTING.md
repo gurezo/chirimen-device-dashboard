@@ -30,6 +30,10 @@
 | `libs-state`         | devices 状態管理 (libs/devices/state)             |
 | `libs-feature-list`  | devices 一覧 feature (libs/devices/feature-list)  |
 | `libs-device-detail` | devices 詳細 feature (libs/devices/device-detail) |
+| `libs-card-list`     | デバイスカード一覧 UI (libs/devices/card-list) |
+| `sync-devices`      | devices データ同期 (tools/scripts/sync-devices)   |
+| `ci`                 | CI 設定変更 (GitHub Actions 等)                   |
+| `mcp`                | MCP 設定変更 (.cursor/mcp.json 等)              |
 
 ### 例
 
@@ -38,6 +42,10 @@ feat(web): add device list component
 fix(web): correct device list display
 docs(workspace): update README quick start
 build(workspace): add commitlint and husky
+chore(libs-card-list): update device card list UI
+chore(sync-devices): update devices.json from partslist.csv
+chore(ci): update GitHub Actions workflow
+chore(mcp): update mcp.json
 ```
 
 ## Git フックのセットアップ（commitlint）
