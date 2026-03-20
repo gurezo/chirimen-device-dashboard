@@ -14,9 +14,9 @@
 [optional footer(s)]
 ```
 
-- **type**: 変更の種類（`feat`, `fix`, `docs`, `style`, `refactor`, `test`, `build`, `ci`, `chore` など）
+- **type**: 変更の種類（`feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `revert`）
 - **scope**: 変更対象のスコープ（下記一覧）
-- **description**: 簡潔な説明（ imperative mood、例: "add" not "added"）
+- **description**: 簡潔な説明（imperative mood、先頭は小文字、末尾はピリオドなし）
 
 ### スコープ一覧
 
@@ -40,23 +40,30 @@
 ```
 feat(web): add device list component
 fix(web): correct device list display
-docs(workspace): update README quick start
+docs(workspace): update readme quick start
 build(workspace): add commitlint and husky
-chore(libs-card-list): update device card list UI
-chore(sync-devices): update devices.json from partslist.csv
-chore(ci): update GitHub Actions workflow
-chore(mcp): update mcp.json
+refactor(libs-card-list): update device card list ui
+build(sync-devices): update devices.json from partslist.csv
+ci(ci): update github actions workflow
+build(mcp): update mcp.json
+```
+
+### 破壊的変更の書き方
+Breaking change は `!` を使わず、footer に `BREAKING CHANGE: <message>` として記載します。
+
+```
+feat(web): remove deprecated connection behavior
+
+BREAKING CHANGE: Connection behavior has been changed
 ```
 
 ### Nx Release と Conventional Commits
 
-Nx Release を自動バージョン決定に利用している場合、コミットメッセージの `type` から semver の bump を決定します。
+このリポジトリでは `nx.json` に `release.version.conventionalCommits` が設定されていないため、Nx Release の自動バージョン決定ではコミット `type` は semver の bump に反映されません。
 
+（将来 `release.version.conventionalCommits` を有効化する場合）
 - `fix` -> patch
 - `feat` -> minor
-
-この挙動は、`nx.json` の `release.version.conventionalCommits` を有効化することで有効になります。
-そのため、バージョンに影響させたい変更は `feat` / `fix` を適切に付与してください。
 
 ## Git フックのセットアップ（commitlint）
 
