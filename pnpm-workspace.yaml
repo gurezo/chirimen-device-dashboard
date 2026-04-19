@@ -2,5 +2,4 @@ packages: []
 
 # 悪意のあるリリースは1週間以内に発見され、レジストリから削除される為
 # config = 7 day x 24h x 60 min
-# Nx マイグレーション完了まで一時コメント（直近リリースの取得を許可）
-# minimumReleaseAge: 10080
+minimumReleaseAge: 10080
