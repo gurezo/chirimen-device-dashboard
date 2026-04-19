@@ -36,8 +36,8 @@ importers:
         specifier: 21.2.9
         version: 21.2.9(@angular/common@21.2.9(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2))(@angular/platform-browser@21.2.9(@angular/animations@21.2.9(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)))(@angular/common@21.2.9(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)))(rxjs@7.8.2)
       '@ngrx/component-store':
-        specifier: ^21.0.0
-        version: 21.0.1(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2))(rxjs@7.8.2)
+        specifier: 21.1.0
+        version: 21.1.0(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2))(rxjs@7.8.2)
       axios:
         specifier: ^1.6.0
         version: 1.13.4
@@ -2504,8 +2504,8 @@ packages:
   '@napi-rs/wasm-runtime@1.1.1':
     resolution: {integrity: sha512-p64ah1M1ld8xjWv3qbvFwHiFVWrq1yFvV4f7w+mzaqiR4IlSgkqhcRdHwsGgomwzBH51sRY4NEowLxnaBjcW/A==}
 
-  '@ngrx/component-store@21.0.1':
-    resolution: {integrity: sha512-aOfudK8MqCZQUuBjMnXAXRxRcr9Qu/+9/2iIh4aLhmGXC5JCpkDi1a82A/39EUFZy2xBbI4lPI7P817b1PQRvQ==}
+  '@ngrx/component-store@21.1.0':
+    resolution: {integrity: sha512-piH+AY/TR5BVN2IU68B2tYHPnombbMESMlCJAdk8d4o2I+qxzP2B6xQ7+2ztsDz6xciX0mJlYXjmrtci05lVUQ==}
     peerDependencies:
       '@angular/core': ^21.0.0
       rxjs: ^6.5.3 || ^7.5.0
@@ -11983,7 +11983,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@ngrx/component-store@21.0.1(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2))(rxjs@7.8.2)':
+  '@ngrx/component-store@21.1.0(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2))(rxjs@7.8.2)':
     dependencies:
       '@angular/core': 21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)
       rxjs: 7.8.2
