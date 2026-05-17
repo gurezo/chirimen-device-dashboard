@@ -186,6 +186,10 @@ pnpm nx configure-ai-agents --agents cursor --no-interactive
 │   ├── 00-nx-workspace.mdc       # Workspace 全体ルール
 │   ├── 10-nx-generators.mdc      # Nx Generator 利用方針
 │   └── 20-nx-tasks.mdc           # Nx タスク実行方針
+├── commits/
+│   ├── 40-conventional-commits.mdc            # Conventional Commits 基本ルール
+│   ├── 41-pull-request-title.mdc              # PR タイトル規約
+│   └── 42-chirimen-device-dashboard-scope.mdc # 固有 scope 一覧
 └── workflow/
     └── 90-ai-workflow.mdc        # AI 編集時の共通ルール
 ```
@@ -194,22 +198,26 @@ pnpm nx configure-ai-agents --agents cursor --no-interactive
 
 ### 役割分離
 
-| 種類           | 役割                              | 配置                |
-| -------------- | --------------------------------- | ------------------- |
-| Angular Skills | Angular の一般知識                | `.agents/skills/`   |
-| Nx AI Agent    | Nx Workspace 理解                 | `.agents/skills/` ほか |
-| Cursor Rules   | Workspace の設計ルール (責務別)   | `.cursor/rules/`    |
-| AI Workflow    | AI 編集時の共通ルール             | `.cursor/rules/workflow/` |
+| 種類                       | 役割                                              | 配置                                     |
+| -------------------------- | ------------------------------------------------- | ---------------------------------------- |
+| Angular Skills             | Angular の一般知識                                | `.agents/skills/`                        |
+| Nx AI Agent                | Nx Workspace 理解                                 | `.agents/skills/` ほか                   |
+| Cursor Rules               | Workspace の設計ルール (責務別)                   | `.cursor/rules/`                         |
+| Conventional Commits Rules | commit message / PR title の規約 (Issue #167)     | `.cursor/rules/commits/`                 |
+| Conventional Commits Skill | AI 向け Conventional Commits 知識 (Issue #167)    | `.cursor/skills/conventional-commits/`   |
+| AI Workflow                | AI 編集時の共通ルール                             | `.cursor/rules/workflow/`                |
+
+### Conventional Commits
+
+commit message と PR タイトルは [Conventional Commits](https://www.conventionalcommits.org/) に統一しています。詳細は [CONTRIBUTING.md](CONTRIBUTING.md) と [.cursor/skills/conventional-commits/SKILL.md](.cursor/skills/conventional-commits/SKILL.md) を参照してください。
 
 ### 将来的な拡張候補
 
 以下は今回の対象外（Issue #165 のスコープに記載）。将来別 Issue / PR で導入を検討します。
 
-- `chirimen-device-dashboard` 固有ルール用 mdc
 - NgRx 用 mdc
 - Storybook 用 mdc
 - CI/CD 用 mdc
-- Conventional Commits 用 mdc / Skill
 - ADR / Architecture 用 mdc
 
 ## Learn More
