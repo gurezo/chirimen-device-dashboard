@@ -144,6 +144,74 @@ pnpm test:all      # 全プロジェクトのテスト
 - Vitest 拡張機能をインストールし、Jest 拡張機能は無効化またはアンインストールしてください
 - ターミナルで `pnpm test` を実行するか、タスク「Run Tests (web)」を使用してください
 
+## AI エージェント向け設定（Cursor Skills / Rules）
+
+本プロジェクトは Cursor などの AI コーディングエージェントが Angular / Nx Workspace の構造とベストプラクティスを理解できるよう、Skills と Cursor Rules を導入しています（Issue #165）。
+
+### Angular Skills
+
+Angular 公式 Skills を `.agents/skills/` 配下に導入しています。
+
+- `angular-developer` — Angular の一般的な開発知識（Standalone Components / Signals / DI / ルーティング / フォーム / テスト など）
+- `angular-new-app` — Angular 新規アプリ作成のガイダンス
+
+再導入する場合は以下を実行してください。
+
+```bash
+npx skills add https://github.com/angular/skills
+```
+
+### Nx AI Agent 設定
+
+Nx AI Agents により、Nx Workspace 構造を AI に理解させるための Skills (`nx-workspace` / `nx-generate` / `nx-run-tasks` ほか)、Nx Console (MCP) 連携、ルート `AGENTS.md`、`.cursor/agents/` 配下のサブエージェント定義を導入しています。
+
+再設定する場合は以下を実行してください。
+
+```bash
+pnpm nx configure-ai-agents --agents cursor --no-interactive
+```
+
+### Cursor Rules (`.mdc`)
+
+`.cursor/rules/` 配下に責務別の Rules を配置しています。
+
+```text
+.cursor/rules/
+├── angular/
+│   ├── 00-angular-core.mdc       # Angular ベースライン
+│   ├── 10-angular-signals.mdc    # Signals の使い分け
+│   ├── 20-angular-components.mdc # Component 設計
+│   └── 30-angular-testing.mdc    # テスト方針
+├── nx/
+│   ├── 00-nx-workspace.mdc       # Workspace 全体ルール
+│   ├── 10-nx-generators.mdc      # Nx Generator 利用方針
+│   └── 20-nx-tasks.mdc           # Nx タスク実行方針
+└── workflow/
+    └── 90-ai-workflow.mdc        # AI 編集時の共通ルール
+```
+
+各 `.mdc` は `globs` で対象ファイルを限定しているため、対象ファイルを Cursor で開くと自動でルールが参照されます。
+
+### 役割分離
+
+| 種類           | 役割                              | 配置                |
+| -------------- | --------------------------------- | ------------------- |
+| Angular Skills | Angular の一般知識                | `.agents/skills/`   |
+| Nx AI Agent    | Nx Workspace 理解                 | `.agents/skills/` ほか |
+| Cursor Rules   | Workspace の設計ルール (責務別)   | `.cursor/rules/`    |
+| AI Workflow    | AI 編集時の共通ルール             | `.cursor/rules/workflow/` |
+
+### 将来的な拡張候補
+
+以下は今回の対象外（Issue #165 のスコープに記載）。将来別 Issue / PR で導入を検討します。
+
+- `chirimen-device-dashboard` 固有ルール用 mdc
+- NgRx 用 mdc
+- Storybook 用 mdc
+- CI/CD 用 mdc
+- Conventional Commits 用 mdc / Skill
+- ADR / Architecture 用 mdc
+
 ## Learn More
 
 - [Nx Documentation](https://nx.dev/getting-started/intro)
