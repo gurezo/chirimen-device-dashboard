@@ -1,4 +1,15 @@
 packages: []
+allowBuilds:
+  '@parcel/watcher': false
+  '@swc/core': false
+  esbuild: true
+  less: false
+  lmdb: false
+  msgpackr-extract: false
+  nx: true
+  protobufjs: false
+  re2: false
+  unrs-resolver: false
 
 # 悪意のあるリリースは1週間以内に発見され、レジストリから削除される為
 # config = 7 day x 24h x 60 min
