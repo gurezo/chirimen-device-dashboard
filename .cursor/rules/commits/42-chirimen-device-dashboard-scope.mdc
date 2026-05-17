@@ -1,0 +1,40 @@
+---
+description: chirimen-device-dashboard scope rules for Conventional Commits.
+globs:
+  - "**/*"
+alwaysApply: false
+---
+
+# chirimen-device-dashboard Scope Rules
+
+`scope` は Nx app / lib / tool 単位を優先する。各プロジェクトの `project.json` の `name` プロパティ、または `commitlint.config.js` の `scope-enum` に列挙された値だけを使用する。
+
+## 推奨 scope (commitlint.config.js と一致)
+
+| scope | 対象 | 説明 |
+| --- | --- | --- |
+| `web` | `apps/web` | Angular フロントエンド |
+| `web-e2e` | `apps/web-e2e` | Playwright E2E |
+| `shared-types` | `libs/shared-types` | 共有型定義 |
+| `libs-data-access` | `libs/devices/data-access` | デバイスデータアクセス |
+| `libs-state` | `libs/devices/state` | デバイス状態管理 |
+| `libs-feature-list` | `libs/devices/feature-list` | デバイス一覧 feature |
+| `libs-card-list` | `libs/devices/card-list` | デバイスカード一覧 UI |
+| `libs-device-detail` | `libs/devices/device-detail` | デバイス詳細 UI |
+| `sync-devices` | `tools/scripts/sync-devices` | デバイス JSON 同期スクリプト |
+| `workspace` | ルート設定・ツール全般 | `package.json` / `nx.json` / `.husky/` 等 |
+| `ci` | `.github/workflows/` | CI ワークフロー |
+| `mcp` | `.cursor/mcp.json` 等 | MCP 設定 |
+
+## scope 選択方針
+
+- 変更が単一プロジェクトに収まる場合は、そのプロジェクト名を scope に使う。
+- 変更が複数プロジェクトに跨る場合は、最も影響範囲の広いプロジェクト、または `workspace` を使う。
+- `apps/` `libs/` の外 (ルート設定、ドキュメント、ツール) の変更は `workspace` を使う。
+- 新しいプロジェクトを追加した場合は、`commitlint.config.js` の `scope-enum` と本ファイル、`CONTRIBUTING.md` のスコープ一覧を同時に更新する。
+
+## 参照
+
+- `commitlint.config.js`
+- `CONTRIBUTING.md`
+- `.cursor/skills/conventional-commits/scopes.md`

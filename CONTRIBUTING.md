@@ -4,6 +4,15 @@
 
 本プロジェクトでは [Conventional Commits](https://www.conventionalcommits.org/) に準拠したコミットメッセージを採用しています。
 
+AI エージェント (Cursor 等) 向けの Conventional Commits ルール / Skill を以下に整備しています。手動でメッセージを書く場合の参考にもなります。
+
+- Rules: [.cursor/rules/commits/](.cursor/rules/commits/)
+  - [40-conventional-commits.mdc](.cursor/rules/commits/40-conventional-commits.mdc) — 基本ルール
+  - [41-pull-request-title.mdc](.cursor/rules/commits/41-pull-request-title.mdc) — PR タイトル規約
+  - [42-chirimen-device-dashboard-scope.mdc](.cursor/rules/commits/42-chirimen-device-dashboard-scope.mdc) — 固有 scope 一覧
+- Skill: [.cursor/skills/conventional-commits/](.cursor/skills/conventional-commits/)
+  - [SKILL.md](.cursor/skills/conventional-commits/SKILL.md) / [examples.md](.cursor/skills/conventional-commits/examples.md) / [assertions.md](.cursor/skills/conventional-commits/assertions.md) / [scopes.md](.cursor/skills/conventional-commits/scopes.md)
+
 ### 形式
 
 ```
