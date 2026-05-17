@@ -1,3 +1,6 @@
+> PR タイトルは [Conventional Commits](https://www.conventionalcommits.org/) に準拠してください (例: `feat(web): add device list component`)。
+> 利用可能な scope は [CONTRIBUTING.md](../CONTRIBUTING.md#スコープ一覧) と `commitlint.config.js` を参照してください。
+
 ## Summary
 
 ## Type of change
