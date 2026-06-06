@@ -10,7 +10,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import {
   adt7410PlatformExamples,
   legacyOnlyExamples,
-} from '../../../../platform-specific-examples/src/lib/testing/platform-examples.fixture';
+} from '../testing/platform-examples.fixture';
 import { DeviceDetailComponent } from './device-detail.component';
 
 const adt7410Device: DeviceInfo = {
