@@ -12,6 +12,7 @@ import {
   type ExampleInfo,
 } from '@chirimen-device-dashboard/shared-types';
 import {
+  compareExampleStatus,
   getExampleStatusClasses,
   getExampleStatusLabel,
 } from '../example-status';
@@ -30,9 +31,12 @@ import {
 export class PlatformSpecificExamplesComponent {
   readonly examples = input.required<ExampleInfo[]>();
 
-  readonly platformSpecificExamples = computed(() =>
-    this.examples().filter(isPlatformSpecificExample),
-  );
+  readonly platformSpecificExamples = computed(() => {
+    const filtered = this.examples().filter(isPlatformSpecificExample);
+    return [...filtered].sort((a, b) =>
+      compareExampleStatus(a.status, b.status),
+    );
+  });
 
   private readonly sanitizer = inject(DomSanitizer);
 
