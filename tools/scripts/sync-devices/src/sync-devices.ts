@@ -6,6 +6,8 @@ import type {
   ExampleInfo,
   ProductInfo,
 } from '@chirimen-device-dashboard/shared-types';
+import type { PlatformExampleDeviceEntry } from '../../sync-example-upstreams/src/types';
+import { applyPlatformExamples } from './apply-platform-examples';
 
 const PARTSLIST_CSV_URL =
   'https://raw.githubusercontent.com/chirimen-oh/chirimen.org/master/_data/partslist.csv';
@@ -17,6 +19,10 @@ const OUTPUT_PATH = path.join(
   'web',
   'public',
   'devices.json'
+);
+const PLATFORM_EXAMPLES_PATH = path.join(
+  process.cwd(),
+  'data/platform-examples/platform-examples.json'
 );
 
 type DeviceTag =
@@ -180,6 +186,13 @@ export function assignUniqueIds(devices: DeviceInfo[]): DeviceInfo[] {
   });
 }
 
+export function loadPlatformExamples(
+  filePath: string = PLATFORM_EXAMPLES_PATH
+): PlatformExampleDeviceEntry[] {
+  const raw = fs.readFileSync(filePath, 'utf-8');
+  return JSON.parse(raw) as PlatformExampleDeviceEntry[];
+}
+
 async function main(): Promise<void> {
   console.log('Fetching partslist.csv...');
   const response = await axios.get<string>(PARTSLIST_CSV_URL, {
@@ -200,6 +213,16 @@ async function main(): Promise<void> {
 
   const uniqueDevices = assignUniqueIds(devices);
 
+  console.log('Loading platform-examples.json...');
+  const platformEntries = loadPlatformExamples();
+  const { devices: mergedDevices, warnings } = applyPlatformExamples(
+    uniqueDevices,
+    platformEntries
+  );
+  for (const warning of warnings) {
+    console.warn(`Warning: ${warning}`);
+  }
+
   const outputDir = path.dirname(OUTPUT_PATH);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
@@ -207,10 +230,10 @@ async function main(): Promise<void> {
 
   fs.writeFileSync(
     OUTPUT_PATH,
-    JSON.stringify(uniqueDevices, null, 2),
+    JSON.stringify(mergedDevices, null, 2),
     'utf-8'
   );
-  console.log(`Wrote ${uniqueDevices.length} devices to ${OUTPUT_PATH}`);
+  console.log(`Wrote ${mergedDevices.length} devices to ${OUTPUT_PATH}`);
 }
 
 if (!process.env.VITEST) {
