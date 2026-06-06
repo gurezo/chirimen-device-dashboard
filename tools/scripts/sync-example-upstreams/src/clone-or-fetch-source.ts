@@ -45,7 +45,8 @@ async function runGit(args: string[], cwd?: string): Promise<string> {
       (err as NodeJS.ErrnoException).code === 'ENOENT'
     ) {
       throw new Error(
-        'git is required but was not found on PATH. Install git to run sync:example-upstreams.'
+        'git is required but was not found on PATH. Install git to run sync:example-upstreams.',
+        { cause: err }
       );
     }
     const message =
@@ -54,7 +55,7 @@ async function runGit(args: string[], cwd?: string): Promise<string> {
         : err instanceof Error
           ? err.message
           : String(err);
-    throw new Error(`git ${args.join(' ')} failed: ${message}`);
+    throw new Error(`git ${args.join(' ')} failed: ${message}`, { cause: err });
   }
 }
 

@@ -41,7 +41,7 @@ describe('buildPlatformExamplesJson', () => {
         {
           exampleDeviceId: 'adt7410',
           examples: candidates
-            .map((c) => c.example!)
+            .flatMap((c) => (c.example ? [c.example] : []))
             .sort((a, b) =>
               (a.platform ?? '').localeCompare(b.platform ?? '')
             ),
