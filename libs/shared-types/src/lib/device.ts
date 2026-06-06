@@ -6,8 +6,27 @@ export type ExampleStatus =
   | 'incubator';
 
 export interface ExampleInfo {
+  /**
+   * 既存プロパティ。
+   * 移行過渡期では削除しない。
+   */
   hardware: string; // Raspbery Pi 3/4/5, Pi Zero, microbit
   code: string; // サンプルコードURL
+
+  /**
+   * Platform 別 Example 用プロパティ。
+   * chirimen-example-catalog の ExampleEntry 相当。
+   */
+  deviceId?: string;
+  platform?: string;
+  localPath?: string;
+  upstreamRepository?: string;
+  upstreamRepositoryUrl?: string;
+  upstreamPath?: string;
+  upstreamPathUrl?: string;
+  status?: ExampleStatus;
+  circuitUrl?: string;
+  verified?: boolean;
 }
 
 export interface ProductInfo {
