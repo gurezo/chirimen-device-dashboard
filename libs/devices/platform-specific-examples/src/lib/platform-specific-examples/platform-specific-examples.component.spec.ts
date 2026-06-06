@@ -83,9 +83,11 @@ describe('PlatformSpecificExamplesComponent', () => {
 
     const headers = table?.querySelectorAll('thead th');
     expect(headers?.length).toBe(5);
-    for (const header of Array.from(headers ?? [])) {
-      expect(header.classList.contains('whitespace-nowrap')).toBe(true);
-    }
+
+    const repoHeader = table?.querySelector('thead th span[title="Upstream Repository"]');
+    const pathHeader = table?.querySelector('thead th span[title="Upstream Path"]');
+    expect(repoHeader?.classList.contains('truncate')).toBe(true);
+    expect(pathHeader?.classList.contains('truncate')).toBe(true);
 
     const repoLink = compiled.querySelector(
       'table a[href="https://github.com/chirimen-oh/chirimen.org"]',
