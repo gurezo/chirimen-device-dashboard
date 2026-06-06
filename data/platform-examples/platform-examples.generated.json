@@ -872,6 +872,26 @@
     ]
   },
   {
+    "dashboardDeviceId": "i2c-grove",
+    "exampleDeviceId": "grove-water-level-sensor",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_grove-water-level-sensor",
+        "deviceId": "grove-water-level-sensor",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/grove-water-level-sensor/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/grove-water-level-sensor",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/grove-water-level-sensor",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/grove-water-level-sensor/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-grove-accelerometer-adxl345",
     "exampleDeviceId": "adxl345",
     "examples": [
@@ -915,6 +935,54 @@
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/adxl345",
         "status": "legacy",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/adxl345/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "i2c-grove-gesture-paj7620u2",
+    "exampleDeviceId": "paj7620",
+    "examples": [
+      {
+        "hardware": "Raspberry Pi",
+        "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/paj7620",
+        "deviceId": "paj7620",
+        "platform": "node",
+        "localPath": "examples/devices/paj7620/platforms/node",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "node-examples/paj7620",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/paj7620",
+        "status": "legacy",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/paj7620/schematic.png",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_paj7620",
+        "deviceId": "paj7620",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/paj7620/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/paj7620",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/paj7620",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/paj7620/schematic.png",
+        "verified": false
+      },
+      {
+        "hardware": "Raspberry Pi",
+        "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/paj7620",
+        "deviceId": "paj7620",
+        "platform": "raspi-node",
+        "localPath": "examples/devices/paj7620/platforms/raspi-node",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "raspi-examples/paj7620",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/paj7620",
+        "status": "legacy",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/paj7620/schematic.png",
         "verified": false
       }
     ]
@@ -1320,6 +1388,26 @@
     ]
   },
   {
+    "dashboardDeviceId": "i2c-m5-qr-stm32f030",
+    "exampleDeviceId": "qrcodescanner",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_qrcodescanner",
+        "deviceId": "qrcodescanner",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/qrcodescanner/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/qrcodescanner",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/qrcodescanner",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/qrcodescanner/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-m5-rfid-2-ws1850s",
     "exampleDeviceId": "ws1850s",
     "examples": [
@@ -1344,8 +1432,8 @@
     "exampleDeviceId": "max30102",
     "examples": [
       {
-        "hardware": "Pi Zero",
-        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/max30102",
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_max30102",
         "deviceId": "max30102",
         "platform": "pizero-esm",
         "localPath": "examples/devices/max30102/platforms/pizero-esm",
@@ -1354,7 +1442,8 @@
         "upstreamPath": "pizero/src/esm-examples/max30102",
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/max30102",
         "status": "primary",
-        "verified": false
+        "verified": false,
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_max30102"
       }
     ]
   },
@@ -2495,6 +2584,26 @@
         "status": "primary",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/vl6180x/schematic.png",
         "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "i2c-waveshare-20471",
+    "exampleDeviceId": "waveshare20471",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_waveshare20471",
+        "deviceId": "waveshare20471",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/waveshare20471/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/waveshare20471",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/waveshare20471",
+        "status": "primary",
+        "verified": false,
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_waveshare20471"
       }
     ]
   }

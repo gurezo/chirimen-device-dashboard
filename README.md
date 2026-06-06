@@ -137,6 +137,20 @@ Platform 別 Example の正本データは [`data/platform-examples/platform-exa
 
 編集方法・JSON スキーマ・ID 対応の詳細は [data/platform-examples/README.md](data/platform-examples/README.md) を参照してください。
 
+### chirimen-example-catalog archive 方針
+
+`chirimen-example-catalog` は **runtime dependency として参照しません**。Platform 別 Example の正本は本リポジトリ内の `data/platform-examples/platform-examples.json` です。
+
+| 項目 | 方針 |
+| --- | --- |
+| 正本データ | `data/platform-examples/platform-examples.json` |
+| 生成 | `pnpm generate:devices`（`sync-devices:sync`） |
+| 検証 | `pnpm validate:platform-examples` |
+| upstream 差分確認 | `pnpm sync:example-upstreams` → `generated/reports/` |
+| catalog 参照 | archive 後も不要（移行確認: [#188](https://github.com/gurezo/chirimen-device-dashboard/issues/188)） |
+
+legacy 形式（`hardware` + `code` のみ）だった 39 デバイスは、`code` URL パターンから platform / status を判定して Platform 別 Example に移行済みです。判定ルールは [data/platform-examples/README.md#legacy-code-url-から-platform--status-を判定](data/platform-examples/README.md) を参照してください。
+
 ## Running Tests
 
 ```bash

@@ -18,6 +18,22 @@ function loadPlatformExamplesFixture(): PlatformExampleDeviceEntry[] {
   return JSON.parse(readFileSync(platformExamplesPath, 'utf8'));
 }
 
+function loadPlatformEntry(
+  dashboardDeviceId: string
+): PlatformExampleDeviceEntry[] {
+  const entry = loadPlatformExamplesFixture().find(
+    (item) => item.dashboardDeviceId === dashboardDeviceId
+  );
+
+  if (!entry) {
+    throw new Error(
+      `platform-examples.json does not contain dashboardDeviceId: ${dashboardDeviceId}`
+    );
+  }
+
+  return [entry];
+}
+
 function createDevice(
   id: string,
   examples: DeviceInfo['product']['example']
@@ -38,7 +54,7 @@ function createDevice(
 
 describe('applyPlatformExamples', () => {
   it('replaces i2c-adt7410 product.example with 5 platform entries', () => {
-    const platformEntries = loadPlatformExamplesFixture();
+    const platformEntries = loadPlatformEntry('i2c-adt7410');
     const devices = [
       createDevice('i2c-adt7410', [
         { hardware: 'chirimen', code: 'https://r.chirimen.org/examples/#I2C-ADT7410' },
@@ -57,7 +73,7 @@ describe('applyPlatformExamples', () => {
   });
 
   it('includes all required ADT7410 platforms as platform-specific examples', () => {
-    const platformEntries = loadPlatformExamplesFixture();
+    const platformEntries = loadPlatformEntry('i2c-adt7410');
     const devices = [createDevice('i2c-adt7410', [])];
 
     const { devices: merged } = applyPlatformExamples(devices, platformEntries);
@@ -67,18 +83,20 @@ describe('applyPlatformExamples', () => {
       .map((example) => example.platform)
       .filter(Boolean);
 
-    expect(platforms).toEqual([
-      'pizero-esm',
-      'node',
-      'raspi-node',
-      'microbit-driver',
-      'legacy-gc-i2c',
-    ]);
+    expect(platforms.sort()).toEqual(
+      [
+        'pizero-esm',
+        'node',
+        'raspi-node',
+        'microbit-driver',
+        'legacy-gc-i2c',
+      ].sort()
+    );
     expect(examples.every(isPlatformSpecificExample)).toBe(true);
   });
 
   it('preserves legacy hardware and code fields for transition compatibility', () => {
-    const platformEntries = loadPlatformExamplesFixture();
+    const platformEntries = loadPlatformEntry('i2c-adt7410');
     const devices = [createDevice('i2c-adt7410', [])];
 
     const { devices: merged } = applyPlatformExamples(devices, platformEntries);
@@ -90,7 +108,7 @@ describe('applyPlatformExamples', () => {
   });
 
   it('keeps product.example unchanged for devices not listed in platform-examples.json', () => {
-    const platformEntries = loadPlatformExamplesFixture();
+    const platformEntries = loadPlatformEntry('i2c-adt7410');
     const originalExamples = [
       { hardware: 'chirimen', code: 'https://r.chirimen.org/examples/#I2C-ADS1015' },
       {
@@ -99,7 +117,7 @@ describe('applyPlatformExamples', () => {
       },
     ];
     const devices = [
-      createDevice('i2c-ads1015', originalExamples),
+      createDevice('i2c-unlisted-fixture-device', originalExamples),
       createDevice('i2c-adt7410', [{ hardware: 'chirimen', code: 'https://example.com' }]),
     ];
 

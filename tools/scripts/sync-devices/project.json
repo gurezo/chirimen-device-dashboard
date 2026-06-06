@@ -47,6 +47,14 @@
         "cwd": "{workspaceRoot}"
       },
       "configurations": {}
+    },
+    "bootstrap-legacy-platform-examples": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm exec tsx tools/scripts/sync-devices/src/bootstrap-legacy-platform-examples-main.ts",
+        "cwd": "{workspaceRoot}"
+      },
+      "configurations": {}
     }
   }
 }

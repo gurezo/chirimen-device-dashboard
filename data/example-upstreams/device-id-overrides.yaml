@@ -12,3 +12,9 @@ overrides:
     - gpio-l9110s
     - gpio-mx1508
     - actuator-device
+  paj7620: i2c-grove-gesture-paj7620u2
+  max30102: i2c-max30102
+  qrcodescanner: i2c-m5-qr-stm32f030
+  waveshare20471: i2c-waveshare-20471
+  grove-water-level-sensor: i2c-grove
+  seesaw: i2c-seesaw
