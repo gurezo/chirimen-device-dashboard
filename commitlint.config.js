@@ -15,6 +15,7 @@ module.exports = {
         'libs-card-list',
         'libs-device-detail',
         'sync-devices',
+        'sync-example-upstreams',
         'ci',
         'mcp',
       ],
