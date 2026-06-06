@@ -13,7 +13,7 @@ allowBuilds:
 
 # 悪意のあるリリースは1週間以内に発見され、レジストリから削除される為
 # config = 7 day x 24h x 60 min
-minimumReleaseAge: 10080
+# minimumReleaseAge: 10080
 
 # pnpm-lock.yaml の全パッケージ名（1697 件）を除外し、--frozen-lockfile で supply-chain 検証を通す
 minimumReleaseAgeExclude:
