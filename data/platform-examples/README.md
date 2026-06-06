@@ -124,6 +124,41 @@ pnpm generate:platform-examples
 
 `sync-devices` は `platform-examples.json` を読み込み、`dashboardDeviceId` が一致する device の `product.example` を洗い替えます。
 
+## legacy `code` URL から platform / status を判定
+
+partslist.csv 由来の legacy Example（`hardware` + `code` のみ）を Platform 別 Example に移行する際、`code` URL パターンから platform / status を判定します（[#188](https://github.com/gurezo/chirimen-device-dashboard/issues/188)）。
+
+判定順序は具体パス優先です（`pizero/esm-examples` を `pizero/` より先に評価）。
+
+| `code` URL パターン | platform | status |
+| --- | --- | --- |
+| `tutorial.chirimen.org/pizero/esm-examples` | `pizero-esm` | `primary` |
+| `tutorial.chirimen.org/pizero/`（esm-examples 以外） | `pizero-esm` | `primary` |
+| `r.chirimen.org/examples` | `chirimen` | `legacy` |
+| `chirimen.org/chirimen/gc/top/examples` | `chirimen` | `legacy` |
+| `tutorial.chirimen.org/raspi` | `chirimen` | `legacy` |
+| `chirimen.org/examples`（上記以外） | `chirimen` | `legacy` |
+| `chirimen.org/chirimen-micro-bit/examples` | `microbit-driver` | `legacy` |
+| `tutorial.chirimen.org/microbit` | `microbit-driver` | `legacy` |
+| 外部 GitHub 等 | `chirimen` | `legacy` |
+
+### 適用例: `i2c-grove-gesture-paj7620u2`
+
+| legacy `code` | 判定結果 |
+| --- | --- |
+| `https://r.chirimen.org/examples/#I2C-Grove-Gesture` | platform: `chirimen`, status: `legacy` |
+| `https://tutorial.chirimen.org/pizero/esm-examples/#I2C_paj7620` | platform: `pizero-esm`, status: `primary` |
+
+legacy 39 件の bootstrap は以下で実行できます。
+
+```bash
+pnpm exec tsx tools/scripts/sync-devices/src/bootstrap-legacy-platform-examples-main.ts --write
+pnpm generate:devices
+pnpm validate:platform-examples
+```
+
+実装: [`tools/scripts/sync-devices/src/classify-legacy-example-url.ts`](../../tools/scripts/sync-devices/src/classify-legacy-example-url.ts)
+
 ## Validation
 
 Platform 別 Example 元データと `devices.json` の `product.example` を検証する場合:
@@ -181,3 +216,4 @@ pnpm generate:devices
 - [#183](https://github.com/gurezo/chirimen-device-dashboard/issues/183) — `devices.json` 生成時の洗い替え
 - [#189](https://github.com/gurezo/chirimen-device-dashboard/issues/189) — validation / reports ツール
 - [#187](https://github.com/gurezo/chirimen-device-dashboard/issues/187) — Example 同期・生成・検証用 GitHub Actions
+- [#188](https://github.com/gurezo/chirimen-device-dashboard/issues/188) — catalog archive 前の移行確認（legacy URL 判定による 39 件移行）

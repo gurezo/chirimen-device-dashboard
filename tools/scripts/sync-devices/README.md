@@ -32,3 +32,14 @@ pnpm nx run sync-devices:sync
 ```bash
 pnpm nx run sync-devices:test
 ```
+
+## legacy Platform 別 Example の bootstrap
+
+partslist.csv 由来の legacy Example を Platform 別形式に変換して `platform-examples.json` へ追記する場合:
+
+```bash
+pnpm exec tsx tools/scripts/sync-devices/src/bootstrap-legacy-platform-examples-main.ts --write
+pnpm nx run sync-devices:sync
+```
+
+判定ルールは [data/platform-examples/README.md](../../../data/platform-examples/README.md) を参照してください。
