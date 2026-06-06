@@ -4,15 +4,24 @@ import { parse as parseYaml } from 'yaml';
 import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
 import type { DeviceIdOverridesFile } from './types';
 
+export type DashboardDeviceMappingStatus =
+  | 'resolved'
+  | 'fan-out'
+  | 'ambiguous'
+  | 'unresolved'
+  | 'override';
+
 export type DashboardDeviceMappingResult = {
-  dashboardDeviceId: string | null;
-  status: 'resolved' | 'ambiguous' | 'unresolved' | 'override';
+  dashboardDeviceIds: string[];
+  status: DashboardDeviceMappingStatus;
   ambiguousDashboardDeviceIds?: string[];
 };
 
+export type DeviceIdOverrideValue = string | string[];
+
 export async function loadDeviceIdOverrides(
   repoRoot: string
-): Promise<Record<string, string>> {
+): Promise<Record<string, DeviceIdOverrideValue>> {
   const filePath = path.join(
     repoRoot,
     'data/example-upstreams/device-id-overrides.yaml'
@@ -57,39 +66,94 @@ export async function loadDashboardDeviceIds(
   return devices.map((d) => d.id);
 }
 
-export function resolveDashboardDeviceId(
+export function matchProductAlias(
   exampleDeviceId: string,
-  dashboardDeviceIds: string[],
-  overrides: Record<string, string>
-): DashboardDeviceMappingResult {
-  const override = overrides[exampleDeviceId];
-  if (override) {
+  dashboardDeviceIds: string[]
+): string[] {
+  if (exampleDeviceId === 'neopixel-i2c') {
+    return dashboardDeviceIds.filter(
+      (id) => id === 'i2c-neopixel-led' || id.startsWith('i2c-neopixel-led-')
+    );
+  }
+
+  return [];
+}
+
+export function findDashboardDeviceIdMatches(
+  exampleDeviceId: string,
+  dashboardDeviceIds: string[]
+): string[] {
+  const suffix = `-${exampleDeviceId}`;
+  const suffixMatches = dashboardDeviceIds.filter((id) => id.endsWith(suffix));
+  if (suffixMatches.length > 0) {
+    return suffixMatches;
+  }
+
+  const infix = `-${exampleDeviceId}-`;
+  const infixMatches = dashboardDeviceIds.filter((id) => id.includes(infix));
+  if (infixMatches.length > 0) {
+    return infixMatches;
+  }
+
+  return matchProductAlias(exampleDeviceId, dashboardDeviceIds);
+}
+
+function categorizeMatches(
+  matches: string[]
+): Pick<
+  DashboardDeviceMappingResult,
+  'dashboardDeviceIds' | 'status' | 'ambiguousDashboardDeviceIds'
+> {
+  if (matches.length === 0) {
     return {
-      dashboardDeviceId: override,
-      status: 'override',
+      dashboardDeviceIds: [],
+      status: 'unresolved',
     };
   }
 
-  const suffix = `-${exampleDeviceId}`;
-  const matches = dashboardDeviceIds.filter((id) => id.endsWith(suffix));
-
   if (matches.length === 1) {
     return {
-      dashboardDeviceId: matches[0],
+      dashboardDeviceIds: matches,
       status: 'resolved',
     };
   }
 
-  if (matches.length > 1) {
+  const interfaceTags = new Set(matches.map((id) => id.split('-')[0]));
+  if (interfaceTags.size > 1) {
     return {
-      dashboardDeviceId: null,
+      dashboardDeviceIds: [],
       status: 'ambiguous',
       ambiguousDashboardDeviceIds: matches,
     };
   }
 
   return {
-    dashboardDeviceId: null,
-    status: 'unresolved',
+    dashboardDeviceIds: matches,
+    status: 'fan-out',
   };
+}
+
+export function resolveDashboardDeviceId(
+  exampleDeviceId: string,
+  dashboardDeviceIds: string[],
+  overrides: Record<string, DeviceIdOverrideValue>
+): DashboardDeviceMappingResult {
+  const override = overrides[exampleDeviceId];
+  if (override) {
+    const dashboardDeviceIdsFromOverride = Array.isArray(override)
+      ? override
+      : [override];
+
+    return {
+      dashboardDeviceIds: dashboardDeviceIdsFromOverride,
+      status: 'override',
+    };
+  }
+
+  const matches = findDashboardDeviceIdMatches(
+    exampleDeviceId,
+    dashboardDeviceIds
+  );
+
+  return categorizeMatches(matches);
 }

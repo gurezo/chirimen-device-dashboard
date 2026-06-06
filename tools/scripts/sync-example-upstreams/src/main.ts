@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { cloneOrFetchSource } from './clone-or-fetch-source';
-import { buildExampleCandidate } from './build-platform-example-candidates';
+import { buildExampleCandidatesForMapping } from './build-platform-example-candidates';
 import { listExampleDirNames } from './list-example-dir-names';
 import { loadSources } from './load-sources';
 import {
@@ -21,7 +21,7 @@ async function syncSource(
   repoRoot: string,
   source: UpstreamSource,
   dashboardDeviceIds: string[],
-  overrides: Record<string, string>
+  overrides: Record<string, DeviceIdOverrideValue>
 ): Promise<SourceSyncResult> {
   const result: SourceSyncResult = {
     sourceId: source.id,
@@ -56,18 +56,18 @@ async function syncSource(
             overrides
           )
         : {
-            dashboardDeviceId: null,
+            dashboardDeviceIds: [],
             status: 'unresolved' as const,
           };
 
-      const candidate = await buildExampleCandidate({
+      const candidates = await buildExampleCandidatesForMapping({
         source,
         upstreamDirName,
         mirrorPath: mirror,
         dashboardMapping,
       });
 
-      result.candidates.push(candidate);
+      result.candidates.push(...candidates);
     }
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
