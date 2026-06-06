@@ -9,32 +9,39 @@
     </p>
   </div>
 } @else {
-  <div class="hidden md:block">
-    <table class="w-full min-w-full border-collapse text-[0.875rem]">
+  <div class="hidden md:block min-w-0">
+    <table class="w-full table-fixed border-collapse text-[0.875rem]">
+      <colgroup>
+        <col class="w-[18%]" />
+        <col class="w-[16%]" />
+        <col class="w-[32%]" />
+        <col class="w-[14%]" />
+        <col class="w-[20%]" />
+      </colgroup>
       <thead>
         <tr class="border-b border-black/10 dark:border-white/10">
           <th
-            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
+            class="py-2 px-2 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
           >
             Platform
           </th>
           <th
-            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
+            class="py-2 px-2 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
           >
             Upstream Repository
           </th>
           <th
-            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
+            class="py-2 px-2 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
           >
             Upstream Path
           </th>
           <th
-            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
+            class="py-2 px-2 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
           >
             状態
           </th>
           <th
-            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
+            class="py-2 px-2 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
           >
             回路図
           </th>
@@ -45,12 +52,14 @@
           <tr
             class="border-b border-black/6 last:border-b-0 dark:border-white/[0.06]"
           >
-            <td
-              class="py-3 px-3 align-top text-black/87 dark:text-white/87 whitespace-nowrap"
-            >
-              {{ example.platform }}
+            <td class="py-3 px-2 align-top max-w-0">
+              <span
+                class="block truncate text-black/87 dark:text-white/87"
+                [attr.title]="example.platform"
+                >{{ example.platform }}</span
+              >
             </td>
-            <td class="py-3 px-3 align-top max-w-0">
+            <td class="py-3 px-2 align-top max-w-0">
               @let repoUrl = getSanitizedUrl(example.upstreamRepositoryUrl ?? '');
               @if (repoUrl) {
                 <a
@@ -70,7 +79,7 @@
                 >
               }
             </td>
-            <td class="py-3 px-3 align-top max-w-0">
+            <td class="py-3 px-2 align-top max-w-0">
               @let pathUrl = getSanitizedUrl(example.upstreamPathUrl);
               @if (pathUrl) {
                 <a
@@ -90,12 +99,12 @@
                 >
               }
             </td>
-            <td class="py-3 px-3 align-top whitespace-nowrap">
+            <td class="py-3 px-2 align-top whitespace-nowrap">
               <span [class]="getExampleStatusClasses(example.status)">{{
                 getExampleStatusLabel(example.status)
               }}</span>
             </td>
-            <td class="py-3 px-3 align-top whitespace-nowrap">
+            <td class="py-3 px-2 align-top whitespace-nowrap">
               @if (example.circuitUrl) {
                 @let circuitUrl = getSanitizedUrl(example.circuitUrl);
                 @if (circuitUrl) {

@@ -79,7 +79,7 @@ describe('PlatformSpecificExamplesComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const table = compiled.querySelector('table');
     expect(table).toBeTruthy();
-    expect(table?.classList.contains('table-fixed')).toBe(false);
+    expect(table?.classList.contains('table-fixed')).toBe(true);
 
     const headers = table?.querySelectorAll('thead th');
     expect(headers?.length).toBe(5);
