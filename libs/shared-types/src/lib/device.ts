@@ -29,6 +29,24 @@ export interface ExampleInfo {
   verified?: boolean;
 }
 
+export function isPlatformSpecificExample(
+  example: ExampleInfo,
+): example is ExampleInfo & {
+  platform: string;
+  upstreamRepository: string;
+  upstreamPath: string;
+  upstreamPathUrl: string;
+  status: ExampleStatus;
+} {
+  return Boolean(
+    example.platform &&
+      example.upstreamRepository &&
+      example.upstreamPath &&
+      example.upstreamPathUrl &&
+      example.status,
+  );
+}
+
 export interface ProductInfo {
   url: string; // 商品URL
   example: ExampleInfo[]; // サンプルコード情報配列
