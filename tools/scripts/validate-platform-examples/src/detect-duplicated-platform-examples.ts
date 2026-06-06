@@ -9,11 +9,9 @@ type ExampleWithPlatform = {
 
 function collectPlatformExamples(
   dashboardDeviceId: string,
-  examples: ExampleInfo[],
-  source: ValidationIssue['source']
-): { platformExamples: ExampleWithPlatform[]; issues: ValidationIssue[] } {
+  examples: ExampleInfo[]
+): ExampleWithPlatform[] {
   const platformExamples: ExampleWithPlatform[] = [];
-  const issues: ValidationIssue[] = [];
 
   for (const example of examples) {
     if (!isPlatformSpecificExample(example)) {
@@ -27,7 +25,7 @@ function collectPlatformExamples(
     });
   }
 
-  return { platformExamples, issues };
+  return platformExamples;
 }
 
 export function detectDuplicatedPlatformExamples(
@@ -67,10 +65,9 @@ export function detectDuplicatedDeviceProductExamples(
   const issues: ValidationIssue[] = [];
 
   for (const device of devices) {
-    const { platformExamples } = collectPlatformExamples(
+    const platformExamples = collectPlatformExamples(
       device.id,
-      device.product.example,
-      'devices.json'
+      device.product.example
     );
     const seen = new Map<string, number>();
 
