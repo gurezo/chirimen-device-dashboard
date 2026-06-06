@@ -15,6 +15,8 @@ chirimen-device-dashboard で使用可能な scope の一覧と用途。`commitl
 | `libs-card-list` | `libs/devices/card-list` | `libs-card-list` | デバイスカード一覧 UI |
 | `libs-device-detail` | `libs/devices/device-detail` | `libs-device-detail` | デバイス詳細 UI |
 | `sync-devices` | `tools/scripts/sync-devices` | `sync-devices` | `devices.json` の同期スクリプト |
+| `sync-example-upstreams` | `tools/scripts/sync-example-upstreams` | `sync-example-upstreams` | upstream example 同期スクリプト |
+| `generate-platform-examples` | `tools/scripts/generate-platform-examples` | `generate-platform-examples` | Platform 別 Example 元データ生成 |
 | `workspace` | リポジトリルート | (該当なし) | `package.json` / `nx.json` / `.husky/` / `commitlint.config.js` / `.cursor/` / `.agents/` / README / CONTRIBUTING 等 |
 | `ci` | `.github/workflows/` | (該当なし) | GitHub Actions ワークフロー |
 | `mcp` | `.cursor/mcp.json` 等 | (該当なし) | MCP 設定 |

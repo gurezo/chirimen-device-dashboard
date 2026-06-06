@@ -13,12 +13,24 @@ function normalizeLegacyGcName(dirName: string): string | null {
   return null;
 }
 
+function hasLegacyGcPrefix(dirName: string): boolean {
+  const lower = dirName.toLowerCase();
+  return LEGACY_GC_PREFIXES.some((prefix) => lower.startsWith(prefix));
+}
+
 export function resolveExampleDeviceId(
   upstreamDirName: string
 ): string | null {
   const direct = tryValidateExampleDeviceId(upstreamDirName);
   if (direct) {
     return direct;
+  }
+
+  if (hasLegacyGcPrefix(upstreamDirName)) {
+    const fromLegacyGc = normalizeLegacyGcName(upstreamDirName);
+    if (fromLegacyGc) {
+      return fromLegacyGc;
+    }
   }
 
   const lower = upstreamDirName.toLowerCase();

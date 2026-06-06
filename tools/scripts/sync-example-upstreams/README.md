@@ -5,7 +5,11 @@ upstream CHIRIMEN example repositories を同期し、Platform 別 Example 候�
 ## 実行
 
 ```bash
+# Step 1: upstream mirror を同期
 pnpm sync:example-upstreams
+
+# Step 2: Platform 別 Example 元データを生成
+pnpm generate:platform-examples
 ```
 
 ## 入力
@@ -19,16 +23,16 @@ pnpm sync:example-upstreams
 - `generated/upstreams/**` — upstream mirror
 - `generated/reports/example-sync-summary.md` — 同期サマリー
 - `generated/reports/example-candidates.md` — 候補一覧・要 review 項目
-- `data/platform-examples/platform-examples.generated.json` — review 用候補 JSON
 
-正本 [`data/platform-examples/platform-examples.json`](../../../data/platform-examples/platform-examples.json) は**自動上書きしません**。
+Platform 別 Example JSON の生成は [`generate-platform-examples`](../generate-platform-examples/README.md) が担当します。
 
 ## Review フロー（手動）
 
 1. `pnpm sync:example-upstreams` を実行
-2. `generated/reports/example-sync-summary.md` と `example-candidates.md` を確認
-3. 問題なければ `platform-examples.generated.json` から必要部分を `platform-examples.json` へ手動マージ
-4. （#183 以降）`pnpm nx run sync-devices:sync` で `devices.json` を再生成
+2. `pnpm generate:platform-examples` を実行
+3. `generated/reports/example-sync-summary.md` と `example-candidates.md` を確認
+4. 問題なければ `platform-examples.generated.json` から必要部分を `platform-examples.json` へ手動マージ
+5. （#183 以降）`pnpm nx run sync-devices:sync` で `devices.json` を再生成
 
 ## 要件
 

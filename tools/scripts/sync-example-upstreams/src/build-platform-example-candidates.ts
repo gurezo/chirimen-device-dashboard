@@ -78,7 +78,7 @@ export async function buildExampleCandidate(
     upstreamPath,
     upstreamPathUrl: urls.upstreamPathUrl,
     status,
-    circuitUrl: urls.circuitUrl,
+    ...(urls.circuitUrl ? { circuitUrl: urls.circuitUrl } : {}),
     verified: false,
   };
 

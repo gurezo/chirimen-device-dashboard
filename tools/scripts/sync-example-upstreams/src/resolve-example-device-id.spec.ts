@@ -11,8 +11,8 @@ describe('resolveExampleDeviceId', () => {
     expect(resolveExampleDeviceId('ADT7410')).toBe('adt7410');
   });
 
-  it('normalizes legacy gc i2c directory names to lowercase id', () => {
-    expect(resolveExampleDeviceId('i2c-ADT7410')).toBe('i2c-adt7410');
+  it('normalizes legacy gc i2c directory names to stripped lowercase id', () => {
+    expect(resolveExampleDeviceId('i2c-ADT7410')).toBe('adt7410');
   });
 
   it('accepts gpio-prefixed directory names as device ids', () => {

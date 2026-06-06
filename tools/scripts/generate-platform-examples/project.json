@@ -1,16 +1,16 @@
 {
-  "name": "sync-example-upstreams",
+  "name": "generate-platform-examples",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "tools/scripts/sync-example-upstreams/src",
+  "sourceRoot": "tools/scripts/generate-platform-examples/src",
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/tools/scripts/sync-example-upstreams",
-        "main": "tools/scripts/sync-example-upstreams/src/main.ts",
-        "tsConfig": "tools/scripts/sync-example-upstreams/tsconfig.lib.json",
+        "outputPath": "dist/tools/scripts/generate-platform-examples",
+        "main": "tools/scripts/generate-platform-examples/src/main.ts",
+        "tsConfig": "tools/scripts/generate-platform-examples/tsconfig.lib.json",
         "assets": [],
         "generatePackageJson": false,
         "rootDir": "."
@@ -24,7 +24,7 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "{projectRoot}/../../../coverage/tools/scripts/sync-example-upstreams",
+        "reportsDirectory": "{projectRoot}/../../../coverage/tools/scripts/generate-platform-examples",
         "configFile": "{projectRoot}/vitest.config.ts"
       },
       "configurations": {
@@ -33,14 +33,13 @@
         }
       }
     },
-    "sync": {
+    "generate": {
       "executor": "nx:run-commands",
       "outputs": [
-        "{workspaceRoot}/generated/upstreams",
-        "{workspaceRoot}/generated/reports"
+        "{workspaceRoot}/data/platform-examples/platform-examples.generated.json"
       ],
       "options": {
-        "command": "pnpm exec tsx tools/scripts/sync-example-upstreams/src/main.ts",
+        "command": "pnpm exec tsx tools/scripts/generate-platform-examples/src/main.ts",
         "cwd": "{workspaceRoot}"
       },
       "configurations": {}
