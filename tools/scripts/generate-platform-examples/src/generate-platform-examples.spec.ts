@@ -134,26 +134,20 @@ describe('generatePlatformExamples', () => {
 
     const result = generatePlatformExamples(candidates, canonical);
     const adt7410 = result.find((e) => e.dashboardDeviceId === 'i2c-adt7410');
-    expect(adt7410).toBeDefined();
 
-    const pizero = adt7410!.examples.find((e) => e.platform === 'pizero-esm');
-    expect(pizero?.code).toBe(
-      'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_adt7410'
-    );
+    expect(
+      adt7410?.examples.find((e) => e.platform === 'pizero-esm')?.code
+    ).toBe('https://tutorial.chirimen.org/pizero/esm-examples/#I2C_adt7410');
 
-    const microbit = adt7410!.examples.find(
-      (e) => e.platform === 'microbit-driver'
-    );
-    expect(microbit?.code).toBe(
-      'https://chirimen.org/chirimen-micro-bit/examples/#I2C1_ADT7410'
-    );
+    expect(
+      adt7410?.examples.find((e) => e.platform === 'microbit-driver')?.code
+    ).toBe('https://chirimen.org/chirimen-micro-bit/examples/#I2C1_ADT7410');
 
-    const legacyGc = adt7410!.examples.find(
-      (e) => e.platform === 'legacy-gc-i2c'
-    );
-    expect(legacyGc?.code).toBe(
-      'https://r.chirimen.org/examples/#I2C-ADT7410'
-    );
-    expect(legacyGc?.hardware).toBe('chirimen');
+    expect(
+      adt7410?.examples.find((e) => e.platform === 'legacy-gc-i2c')?.code
+    ).toBe('https://r.chirimen.org/examples/#I2C-ADT7410');
+    expect(
+      adt7410?.examples.find((e) => e.platform === 'legacy-gc-i2c')?.hardware
+    ).toBe('chirimen');
   });
 });

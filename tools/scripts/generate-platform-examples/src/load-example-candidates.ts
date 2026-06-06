@@ -28,7 +28,8 @@ export async function loadExampleCandidates(
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
     throw new Error(
-      `Failed to read mirror for ${source.id} at ${mirrorPath}: ${message}. Run pnpm sync:example-upstreams first.`
+      `Failed to read mirror for ${source.id} at ${mirrorPath}: ${message}. Run pnpm sync:example-upstreams first.`,
+      { cause: err }
     );
   }
 
