@@ -86,12 +86,46 @@ export async function buildExampleCandidate(
     sourceId: source.id,
     upstreamDirName,
     exampleDeviceId,
-    dashboardDeviceId: dashboardMapping.dashboardDeviceId,
+    dashboardDeviceId: dashboardMapping.dashboardDeviceIds[0] ?? null,
     dashboardMappingStatus: dashboardMapping.status,
     ambiguousDashboardDeviceIds: dashboardMapping.ambiguousDashboardDeviceIds,
     example,
     warnings,
   };
+}
+
+export async function buildExampleCandidatesForMapping(
+  input: BuildCandidateInput
+): Promise<ExampleCandidateEntry[]> {
+  const candidate = await buildExampleCandidate(input);
+  const { dashboardMapping } = input;
+
+  if (
+    dashboardMapping.status === 'ambiguous' ||
+    dashboardMapping.status === 'unresolved' ||
+    dashboardMapping.dashboardDeviceIds.length === 0
+  ) {
+    return [candidate];
+  }
+
+  if (dashboardMapping.dashboardDeviceIds.length === 1) {
+    return [
+      {
+        ...candidate,
+        dashboardDeviceId: dashboardMapping.dashboardDeviceIds[0],
+        dashboardMappingStatus:
+          dashboardMapping.status === 'override'
+            ? 'override'
+            : 'resolved',
+      },
+    ];
+  }
+
+  return dashboardMapping.dashboardDeviceIds.map((dashboardDeviceId) => ({
+    ...candidate,
+    dashboardDeviceId,
+    dashboardMappingStatus: 'resolved' as const,
+  }));
 }
 
 export function groupCandidatesByDashboardDevice(

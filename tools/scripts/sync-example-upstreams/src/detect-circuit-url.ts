@@ -10,29 +10,40 @@ const CIRCUIT_FILENAME_CANDIDATES = [
 
 const CIRCUIT_DIR_CANDIDATES = ['imgs', 'images', 'img'];
 
-async function findPngInDir(dir: string): Promise<string | undefined> {
+async function listFilesInDir(dir: string): Promise<string[]> {
   try {
     const entries = await readdir(dir, { withFileTypes: true });
-    const pngs = entries
-      .filter((e) => e.isFile() && e.name.toLowerCase().endsWith('.png'))
-      .map((e) => e.name)
-      .sort();
-    return pngs[0];
+    return entries.filter((entry) => entry.isFile()).map((entry) => entry.name);
   } catch {
-    return undefined;
+    return [];
   }
+}
+
+function findCaseInsensitiveMatch(
+  files: string[],
+  candidate: string
+): string | undefined {
+  const normalizedCandidate = candidate.toLowerCase();
+  return files.find((name) => name.toLowerCase() === normalizedCandidate);
+}
+
+async function findPngInDir(dir: string): Promise<string | undefined> {
+  const files = await listFilesInDir(dir);
+  const pngs = files
+    .filter((name) => name.toLowerCase().endsWith('.png'))
+    .sort((a, b) => a.localeCompare(b));
+  return pngs[0];
 }
 
 export async function detectCircuitFilename(
   exampleMirrorDir: string
 ): Promise<string | undefined> {
-  for (const name of CIRCUIT_FILENAME_CANDIDATES) {
-    try {
-      const { access } = await import('node:fs/promises');
-      await access(path.join(exampleMirrorDir, name));
-      return name;
-    } catch {
-      // try next candidate
+  const files = await listFilesInDir(exampleMirrorDir);
+
+  for (const candidate of CIRCUIT_FILENAME_CANDIDATES) {
+    const match = findCaseInsensitiveMatch(files, candidate);
+    if (match) {
+      return match;
     }
   }
 
@@ -44,6 +55,5 @@ export async function detectCircuitFilename(
     }
   }
 
-  const rootPng = await findPngInDir(exampleMirrorDir);
-  return rootPng;
+  return findPngInDir(exampleMirrorDir);
 }

@@ -19,7 +19,12 @@ export interface ExampleCandidateEntry {
   upstreamDirName: string;
   exampleDeviceId: string | null;
   dashboardDeviceId: string | null;
-  dashboardMappingStatus: 'resolved' | 'ambiguous' | 'unresolved' | 'override';
+  dashboardMappingStatus:
+    | 'resolved'
+    | 'fan-out'
+    | 'ambiguous'
+    | 'unresolved'
+    | 'override';
   ambiguousDashboardDeviceIds?: string[];
   example: Partial<ExampleInfo> | null;
   warnings: string[];
@@ -52,5 +57,5 @@ export interface PlatformExampleDeviceEntry {
 }
 
 export interface DeviceIdOverridesFile {
-  overrides: Record<string, string>;
+  overrides: Record<string, string | string[]>;
 }

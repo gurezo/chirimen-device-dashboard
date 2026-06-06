@@ -1,10 +1,11 @@
 import path from 'node:path';
-import { buildExampleCandidate } from '../../sync-example-upstreams/src/build-platform-example-candidates';
+import { buildExampleCandidatesForMapping } from '../../sync-example-upstreams/src/build-platform-example-candidates';
 import { listExampleDirNames } from '../../sync-example-upstreams/src/list-example-dir-names';
 import { resolveExampleDeviceId } from '../../sync-example-upstreams/src/resolve-example-device-id';
 import {
   resolveDashboardDeviceId,
   type DashboardDeviceMappingResult,
+  type DeviceIdOverrideValue,
 } from './load-device-map';
 import type { ExampleCandidateEntry, UpstreamSource } from './types';
 
@@ -12,7 +13,7 @@ export type LoadCandidatesInput = {
   repoRoot: string;
   source: UpstreamSource;
   dashboardDeviceIds: string[];
-  overrides: Record<string, string>;
+  overrides: Record<string, DeviceIdOverrideValue>;
 };
 
 export async function loadExampleCandidates(
@@ -43,18 +44,18 @@ export async function loadExampleCandidates(
           overrides
         )
       : {
-          dashboardDeviceId: null,
+          dashboardDeviceIds: [],
           status: 'unresolved',
         };
 
-    const candidate = await buildExampleCandidate({
+    const mappedCandidates = await buildExampleCandidatesForMapping({
       source,
       upstreamDirName,
       mirrorPath,
       dashboardMapping,
     });
 
-    candidates.push(candidate);
+    candidates.push(...mappedCandidates);
   }
 
   return candidates;
