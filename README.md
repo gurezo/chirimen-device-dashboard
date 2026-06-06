@@ -131,6 +131,12 @@ pnpm nx graph
 pnpm nx build
 ```
 
+## Platform 別 Example データ
+
+Platform 別 Example の正本データは [`data/platform-examples/platform-examples.json`](data/platform-examples/platform-examples.json) に配置しています。`devices.json` 生成時に `product.example` を洗い替えるための元データです。
+
+編集方法・JSON スキーマ・ID 対応の詳細は [data/platform-examples/README.md](data/platform-examples/README.md) を参照してください。
+
 ## Running Tests
 
 ```bash
