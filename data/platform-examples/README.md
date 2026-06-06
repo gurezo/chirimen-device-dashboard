@@ -112,14 +112,15 @@ pnpm generate:platform-examples
 
 1. `platform-examples.generated.json` を正本と比較する
 2. 問題なければ必要部分を `platform-examples.json` へ手動マージする
-3. （#183 以降）`pnpm nx run sync-devices:sync` で `devices.json` を再生成し、`product.example` が洗い替えされる
+3. `pnpm nx run sync-devices:sync` で `devices.json` を再生成し、`product.example` が洗い替えされる
 
 ### 手動編集
 
 1. `platform-examples.json` を直接編集する
 2. JSON がパース可能であることを確認する
+3. `pnpm nx run sync-devices:sync` で `devices.json` を再生成する
 
-現時点（#183 未完了）では `devices.json` / `sync-devices` は `platform-examples.json` を参照していません。
+`sync-devices` は `platform-examples.json` を読み込み、`dashboardDeviceId` が一致する device の `product.example` を洗い替えます。
 
 ## 関連 issue
 
