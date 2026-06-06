@@ -12,6 +12,10 @@ import {
   type ExampleInfo,
 } from '@chirimen-device-dashboard/shared-types';
 import {
+  getExampleStatusClasses,
+  getExampleStatusLabel,
+} from '../example-status';
+import {
   PlatformSpecificExampleCardComponent,
   type PlatformSpecificExample,
 } from '../platform-specific-example-card/platform-specific-example-card.component';
@@ -42,4 +46,7 @@ export class PlatformSpecificExamplesComponent {
   getSanitizedUrl(url: string): string | null {
     return this.sanitizer.sanitize(SecurityContext.URL, url);
   }
+
+  getExampleStatusLabel = getExampleStatusLabel;
+  getExampleStatusClasses = getExampleStatusClasses;
 }
