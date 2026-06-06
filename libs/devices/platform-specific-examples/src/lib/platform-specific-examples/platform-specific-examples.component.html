@@ -1,0 +1,114 @@
+@if (platformSpecificExamples().length === 0) {
+  <p
+    class="m-0 text-[0.9375rem] leading-relaxed text-black/55 dark:text-white/55"
+  >
+    Platform 別 Example はありません
+  </p>
+} @else {
+  <div class="hidden md:block overflow-x-auto">
+    <table class="w-full border-collapse text-[0.875rem]">
+      <thead>
+        <tr class="border-b border-black/10 dark:border-white/10">
+          <th
+            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80"
+          >
+            Platform
+          </th>
+          <th
+            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80"
+          >
+            Upstream Repository
+          </th>
+          <th
+            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80"
+          >
+            Upstream Path
+          </th>
+          <th
+            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80"
+          >
+            状態
+          </th>
+          <th
+            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80"
+          >
+            回路図
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (example of platformSpecificExamples(); track example.platform) {
+          <tr
+            class="border-b border-black/6 last:border-b-0 dark:border-white/[0.06]"
+          >
+            <td class="py-3 px-3 align-top text-black/87 dark:text-white/87">
+              {{ example.platform }}
+            </td>
+            <td class="py-3 px-3 align-top">
+              @let repoUrl = getSanitizedUrl(example.upstreamRepositoryUrl ?? '');
+              @if (repoUrl) {
+                <a
+                  [href]="repoUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-[#1976d2] no-underline break-all hover:underline dark:text-[#42a5f5]"
+                >
+                  {{ getRepositoryDisplayName(example) }}
+                </a>
+              } @else {
+                <span class="text-black/75 dark:text-white/75">{{
+                  getRepositoryDisplayName(example)
+                }}</span>
+              }
+            </td>
+            <td class="py-3 px-3 align-top">
+              @let pathUrl = getSanitizedUrl(example.upstreamPathUrl);
+              @if (pathUrl) {
+                <a
+                  [href]="pathUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-[#1976d2] no-underline break-all hover:underline dark:text-[#42a5f5]"
+                >
+                  {{ example.upstreamPath }}
+                </a>
+              } @else {
+                <span class="text-black/75 dark:text-white/75">{{
+                  example.upstreamPath
+                }}</span>
+              }
+            </td>
+            <td class="py-3 px-3 align-top text-black/75 dark:text-white/75">
+              {{ example.status }}
+            </td>
+            <td class="py-3 px-3 align-top">
+              @if (example.circuitUrl) {
+                @let circuitUrl = getSanitizedUrl(example.circuitUrl);
+                @if (circuitUrl) {
+                  <a
+                    [href]="circuitUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1 text-[#1976d2] no-underline hover:underline dark:text-[#42a5f5]"
+                  >
+                    回路図
+                  </a>
+                } @else {
+                  <span class="text-black/45 dark:text-white/45">—</span>
+                }
+              } @else {
+                <span class="text-black/45 dark:text-white/45">—</span>
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <div class="flex flex-col gap-3 md:hidden">
+    @for (example of platformSpecificExamples(); track example.platform) {
+      <choh-platform-specific-example-card [example]="example" />
+    }
+  </div>
+}

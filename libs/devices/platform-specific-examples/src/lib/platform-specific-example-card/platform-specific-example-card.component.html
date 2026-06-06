@@ -1,0 +1,81 @@
+<div
+  class="flex flex-col gap-3 py-4 px-4 bg-black/[0.02] rounded-lg border border-black/6 dark:bg-white/[0.04] dark:border-white/[0.08]"
+>
+  <div class="text-sm font-semibold text-black/87 dark:text-white/87">
+    {{ example().platform }}
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <span class="text-xs font-medium text-black/55 dark:text-white/55"
+      >Upstream Repository</span
+    >
+    @let repoUrl = getSanitizedUrl(example().upstreamRepositoryUrl ?? '');
+    @if (repoUrl) {
+      <a
+        [href]="repoUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] dark:text-[#42a5f5] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+      >
+        {{ getRepositoryDisplayName() }}
+      </a>
+    } @else {
+      <span class="text-[0.9375rem] text-black/75 dark:text-white/75">{{
+        getRepositoryDisplayName()
+      }}</span>
+    }
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <span class="text-xs font-medium text-black/55 dark:text-white/55"
+      >Upstream Path</span
+    >
+    @let pathUrl = getSanitizedUrl(example().upstreamPathUrl);
+    @if (pathUrl) {
+      <a
+        [href]="pathUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] dark:text-[#42a5f5] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+      >
+        {{ example().upstreamPath }}
+      </a>
+    } @else {
+      <span class="text-[0.9375rem] text-black/75 dark:text-white/75">{{
+        example().upstreamPath
+      }}</span>
+    }
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <span class="text-xs font-medium text-black/55 dark:text-white/55"
+      >状態</span
+    >
+    <span class="text-[0.9375rem] text-black/75 dark:text-white/75">{{
+      example().status
+    }}</span>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <span class="text-xs font-medium text-black/55 dark:text-white/55"
+      >回路図</span
+    >
+    @if (example().circuitUrl) {
+      @let circuitUrl = getSanitizedUrl(example().circuitUrl!);
+      @if (circuitUrl) {
+        <a
+          [href]="circuitUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-[0.9375rem] text-[#1976d2] no-underline py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] dark:text-[#42a5f5] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+        >
+          回路図
+        </a>
+      } @else {
+        <span class="text-[0.9375rem] text-black/45 dark:text-white/45">—</span>
+      }
+    } @else {
+      <span class="text-[0.9375rem] text-black/45 dark:text-white/45">—</span>
+    }
+  </div>
+</div>
