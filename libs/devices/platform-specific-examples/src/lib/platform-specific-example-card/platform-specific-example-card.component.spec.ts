@@ -28,10 +28,19 @@ describe('PlatformSpecificExampleCardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display platform and status', () => {
+  it('should display platform and status badge in header', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.textContent).toContain('pizero-esm');
     expect(compiled.textContent).toContain('primary');
+    expect(compiled.querySelector('span.rounded-md')).toBeTruthy();
+  });
+
+  it('should not show separate status label row', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const labels = Array.from(compiled.querySelectorAll('span.text-xs')).map(
+      (el) => el.textContent?.trim(),
+    );
+    expect(labels).not.toContain('状態');
   });
 
   it('should render repository, path, and circuit links', () => {
