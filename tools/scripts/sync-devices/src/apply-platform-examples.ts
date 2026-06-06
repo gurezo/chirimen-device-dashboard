@@ -1,5 +1,5 @@
 import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
-import type { PlatformExampleDeviceEntry } from '../../sync-example-upstreams/src/types';
+import type { PlatformExampleDeviceEntry } from './types';
 
 export function applyPlatformExamples(
   devices: DeviceInfo[],

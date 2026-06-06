@@ -6,7 +6,7 @@ import type {
   ExampleInfo,
   ProductInfo,
 } from '@chirimen-device-dashboard/shared-types';
-import type { PlatformExampleDeviceEntry } from '../../sync-example-upstreams/src/types';
+import type { PlatformExampleDeviceEntry } from './types';
 import { applyPlatformExamples } from './apply-platform-examples';
 
 const PARTSLIST_CSV_URL =

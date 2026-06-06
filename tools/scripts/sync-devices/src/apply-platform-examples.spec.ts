@@ -5,7 +5,7 @@ import {
   isPlatformSpecificExample,
   type DeviceInfo,
 } from '@chirimen-device-dashboard/shared-types';
-import type { PlatformExampleDeviceEntry } from '../../sync-example-upstreams/src/types';
+import type { PlatformExampleDeviceEntry } from './types';
 import { applyPlatformExamples } from './apply-platform-examples';
 
 const repoRoot = path.resolve(__dirname, '../../../..');
