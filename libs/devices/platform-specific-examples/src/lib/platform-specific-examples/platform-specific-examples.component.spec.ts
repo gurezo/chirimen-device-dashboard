@@ -36,6 +36,32 @@ describe('PlatformSpecificExamplesComponent', () => {
     expect(compiled.textContent).toContain('legacy-gc-i2c');
   });
 
+  it('should sort platform-specific examples by status priority', () => {
+    fixture.componentRef.setInput('examples', adt7410PlatformExamples);
+    fixture.detectChanges();
+
+    const platforms = component
+      .platformSpecificExamples()
+      .map((example) => example.platform);
+    expect(platforms).toEqual([
+      'pizero-esm',
+      'microbit-driver',
+      'node',
+      'raspi-node',
+      'legacy-gc-i2c',
+    ]);
+  });
+
+  it('should render primary example as the first table row', () => {
+    fixture.componentRef.setInput('examples', adt7410PlatformExamples);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const firstRow = compiled.querySelector('table tbody tr');
+    expect(firstRow?.textContent).toContain('pizero-esm');
+    expect(firstRow?.textContent).toContain('primary');
+  });
+
   it('should show empty state when only legacy examples are provided', () => {
     fixture.componentRef.setInput('examples', legacyOnlyExamples);
     fixture.detectChanges();
@@ -99,7 +125,7 @@ describe('PlatformSpecificExamplesComponent', () => {
   });
 
   it('should truncate only upstream path cells', () => {
-    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[0]]);
+    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[3]]);
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
@@ -131,7 +157,7 @@ describe('PlatformSpecificExamplesComponent', () => {
   });
 
   it('should render table links for repository, path, and circuit', () => {
-    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[0]]);
+    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[3]]);
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
