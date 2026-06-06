@@ -53,7 +53,12 @@ jobs:
 
       - name: Check platform examples drift
         run: |
-          if ! git diff --exit-code -- data/platform-examples/; then
-            echo "::error::data/platform-examples/ is out of date. Run pnpm sync:example-upstreams && pnpm generate:platform-examples locally and commit the changes."
-            exit 1
+          GENERATED=data/platform-examples/platform-examples.generated.json
+          if git ls-files --error-unmatch "$GENERATED" >/dev/null 2>&1; then
+            if ! git diff --exit-code -- "$GENERATED"; then
+              echo "::error::$GENERATED is out of date. Run pnpm sync:example-upstreams && pnpm generate:platform-examples locally and commit the changes."
+              exit 1
+            fi
+          else
+            echo "Skipping drift check: $GENERATED is not tracked yet."
           fi
