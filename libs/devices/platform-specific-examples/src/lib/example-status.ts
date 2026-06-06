@@ -24,6 +24,21 @@ const STATUS_CLASSES: Record<ExampleStatus, string> = {
 const BADGE_BASE =
   'inline-flex text-[0.75rem] font-medium py-1 px-2.5 rounded-md whitespace-nowrap';
 
+const STATUS_SORT_ORDER: Record<ExampleStatus, number> = {
+  primary: 0,
+  legacy: 1,
+  archive: 2,
+  incubator: 3,
+  special: 4,
+};
+
+export function compareExampleStatus(
+  a: ExampleStatus,
+  b: ExampleStatus,
+): number {
+  return STATUS_SORT_ORDER[a] - STATUS_SORT_ORDER[b];
+}
+
 export function getExampleStatusLabel(status: ExampleStatus): string {
   return STATUS_LABELS[status];
 }
