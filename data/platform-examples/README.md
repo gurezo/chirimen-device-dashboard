@@ -98,15 +98,33 @@
 
 ## 編集フロー
 
-1. `platform-examples.json` を編集する
-2. JSON がパース可能であることを確認する
+### 自動生成（二段パイプライン）
+
+`chirimen-example-catalog` と同様、同期と生成を分離しています。
+
+```bash
+# Step 1: upstream mirror を同期
+pnpm sync:example-upstreams
+
+# Step 2: Platform 別 Example 元データを生成
+pnpm generate:platform-examples
+```
+
+1. `platform-examples.generated.json` を正本と比較する
+2. 問題なければ必要部分を `platform-examples.json` へ手動マージする
 3. （#183 以降）`pnpm nx run sync-devices:sync` で `devices.json` を再生成し、`product.example` が洗い替えされる
 
-現時点（#180 完了）では `devices.json` / `sync-devices` は変更していません。元データの追加・移行のみです。
+### 手動編集
+
+1. `platform-examples.json` を直接編集する
+2. JSON がパース可能であることを確認する
+
+現時点（#183 未完了）では `devices.json` / `sync-devices` は `platform-examples.json` を参照していません。
 
 ## 関連 issue
 
 - 親: [#177](https://github.com/gurezo/chirimen-device-dashboard/issues/177) — Example 管理機能の移植
 - [#179](https://github.com/gurezo/chirimen-device-dashboard/issues/179) — 元データ置き場の追加
 - [#180](https://github.com/gurezo/chirimen-device-dashboard/issues/180) — ADT7410 データの catalog 突合・移行
+- [#182](https://github.com/gurezo/chirimen-device-dashboard/issues/182) — `generate-platform-examples` ツール（`generate-catalog` 相当）
 - [#183](https://github.com/gurezo/chirimen-device-dashboard/issues/183) — `devices.json` 生成時の洗い替え
