@@ -38,3 +38,4 @@
 
 - 親: [#177](https://github.com/gurezo/chirimen-device-dashboard/issues/177)
 - [#181](https://github.com/gurezo/chirimen-device-dashboard/issues/181) — sync-upstreams 移植
+- [#187](https://github.com/gurezo/chirimen-device-dashboard/issues/187) — Example 同期・生成・検証用 GitHub Actions（[`.github/workflows/sync-example-upstreams.yml`](../../.github/workflows/sync-example-upstreams.yml) 等）

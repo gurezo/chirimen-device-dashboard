@@ -9,6 +9,7 @@
 | ファイル | 説明 |
 | --- | --- |
 | `platform-examples.json` | Platform 別 Example の正本（コミット対象） |
+| `platform-examples.generated.json` | upstream 同期後の review 用候補 JSON（CI 自動 PR で更新される場合あり） |
 
 生成物として `apps/web/public/platform-specific-examples.json` のような別 JSON は作成しません。最終的には `apps/web/public/devices.json` の `product.example` に統合されます。
 
@@ -133,6 +134,44 @@ pnpm validate:platform-examples
 
 レポートは `generated/reports/` に出力されます。詳細は [`tools/scripts/validate-platform-examples/README.md`](../../tools/scripts/validate-platform-examples/README.md) を参照してください。
 
+## CI / 生成差分の扱い
+
+GitHub Actions から sync / generate / validate / `devices.json` 生成を実行できます。`chirimen-example-catalog` には依存しません。
+
+### Workflow 一覧
+
+| Workflow | ファイル | トリガー | 役割 |
+| --- | --- | --- | --- |
+| Sync example upstreams | [`.github/workflows/sync-example-upstreams.yml`](../../.github/workflows/sync-example-upstreams.yml) | 毎週日曜 0:00 UTC / 手動 | upstream 同期 → 生成 → validation → `devices.json` 生成 → 差分があれば自動 PR |
+| Generate platform examples | [`.github/workflows/generate-platform-examples.yml`](../../.github/workflows/generate-platform-examples.yml) | PR / main push / 手動 | `data/platform-examples/` の生成ドリフトを検出 |
+| Validate platform examples | [`.github/workflows/validate-platform-examples.yml`](../../.github/workflows/validate-platform-examples.yml) | PR / main push / 手動 | 正本と `devices.json` の validation |
+| Generate devices | [`.github/workflows/generate-devices.yml`](../../.github/workflows/generate-devices.yml) | PR / main push / 手動 | `devices.json` の生成ドリフトを検出 |
+
+`sync-devices.yml`（partslist.csv 由来の `devices.json` 更新）は別 workflow です。両方が `devices.json` を更新する場合は merge 時に conflict 解消が必要になることがあります。
+
+### 自動 PR に含まれるファイル
+
+`sync-example-upstreams` workflow が作成する PR には、おおむね以下が含まれます。
+
+- `generated/reports/**` — 同期・validation レポート
+- `data/platform-examples/**` — `platform-examples.generated.json` 等
+- `apps/web/public/devices.json` — `product.example` 洗い替え結果（`partslist.csv` 更新分を含む場合あり）
+
+正本 `platform-examples.json` は**自動上書きしません**。`platform-examples.generated.json` を確認し、必要なら手動で正本へマージしてください。
+
+### `generated/upstreams` について
+
+upstream repository の mirror（`generated/upstreams/**`）はリポジトリにコミットしません。CI では `actions/cache` で run 間再利用します。
+
+### ローカル再現
+
+```bash
+pnpm sync:example-upstreams
+pnpm generate:platform-examples
+pnpm validate:platform-examples
+pnpm generate:devices
+```
+
 ## 関連 issue
 
 - 親: [#177](https://github.com/gurezo/chirimen-device-dashboard/issues/177) — Example 管理機能の移植
@@ -141,3 +180,4 @@ pnpm validate:platform-examples
 - [#182](https://github.com/gurezo/chirimen-device-dashboard/issues/182) — `generate-platform-examples` ツール（`generate-catalog` 相当）
 - [#183](https://github.com/gurezo/chirimen-device-dashboard/issues/183) — `devices.json` 生成時の洗い替え
 - [#189](https://github.com/gurezo/chirimen-device-dashboard/issues/189) — validation / reports ツール
+- [#187](https://github.com/gurezo/chirimen-device-dashboard/issues/187) — Example 同期・生成・検証用 GitHub Actions

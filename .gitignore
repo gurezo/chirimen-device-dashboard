@@ -58,7 +58,8 @@ firebase-debug.log
 firebase-debug.*.log
 
 generated/
-data/platform-examples/platform-examples.generated.json
+!generated/reports/
+!generated/reports/**
 
 vitest.config.*.timestamp*
 
