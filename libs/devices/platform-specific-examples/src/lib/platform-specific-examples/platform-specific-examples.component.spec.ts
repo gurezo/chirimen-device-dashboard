@@ -72,8 +72,8 @@ describe('PlatformSpecificExamplesComponent', () => {
     expect(compiled.querySelector('.overflow-x-auto')).toBeFalsy();
   });
 
-  it('should apply nowrap headers and truncate long table cells', () => {
-    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[0]]);
+  it('should show platform and repository columns without truncation', () => {
+    fixture.componentRef.setInput('examples', adt7410PlatformExamples);
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
@@ -81,24 +81,37 @@ describe('PlatformSpecificExamplesComponent', () => {
     expect(table).toBeTruthy();
     expect(table?.classList.contains('table-fixed')).toBe(true);
 
-    const headers = table?.querySelectorAll('thead th');
-    expect(headers?.length).toBe(5);
+    const platformHeader = table?.querySelector('thead th');
+    const repoHeader = table?.querySelectorAll('thead th')[1];
+    expect(platformHeader?.classList.contains('whitespace-nowrap')).toBe(true);
+    expect(repoHeader?.classList.contains('whitespace-nowrap')).toBe(true);
+    expect(repoHeader?.textContent?.trim()).toBe('Upstream Repository');
 
-    const repoHeader = table?.querySelector('thead th span[title="Upstream Repository"]');
-    const pathHeader = table?.querySelector('thead th span[title="Upstream Path"]');
-    expect(repoHeader?.classList.contains('truncate')).toBe(true);
-    expect(pathHeader?.classList.contains('truncate')).toBe(true);
+    const platformCell = table?.querySelector('tbody td');
+    expect(platformCell?.classList.contains('whitespace-nowrap')).toBe(true);
+    expect(platformCell?.classList.contains('truncate')).toBe(false);
 
     const repoLink = compiled.querySelector(
-      'table a[href="https://github.com/chirimen-oh/chirimen.org"]',
+      'table a[href="https://github.com/chirimen-oh/chirimen-drivers"]',
+    );
+    expect(repoLink?.classList.contains('truncate')).toBe(false);
+    expect(repoLink?.textContent?.trim()).toContain('chirimen-drivers');
+  });
+
+  it('should truncate only upstream path cells', () => {
+    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[0]]);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const pathHeader = compiled.querySelector(
+      'thead th span[title="Upstream Path"]',
     );
     const pathLink = compiled.querySelector(
       'table a[href="https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/adt7410"]',
     );
 
-    expect(repoLink?.classList.contains('truncate')).toBe(true);
+    expect(pathHeader?.classList.contains('truncate')).toBe(true);
     expect(pathLink?.classList.contains('truncate')).toBe(true);
-    expect(repoLink?.getAttribute('title')).toBe('chirimen.org');
     expect(pathLink?.getAttribute('title')).toBe(
       'pizero/src/esm-examples/adt7410',
     );
