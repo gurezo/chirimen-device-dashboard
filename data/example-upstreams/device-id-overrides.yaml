@@ -2,7 +2,13 @@
 #
 # 自動推定で曖昧・未解決の場合に使用します。
 # key: exampleDeviceId（例: adt7410）
-# value: dashboardDeviceId（例: i2c-adt7410）
+# value: dashboardDeviceId または dashboardDeviceId の配列（例: i2c-adt7410）
 
 overrides:
   adt7410: i2c-adt7410
+  hbridge2-pca9685pwm: i2c-pca9685-pwm
+  hbridge1:
+    - gpio-l298n
+    - gpio-l9110s
+    - gpio-mx1508
+    - actuator-device
