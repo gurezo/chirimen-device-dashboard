@@ -28,6 +28,7 @@
         "{options.reportsDirectory}"
       ],
       "options": {
+        "configFile": "{projectRoot}/vitest.config.ts",
         "reportsDirectory": "{projectRoot}/../../../coverage/tools/scripts/sync-devices"
       },
       "configurations": {
