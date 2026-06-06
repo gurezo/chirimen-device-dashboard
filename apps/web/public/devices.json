@@ -893,6 +893,20 @@
       "url": "https://www.switch-science.com/catalog/829/",
       "example": [
         {
+          "hardware": "chirimen",
+          "code": "https://github.com/chirimen-oh/chirimen/tree/master/gc/i2c/i2c-grove-oledDisplay",
+          "deviceId": "grove-oleddisplay",
+          "platform": "legacy-gc-i2c",
+          "localPath": "examples/devices/grove-oleddisplay/platforms/legacy-gc-i2c",
+          "upstreamRepository": "chirimen-oh/chirimen",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+          "upstreamPath": "gc/i2c/i2c-grove-oledDisplay",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen/tree/master/gc/i2c/i2c-grove-oledDisplay",
+          "status": "archive",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen/blob/master/gc/i2c/i2c-grove-oledDisplay/schematic.png",
+          "verified": false
+        },
+        {
           "hardware": "Raspberry Pi",
           "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/ssd1308",
           "deviceId": "ssd1308",
@@ -1635,16 +1649,60 @@
       "url": "",
       "example": [
         {
-          "hardware": "chirimen",
-          "code": "https://r.chirimen.org/examples/#I2C-NEOPIXEL_I2C"
+          "hardware": "micro:bit",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/neopixel",
+          "deviceId": "neopixel",
+          "platform": "microbit-driver",
+          "localPath": "examples/devices/neopixel/platforms/microbit-driver",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "microbit-examples/neopixel",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/neopixel",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/microbit-examples/neopixel/imgs/CMMB_I2C_example5.png",
+          "verified": false
         },
         {
-          "hardware": "microbit",
-          "code": "https://chirimen.org/chirimen-micro-bit/examples/#I2C5_NEOPIXEL"
+          "hardware": "Raspberry Pi",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "node",
+          "localPath": "examples/devices/neopixel-i2c/platforms/node",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "node-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/neopixel-i2c/schematic.png",
+          "verified": false
         },
         {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_neopixel-i2c"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/neopixel-i2c/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/neopixel-i2c/schematic.png",
+          "verified": false
+        },
+        {
+          "hardware": "Raspberry Pi",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "raspi-node",
+          "localPath": "examples/devices/neopixel-i2c/platforms/raspi-node",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "raspi-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/neopixel-i2c/schematic.png",
+          "verified": false
         }
       ]
     }
@@ -1658,7 +1716,64 @@
     "image": "https://raw.githubusercontent.com/chirimen-oh/chirimen.org/master/partsImgs/neopixel64.jpg",
     "product": {
       "url": "https://www.amazon.co.jp/dp/B07KG3Y2BG/",
-      "example": [],
+      "example": [
+        {
+          "hardware": "micro:bit",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/neopixel",
+          "deviceId": "neopixel",
+          "platform": "microbit-driver",
+          "localPath": "examples/devices/neopixel/platforms/microbit-driver",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "microbit-examples/neopixel",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/neopixel",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/microbit-examples/neopixel/imgs/CMMB_I2C_example5.png",
+          "verified": false
+        },
+        {
+          "hardware": "Raspberry Pi",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "node",
+          "localPath": "examples/devices/neopixel-i2c/platforms/node",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "node-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/neopixel-i2c/schematic.png",
+          "verified": false
+        },
+        {
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/neopixel-i2c/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/neopixel-i2c/schematic.png",
+          "verified": false
+        },
+        {
+          "hardware": "Raspberry Pi",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "raspi-node",
+          "localPath": "examples/devices/neopixel-i2c/platforms/raspi-node",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "raspi-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/neopixel-i2c/schematic.png",
+          "verified": false
+        }
+      ],
       "guide": "https://learn.adafruit.com/adafruit-neopixel-uberguide"
     }
   },
@@ -1671,7 +1786,64 @@
     "image": "https://raw.githubusercontent.com/chirimen-oh/chirimen.org/master/partsImgs/neopixel12.jpg",
     "product": {
       "url": "",
-      "example": []
+      "example": [
+        {
+          "hardware": "micro:bit",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/neopixel",
+          "deviceId": "neopixel",
+          "platform": "microbit-driver",
+          "localPath": "examples/devices/neopixel/platforms/microbit-driver",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "microbit-examples/neopixel",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/neopixel",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/microbit-examples/neopixel/imgs/CMMB_I2C_example5.png",
+          "verified": false
+        },
+        {
+          "hardware": "Raspberry Pi",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "node",
+          "localPath": "examples/devices/neopixel-i2c/platforms/node",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "node-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/neopixel-i2c/schematic.png",
+          "verified": false
+        },
+        {
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/neopixel-i2c/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/neopixel-i2c/schematic.png",
+          "verified": false
+        },
+        {
+          "hardware": "Raspberry Pi",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "raspi-node",
+          "localPath": "examples/devices/neopixel-i2c/platforms/raspi-node",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "raspi-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/neopixel-i2c/schematic.png",
+          "verified": false
+        }
+      ]
     }
   },
   {
@@ -1683,7 +1855,64 @@
     "image": "https://raw.githubusercontent.com/chirimen-oh/chirimen.org/master/partsImgs/neopixel60.jpg",
     "product": {
       "url": "",
-      "example": []
+      "example": [
+        {
+          "hardware": "micro:bit",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/neopixel",
+          "deviceId": "neopixel",
+          "platform": "microbit-driver",
+          "localPath": "examples/devices/neopixel/platforms/microbit-driver",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "microbit-examples/neopixel",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/neopixel",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/microbit-examples/neopixel/imgs/CMMB_I2C_example5.png",
+          "verified": false
+        },
+        {
+          "hardware": "Raspberry Pi",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "node",
+          "localPath": "examples/devices/neopixel-i2c/platforms/node",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "node-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/neopixel-i2c/schematic.png",
+          "verified": false
+        },
+        {
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/neopixel-i2c/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/neopixel-i2c/schematic.png",
+          "verified": false
+        },
+        {
+          "hardware": "Raspberry Pi",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
+          "deviceId": "neopixel-i2c",
+          "platform": "raspi-node",
+          "localPath": "examples/devices/neopixel-i2c/platforms/raspi-node",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "raspi-examples/neopixel-i2c",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/neopixel-i2c/schematic.png",
+          "verified": false
+        }
+      ]
     }
   },
   {
@@ -1697,12 +1926,18 @@
       "url": "https://www.switch-science.com/products/1493",
       "example": [
         {
-          "hardware": "chirimen",
-          "code": "https://r.chirimen.org/examples/#I2C-HT16K33"
-        },
-        {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ht16k33",
+          "deviceId": "ht16k33",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/ht16k33/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/ht16k33",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ht16k33",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/ht16k33/schematic.png",
+          "verified": false
         }
       ],
       "datasheet": "https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf",
@@ -1722,12 +1957,18 @@
       "url": "https://www.aitendo.com/product/12822",
       "example": [
         {
-          "hardware": "chirimen",
-          "code": "https://r.chirimen.org/examples/#I2C-HT16K33"
-        },
-        {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ht16k33",
+          "deviceId": "ht16k33",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/ht16k33/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/ht16k33",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ht16k33",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/ht16k33/schematic.png",
+          "verified": false
         }
       ],
       "datasheet": "https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf"
@@ -1744,12 +1985,18 @@
       "url": "https://www.aitendo.com/product/16658",
       "example": [
         {
-          "hardware": "chirimen",
-          "code": "https://r.chirimen.org/examples/#I2C-HT16K33"
-        },
-        {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ht16k33",
+          "deviceId": "ht16k33",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/ht16k33/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/ht16k33",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ht16k33",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/ht16k33/schematic.png",
+          "verified": false
         }
       ],
       "datasheet": "https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf"
@@ -1766,12 +2013,18 @@
       "url": "https://www.aitendo.com/product/14540",
       "example": [
         {
-          "hardware": "chirimen",
-          "code": "https://r.chirimen.org/examples/#I2C-HT16K33"
-        },
-        {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ht16k33",
+          "deviceId": "ht16k33",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/ht16k33/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/ht16k33",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ht16k33",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/ht16k33/schematic.png",
+          "verified": false
         }
       ],
       "datasheet": "https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf"
@@ -1788,12 +2041,18 @@
       "url": "https://www.aitendo.com/product/20812",
       "example": [
         {
-          "hardware": "chirimen",
-          "code": "https://r.chirimen.org/examples/#I2C-HT16K33"
-        },
-        {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ht16k33"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ht16k33",
+          "deviceId": "ht16k33",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/ht16k33/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/ht16k33",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ht16k33",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/ht16k33/schematic.png",
+          "verified": false
         }
       ],
       "datasheet": "https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf"
@@ -1917,15 +2176,73 @@
       "example": [
         {
           "hardware": "chirimen",
-          "code": "http://chirimen.org/chirimen/gc/top/examples/#I2C-SHT30"
+          "code": "https://github.com/chirimen-oh/chirimen/tree/master/gc/i2c/i2c-SHT30",
+          "deviceId": "sht30",
+          "platform": "legacy-gc-i2c",
+          "localPath": "examples/devices/sht30/platforms/legacy-gc-i2c",
+          "upstreamRepository": "chirimen-oh/chirimen",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+          "upstreamPath": "gc/i2c/i2c-SHT30",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen/tree/master/gc/i2c/i2c-SHT30",
+          "status": "archive",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen/blob/master/gc/i2c/i2c-SHT30/schematic.png",
+          "verified": false
         },
         {
-          "hardware": "microbit",
-          "code": "https://chirimen.org/chirimen-micro-bit/examples/#I2C7_SHT30"
+          "hardware": "micro:bit",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/sht30",
+          "deviceId": "sht30",
+          "platform": "microbit-driver",
+          "localPath": "examples/devices/sht30/platforms/microbit-driver",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "microbit-examples/sht30",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/sht30",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/microbit-examples/sht30/imgs/pinbit_sht30.png",
+          "verified": false
         },
         {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_sht30"
+          "hardware": "Raspberry Pi",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/sht30",
+          "deviceId": "sht30",
+          "platform": "node",
+          "localPath": "examples/devices/sht30/platforms/node",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "node-examples/sht30",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/sht30",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/sht30/schematic.png",
+          "verified": false
+        },
+        {
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/sht30",
+          "deviceId": "sht30",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/sht30/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/sht30",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/sht30",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/sht30/schematic.png",
+          "verified": false
+        },
+        {
+          "hardware": "Raspberry Pi",
+          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/sht30",
+          "deviceId": "sht30",
+          "platform": "raspi-node",
+          "localPath": "examples/devices/sht30/platforms/raspi-node",
+          "upstreamRepository": "chirimen-oh/chirimen-drivers",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+          "upstreamPath": "raspi-examples/sht30",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/sht30",
+          "status": "legacy",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/sht30/schematic.png",
+          "verified": false
         }
       ],
       "datasheet": "https://sensirion.com/media/documents/213E6A3B/63A5A569/Datasheet_SHT3x_DIS.pdf"
@@ -1942,8 +2259,18 @@
       "url": "https://akizukidenshi.com/catalog/g/g116366/",
       "example": [
         {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_sht40"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/sht40",
+          "deviceId": "sht40",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/sht40/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/sht40",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/sht40",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/sht40/schematic.png",
+          "verified": false
         }
       ],
       "reference": "https://sensirion.com/jp/products/product-catalog/SHT40"
@@ -3571,8 +3898,18 @@
       "url": "https://www.amazon.co.jp/s?k=DFPlayer",
       "example": [
         {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_dfplayer"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/dfplayer",
+          "deviceId": "dfplayer",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/dfplayer/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/dfplayer",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/dfplayer",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/dfplayer/DFPlayer.png",
+          "verified": false
         }
       ],
       "instructions": "https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299"
