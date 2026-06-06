@@ -119,8 +119,19 @@ pnpm generate:platform-examples
 1. `platform-examples.json` を直接編集する
 2. JSON がパース可能であることを確認する
 3. `pnpm nx run sync-devices:sync` で `devices.json` を再生成する
+4. `pnpm validate:platform-examples` で validation レポートを確認する
 
 `sync-devices` は `platform-examples.json` を読み込み、`dashboardDeviceId` が一致する device の `product.example` を洗い替えます。
+
+## Validation
+
+Platform 別 Example 元データと `devices.json` の `product.example` を検証する場合:
+
+```bash
+pnpm validate:platform-examples
+```
+
+レポートは `generated/reports/` に出力されます。詳細は [`tools/scripts/validate-platform-examples/README.md`](../../tools/scripts/validate-platform-examples/README.md) を参照してください。
 
 ## 関連 issue
 
@@ -129,3 +140,4 @@ pnpm generate:platform-examples
 - [#180](https://github.com/gurezo/chirimen-device-dashboard/issues/180) — ADT7410 データの catalog 突合・移行
 - [#182](https://github.com/gurezo/chirimen-device-dashboard/issues/182) — `generate-platform-examples` ツール（`generate-catalog` 相当）
 - [#183](https://github.com/gurezo/chirimen-device-dashboard/issues/183) — `devices.json` 生成時の洗い替え
+- [#189](https://github.com/gurezo/chirimen-device-dashboard/issues/189) — validation / reports ツール

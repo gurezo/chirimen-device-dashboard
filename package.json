@@ -16,7 +16,8 @@
     "serve:all": "nx run-many --target=serve --all",
     "e2e": "nx e2e web-e2e",
     "sync:example-upstreams": "nx run sync-example-upstreams:sync",
-    "generate:platform-examples": "nx run generate-platform-examples:generate"
+    "generate:platform-examples": "nx run generate-platform-examples:generate",
+    "validate:platform-examples": "nx run validate-platform-examples:validate"
   },
   "packageManager": "pnpm@11.5.0",
   "devDependencies": {
