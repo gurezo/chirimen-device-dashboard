@@ -20,6 +20,674 @@
     ]
   },
   {
+    "dashboardDeviceId": "actuator-device-1",
+    "exampleDeviceId": "device-1",
+    "examples": [
+      {
+        "hardware": "microbit",
+        "code": "https://tutorial.chirimen.org/microbit/iot_actuate",
+        "deviceId": "device-1",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/device-1/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/microbit/iot_actuate",
+        "status": "legacy",
+        "circuitUrl": "https://tutorial.chirimen.org/microbit/iot_actuate",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/#gpio-2",
+        "deviceId": "device-1",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/device-1/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/#gpio-2",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/#gpio-2",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "actuator-es08maii",
+    "exampleDeviceId": "es08maii",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "deviceId": "es08maii",
+        "platform": "chirimen",
+        "localPath": "examples/devices/es08maii/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "deviceId": "es08maii",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/es08maii/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "actuator-mg90s",
+    "exampleDeviceId": "mg90s",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "deviceId": "mg90s",
+        "platform": "chirimen",
+        "localPath": "examples/devices/mg90s/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "deviceId": "mg90s",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/mg90s/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "actuator-mg995",
+    "exampleDeviceId": "mg995",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "deviceId": "mg995",
+        "platform": "chirimen",
+        "localPath": "examples/devices/mg995/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "deviceId": "mg995",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/mg995/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "actuator-n20",
+    "exampleDeviceId": "n20",
+    "examples": [
+      {
+        "hardware": "microbit",
+        "code": "https://tutorial.chirimen.org/microbit/iot_actuate",
+        "deviceId": "n20",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/n20/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/microbit/iot_actuate",
+        "status": "legacy",
+        "circuitUrl": "https://tutorial.chirimen.org/microbit/iot_actuate",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/#gpio-2",
+        "deviceId": "n20",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/n20/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/#gpio-2",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/#gpio-2",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "actuator-sg90",
+    "exampleDeviceId": "sg90",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "deviceId": "sg90",
+        "platform": "chirimen",
+        "localPath": "examples/devices/sg90/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#I2C-PCA9685",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "deviceId": "sg90",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/sg90/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_pca9685",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "actuator-ts3692n65",
+    "exampleDeviceId": "ts3692n65",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-A4988",
+        "deviceId": "ts3692n65",
+        "platform": "chirimen",
+        "localPath": "examples/devices/ts3692n65/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-A4988",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-A4988",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge",
+        "deviceId": "ts3692n65",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/ts3692n65/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-A4988",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_a4988",
+        "deviceId": "ts3692n65",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/ts3692n65/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_a4988",
+        "status": "primary",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-A4988",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "analog-device",
+    "exampleDeviceId": "device",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "http://chirimen.org/chirimen/gc/top/examples/#I2C-ADS1115-LoadCell",
+        "deviceId": "device",
+        "platform": "chirimen",
+        "localPath": "examples/devices/device/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "http://chirimen.org/chirimen/gc/top/examples/#I2C-ADS1115-LoadCell",
+        "status": "legacy",
+        "circuitUrl": "http://chirimen.org/chirimen/gc/top/examples/#I2C-ADS1115-LoadCell",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#I2C_ADS1115_LoadCell",
+        "deviceId": "device",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/device/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#I2C_ADS1115_LoadCell",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#I2C_ADS1115_LoadCell",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1115-loadcell",
+        "deviceId": "device",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/device/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1115-loadcell",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1115-loadcell",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "analog-fsr-400",
+    "exampleDeviceId": "fsr-400",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15",
+        "deviceId": "fsr-400",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/fsr-400/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "analog-m-wl-j3y",
+    "exampleDeviceId": "m-wl-j3y",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "deviceId": "m-wl-j3y",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/m-wl-j3y/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "analog-rd-4p",
+    "exampleDeviceId": "rd-4p",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "deviceId": "rd-4p",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/rd-4p/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "analog-tsr-3386",
+    "exampleDeviceId": "tsr-3386",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15",
+        "deviceId": "tsr-3386",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/tsr-3386/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_ads1x15",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-10k",
+    "exampleDeviceId": "10k",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "deviceId": "10k",
+        "platform": "chirimen",
+        "localPath": "examples/devices/10k/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "deviceId": "10k",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/10k/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "10k",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/10k/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-150",
+    "exampleDeviceId": "150",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "deviceId": "150",
+        "platform": "chirimen",
+        "localPath": "examples/devices/150/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "deviceId": "150",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/150/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "150",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/150/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-1k",
+    "exampleDeviceId": "1k",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "deviceId": "1k",
+        "platform": "chirimen",
+        "localPath": "examples/devices/1k/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "deviceId": "1k",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/1k/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "1k",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/1k/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-2pin",
+    "exampleDeviceId": "2pin",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Button",
+        "deviceId": "2pin",
+        "platform": "chirimen",
+        "localPath": "examples/devices/2pin/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Button",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Button",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO0",
+        "deviceId": "2pin",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/2pin/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO0",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO0",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "deviceId": "2pin",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/2pin/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-2sk4017",
+    "exampleDeviceId": "2sk4017",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "deviceId": "2sk4017",
+        "platform": "chirimen",
+        "localPath": "examples/devices/2sk4017/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "status": "legacy",
+        "circuitUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO3",
+        "deviceId": "2sk4017",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/2sk4017/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO3",
+        "status": "legacy",
+        "circuitUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "2sk4017",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/2sk4017/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-4pin",
+    "exampleDeviceId": "4pin",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Button",
+        "deviceId": "4pin",
+        "platform": "chirimen",
+        "localPath": "examples/devices/4pin/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Button",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Button",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO0",
+        "deviceId": "4pin",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/4pin/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO0",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO0",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "deviceId": "4pin",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/4pin/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "gpio-a4988",
     "exampleDeviceId": "a4988",
     "examples": [
@@ -35,6 +703,246 @@
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/a4988",
         "status": "primary",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/a4988/Schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-d4184",
+    "exampleDeviceId": "d4184",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "deviceId": "d4184",
+        "platform": "chirimen",
+        "localPath": "examples/devices/d4184/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "status": "legacy",
+        "circuitUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO3",
+        "deviceId": "d4184",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/d4184/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO3",
+        "status": "legacy",
+        "circuitUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "d4184",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/d4184/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-device",
+    "exampleDeviceId": "device",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "deviceId": "device",
+        "platform": "chirimen",
+        "localPath": "examples/devices/device/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "deviceId": "device",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/device/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "device",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/device/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-device-1",
+    "exampleDeviceId": "device-1",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "deviceId": "device-1",
+        "platform": "chirimen",
+        "localPath": "examples/devices/device-1/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "deviceId": "device-1",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/device-1/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "device-1",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/device-1/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-device-2",
+    "exampleDeviceId": "device-2",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "deviceId": "device-2",
+        "platform": "chirimen",
+        "localPath": "examples/devices/device-2/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "deviceId": "device-2",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/device-2/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "device-2",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/device-2/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-device-3",
+    "exampleDeviceId": "device-3",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "deviceId": "device-3",
+        "platform": "chirimen",
+        "localPath": "examples/devices/device-3/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "deviceId": "device-3",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/device-3/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "device-3",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/device-3/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
         "verified": false
       }
     ]
@@ -60,6 +968,102 @@
     ]
   },
   {
+    "dashboardDeviceId": "gpio-hc-sr501",
+    "exampleDeviceId": "hc-sr501",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-pirSensor",
+        "deviceId": "hc-sr501",
+        "platform": "chirimen",
+        "localPath": "examples/devices/hc-sr501/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-pirSensor",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-pirSensor",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_PYR",
+        "deviceId": "hc-sr501",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/hc-sr501/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_PYR",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_PYR",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "deviceId": "hc-sr501",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/hc-sr501/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-irf520",
+    "exampleDeviceId": "irf520",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "deviceId": "irf520",
+        "platform": "chirimen",
+        "localPath": "examples/devices/irf520/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "status": "legacy",
+        "circuitUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO3",
+        "deviceId": "irf520",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/irf520/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO3",
+        "status": "legacy",
+        "circuitUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "irf520",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/irf520/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/raspi/section1#section-9",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "gpio-isd1820",
     "exampleDeviceId": "isd1820",
     "examples": [
@@ -75,6 +1079,54 @@
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/isd1820",
         "status": "primary",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/isd1820/ISD1820.png",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-kp-ir412",
+    "exampleDeviceId": "kp-ir412",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-pirSensor",
+        "deviceId": "kp-ir412",
+        "platform": "chirimen",
+        "localPath": "examples/devices/kp-ir412/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-pirSensor",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-pirSensor",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_PYR",
+        "deviceId": "kp-ir412",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/kp-ir412/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_PYR",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_PYR",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "deviceId": "kp-ir412",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/kp-ir412/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
         "verified": false
       }
     ]
@@ -120,6 +1172,150 @@
     ]
   },
   {
+    "dashboardDeviceId": "gpio-led",
+    "exampleDeviceId": "led",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "deviceId": "led",
+        "platform": "chirimen",
+        "localPath": "examples/devices/led/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "deviceId": "led",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/led/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "led",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/led/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-led-1",
+    "exampleDeviceId": "led-1",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "deviceId": "led-1",
+        "platform": "chirimen",
+        "localPath": "examples/devices/led-1/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "deviceId": "led-1",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/led-1/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "led-1",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/led-1/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-led-2",
+    "exampleDeviceId": "led-2",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "deviceId": "led-2",
+        "platform": "chirimen",
+        "localPath": "examples/devices/led-2/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Blink",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "deviceId": "led-2",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/led-2/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO1",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "deviceId": "led-2",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/led-2/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hello-real-world",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "gpio-mx1508",
     "exampleDeviceId": "hbridge1",
     "examples": [
@@ -135,6 +1331,74 @@
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/hbridge1",
         "status": "primary",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/hbridge1/l298n_wiring.png",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-ss-10gl13",
+    "exampleDeviceId": "ss-10gl13",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#GPIO-Button",
+        "deviceId": "ss-10gl13",
+        "platform": "chirimen",
+        "localPath": "examples/devices/ss-10gl13/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#GPIO-Button",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#GPIO-Button",
+        "verified": false
+      },
+      {
+        "hardware": "microbit",
+        "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO0",
+        "deviceId": "ss-10gl13",
+        "platform": "microbit-driver",
+        "localPath": "examples/devices/ss-10gl13/platforms/microbit-driver",
+        "upstreamRepository": "chirimen-oh/chirimen-drivers",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
+        "upstreamPath": "microbit-examples",
+        "upstreamPathUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO0",
+        "status": "legacy",
+        "circuitUrl": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO0",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "deviceId": "ss-10gl13",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/ss-10gl13/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "gpio-tp223",
+    "exampleDeviceId": "tp223",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "deviceId": "tp223",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/tp223/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-onchange",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/gpio-onchange/index.html#gpio",
         "verified": false
       }
     ]
@@ -872,6 +2136,40 @@
     ]
   },
   {
+    "dashboardDeviceId": "i2c-grove",
+    "exampleDeviceId": "grove-water-level-sensor",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://github.com/SeeedDocument/Grove-Water-Level-Sensor/blob/master/water-level-sensor-demo.ino",
+        "deviceId": "grove-water-level-sensor",
+        "platform": "chirimen",
+        "localPath": "examples/devices/grove-water-level-sensor/platforms/chirimen",
+        "upstreamRepository": "SeeedDocument/Grove-Water-Level-Sensor",
+        "upstreamRepositoryUrl": "https://github.com/SeeedDocument/Grove-Water-Level-Sensor",
+        "upstreamPath": "examples",
+        "upstreamPathUrl": "https://github.com/SeeedDocument/Grove-Water-Level-Sensor/blob/master/water-level-sensor-demo.ino",
+        "status": "legacy",
+        "circuitUrl": "https://raw.githubusercontent.com/SeeedDocument/Grove-Water-LEVER-Sensor/master/res/Grove%20-%20Water%20Level%20Sensor%20(10CM)_SCH%26PCB.zip",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_grove-water-level-sensor",
+        "deviceId": "grove-water-level-sensor",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/grove-water-level-sensor/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_grove-water-level-sensor",
+        "status": "primary",
+        "circuitUrl": "https://raw.githubusercontent.com/SeeedDocument/Grove-Water-LEVER-Sensor/master/res/Grove%20-%20Water%20Level%20Sensor%20(10CM)_SCH%26PCB.zip",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-grove-accelerometer-adxl345",
     "exampleDeviceId": "adxl345",
     "examples": [
@@ -915,6 +2213,40 @@
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/adxl345",
         "status": "legacy",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/adxl345/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "i2c-grove-gesture-paj7620u2",
+    "exampleDeviceId": "paj7620",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#I2C-Grove-Gesture",
+        "deviceId": "paj7620",
+        "platform": "chirimen",
+        "localPath": "examples/devices/paj7620/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#I2C-Grove-Gesture",
+        "status": "legacy",
+        "circuitUrl": "https://github.com/SeeedDocument/Grove_Gesture_V_1.0/raw/master/res/Grove_-_Gesture_v1.0_sch_pcb.zip",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_paj7620",
+        "deviceId": "paj7620",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/paj7620/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_paj7620",
+        "status": "primary",
+        "circuitUrl": "https://github.com/SeeedDocument/Grove_Gesture_V_1.0/raw/master/res/Grove_-_Gesture_v1.0_sch_pcb.zip",
         "verified": false
       }
     ]
@@ -1320,6 +2652,26 @@
     ]
   },
   {
+    "dashboardDeviceId": "i2c-m5-qr-stm32f030",
+    "exampleDeviceId": "qrcodescanner",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_qrcodescanner",
+        "deviceId": "qrcodescanner",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/qrcodescanner/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_qrcodescanner",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_qrcodescanner",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-m5-rfid-2-ws1850s",
     "exampleDeviceId": "ws1850s",
     "examples": [
@@ -1335,6 +2687,26 @@
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ws1850s",
         "status": "primary",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/ws1850s/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "i2c-max30102",
+    "exampleDeviceId": "max30102",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_max30102",
+        "deviceId": "max30102",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/max30102/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/max30102",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/max30102",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_max30102",
         "verified": false
       }
     ]
@@ -2014,6 +3386,26 @@
     ]
   },
   {
+    "dashboardDeviceId": "i2c-seesaw",
+    "exampleDeviceId": "seesaw",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "http://chirimen.org/chirimen/gc/top/examples/#I2C-seesaw",
+        "deviceId": "seesaw",
+        "platform": "chirimen",
+        "localPath": "examples/devices/seesaw/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "http://chirimen.org/chirimen/gc/top/examples/#I2C-seesaw",
+        "status": "legacy",
+        "circuitUrl": "http://chirimen.org/chirimen/gc/top/examples/#I2C-seesaw",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-sgp40",
     "exampleDeviceId": "sgp40",
     "examples": [
@@ -2475,6 +3867,80 @@
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/vl6180x",
         "status": "primary",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/vl6180x/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "i2c-waveshare-20471",
+    "exampleDeviceId": "waveshare20471",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_waveshare20471",
+        "deviceId": "waveshare20471",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/waveshare20471/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_waveshare20471",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_waveshare20471",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "other-device-2",
+    "exampleDeviceId": "device-2",
+    "examples": [
+      {
+        "hardware": "chirimen",
+        "code": "https://r.chirimen.org/examples/#OTHERS-CAMERA",
+        "deviceId": "device-2",
+        "platform": "chirimen",
+        "localPath": "examples/devices/device-2/platforms/chirimen",
+        "upstreamRepository": "chirimen-oh/chirimen",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen",
+        "upstreamPath": "gc/examples",
+        "upstreamPathUrl": "https://r.chirimen.org/examples/#OTHERS-CAMERA",
+        "status": "legacy",
+        "circuitUrl": "https://r.chirimen.org/examples/#OTHERS-CAMERA",
+        "verified": false
+      },
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-camera",
+        "deviceId": "device-2",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/device-2/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-camera",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_gpio-camera",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "other-gy-gps6mv2",
+    "exampleDeviceId": "gy-gps6mv2",
+    "examples": [
+      {
+        "hardware": "piZero",
+        "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_serial_gps",
+        "deviceId": "gy-gps6mv2",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/gy-gps6mv2/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples",
+        "upstreamPathUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_serial_gps",
+        "status": "primary",
+        "circuitUrl": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_serial_gps",
         "verified": false
       }
     ]
