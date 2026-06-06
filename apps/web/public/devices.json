@@ -2561,17 +2561,8 @@
       "url": "https://www.amazon.co.jp/s?k=MAX30102",
       "example": [
         {
-          "hardware": "Pi Zero",
-          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/max30102",
-          "deviceId": "max30102",
-          "platform": "pizero-esm",
-          "localPath": "examples/devices/max30102/platforms/pizero-esm",
-          "upstreamRepository": "chirimen-oh/chirimen.org",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
-          "upstreamPath": "pizero/src/esm-examples/max30102",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/max30102",
-          "status": "primary",
-          "verified": false
+          "hardware": "piZero",
+          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_max30102"
         }
       ],
       "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX30102.pdf"

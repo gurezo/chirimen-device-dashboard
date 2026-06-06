@@ -1126,25 +1126,6 @@
     ]
   },
   {
-    "dashboardDeviceId": "i2c-max30102",
-    "exampleDeviceId": "max30102",
-    "examples": [
-      {
-        "hardware": "Pi Zero",
-        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/max30102",
-        "deviceId": "max30102",
-        "platform": "pizero-esm",
-        "localPath": "examples/devices/max30102/platforms/pizero-esm",
-        "upstreamRepository": "chirimen-oh/chirimen.org",
-        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
-        "upstreamPath": "pizero/src/esm-examples/max30102",
-        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/max30102",
-        "status": "primary",
-        "verified": false
-      }
-    ]
-  },
-  {
     "dashboardDeviceId": "i2c-mlx90614",
     "exampleDeviceId": "mlx90614",
     "examples": [
