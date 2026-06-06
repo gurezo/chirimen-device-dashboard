@@ -10,6 +10,10 @@ import type {
   ExampleInfo,
   ExampleStatus,
 } from '@chirimen-device-dashboard/shared-types';
+import {
+  getExampleStatusClasses,
+  getExampleStatusLabel,
+} from '../example-status';
 
 export type PlatformSpecificExample = ExampleInfo & {
   platform: string;
@@ -39,4 +43,7 @@ export class PlatformSpecificExampleCardComponent {
   getSanitizedUrl(url: string): string | null {
     return this.sanitizer.sanitize(SecurityContext.URL, url);
   }
+
+  getExampleStatusLabel = getExampleStatusLabel;
+  getExampleStatusClasses = getExampleStatusClasses;
 }
