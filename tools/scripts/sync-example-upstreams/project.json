@@ -24,7 +24,8 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "{projectRoot}/../../../coverage/tools/scripts/sync-example-upstreams"
+        "reportsDirectory": "{projectRoot}/../../../coverage/tools/scripts/sync-example-upstreams",
+        "configFile": "{projectRoot}/vitest.config.ts"
       },
       "configurations": {
         "ci": {
