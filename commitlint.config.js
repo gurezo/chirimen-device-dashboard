@@ -17,6 +17,7 @@ module.exports = {
         'sync-devices',
         'sync-example-upstreams',
         'generate-platform-examples',
+        'validate-platform-examples',
         'ci',
         'mcp',
       ],

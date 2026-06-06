@@ -6,6 +6,8 @@ import {
 } from './validate-platform-examples';
 import type { PlatformExampleDeviceEntry } from './types';
 
+const knownDeviceIds = new Set(['i2c-adt7410']);
+
 const validAdt7410Entry: PlatformExampleDeviceEntry = {
   dashboardDeviceId: 'i2c-adt7410',
   exampleDeviceId: 'adt7410',
@@ -95,14 +97,37 @@ const validAdt7410Entry: PlatformExampleDeviceEntry = {
 
 describe('validatePlatformExamples', () => {
   it('accepts valid entries', () => {
-    expect(validatePlatformExamples([validAdt7410Entry])).toHaveLength(0);
+    expect(validatePlatformExamples([validAdt7410Entry], knownDeviceIds)).toHaveLength(
+      0
+    );
   });
 
   it('reports missing hardware', () => {
     const entry = structuredClone(validAdt7410Entry);
     entry.examples[0].hardware = '';
-    const errors = validatePlatformExamples([entry]);
-    expect(errors.some((e) => e.message.includes('hardware'))).toBe(true);
+    const errors = validatePlatformExamples([entry], knownDeviceIds);
+    expect(errors.some((e) => e.field === 'hardware')).toBe(true);
+  });
+
+  it('reports unknown dashboardDeviceId', () => {
+    const entry = structuredClone(validAdt7410Entry);
+    entry.dashboardDeviceId = 'i2c-unknown';
+    const errors = validatePlatformExamples([entry], knownDeviceIds);
+    expect(errors.some((e) => e.field === 'dashboardDeviceId')).toBe(true);
+  });
+
+  it('reports missing exampleDeviceId', () => {
+    const entry = structuredClone(validAdt7410Entry);
+    entry.exampleDeviceId = '';
+    const errors = validatePlatformExamples([entry], knownDeviceIds);
+    expect(errors.some((e) => e.field === 'exampleDeviceId')).toBe(true);
+  });
+
+  it('reports invalid status', () => {
+    const entry = structuredClone(validAdt7410Entry);
+    entry.examples[0].status = 'invalid' as typeof entry.examples[0]['status'];
+    const errors = validatePlatformExamples([entry], knownDeviceIds);
+    expect(errors.some((e) => e.field === 'status')).toBe(true);
   });
 });
 
@@ -122,7 +147,9 @@ describe('validateAdt7410Platforms', () => {
 describe('assertValidPlatformExamples', () => {
   it('does not throw for valid ADT7410 entry', () => {
     expect(() =>
-      assertValidPlatformExamples([validAdt7410Entry], { requireAdt7410: true })
+      assertValidPlatformExamples([validAdt7410Entry], knownDeviceIds, {
+        requireAdt7410: true,
+      })
     ).not.toThrow();
   });
 });

@@ -12,7 +12,6 @@ export default [
           allow: [
             '^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$',
             '^\\.\\./\\.\\./sync-example-upstreams/.*',
-            '^\\.\\./\\.\\./validate-platform-examples/.*',
           ],
           depConstraints: [
             {
