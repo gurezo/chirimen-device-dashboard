@@ -32,4 +32,4 @@ pnpm generate:platform-examples
 2. `pnpm generate:platform-examples` を実行
 3. `platform-examples.generated.json` と正本を比較
 4. 問題なければ必要部分を `platform-examples.json` へ手動マージ
-5. （#183 以降）`pnpm nx run sync-devices:sync` で `devices.json` を再生成
+5. `pnpm nx run sync-devices:sync` で `devices.json` を再生成
