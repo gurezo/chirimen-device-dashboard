@@ -1,0 +1,8 @@
+# example device id → dashboard device id の手動 override
+#
+# 自動推定で曖昧・未解決の場合に使用します。
+# key: exampleDeviceId（例: adt7410）
+# value: dashboardDeviceId（例: i2c-adt7410）
+
+overrides:
+  adt7410: i2c-adt7410
