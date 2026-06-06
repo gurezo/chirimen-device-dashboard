@@ -72,6 +72,36 @@ describe('PlatformSpecificExamplesComponent', () => {
     expect(compiled.querySelector('.overflow-x-auto')).toBeFalsy();
   });
 
+  it('should apply nowrap headers and truncate long table cells', () => {
+    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[0]]);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const table = compiled.querySelector('table');
+    expect(table).toBeTruthy();
+    expect(table?.classList.contains('table-fixed')).toBe(false);
+
+    const headers = table?.querySelectorAll('thead th');
+    expect(headers?.length).toBe(5);
+    for (const header of Array.from(headers ?? [])) {
+      expect(header.classList.contains('whitespace-nowrap')).toBe(true);
+    }
+
+    const repoLink = compiled.querySelector(
+      'table a[href="https://github.com/chirimen-oh/chirimen.org"]',
+    );
+    const pathLink = compiled.querySelector(
+      'table a[href="https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/adt7410"]',
+    );
+
+    expect(repoLink?.classList.contains('truncate')).toBe(true);
+    expect(pathLink?.classList.contains('truncate')).toBe(true);
+    expect(repoLink?.getAttribute('title')).toBe('chirimen.org');
+    expect(pathLink?.getAttribute('title')).toBe(
+      'pizero/src/esm-examples/adt7410',
+    );
+  });
+
   it('should render status badges in table rows', () => {
     fixture.componentRef.setInput('examples', adt7410PlatformExamples);
     fixture.detectChanges();
