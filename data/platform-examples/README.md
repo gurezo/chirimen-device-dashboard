@@ -72,17 +72,41 @@
 | --- | --- | --- |
 | `i2c-adt7410` | `adt7410` | ADT7410 |
 
+## ADT7410 移行記録（#180）
+
+`chirimen-example-catalog` の `catalog/examples.json` / `metadata.md` と突合し、以下 5 platform を移行済みです。
+
+| Platform | Status | Upstream Repository | Upstream Path |
+| --- | --- | --- | --- |
+| `pizero-esm` | primary | `chirimen-oh/chirimen.org` | `pizero/src/esm-examples/adt7410` |
+| `node` | legacy | `chirimen-oh/chirimen-drivers` | `node-examples/adt7410` |
+| `raspi-node` | legacy | `chirimen-oh/chirimen-drivers` | `raspi-examples/adt7410` |
+| `microbit-driver` | legacy | `chirimen-oh/chirimen-drivers` | `microbit-examples/adt7410` |
+| `legacy-gc-i2c` | archive | `chirimen-oh/chirimen` | `gc/i2c/i2c-ADT7410` |
+
+### legacy `code` URL 対応
+
+移行過渡期の旧 `devices.json` 互換のため、以下 3 platform は `code` にチュートリアル URL を設定しています。`upstreamPathUrl` は GitHub tree URL のままです。
+
+| Platform | legacy `hardware` | `code`（チュートリアル URL） |
+| --- | --- | --- |
+| `pizero-esm` | `Pi Zero` | `https://tutorial.chirimen.org/pizero/esm-examples/#I2C_adt7410` |
+| `microbit-driver` | `micro:bit` | `https://chirimen.org/chirimen-micro-bit/examples/#I2C1_ADT7410` |
+| `legacy-gc-i2c` | `chirimen` | `https://r.chirimen.org/examples/#I2C-ADT7410` |
+
+`node` / `raspi-node` は legacy `devices.json` に対応エントリがないため、`code` = `upstreamPathUrl` です。
+
 ## 編集フロー
 
 1. `platform-examples.json` を編集する
 2. JSON がパース可能であることを確認する
 3. （#183 以降）`pnpm nx run sync-devices:sync` で `devices.json` を再生成し、`product.example` が洗い替えされる
 
-現時点（#179）では `devices.json` / `sync-devices` は変更していません。元データの追加のみです。
+現時点（#180 完了）では `devices.json` / `sync-devices` は変更していません。元データの追加・移行のみです。
 
 ## 関連 issue
 
 - 親: [#177](https://github.com/gurezo/chirimen-device-dashboard/issues/177) — Example 管理機能の移植
-- 本 issue: [#179](https://github.com/gurezo/chirimen-device-dashboard/issues/179) — 元データ置き場の追加
-- [#180](https://github.com/gurezo/chirimen-device-dashboard/issues/180) — ADT7410 データの catalog 突合
+- [#179](https://github.com/gurezo/chirimen-device-dashboard/issues/179) — 元データ置き場の追加
+- [#180](https://github.com/gurezo/chirimen-device-dashboard/issues/180) — ADT7410 データの catalog 突合・移行
 - [#183](https://github.com/gurezo/chirimen-device-dashboard/issues/183) — `devices.json` 生成時の洗い替え
