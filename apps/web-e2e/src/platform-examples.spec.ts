@@ -37,6 +37,34 @@ test.describe('Platform 別 Example', () => {
     await expect(table.getByRole('cell', { name: 'pizero-esm' })).toBeVisible();
   });
 
+  test('desktop shows platform examples table for i2c-ht16k33-8x8led', async ({
+    page,
+  }) => {
+    await page.goto('/devices/i2c-ht16k33-8x8led');
+
+    await expect(
+      page.getByRole('heading', { name: 'Platform 別 Example' }),
+    ).toBeVisible();
+
+    const table = page.locator('table');
+    await expect(table).toBeVisible();
+    await expect(table.getByRole('cell', { name: 'pizero-esm' })).toBeVisible();
+  });
+
+  test('desktop shows platform examples table for i2c-neopixel-led-8x8', async ({
+    page,
+  }) => {
+    await page.goto('/devices/i2c-neopixel-led-8x8');
+
+    await expect(
+      page.getByRole('heading', { name: 'Platform 別 Example' }),
+    ).toBeVisible();
+
+    const table = page.locator('table');
+    await expect(table).toBeVisible();
+    await expect(table.getByRole('cell', { name: 'pizero-esm' })).toBeVisible();
+  });
+
   test('mobile shows platform example cards', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/devices/i2c-adt7410');
