@@ -57,6 +57,8 @@ functions/lib
 firebase-debug.log
 firebase-debug.*.log
 
+generated/upstreams/_repos/
+
 vitest.config.*.timestamp*
 
 .claude/worktrees
