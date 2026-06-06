@@ -14,6 +14,7 @@ module.exports = {
         'libs-feature-list',
         'libs-card-list',
         'libs-device-detail',
+        'libs-platform-specific-examples',
         'sync-devices',
         'sync-example-upstreams',
         'generate-platform-examples',

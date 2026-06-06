@@ -40,6 +40,7 @@ AI エージェント (Cursor 等) 向けの Conventional Commits ルール / Sk
 | `libs-feature-list`  | devices 一覧 feature (libs/devices/feature-list)  |
 | `libs-device-detail` | devices 詳細 feature (libs/devices/device-detail) |
 | `libs-card-list`     | デバイスカード一覧 UI (libs/devices/card-list) |
+| `libs-platform-specific-examples` | Platform 別 Example UI (libs/devices/platform-specific-examples) |
 | `sync-devices`      | devices データ同期 (tools/scripts/sync-devices)   |
 | `ci`                 | CI 設定変更 (GitHub Actions 等)                   |
 | `mcp`                | MCP 設定変更 (.cursor/mcp.json 等)              |

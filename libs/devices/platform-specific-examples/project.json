@@ -1,0 +1,36 @@
+{
+  "name": "libs-platform-specific-examples",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/devices/platform-specific-examples/src",
+  "prefix": "chirimen",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/devices/platform-specific-examples",
+        "main": "libs/devices/platform-specific-examples/src/index.ts",
+        "tsConfig": "libs/devices/platform-specific-examples/tsconfig.lib.json",
+        "assets": [],
+        "generatePackageJson": false,
+        "rootDir": "."
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "{projectRoot}/../../../coverage/libs/devices/platform-specific-examples"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -21,6 +21,7 @@ alwaysApply: false
 | `libs-feature-list` | `libs/devices/feature-list` | デバイス一覧 feature |
 | `libs-card-list` | `libs/devices/card-list` | デバイスカード一覧 UI |
 | `libs-device-detail` | `libs/devices/device-detail` | デバイス詳細 UI |
+| `libs-platform-specific-examples` | `libs/devices/platform-specific-examples` | Platform 別 Example UI |
 | `sync-devices` | `tools/scripts/sync-devices` | デバイス JSON 同期スクリプト |
 | `workspace` | ルート設定・ツール全般 | `package.json` / `nx.json` / `.husky/` 等 |
 | `ci` | `.github/workflows/` | CI ワークフロー |
