@@ -2,7 +2,7 @@
   "name": "libs-platform-specific-examples",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/devices/platform-specific-examples/src",
-  "prefix": "chirimen",
+  "prefix": "choh",
   "projectType": "library",
   "tags": [],
   "targets": {
