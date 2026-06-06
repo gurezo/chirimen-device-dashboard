@@ -3,9 +3,10 @@
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc",
     "types": ["vitest/globals"],
-    "baseUrl": "../../..",
     "paths": {
-      "@chirimen-device-dashboard/shared-types": ["libs/shared-types/src/index.ts"]
+      "@chirimen-device-dashboard/shared-types": [
+        "../../../libs/shared-types/src/index.ts"
+      ]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts"]

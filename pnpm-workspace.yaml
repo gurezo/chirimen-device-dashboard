@@ -15,7 +15,7 @@ allowBuilds:
 # config = 7 day x 24h x 60 min
 minimumReleaseAge: 10080
 
-# pnpm-lock.yaml の全パッケージ名（1697 件）を除外し、--frozen-lockfile で supply-chain 検証を通す
+# pnpm-lock.yaml の全パッケージ名（1700 件）を除外し、--frozen-lockfile で supply-chain 検証を通す
 minimumReleaseAgeExclude:
   - '@algolia/abtesting'
   - '@algolia/client-abtesting'
@@ -439,6 +439,7 @@ minimumReleaseAgeExclude:
   - '@oxc-parser/binding-win32-arm64-msvc'
   - '@oxc-parser/binding-win32-ia32-msvc'
   - '@oxc-parser/binding-win32-x64-msvc'
+  - '@oxc-project/runtime'
   - '@oxc-project/types'
   - '@oxc-resolver/binding-android-arm-eabi'
   - '@oxc-resolver/binding-android-arm64'
@@ -925,7 +926,6 @@ minimumReleaseAgeExclude:
   - 'entities'
   - 'env-paths'
   - 'environment'
-  - 'err-code'
   - 'errno'
   - 'error-ex'
   - 'error-stack-parser'
@@ -976,7 +976,10 @@ minimumReleaseAgeExclude:
   - 'fast-glob'
   - 'fast-json-stable-stringify'
   - 'fast-levenshtein'
+  - 'fast-string-truncated-width'
+  - 'fast-string-width'
   - 'fast-uri'
+  - 'fast-wrap-ansi'
   - 'fastq'
   - 'faye-websocket'
   - 'fb-watchman'
@@ -1426,7 +1429,6 @@ minimumReleaseAgeExclude:
   - 'process-nextick-args'
   - 'progress'
   - 'promise-breaker'
-  - 'promise-retry'
   - 'proto-list'
   - 'proto3-json-serializer'
   - 'protobufjs'
@@ -1627,6 +1629,7 @@ minimumReleaseAgeExclude:
   - 'tsconfig-paths-webpack-plugin'
   - 'tslib'
   - 'tsscmp'
+  - 'tsx'
   - 'tsyringe'
   - 'tuf-js'
   - 'type-check'

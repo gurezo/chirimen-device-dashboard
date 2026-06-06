@@ -4,7 +4,7 @@
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
@@ -13,28 +13,27 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": ".",
     "paths": {
       "@chirimen-device-dashboard/shared-types": [
-        "libs/shared-types/src/index.ts"
+        "./libs/shared-types/src/index.ts"
       ],
       "@chirimen-device-dashboard/libs-data-access": [
-        "libs/devices/data-access/src/index.ts"
+        "./libs/devices/data-access/src/index.ts"
       ],
       "@chirimen-device-dashboard/libs-state": [
-        "libs/devices/state/src/index.ts"
+        "./libs/devices/state/src/index.ts"
       ],
       "@chirimen-device-dashboard/libs-feature-list": [
-        "libs/devices/feature-list/src/index.ts"
+        "./libs/devices/feature-list/src/index.ts"
       ],
       "@chirimen-device-dashboard/libs-card-list": [
-        "libs/devices/card-list/src/index.ts"
+        "./libs/devices/card-list/src/index.ts"
       ],
       "@chirimen-device-dashboard/libs-device-detail": [
-        "libs/devices/device-detail/src/index.ts"
+        "./libs/devices/device-detail/src/index.ts"
       ],
       "@chirimen-device-dashboard/libs-platform-specific-examples": [
-        "libs/devices/platform-specific-examples/src/index.ts"
+        "./libs/devices/platform-specific-examples/src/index.ts"
       ]
     }
   },
