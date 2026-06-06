@@ -124,6 +124,23 @@ export async function loadCanonicalPlatformExamples(
   }
 }
 
+export function selectCanonicalGeneratedEntries(
+  entries: PlatformExampleDeviceEntry[],
+  canonical: PlatformExampleDeviceEntry[]
+): PlatformExampleDeviceEntry[] {
+  const canonicalDeviceIds = new Set(
+    canonical.map((entry) => entry.dashboardDeviceId)
+  );
+
+  if (canonicalDeviceIds.size === 0) {
+    return [];
+  }
+
+  return entries.filter((entry) =>
+    canonicalDeviceIds.has(entry.dashboardDeviceId)
+  );
+}
+
 export function generatePlatformExamples(
   candidates: ExampleCandidateEntry[],
   canonical: PlatformExampleDeviceEntry[]

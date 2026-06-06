@@ -3,6 +3,7 @@ import type { ExampleInfo } from '@chirimen-device-dashboard/shared-types';
 import {
   buildPlatformExamplesJson,
   generatePlatformExamples,
+  selectCanonicalGeneratedEntries,
 } from './generate-platform-examples';
 import type { ExampleCandidateEntry, PlatformExampleDeviceEntry } from './types';
 
@@ -51,6 +52,47 @@ describe('buildPlatformExamplesJson', () => {
       'node',
       'pizero-esm',
     ]);
+  });
+});
+
+describe('selectCanonicalGeneratedEntries', () => {
+  it('returns only generated entries that exist in canonical data', () => {
+    const canonical: PlatformExampleDeviceEntry[] = [
+      {
+        dashboardDeviceId: 'i2c-adt7410',
+        exampleDeviceId: 'adt7410',
+        examples: [makeExample('pizero-esm')],
+      },
+    ];
+    const generated: PlatformExampleDeviceEntry[] = [
+      ...canonical,
+      {
+        dashboardDeviceId: 'i2c-max30102',
+        exampleDeviceId: 'max30102',
+        examples: [
+          makeExample('pizero-esm', {
+            circuitUrl: undefined,
+            deviceId: 'max30102',
+          }),
+        ],
+      },
+    ];
+
+    expect(selectCanonicalGeneratedEntries(generated, canonical)).toEqual(
+      canonical
+    );
+  });
+
+  it('returns an empty array when canonical data is empty', () => {
+    const generated: PlatformExampleDeviceEntry[] = [
+      {
+        dashboardDeviceId: 'i2c-max30102',
+        exampleDeviceId: 'max30102',
+        examples: [makeExample('pizero-esm', { deviceId: 'max30102' })],
+      },
+    ];
+
+    expect(selectCanonicalGeneratedEntries(generated, [])).toEqual([]);
   });
 });
 

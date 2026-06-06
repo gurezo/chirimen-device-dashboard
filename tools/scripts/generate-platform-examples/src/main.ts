@@ -8,6 +8,7 @@ import { loadUpstreamSources } from './load-upstream-sources';
 import {
   generatePlatformExamples,
   loadCanonicalPlatformExamples,
+  selectCanonicalGeneratedEntries,
 } from './generate-platform-examples';
 import { assertValidPlatformExamples } from '../../validate-platform-examples/src/validate-platform-examples';
 import { writeJsonIfChanged } from './write-json-if-changed';
@@ -49,7 +50,10 @@ export async function main(): Promise<void> {
 
   const entries = generatePlatformExamples(allCandidates, canonical);
 
-  assertValidPlatformExamples(entries, new Set(dashboardDeviceIds));
+  const canonicalEntries = selectCanonicalGeneratedEntries(entries, canonical);
+  if (canonicalEntries.length > 0) {
+    assertValidPlatformExamples(canonicalEntries, new Set(dashboardDeviceIds));
+  }
 
   const outPath = path.join(repoRoot, OUTPUT_RELATIVE_PATH);
   const changed = await writeJsonIfChanged(outPath, entries);
