@@ -7,6 +7,7 @@ import {
   loadDashboardDeviceIds,
   loadDeviceIdOverrides,
   resolveDashboardDeviceId,
+  type DeviceIdOverrideValue,
 } from './resolve-dashboard-device-id';
 import { resolveExampleDeviceId } from './resolve-example-device-id';
 import type { SourceSyncResult, SyncSummary, UpstreamSource } from './types';
