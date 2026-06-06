@@ -1,3 +1,10 @@
+export type ExampleStatus =
+  | 'primary'
+  | 'legacy'
+  | 'archive'
+  | 'special'
+  | 'incubator';
+
 export interface ExampleInfo {
   hardware: string; // Raspbery Pi 3/4/5, Pi Zero, microbit
   code: string; // サンプルコードURL
