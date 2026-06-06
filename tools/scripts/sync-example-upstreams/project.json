@@ -1,0 +1,49 @@
+{
+  "name": "sync-example-upstreams",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "tools/scripts/sync-example-upstreams/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/scripts/sync-example-upstreams",
+        "main": "tools/scripts/sync-example-upstreams/src/main.ts",
+        "tsConfig": "tools/scripts/sync-example-upstreams/tsconfig.lib.json",
+        "assets": [],
+        "generatePackageJson": false,
+        "rootDir": "."
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "{projectRoot}/../../../coverage/tools/scripts/sync-example-upstreams"
+      },
+      "configurations": {
+        "ci": {
+          "watch": false
+        }
+      }
+    },
+    "sync": {
+      "executor": "nx:run-commands",
+      "outputs": [
+        "{workspaceRoot}/generated/upstreams",
+        "{workspaceRoot}/generated/reports",
+        "{workspaceRoot}/data/platform-examples/platform-examples.generated.json"
+      ],
+      "options": {
+        "command": "node -r @swc-node/register/register tools/scripts/sync-example-upstreams/src/main.ts",
+        "cwd": "{workspaceRoot}"
+      },
+      "configurations": {}
+    }
+  }
+}
