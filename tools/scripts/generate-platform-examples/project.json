@@ -1,0 +1,48 @@
+{
+  "name": "generate-platform-examples",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "tools/scripts/generate-platform-examples/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/scripts/generate-platform-examples",
+        "main": "tools/scripts/generate-platform-examples/src/main.ts",
+        "tsConfig": "tools/scripts/generate-platform-examples/tsconfig.lib.json",
+        "assets": [],
+        "generatePackageJson": false,
+        "rootDir": "."
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "{projectRoot}/../../../coverage/tools/scripts/generate-platform-examples",
+        "configFile": "{projectRoot}/vitest.config.ts"
+      },
+      "configurations": {
+        "ci": {
+          "watch": false
+        }
+      }
+    },
+    "generate": {
+      "executor": "nx:run-commands",
+      "outputs": [
+        "{workspaceRoot}/data/platform-examples/platform-examples.generated.json"
+      ],
+      "options": {
+        "command": "pnpm exec tsx tools/scripts/generate-platform-examples/src/main.ts",
+        "cwd": "{workspaceRoot}"
+      },
+      "configurations": {}
+    }
+  }
+}
