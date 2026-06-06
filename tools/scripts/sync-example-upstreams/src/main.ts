@@ -1,11 +1,6 @@
-import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import type { ExampleInfo } from '@chirimen-device-dashboard/shared-types';
 import { cloneOrFetchSource } from './clone-or-fetch-source';
-import {
-  buildExampleCandidate,
-  groupCandidatesByDashboardDevice,
-} from './build-platform-example-candidates';
+import { buildExampleCandidate } from './build-platform-example-candidates';
 import { listExampleDirNames } from './list-example-dir-names';
 import { loadSources } from './load-sources';
 import {
@@ -14,12 +9,7 @@ import {
   resolveDashboardDeviceId,
 } from './resolve-dashboard-device-id';
 import { resolveExampleDeviceId } from './resolve-example-device-id';
-import type {
-  PlatformExampleDeviceEntry,
-  SourceSyncResult,
-  SyncSummary,
-  UpstreamSource,
-} from './types';
+import type { SourceSyncResult, SyncSummary, UpstreamSource } from './types';
 import { writeExampleCandidatesReport } from './write-example-candidates-report';
 import { writeSyncSummary } from './write-sync-summary';
 
@@ -87,36 +77,6 @@ async function syncSource(
   return result;
 }
 
-function buildPlatformExamplesJson(
-  grouped: Map<
-    string,
-    { exampleDeviceId: string; examples: ExampleInfo[]; warnings: string[] }
-  >
-): PlatformExampleDeviceEntry[] {
-  return [...grouped.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([dashboardDeviceId, entry]) => ({
-      dashboardDeviceId,
-      exampleDeviceId: entry.exampleDeviceId,
-      examples: entry.examples.sort((a, b) =>
-        (a.platform ?? '').localeCompare(b.platform ?? '')
-      ),
-    }));
-}
-
-async function writeGeneratedPlatformExamples(
-  repoRoot: string,
-  entries: PlatformExampleDeviceEntry[]
-): Promise<string> {
-  const outPath = path.join(
-    repoRoot,
-    'data/platform-examples/platform-examples.generated.json'
-  );
-  await mkdir(path.dirname(outPath), { recursive: true });
-  await writeFile(outPath, JSON.stringify(entries, null, 2) + '\n', 'utf8');
-  return outPath;
-}
-
 async function main(): Promise<void> {
   const repoRoot = getRepoRoot();
   console.log('Loading upstream sources...');
@@ -143,10 +103,6 @@ async function main(): Promise<void> {
     }
   }
 
-  const allCandidates = sourceResults.flatMap((s) => s.candidates);
-  const grouped = groupCandidatesByDashboardDevice(allCandidates);
-  const platformEntries = buildPlatformExamplesJson(grouped);
-
   const summary: SyncSummary = {
     generatedAt: new Date().toISOString(),
     repoRoot,
@@ -159,19 +115,13 @@ async function main(): Promise<void> {
     repoRoot,
     summary
   );
-  const generatedJsonPath = await writeGeneratedPlatformExamples(
-    repoRoot,
-    platformEntries
-  );
 
   console.log(`Sync complete.`);
   console.log(`  Summary: ${path.relative(repoRoot, summaryPath)}`);
   console.log(
     `  Candidates report: ${path.relative(repoRoot, candidatesReportPath)}`
   );
-  console.log(
-    `  Generated JSON: ${path.relative(repoRoot, generatedJsonPath)} (${platformEntries.length} devices)`
-  );
+  console.log(`  Next: pnpm generate:platform-examples`);
 
   for (const source of sourceResults) {
     const relMirror = path.relative(repoRoot, source.mirrorPath);
@@ -197,4 +147,4 @@ if (!process.env.VITEST) {
   });
 }
 
-export { main, syncSource, buildPlatformExamplesJson };
+export { main, syncSource };

@@ -37,8 +37,7 @@
       "executor": "nx:run-commands",
       "outputs": [
         "{workspaceRoot}/generated/upstreams",
-        "{workspaceRoot}/generated/reports",
-        "{workspaceRoot}/data/platform-examples/platform-examples.generated.json"
+        "{workspaceRoot}/generated/reports"
       ],
       "options": {
         "command": "pnpm exec tsx tools/scripts/sync-example-upstreams/src/main.ts",
