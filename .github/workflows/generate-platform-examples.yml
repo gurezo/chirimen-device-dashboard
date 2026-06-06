@@ -1,0 +1,59 @@
+name: Generate platform examples
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Get upstream sources hash
+        id: sources
+        run: echo "hash=$(sha256sum data/example-upstreams/sources.yaml | cut -d' ' -f1)" >> $GITHUB_OUTPUT
+
+      - name: Restore upstream mirrors cache
+        uses: actions/cache/restore@v4
+        with:
+          path: generated/upstreams
+          key: example-upstreams-${{ steps.sources.outputs.hash }}-${{ github.run_id }}
+          restore-keys: |
+            example-upstreams-${{ steps.sources.outputs.hash }}-
+
+      - name: Sync example upstreams
+        run: pnpm sync:example-upstreams
+
+      - name: Save upstream mirrors cache
+        uses: actions/cache/save@v4
+        if: success()
+        with:
+          path: generated/upstreams
+          key: example-upstreams-${{ steps.sources.outputs.hash }}-${{ github.run_id }}
+
+      - name: Generate platform examples
+        run: pnpm generate:platform-examples
+
+      - name: Check platform examples drift
+        run: |
+          if ! git diff --exit-code -- data/platform-examples/; then
+            echo "::error::data/platform-examples/ is out of date. Run pnpm sync:example-upstreams && pnpm generate:platform-examples locally and commit the changes."
+            exit 1
+          fi
