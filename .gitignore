@@ -57,7 +57,8 @@ functions/lib
 firebase-debug.log
 firebase-debug.*.log
 
-generated/upstreams/_repos/
+generated/
+data/platform-examples/platform-examples.generated.json
 
 vitest.config.*.timestamp*
 

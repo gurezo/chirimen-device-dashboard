@@ -113,12 +113,12 @@ export function groupCandidatesByDashboardDevice(
     const key = candidate.dashboardDeviceId;
     const existing = grouped.get(key);
     if (existing) {
-      existing.examples.push(candidate.example);
+      existing.examples.push(candidate.example as ExampleInfo);
       existing.warnings.push(...candidate.warnings);
     } else {
       grouped.set(key, {
         exampleDeviceId: candidate.exampleDeviceId ?? key,
-        examples: [candidate.example],
+        examples: [candidate.example as ExampleInfo],
         warnings: [...candidate.warnings],
       });
     }
