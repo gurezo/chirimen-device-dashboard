@@ -2154,12 +2154,18 @@
       "url": "https://www.switch-science.com/catalog/961/",
       "example": [
         {
-          "hardware": "chirimen",
-          "code": "https://r.chirimen.org/examples/#GPIO-I2C-PWMHBridge-1"
-        },
-        {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_hbridge2-pca9685pwm"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/hbridge2-pca9685pwm",
+          "deviceId": "hbridge2-pca9685pwm",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/hbridge2-pca9685pwm/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/hbridge2-pca9685pwm",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/hbridge2-pca9685pwm",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/hbridge2-pca9685pwm/l298n_pca9685_wiring.png",
+          "verified": false
         }
       ]
     }
@@ -3233,16 +3239,18 @@
       "url": "https://akizukidenshi.com/catalog/g/g106680/",
       "example": [
         {
-          "hardware": "chirimen",
-          "code": "https://r.chirimen.org/examples/#GPIO-HBridge"
-        },
-        {
-          "hardware": "microbit",
-          "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge"
-        },
-        {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/hbridge1",
+          "deviceId": "hbridge1",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/hbridge1/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/hbridge1",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/hbridge1",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/hbridge1/l298n_wiring.png",
+          "verified": false
         }
       ]
     }
@@ -3258,12 +3266,18 @@
       "url": "https://www.amazon.co.jp/HiLetgo-L9110S-H%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8-%E3%83%A2%E3%83%BC%E3%82%BF%E3%83%89%E3%83%A9%E3%82%A4%E3%83%96-%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%9C%E3%83%BC%E3%83%89/dp/B011DT3OAY",
       "example": [
         {
-          "hardware": "microbit",
-          "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge"
-        },
-        {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/hbridge1",
+          "deviceId": "hbridge1",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/hbridge1/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/hbridge1",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/hbridge1",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/hbridge1/l298n_wiring.png",
+          "verified": false
         }
       ],
       "datasheet": "https://www.elecrow.com/download/datasheet-l9110.pdf"
@@ -3280,12 +3294,18 @@
       "url": "https://www.amazon.co.jp/MX1508-%E3%83%A2%E3%83%BC%E3%82%BF%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-%E9%80%9F%E5%BA%A6%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB-%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%E3%82%B9%E3%83%86%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%83%A2%E3%83%BC%E3%82%BF%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%9C%E3%83%BC%E3%83%89%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-L298N/dp/B07P2TL2SF",
       "example": [
         {
-          "hardware": "microbit",
-          "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge"
-        },
-        {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/hbridge1",
+          "deviceId": "hbridge1",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/hbridge1/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/hbridge1",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/hbridge1",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/hbridge1/l298n_wiring.png",
+          "verified": false
         }
       ],
       "datasheet": "https://akizukidenshi.com/download/ds/st/l298n.pdf"
@@ -3579,16 +3599,18 @@
       "url": "",
       "example": [
         {
-          "hardware": "chirimen",
-          "code": "https://r.chirimen.org/examples/#GPIO-HBridge"
-        },
-        {
-          "hardware": "microbit",
-          "code": "https://chirimen.org/chirimen-micro-bit/examples/#GPIO_HBridge"
-        },
-        {
-          "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#GPIO_hbridge1"
+          "hardware": "Pi Zero",
+          "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/hbridge1",
+          "deviceId": "hbridge1",
+          "platform": "pizero-esm",
+          "localPath": "examples/devices/hbridge1/platforms/pizero-esm",
+          "upstreamRepository": "chirimen-oh/chirimen.org",
+          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+          "upstreamPath": "pizero/src/esm-examples/hbridge1",
+          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/hbridge1",
+          "status": "primary",
+          "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/hbridge1/l298n_wiring.png",
+          "verified": false
         }
       ]
     }
