@@ -9,32 +9,41 @@
     </p>
   </div>
 } @else {
-  <div class="hidden md:block">
-    <table class="w-full border-collapse text-[0.875rem] table-fixed">
+  <div class="hidden md:block min-w-0">
+    <table class="w-full table-fixed border-collapse text-[0.875rem]">
+      <colgroup>
+        <col class="w-[21%]" />
+        <col class="w-[28%]" />
+        <col class="w-[24%]" />
+        <col class="w-[13%]" />
+        <col class="w-[14%]" />
+      </colgroup>
       <thead>
         <tr class="border-b border-black/10 dark:border-white/10">
           <th
-            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80 w-[12%]"
+            class="py-2 px-2 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
           >
             Platform
           </th>
           <th
-            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80 w-[18%]"
+            class="py-2 px-2 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
           >
             Upstream Repository
           </th>
           <th
-            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80 w-[32%]"
+            class="py-2 px-2 text-left font-semibold text-black/70 dark:text-white/80 max-w-0"
           >
-            Upstream Path
+            <span class="block truncate" title="Upstream Path"
+              >Upstream Path</span
+            >
           </th>
           <th
-            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80 w-[12%]"
+            class="py-2 pl-2 pr-4 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
           >
             状態
           </th>
           <th
-            class="py-2 px-3 text-left font-semibold text-black/70 dark:text-white/80 w-[10%]"
+            class="py-2 pl-3 pr-2 text-left font-semibold text-black/70 dark:text-white/80 whitespace-nowrap"
           >
             回路図
           </th>
@@ -46,18 +55,18 @@
             class="border-b border-black/6 last:border-b-0 dark:border-white/[0.06]"
           >
             <td
-              class="py-3 px-3 align-top text-black/87 dark:text-white/87 whitespace-nowrap"
+              class="py-3 px-2 align-top text-black/87 dark:text-white/87 whitespace-nowrap"
             >
               {{ example.platform }}
             </td>
-            <td class="py-3 px-3 align-top break-all">
+            <td class="py-3 px-2 align-top whitespace-nowrap">
               @let repoUrl = getSanitizedUrl(example.upstreamRepositoryUrl ?? '');
               @if (repoUrl) {
                 <a
                   [href]="repoUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1 text-[0.875rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] dark:text-[#42a5f5] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+                  class="inline-flex items-center gap-1 text-[0.875rem] text-[#1976d2] no-underline py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] dark:text-[#42a5f5] after:content-['↗'] after:text-[0.75em] after:opacity-70"
                 >
                   {{ getRepositoryDisplayName(example) }}
                 </a>
@@ -67,29 +76,32 @@
                 }}</span>
               }
             </td>
-            <td class="py-3 px-3 align-top break-all">
+            <td class="py-3 px-2 align-top max-w-0">
               @let pathUrl = getSanitizedUrl(example.upstreamPathUrl);
               @if (pathUrl) {
                 <a
                   [href]="pathUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1 text-[0.875rem] text-[#1976d2] no-underline break-all py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] dark:text-[#42a5f5] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+                  class="block truncate text-[0.875rem] text-[#1976d2] no-underline py-1 rounded transition-all duration-150 hover:underline hover:bg-[rgba(25,118,210,0.08)] dark:text-[#42a5f5] after:content-['↗'] after:text-[0.75em] after:opacity-70"
+                  [attr.title]="example.upstreamPath"
                 >
                   {{ example.upstreamPath }}
                 </a>
               } @else {
-                <span class="text-black/75 dark:text-white/75">{{
-                  example.upstreamPath
-                }}</span>
+                <span
+                  class="block truncate text-black/75 dark:text-white/75"
+                  [attr.title]="example.upstreamPath"
+                  >{{ example.upstreamPath }}</span
+                >
               }
             </td>
-            <td class="py-3 px-3 align-top whitespace-nowrap">
+            <td class="py-3 pl-2 pr-4 align-top whitespace-nowrap">
               <span [class]="getExampleStatusClasses(example.status)">{{
                 getExampleStatusLabel(example.status)
               }}</span>
             </td>
-            <td class="py-3 px-3 align-top whitespace-nowrap">
+            <td class="py-3 pl-3 pr-2 align-top whitespace-nowrap">
               @if (example.circuitUrl) {
                 @let circuitUrl = getSanitizedUrl(example.circuitUrl);
                 @if (circuitUrl) {

@@ -72,6 +72,51 @@ describe('PlatformSpecificExamplesComponent', () => {
     expect(compiled.querySelector('.overflow-x-auto')).toBeFalsy();
   });
 
+  it('should show platform and repository columns without truncation', () => {
+    fixture.componentRef.setInput('examples', adt7410PlatformExamples);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const table = compiled.querySelector('table');
+    expect(table).toBeTruthy();
+    expect(table?.classList.contains('table-fixed')).toBe(true);
+
+    const platformHeader = table?.querySelector('thead th');
+    const repoHeader = table?.querySelectorAll('thead th')[1];
+    expect(platformHeader?.classList.contains('whitespace-nowrap')).toBe(true);
+    expect(repoHeader?.classList.contains('whitespace-nowrap')).toBe(true);
+    expect(repoHeader?.textContent?.trim()).toBe('Upstream Repository');
+
+    const platformCell = table?.querySelector('tbody td');
+    expect(platformCell?.classList.contains('whitespace-nowrap')).toBe(true);
+    expect(platformCell?.classList.contains('truncate')).toBe(false);
+
+    const repoLink = compiled.querySelector(
+      'table a[href="https://github.com/chirimen-oh/chirimen-drivers"]',
+    );
+    expect(repoLink?.classList.contains('truncate')).toBe(false);
+    expect(repoLink?.textContent?.trim()).toContain('chirimen-drivers');
+  });
+
+  it('should truncate only upstream path cells', () => {
+    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[0]]);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const pathHeader = compiled.querySelector(
+      'thead th span[title="Upstream Path"]',
+    );
+    const pathLink = compiled.querySelector(
+      'table a[href="https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/adt7410"]',
+    );
+
+    expect(pathHeader?.classList.contains('truncate')).toBe(true);
+    expect(pathLink?.classList.contains('truncate')).toBe(true);
+    expect(pathLink?.getAttribute('title')).toBe(
+      'pizero/src/esm-examples/adt7410',
+    );
+  });
+
   it('should render status badges in table rows', () => {
     fixture.componentRef.setInput('examples', adt7410PlatformExamples);
     fixture.detectChanges();
