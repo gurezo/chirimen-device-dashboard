@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
+  "nx": {
+    "includedScripts": []
+  },
   "scripts": {
     "prepare": "husky",
     "start": "nx serve web",
