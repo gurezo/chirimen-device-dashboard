@@ -12,6 +12,7 @@ import {
 import { resolveExampleDeviceId } from './resolve-example-device-id';
 import type { SourceSyncResult, SyncSummary, UpstreamSource } from './types';
 import { writeExampleCandidatesReport } from './write-example-candidates-report';
+import { writeRefreshSourcesReport } from './write-refresh-sources-report';
 import { writeSyncSummary } from './write-sync-summary';
 
 function getRepoRoot(): string {
@@ -22,7 +23,7 @@ async function syncSource(
   repoRoot: string,
   source: UpstreamSource,
   dashboardDeviceIds: string[],
-  overrides: Record<string, DeviceIdOverrideValue>
+  overrides: Record<string, DeviceIdOverrideValue>,
 ): Promise<SourceSyncResult> {
   const result: SourceSyncResult = {
     sourceId: source.id,
@@ -39,7 +40,7 @@ async function syncSource(
   try {
     const { mirrorPath: mirror, commitSha } = await cloneOrFetchSource(
       repoRoot,
-      source
+      source,
     );
     result.mirrorPath = mirror;
     result.commitSha = commitSha;
@@ -54,7 +55,7 @@ async function syncSource(
         ? resolveDashboardDeviceId(
             parsedExampleDeviceId,
             dashboardDeviceIds,
-            overrides
+            overrides,
           )
         : {
             dashboardDeviceIds: [],
@@ -96,7 +97,7 @@ async function main(): Promise<void> {
       repoRoot,
       source,
       dashboardDeviceIds,
-      overrides
+      overrides,
     );
     sourceResults.push(result);
     if (result.errors.length > 0) {
@@ -114,13 +115,23 @@ async function main(): Promise<void> {
   const summaryPath = await writeSyncSummary(repoRoot, summary);
   const candidatesReportPath = await writeExampleCandidatesReport(
     repoRoot,
-    summary
+    summary,
+  );
+  const refreshSourcesReport = await writeRefreshSourcesReport(
+    repoRoot,
+    summary,
   );
 
   console.log(`Sync complete.`);
   console.log(`  Summary: ${path.relative(repoRoot, summaryPath)}`);
   console.log(
-    `  Candidates report: ${path.relative(repoRoot, candidatesReportPath)}`
+    `  Candidates report: ${path.relative(repoRoot, candidatesReportPath)}`,
+  );
+  console.log(
+    `  Refresh sources: ${path.relative(
+      repoRoot,
+      refreshSourcesReport.filePath,
+    )} (${refreshSourcesReport.changed ? 'updated' : 'unchanged'})`,
   );
   console.log(`  Next: pnpm generate:platform-examples`);
 
@@ -128,7 +139,7 @@ async function main(): Promise<void> {
     const relMirror = path.relative(repoRoot, source.mirrorPath);
     const status = source.errors.length > 0 ? 'ERROR' : 'OK';
     console.log(
-      `  [${status}] ${source.sourceId}: ${source.exampleCount} example(s) → ${relMirror}`
+      `  [${status}] ${source.sourceId}: ${source.exampleCount} example(s) → ${relMirror}`,
     );
   }
 
