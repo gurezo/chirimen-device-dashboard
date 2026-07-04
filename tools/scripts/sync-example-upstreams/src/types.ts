@@ -1,4 +1,7 @@
-import type { ExampleInfo, ExampleStatus } from '@chirimen-device-dashboard/shared-types';
+import type {
+  ExampleInfo,
+  ExampleStatus,
+} from '@chirimen-device-dashboard/shared-types';
 
 export interface UpstreamSource {
   id: string;
@@ -48,6 +51,24 @@ export interface SyncSummary {
   repoRoot: string;
   sources: SourceSyncResult[];
   fatalErrors: string[];
+}
+
+export interface RefreshSourceReport {
+  generatedAt: string;
+  partslist: {
+    repository: string;
+    branch: string;
+    path: string;
+    commit: string | null;
+  };
+  examples: {
+    sourceId: string;
+    repository: string;
+    branch: string;
+    path: string;
+    platform: string;
+    commit: string | null;
+  }[];
 }
 
 export interface PlatformExampleDeviceEntry {

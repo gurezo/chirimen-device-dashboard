@@ -117,12 +117,14 @@ jobs:
             - `apps/web/public/devices.json` — 最新 `partslist.csv` と正本 `platform-examples.json` に基づく再生成結果
             - `data/platform-examples/**` — upstream example から生成した review 用候補 JSON
             - `generated/reports/**` — example 同期・validation レポート
+            - `generated/reports/refresh-sources.json` — `partslist.csv` と upstream example の取得元 commit hash
 
             ## Review points
 
             - `platform-examples.generated.json` と正本 `platform-examples.json` の差分を確認してください
             - 正本 `platform-examples.json` への手動マージが必要な場合は、レビュー後に別途反映してください
             - `devices.json` の追加・削除・`product.example` 洗い替え結果を確認してください
+            - `refresh-sources.json` で同期元 repository / branch / commit を確認してください
             - validation レポートに issue / warning がないか確認してください
 
             ## API / Compatibility
