@@ -126,6 +126,6 @@ jobs:
 
             ## Checklist
 
-            - [x] I ran tests locally (if available)
-            - [x] I updated docs/README if needed
-            - [x] I considered error handling where relevant
+            - [ ] I ran tests locally (if available)
+            - [ ] I updated docs/README if needed
+            - [ ] I considered error handling where relevant
