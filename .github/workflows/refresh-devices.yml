@@ -3,7 +3,7 @@ name: Refresh devices data
 on:
   workflow_dispatch:
   issues:
-    types: [opened, labeled]
+    types: [labeled]
 
 permissions:
   contents: write
@@ -51,7 +51,7 @@ jobs:
 
       - name: Save upstream mirrors cache
         uses: actions/cache/save@v4
-        if: success()
+        if: success() && github.event_name != 'issues'
         with:
           path: generated/upstreams
           key: example-upstreams-${{ steps.sources.outputs.hash }}-${{ github.run_id }}
@@ -168,7 +168,8 @@ jobs:
         run: |
           gh issue comment "${{ steps.request.outputs.issue_number }}" --body "最新の \`partslist.csv\` と upstream example を同期しましたが、\`main\` との差分はありませんでした。
 
-          ダッシュボードへ反映する追加変更はありません。"
+          ダッシュボードへ反映する追加変更はないため、この Issue を完了として close します。"
+          gh issue close "${{ steps.request.outputs.issue_number }}" --reason completed
 
       - name: Comment on failure
         if: failure() && github.event_name == 'issues'
