@@ -30,15 +30,15 @@ minimumReleaseAgeExclude:
   - nx
   - playwright
   - playwright-core
+  - postcss
+  - prettier
   - tinyglobby
   - tmp
+  - tsx
   - typescript
   - typescript-eslint
   - vite
   - vitest
-  - postcss@8.5.16
-  - prettier@3.9.4
-  - tsx@4.23.0
 
 # 悪意のあるリリースは1週間以内に発見され、レジストリから削除される為
 # config = 7 day x 24h x 60 min
