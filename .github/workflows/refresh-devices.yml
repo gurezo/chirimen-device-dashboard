@@ -73,7 +73,7 @@ jobs:
             echo "related_issue=Fixes #${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
           else
             echo "issue_number=" >> "$GITHUB_OUTPUT"
-            echo "related_issue=Part of #217" >> "$GITHUB_OUTPUT"
+            echo "related_issue=Part of #219" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Get branch name
