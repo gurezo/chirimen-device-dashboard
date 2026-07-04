@@ -2,24 +2,24 @@
   <div
     class="flex-shrink-0 flex flex-col items-stretch gap-2 py-2 px-4 border-b border-black/12 dark:border-white/12 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
   >
-    <mat-form-field
-      appearance="outline"
-      class="w-full min-w-0 sm:flex-1 sm:max-w-[32rem]"
-    >
-      <mat-label>検索</mat-label>
-      <input
-        matInput
-        [ngModel]="query()"
-        (ngModelChange)="onQueryChange($event)"
-        placeholder="デバイスを検索"
-      />
-      <mat-hint>
-        <span class="sm:hidden">例: i2c raspberry</span>
-        <span class="hidden sm:inline">
+    <div class="w-full min-w-0 sm:flex-1 sm:max-w-[32rem]">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>検索</mat-label>
+        <input
+          matInput
+          [ngModel]="query()"
+          (ngModelChange)="onQueryChange($event)"
+          placeholder="デバイスを検索"
+        />
+        <mat-hint class="hidden sm:block">
           名前・タグ・カテゴリ・説明・対応環境（例: i2c raspberry）
-        </span>
-      </mat-hint>
-    </mat-form-field>
+        </mat-hint>
+      </mat-form-field>
+      <p class="-mt-4 mb-0 px-4 text-xs leading-tight text-black/60 dark:text-white/70 sm:hidden">
+        名前・タグ・カテゴリ・説明・対応環境<br />
+        （例: i2c raspberry）
+      </p>
+    </div>
     <mat-button-toggle-group
       class="flex-shrink-0 self-start sm:mt-1"
       [value]="viewMode()"
