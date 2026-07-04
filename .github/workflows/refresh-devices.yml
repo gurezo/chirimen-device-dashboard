@@ -168,7 +168,8 @@ jobs:
         run: |
           gh issue comment "${{ steps.request.outputs.issue_number }}" --body "最新の \`partslist.csv\` と upstream example を同期しましたが、\`main\` との差分はありませんでした。
 
-          ダッシュボードへ反映する追加変更はありません。"
+          ダッシュボードへ反映する追加変更はないため、この Issue を完了として close します。"
+          gh issue close "${{ steps.request.outputs.issue_number }}" --reason completed
 
       - name: Comment on failure
         if: failure() && github.event_name == 'issues'
