@@ -30,8 +30,11 @@ minimumReleaseAgeExclude:
   - nx
   - playwright
   - playwright-core
+  - postcss
+  - prettier
   - tinyglobby
   - tmp
+  - tsx
   - typescript
   - typescript-eslint
   - vite
