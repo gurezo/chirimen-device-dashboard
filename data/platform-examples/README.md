@@ -51,7 +51,7 @@
 | フィールド | 説明 |
 | --- | --- |
 | `deviceId` | Example catalog 側の device id |
-| `platform` | Platform 識別子（例: `pizero-esm`, `node`） |
+| `platform` | Platform 識別子（例: `pizero-esm`, `microbit-driver`） |
 | `localPath` | catalog 互換のローカルパス |
 | `upstreamRepository` | GitHub リポジトリ（例: `chirimen-oh/chirimen.org`） |
 | `upstreamRepositoryUrl` | リポジトリ URL |
@@ -75,13 +75,11 @@
 
 ## ADT7410 移行記録（#180）
 
-`chirimen-example-catalog` の `catalog/examples.json` / `metadata.md` と突合し、以下 5 platform を移行済みです。
+`chirimen-example-catalog` の `catalog/examples.json` / `metadata.md` と突合し、以下 3 platform を移行済みです。`chirimen-drivers` の旧 Node.js / Raspberry Pi examples は upstream 側で削除予定のため、生成元から除外しています。
 
 | Platform | Status | Upstream Repository | Upstream Path |
 | --- | --- | --- | --- |
 | `pizero-esm` | primary | `chirimen-oh/chirimen.org` | `pizero/src/esm-examples/adt7410` |
-| `node` | legacy | `chirimen-oh/chirimen-drivers` | `node-examples/adt7410` |
-| `raspi-node` | legacy | `chirimen-oh/chirimen-drivers` | `raspi-examples/adt7410` |
 | `microbit-driver` | legacy | `chirimen-oh/chirimen-drivers` | `microbit-examples/adt7410` |
 | `legacy-gc-i2c` | archive | `chirimen-oh/chirimen` | `gc/i2c/i2c-ADT7410` |
 
@@ -94,8 +92,6 @@
 | `pizero-esm` | `Pi Zero` | `https://tutorial.chirimen.org/pizero/esm-examples/#I2C_adt7410` |
 | `microbit-driver` | `micro:bit` | `https://chirimen.org/chirimen-micro-bit/examples/#I2C1_ADT7410` |
 | `legacy-gc-i2c` | `chirimen` | `https://r.chirimen.org/examples/#I2C-ADT7410` |
-
-`node` / `raspi-node` は legacy `devices.json` に対応エントリがないため、`code` = `upstreamPathUrl` です。
 
 ## 編集フロー
 

@@ -18,38 +18,6 @@ export const adt7410PlatformExamples: ExampleInfo[] = [
     verified: false,
   },
   {
-    hardware: 'Raspberry Pi',
-    code: 'https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/adt7410',
-    deviceId: 'adt7410',
-    platform: 'node',
-    localPath: 'examples/devices/adt7410/platforms/node',
-    upstreamRepository: 'chirimen-oh/chirimen-drivers',
-    upstreamRepositoryUrl: 'https://github.com/chirimen-oh/chirimen-drivers',
-    upstreamPath: 'node-examples/adt7410',
-    upstreamPathUrl:
-      'https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/adt7410',
-    status: 'legacy',
-    circuitUrl:
-      'https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/adt7410/schematic.png',
-    verified: false,
-  },
-  {
-    hardware: 'Raspberry Pi',
-    code: 'https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/adt7410',
-    deviceId: 'adt7410',
-    platform: 'raspi-node',
-    localPath: 'examples/devices/adt7410/platforms/raspi-node',
-    upstreamRepository: 'chirimen-oh/chirimen-drivers',
-    upstreamRepositoryUrl: 'https://github.com/chirimen-oh/chirimen-drivers',
-    upstreamPath: 'raspi-examples/adt7410',
-    upstreamPathUrl:
-      'https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/adt7410',
-    status: 'legacy',
-    circuitUrl:
-      'https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/adt7410/schematic.png',
-    verified: false,
-  },
-  {
     hardware: 'micro:bit',
     code: 'https://chirimen.org/chirimen-micro-bit/examples/#I2C1_ADT7410',
     deviceId: 'adt7410',

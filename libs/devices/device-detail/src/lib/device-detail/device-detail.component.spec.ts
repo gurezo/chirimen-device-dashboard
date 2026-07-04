@@ -86,8 +86,6 @@ describe('DeviceDetailComponent', () => {
 
     expect(headings).toContain('Platform 別 Example');
     expect(compiled.textContent).toContain('pizero-esm');
-    expect(compiled.textContent).toContain('node');
-    expect(compiled.textContent).toContain('raspi-node');
     expect(compiled.textContent).toContain('microbit-driver');
     expect(compiled.textContent).toContain('legacy-gc-i2c');
     expect(compiled.querySelector('table')).toBeTruthy();

@@ -8,7 +8,7 @@ describe('PlatformSpecificExampleCardComponent', () => {
   let component: PlatformSpecificExampleCardComponent;
   let fixture: ComponentFixture<PlatformSpecificExampleCardComponent>;
 
-  const example = adt7410PlatformExamples[3];
+  const example = adt7410PlatformExamples[2];
   if (!isPlatformSpecificExample(example)) {
     throw new Error('fixture example must be platform-specific');
   }

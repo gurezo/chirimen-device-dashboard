@@ -38,7 +38,10 @@ describe('buildPlatformExamplesJson', () => {
           exampleDeviceId: 'adt7410',
           examples: [
             makeExample('pizero-esm'),
-            makeExample('node', { hardware: 'Raspberry Pi', status: 'legacy' }),
+            makeExample('microbit-driver', {
+              hardware: 'micro:bit',
+              status: 'legacy',
+            }),
           ],
           warnings: [],
         },
@@ -49,7 +52,7 @@ describe('buildPlatformExamplesJson', () => {
     expect(result).toHaveLength(1);
     expect(result[0].dashboardDeviceId).toBe('i2c-adt7410');
     expect(result[0].examples.map((e) => e.platform)).toEqual([
-      'node',
+      'microbit-driver',
       'pizero-esm',
     ]);
   });

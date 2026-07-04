@@ -22,8 +22,6 @@ const VALID_STATUSES: ExampleStatus[] = [
 
 const ADT7410_PLATFORMS = [
   'pizero-esm',
-  'node',
-  'raspi-node',
   'microbit-driver',
   'legacy-gc-i2c',
 ] as const;

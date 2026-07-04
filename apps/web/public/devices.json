@@ -24,20 +24,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/ads1015",
-          "deviceId": "ads1015",
-          "platform": "node",
-          "localPath": "examples/devices/ads1015/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/ads1015",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/ads1015",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/ads1015/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ads1015",
           "deviceId": "ads1015",
@@ -49,20 +35,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ads1015",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/ads1015/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/ads1015",
-          "deviceId": "ads1015",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/ads1015/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/ads1015",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/ads1015",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/ads1015/schematic.png",
           "verified": false
         }
       ],
@@ -108,20 +80,6 @@
       "url": "http://www.aitendo.com/product/10938",
       "example": [
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/pcf8591",
-          "deviceId": "pcf8591",
-          "platform": "node",
-          "localPath": "examples/devices/pcf8591/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/pcf8591",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/pcf8591",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/pcf8591/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/pcf8591",
           "deviceId": "pcf8591",
@@ -133,20 +91,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/pcf8591",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/pcf8591/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/pcf8591",
-          "deviceId": "pcf8591",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/pcf8591/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/pcf8591",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/pcf8591",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/pcf8591/schematic.png",
           "verified": false
         }
       ]
@@ -191,20 +135,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/adt7410",
-          "deviceId": "adt7410",
-          "platform": "node",
-          "localPath": "examples/devices/adt7410/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/adt7410",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/adt7410",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/adt7410/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_adt7410",
           "deviceId": "adt7410",
@@ -216,20 +146,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/adt7410",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/adt7410/PiZero_ADT7410.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/adt7410",
-          "deviceId": "adt7410",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/adt7410/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/adt7410",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/adt7410",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/adt7410/schematic.png",
           "verified": false
         }
       ],
@@ -262,20 +178,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/amg8833",
-          "deviceId": "amg8833",
-          "platform": "node",
-          "localPath": "examples/devices/amg8833/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/amg8833",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/amg8833",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/amg8833/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/amg8833",
           "deviceId": "amg8833",
@@ -287,20 +189,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/amg8833",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/amg8833/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/amg8833",
-          "deviceId": "amg8833",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/amg8833/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/amg8833",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/amg8833",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/amg8833/schematic.png",
           "verified": false
         }
       ],
@@ -333,20 +221,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/bme280",
-          "deviceId": "bme280",
-          "platform": "node",
-          "localPath": "examples/devices/bme280/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/bme280",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/bme280",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/bme280/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/bme280",
           "deviceId": "bme280",
@@ -358,20 +232,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/bme280",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/bme280/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/bme280",
-          "deviceId": "bme280",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/bme280/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/bme280",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/bme280",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/bme280/schematic.png",
           "verified": false
         }
       ],
@@ -403,20 +263,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/bmp180",
-          "deviceId": "bmp180",
-          "platform": "node",
-          "localPath": "examples/devices/bmp180/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/bmp180",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/bmp180",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/bmp180/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/bmp180",
           "deviceId": "bmp180",
@@ -428,20 +274,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/bmp180",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/bmp180/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/bmp180",
-          "deviceId": "bmp180",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/bmp180/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/bmp180",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/bmp180",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/bmp180/schematic.png",
           "verified": false
         }
       ],
@@ -473,20 +305,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/bmp280",
-          "deviceId": "bmp280",
-          "platform": "node",
-          "localPath": "examples/devices/bmp280/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/bmp280",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/bmp280",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/bmp280/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/bmp280",
           "deviceId": "bmp280",
@@ -498,20 +316,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/bmp280",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/bmp280/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/bmp280",
-          "deviceId": "bmp280",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/bmp280/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/bmp280",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/bmp280",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/bmp280/schematic.png",
           "verified": false
         }
       ],
@@ -543,20 +347,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/gp2y0e03",
-          "deviceId": "gp2y0e03",
-          "platform": "node",
-          "localPath": "examples/devices/gp2y0e03/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/gp2y0e03",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/gp2y0e03",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/gp2y0e03/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/gp2y0e03",
           "deviceId": "gp2y0e03",
@@ -568,20 +358,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/gp2y0e03",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/gp2y0e03/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/gp2y0e03",
-          "deviceId": "gp2y0e03",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/gp2y0e03/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/gp2y0e03",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/gp2y0e03",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/gp2y0e03/schematic.png",
           "verified": false
         }
       ],
@@ -628,20 +404,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/vl53l0x",
-          "deviceId": "vl53l0x",
-          "platform": "node",
-          "localPath": "examples/devices/vl53l0x/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/vl53l0x",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/vl53l0x",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/vl53l0x/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/vl53l0x",
           "deviceId": "vl53l0x",
@@ -653,20 +415,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/vl53l0x",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/vl53l0x/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/vl53l0x",
-          "deviceId": "vl53l0x",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/vl53l0x/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/vl53l0x",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/vl53l0x",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/vl53l0x/schematic.png",
           "verified": false
         }
       ],
@@ -699,20 +447,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/vl53l1x",
-          "deviceId": "vl53l1x",
-          "platform": "node",
-          "localPath": "examples/devices/vl53l1x/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/vl53l1x",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/vl53l1x",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/vl53l1x/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/vl53l1x",
           "deviceId": "vl53l1x",
@@ -724,20 +458,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/vl53l1x",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/vl53l1x/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/vl53l1x",
-          "deviceId": "vl53l1x",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/vl53l1x/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/vl53l1x",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/vl53l1x",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/vl53l1x/schematic.png",
           "verified": false
         }
       ]
@@ -826,20 +546,6 @@
       "url": "https://www.switch-science.com/catalog/1174/",
       "example": [
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/tsl2561",
-          "deviceId": "tsl2561",
-          "platform": "node",
-          "localPath": "examples/devices/tsl2561/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/tsl2561",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/tsl2561",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/tsl2561/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/tsl2561",
           "deviceId": "tsl2561",
@@ -851,20 +557,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/tsl2561",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/tsl2561/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/tsl2561",
-          "deviceId": "tsl2561",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/tsl2561/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/tsl2561",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/tsl2561",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/tsl2561/schematic.png",
           "verified": false
         }
       ],
@@ -927,20 +619,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/ssd1308",
-          "deviceId": "ssd1308",
-          "platform": "node",
-          "localPath": "examples/devices/ssd1308/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/ssd1308",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/ssd1308",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/ssd1308/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ssd1308",
           "deviceId": "ssd1308",
@@ -952,20 +630,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ssd1308",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/ssd1308/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/ssd1308",
-          "deviceId": "ssd1308",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/ssd1308/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/ssd1308",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/ssd1308",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/ssd1308/schematic.png",
           "verified": false
         }
       ],
@@ -983,20 +647,6 @@
       "url": "https://akizukidenshi.com/catalog/g/g112031/",
       "example": [
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/ssd1306",
-          "deviceId": "ssd1306",
-          "platform": "node",
-          "localPath": "examples/devices/ssd1306/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/ssd1306",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/ssd1306",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/ssd1306/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ssd1306",
           "deviceId": "ssd1306",
@@ -1008,20 +658,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ssd1306",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/ssd1306/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/ssd1306",
-          "deviceId": "ssd1306",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/ssd1306/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/ssd1306",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/ssd1306",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/ssd1306/schematic.png",
           "verified": false
         }
       ],
@@ -1068,20 +704,6 @@
       "url": "https://www.switch-science.com/catalog/825/",
       "example": [
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/mpr121",
-          "deviceId": "mpr121",
-          "platform": "node",
-          "localPath": "examples/devices/mpr121/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/mpr121",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/mpr121",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/mpr121/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mpr121",
           "deviceId": "mpr121",
@@ -1093,20 +715,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mpr121",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/mpr121/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/mpr121",
-          "deviceId": "mpr121",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/mpr121/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/mpr121",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/mpr121",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/mpr121/schematic.png",
           "verified": false
         }
       ],
@@ -1209,20 +817,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/s11059",
-          "deviceId": "s11059",
-          "platform": "node",
-          "localPath": "examples/devices/s11059/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/s11059",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/s11059",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/s11059/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/s11059",
           "deviceId": "s11059",
@@ -1234,20 +828,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/s11059",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/s11059/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/s11059",
-          "deviceId": "s11059",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/s11059/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/s11059",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/s11059",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/s11059/schematic.png",
           "verified": false
         }
       ],
@@ -1293,20 +873,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/veml6070",
-          "deviceId": "veml6070",
-          "platform": "node",
-          "localPath": "examples/devices/veml6070/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/veml6070",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/veml6070",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/veml6070/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/veml6070",
           "deviceId": "veml6070",
@@ -1318,20 +884,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/veml6070",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/veml6070/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/veml6070",
-          "deviceId": "veml6070",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/veml6070/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/veml6070",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/veml6070",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/veml6070/schematic.png",
           "verified": false
         }
       ],
@@ -1408,20 +960,6 @@
       "url": "https://www.switch-science.com/catalog/972/",
       "example": [
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/adxl345",
-          "deviceId": "adxl345",
-          "platform": "node",
-          "localPath": "examples/devices/adxl345/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/adxl345",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/adxl345",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/adxl345/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/adxl345",
           "deviceId": "adxl345",
@@ -1433,20 +971,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/adxl345",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/adxl345/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/adxl345",
-          "deviceId": "adxl345",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/adxl345/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/adxl345",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/adxl345",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/adxl345/schematic.png",
           "verified": false
         }
       ],
@@ -1478,20 +1002,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/mpu6050",
-          "deviceId": "mpu6050",
-          "platform": "node",
-          "localPath": "examples/devices/mpu6050/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/mpu6050",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/mpu6050",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/mpu6050/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mpu6050",
           "deviceId": "mpu6050",
@@ -1503,20 +1013,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mpu6050",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/mpu6050/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/mpu6050",
-          "deviceId": "mpu6050",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/mpu6050/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/mpu6050",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/mpu6050",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/mpu6050/schematic.png",
           "verified": false
         }
       ],
@@ -1549,20 +1045,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/mpu9250",
-          "deviceId": "mpu9250",
-          "platform": "node",
-          "localPath": "examples/devices/mpu9250/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/mpu9250",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/mpu9250",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/mpu9250/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mpu9250",
           "deviceId": "mpu9250",
@@ -1574,20 +1056,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mpu9250",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/mpu9250/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/mpu9250",
-          "deviceId": "mpu9250",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/mpu9250/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/mpu9250",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/mpu9250",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/mpu9250/schematic.png",
           "verified": false
         }
       ],
@@ -1693,20 +1161,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
-          "deviceId": "neopixel-i2c",
-          "platform": "node",
-          "localPath": "examples/devices/neopixel-i2c/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/neopixel-i2c",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/neopixel-i2c/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
           "deviceId": "neopixel-i2c",
@@ -1718,20 +1172,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/neopixel-i2c/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
-          "deviceId": "neopixel-i2c",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/neopixel-i2c/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/neopixel-i2c",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/neopixel-i2c/schematic.png",
           "verified": false
         }
       ]
@@ -1762,20 +1202,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
-          "deviceId": "neopixel-i2c",
-          "platform": "node",
-          "localPath": "examples/devices/neopixel-i2c/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/neopixel-i2c",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/neopixel-i2c/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
           "deviceId": "neopixel-i2c",
@@ -1787,20 +1213,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/neopixel-i2c/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
-          "deviceId": "neopixel-i2c",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/neopixel-i2c/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/neopixel-i2c",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/neopixel-i2c/schematic.png",
           "verified": false
         }
       ],
@@ -1832,20 +1244,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
-          "deviceId": "neopixel-i2c",
-          "platform": "node",
-          "localPath": "examples/devices/neopixel-i2c/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/neopixel-i2c",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/neopixel-i2c/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
           "deviceId": "neopixel-i2c",
@@ -1857,20 +1255,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/neopixel-i2c/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
-          "deviceId": "neopixel-i2c",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/neopixel-i2c/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/neopixel-i2c",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/neopixel-i2c/schematic.png",
           "verified": false
         }
       ]
@@ -1901,20 +1285,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
-          "deviceId": "neopixel-i2c",
-          "platform": "node",
-          "localPath": "examples/devices/neopixel-i2c/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/neopixel-i2c",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/neopixel-i2c",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/neopixel-i2c/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
           "deviceId": "neopixel-i2c",
@@ -1926,20 +1296,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/neopixel-i2c",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/neopixel-i2c/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
-          "deviceId": "neopixel-i2c",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/neopixel-i2c/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/neopixel-i2c",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/neopixel-i2c",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/neopixel-i2c/schematic.png",
           "verified": false
         }
       ]
@@ -2127,20 +1483,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/pca9685",
-          "deviceId": "pca9685",
-          "platform": "node",
-          "localPath": "examples/devices/pca9685/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/pca9685",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/pca9685",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/pca9685/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/pca9685",
           "deviceId": "pca9685",
@@ -2152,20 +1494,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/pca9685",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/pca9685/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/pca9685",
-          "deviceId": "pca9685",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/pca9685/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/pca9685",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/pca9685",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/pca9685/schematic.png",
           "verified": false
         }
       ],
@@ -2239,20 +1567,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/sht30",
-          "deviceId": "sht30",
-          "platform": "node",
-          "localPath": "examples/devices/sht30/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/sht30",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/sht30",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/sht30/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/sht30",
           "deviceId": "sht30",
@@ -2264,20 +1578,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/sht30",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/sht30/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/sht30",
-          "deviceId": "sht30",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/sht30/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/sht30",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/sht30",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/sht30/schematic.png",
           "verified": false
         }
       ],
@@ -2406,20 +1706,6 @@
       "url": "https://akizukidenshi.com/catalog/g/g108220/",
       "example": [
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/tcs34725",
-          "deviceId": "tcs34725",
-          "platform": "node",
-          "localPath": "examples/devices/tcs34725/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/tcs34725",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/tcs34725",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/tcs34725/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/tcs34725",
           "deviceId": "tcs34725",
@@ -2431,20 +1717,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/tcs34725",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/tcs34725/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/tcs34725",
-          "deviceId": "tcs34725",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/tcs34725/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/tcs34725",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/tcs34725",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/tcs34725/schematic.png",
           "verified": false
         }
       ]
@@ -2475,20 +1747,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/ina219",
-          "deviceId": "ina219",
-          "platform": "node",
-          "localPath": "examples/devices/ina219/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/ina219",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/ina219",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/ina219/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ina219",
           "deviceId": "ina219",
@@ -2500,20 +1758,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ina219",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/ina219/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/ina219",
-          "deviceId": "ina219",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/ina219/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/ina219",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/ina219",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/ina219/schematic.png",
           "verified": false
         }
       ]
@@ -2544,20 +1788,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/mlx90614",
-          "deviceId": "mlx90614",
-          "platform": "node",
-          "localPath": "examples/devices/mlx90614/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/mlx90614",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/mlx90614",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/mlx90614/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mlx90614",
           "deviceId": "mlx90614",
@@ -2569,20 +1799,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mlx90614",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/mlx90614/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/mlx90614",
-          "deviceId": "mlx90614",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/mlx90614/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/mlx90614",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/mlx90614",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/mlx90614/schematic.png",
           "verified": false
         }
       ]
@@ -2599,18 +1815,8 @@
       "url": "https://www.switch-science.com/catalog/3531/",
       "example": [
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/apds9960",
-          "deviceId": "apds9960",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/apds9960/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/apds9960",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/apds9960",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/apds9960/schematic.png",
-          "verified": false
+          "hardware": "chirimen",
+          "code": "http://chirimen.org/chirimen/gc/top/examples/#I2C-APDS9960"
         }
       ]
     }
@@ -2667,20 +1873,6 @@
           "verified": false
         },
         {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/bh1750",
-          "deviceId": "bh1750",
-          "platform": "node",
-          "localPath": "examples/devices/bh1750/platforms/node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "node-examples/bh1750",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/bh1750",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/bh1750/schematic.png",
-          "verified": false
-        },
-        {
           "hardware": "Pi Zero",
           "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/bh1750",
           "deviceId": "bh1750",
@@ -2692,20 +1884,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/bh1750",
           "status": "primary",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/bh1750/schematic.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/bh1750",
-          "deviceId": "bh1750",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/bh1750/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/bh1750",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/bh1750",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/bh1750/schematic.png",
           "verified": false
         }
       ]
@@ -2762,20 +1940,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/ccs811",
           "status": "legacy",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/microbit-examples/ccs811/imgs/pinbit_ccs811.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/ccs811",
-          "deviceId": "ccs811",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/ccs811/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/ccs811",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/ccs811",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/ccs811/CCS811schematic.png",
           "verified": false
         }
       ]
@@ -2861,20 +2025,6 @@
           "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/bme680",
           "status": "legacy",
           "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/microbit-examples/bme680/imgs/pinbit_bme680.png",
-          "verified": false
-        },
-        {
-          "hardware": "Raspberry Pi",
-          "code": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/bme680",
-          "deviceId": "bme680",
-          "platform": "raspi-node",
-          "localPath": "examples/devices/bme680/platforms/raspi-node",
-          "upstreamRepository": "chirimen-oh/chirimen-drivers",
-          "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen-drivers",
-          "upstreamPath": "raspi-examples/bme680",
-          "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/bme680",
-          "status": "legacy",
-          "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/bme680/BME680schematic.png",
           "verified": false
         }
       ]

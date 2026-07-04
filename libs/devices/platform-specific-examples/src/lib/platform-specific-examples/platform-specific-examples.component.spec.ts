@@ -30,7 +30,7 @@ describe('PlatformSpecificExamplesComponent', () => {
     fixture.componentRef.setInput('examples', adt7410PlatformExamples);
     fixture.detectChanges();
 
-    expect(component.platformSpecificExamples()).toHaveLength(5);
+    expect(component.platformSpecificExamples()).toHaveLength(3);
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.textContent).toContain('pizero-esm');
     expect(compiled.textContent).toContain('legacy-gc-i2c');
@@ -46,8 +46,6 @@ describe('PlatformSpecificExamplesComponent', () => {
     expect(platforms).toEqual([
       'pizero-esm',
       'microbit-driver',
-      'node',
-      'raspi-node',
       'legacy-gc-i2c',
     ]);
   });
@@ -125,7 +123,7 @@ describe('PlatformSpecificExamplesComponent', () => {
   });
 
   it('should truncate only upstream path cells', () => {
-    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[3]]);
+    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[2]]);
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
@@ -153,11 +151,11 @@ describe('PlatformSpecificExamplesComponent', () => {
     expect(table?.textContent).toContain('primary');
     expect(table?.textContent).toContain('legacy');
     expect(table?.textContent).toContain('archive');
-    expect(table?.querySelectorAll('tbody span.rounded-md').length).toBe(5);
+    expect(table?.querySelectorAll('tbody span.rounded-md').length).toBe(3);
   });
 
   it('should render table links for repository, path, and circuit', () => {
-    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[3]]);
+    fixture.componentRef.setInput('examples', [adt7410PlatformExamples[2]]);
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
@@ -190,6 +188,6 @@ describe('PlatformSpecificExamplesComponent', () => {
 
     const compiled = fixture.nativeElement as HTMLElement;
     const cards = compiled.querySelectorAll('choh-platform-specific-example-card');
-    expect(cards.length).toBe(5);
+    expect(cards.length).toBe(3);
   });
 });

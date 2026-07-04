@@ -78,7 +78,7 @@ describe('comparePlatformExamplesWithSource', () => {
         examples: [
           {
             ...platformSpecificExample,
-            platform: 'node',
+            platform: 'microbit-driver',
           },
         ],
       },
