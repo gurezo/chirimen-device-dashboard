@@ -2,13 +2,19 @@ name: Refresh devices data
 
 on:
   workflow_dispatch:
+  issues:
+    types: [opened, labeled]
 
 permissions:
   contents: write
   pull-requests: write
+  issues: write
 
 jobs:
   refresh:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.issue.labels.*.name, 'refresh-devices')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -59,9 +65,25 @@ jobs:
       - name: Generate devices.json
         run: pnpm generate:devices
 
+      - name: Resolve request context
+        id: request
+        run: |
+          if [ "${{ github.event_name }}" = "issues" ]; then
+            echo "issue_number=${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
+            echo "related_issue=Fixes #${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "issue_number=" >> "$GITHUB_OUTPUT"
+            echo "related_issue=Part of #217" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Get branch name
         id: branch
-        run: echo "name=chore/refresh-devices-$(date +%Y-%m-%d-%H%M%S)" >> $GITHUB_OUTPUT
+        run: |
+          if [ -n "${{ steps.request.outputs.issue_number }}" ]; then
+            echo "name=chore/refresh-devices-${{ steps.request.outputs.issue_number }}-$(date +%Y-%m-%d-%H%M%S)" >> "$GITHUB_OUTPUT"
+          else
+            echo "name=chore/refresh-devices-$(date +%Y-%m-%d-%H%M%S)" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Create Pull Request
         id: cpr
@@ -88,7 +110,7 @@ jobs:
 
             ## Related issues
 
-            - Part of #217
+            - ${{ steps.request.outputs.related_issue }}
 
             ## What changed?
 
@@ -129,3 +151,30 @@ jobs:
             - [ ] I ran tests locally (if available)
             - [ ] I updated docs/README if needed
             - [ ] I considered error handling where relevant
+
+      - name: Comment with pull request
+        if: github.event_name == 'issues' && steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment "${{ steps.request.outputs.issue_number }}" --body "最新の \`partslist.csv\` と upstream example を同期し、更新 PR を作成しました。
+
+          PR: ${{ steps.cpr.outputs.pull-request-url }}"
+
+      - name: Comment when no changes were found
+        if: github.event_name == 'issues' && steps.cpr.outputs.pull-request-number == ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment "${{ steps.request.outputs.issue_number }}" --body "最新の \`partslist.csv\` と upstream example を同期しましたが、\`main\` との差分はありませんでした。
+
+          ダッシュボードへ反映する追加変更はありません。"
+
+      - name: Comment on failure
+        if: failure() && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" --body "デバイス情報の同期 workflow が失敗しました。
+
+          Actions の実行結果を確認してください: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
