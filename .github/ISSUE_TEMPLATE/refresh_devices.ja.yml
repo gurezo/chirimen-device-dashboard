@@ -1,0 +1,69 @@
+name: 🔄 デバイス情報反映依頼
+description: 最新の partslist.csv や upstream example をダッシュボードへ反映する依頼
+title: '[Refresh Devices]: '
+labels: ['refresh-devices']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        最新の `partslist.csv` または upstream example の追加内容を、CHIRIMEN デバイス一覧へ反映したい場合に使います。
+
+        この Issue には `refresh-devices` ラベルが自動で付きます。Issue 作成後、同期 workflow が最新データを取得し、差分があれば `devices.json` 更新 PR を作成します。差分がない場合は PR を作らず、この Issue に結果をコメントします。
+
+  - type: textarea
+    id: partslist
+    attributes:
+      label: partslist.csv に追加・更新したデバイス
+      description: 追加・更新したデバイス名、関連 URL、PR / commit などを記載してください。
+      placeholder: |
+        例:
+        - デバイス名:
+        - upstream PR / commit:
+        - 確認してほしい点:
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: 追加・更新した example
+      description: 追加・更新した example の repository、path、PR / commit などを記載してください。
+      placeholder: |
+        例:
+        - repository:
+        - example path:
+        - upstream PR / commit:
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待される反映内容
+      description: ダッシュボード上でどのように表示・更新されることを期待するかを記載してください。
+      placeholder: |
+        例:
+        - 新しいデバイスが一覧に表示される
+        - 既存デバイスの product.example に新しい platform example が追加される
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: 参考リンク
+      description: 関連する upstream の PR、commit、issue、ドキュメントなどがあれば記載してください。
+      placeholder: |
+        - https://github.com/...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: チェックリスト
+      options:
+        - label: upstream 側で partslist.csv または example の変更が merge 済みです
+          required: false
+        - label: この Issue に `refresh-devices` ラベルが付くと同期 workflow が実行されることを理解しています
+          required: true
