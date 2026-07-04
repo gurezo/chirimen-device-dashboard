@@ -7,22 +7,6 @@ sources:
     priority: primary
     description: CHIRIMEN Pi Zero 向けの現行 ESM examples
 
-  - id: chirimen-drivers-raspi
-    repo: chirimen-oh/chirimen-drivers
-    branch: master
-    path: raspi-examples
-    platform: raspi-node
-    priority: legacy
-    description: Raspberry Pi / Node.js 向け examples
-
-  - id: chirimen-drivers-node
-    repo: chirimen-oh/chirimen-drivers
-    branch: master
-    path: node-examples
-    platform: node
-    priority: legacy
-    description: Node.js 向け examples
-
   - id: chirimen-drivers-microbit
     repo: chirimen-oh/chirimen-drivers
     branch: master
