@@ -77,10 +77,14 @@ describe('bootstrapLegacyPlatformExamples', () => {
       }
     );
 
-    expect(entry?.platform).toBe('chirimen');
-    expect(entry?.status).toBe('legacy');
-    expect(entry?.circuitUrl).toBe('https://example.com/circuit.zip');
-    expect(isPlatformSpecificExample(entry!)).toBe(true);
+    expect(entry).toBeDefined();
+    if (!entry) {
+      throw new Error('Expected a legacy platform example entry');
+    }
+    expect(entry.platform).toBe('chirimen');
+    expect(entry.status).toBe('legacy');
+    expect(entry.circuitUrl).toBe('https://example.com/circuit.zip');
+    expect(isPlatformSpecificExample(entry)).toBe(true);
   });
 
   it('bootstraps legacy devices into platform example entries', () => {
