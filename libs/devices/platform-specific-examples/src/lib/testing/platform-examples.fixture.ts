@@ -34,22 +34,6 @@ export const adt7410PlatformExamples: ExampleInfo[] = [
     verified: false,
   },
   {
-    hardware: 'Raspberry Pi',
-    code: 'https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/adt7410',
-    deviceId: 'adt7410',
-    platform: 'node',
-    localPath: 'examples/devices/adt7410/platforms/node',
-    upstreamRepository: 'chirimen-oh/chirimen-drivers',
-    upstreamRepositoryUrl: 'https://github.com/chirimen-oh/chirimen-drivers',
-    upstreamPath: 'node-examples/adt7410',
-    upstreamPathUrl:
-      'https://github.com/chirimen-oh/chirimen-drivers/tree/master/node-examples/adt7410',
-    status: 'legacy',
-    circuitUrl:
-      'https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/adt7410/schematic.png',
-    verified: false,
-  },
-  {
     hardware: 'Pi Zero',
     code: 'https://tutorial.chirimen.org/pizero/esm-examples/#I2C_adt7410',
     deviceId: 'adt7410',
@@ -63,22 +47,6 @@ export const adt7410PlatformExamples: ExampleInfo[] = [
     status: 'primary',
     circuitUrl:
       'https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/adt7410/PiZero_ADT7410.png',
-    verified: false,
-  },
-  {
-    hardware: 'Raspberry Pi',
-    code: 'https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/adt7410',
-    deviceId: 'adt7410',
-    platform: 'raspi-node',
-    localPath: 'examples/devices/adt7410/platforms/raspi-node',
-    upstreamRepository: 'chirimen-oh/chirimen-drivers',
-    upstreamRepositoryUrl: 'https://github.com/chirimen-oh/chirimen-drivers',
-    upstreamPath: 'raspi-examples/adt7410',
-    upstreamPathUrl:
-      'https://github.com/chirimen-oh/chirimen-drivers/tree/master/raspi-examples/adt7410',
-    status: 'legacy',
-    circuitUrl:
-      'https://github.com/chirimen-oh/chirimen-drivers/blob/master/raspi-examples/adt7410/schematic.png',
     verified: false,
   },
 ];
@@ -96,5 +64,5 @@ export const legacyOnlyExamples: ExampleInfo[] = [
 
 export const mixedExamples: ExampleInfo[] = [
   ...legacyOnlyExamples,
-  adt7410PlatformExamples[3],
+  adt7410PlatformExamples[2],
 ];

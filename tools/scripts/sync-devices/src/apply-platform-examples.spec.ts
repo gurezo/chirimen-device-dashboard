@@ -53,7 +53,7 @@ function createDevice(
 }
 
 describe('applyPlatformExamples', () => {
-  it('replaces i2c-adt7410 product.example with 5 platform entries', () => {
+  it('replaces i2c-adt7410 product.example with 3 platform entries', () => {
     const platformEntries = loadPlatformEntry('i2c-adt7410');
     const devices = [
       createDevice('i2c-adt7410', [
@@ -69,7 +69,7 @@ describe('applyPlatformExamples', () => {
     );
 
     expect(warnings).toHaveLength(0);
-    expect(merged[0].product.example).toHaveLength(5);
+    expect(merged[0].product.example).toHaveLength(3);
   });
 
   it('includes all required ADT7410 platforms as platform-specific examples', () => {
@@ -86,8 +86,6 @@ describe('applyPlatformExamples', () => {
     expect(platforms.sort()).toEqual(
       [
         'pizero-esm',
-        'node',
-        'raspi-node',
         'microbit-driver',
         'legacy-gc-i2c',
       ].sort()
@@ -124,7 +122,7 @@ describe('applyPlatformExamples', () => {
     const { devices: merged } = applyPlatformExamples(devices, platformEntries);
 
     expect(merged[0].product.example).toEqual(originalExamples);
-    expect(merged[1].product.example).toHaveLength(5);
+    expect(merged[1].product.example).toHaveLength(3);
   });
 
   it('warns when platform-examples.json references an unknown dashboardDeviceId', () => {

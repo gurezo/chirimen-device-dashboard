@@ -29,20 +29,20 @@ describe('buildExampleUrls', () => {
     expect(
       buildCircuitBlobUrl(
         'chirimen-oh/chirimen-drivers',
-        'node-examples/adt7410',
-        'schematic.png'
+        'microbit-examples/adt7410',
+        'imgs/pinbit_adt7410.png'
       )
     ).toBe(
-      'https://github.com/chirimen-oh/chirimen-drivers/blob/master/node-examples/adt7410/schematic.png'
+      'https://github.com/chirimen-oh/chirimen-drivers/blob/master/microbit-examples/adt7410/imgs/pinbit_adt7410.png'
     );
   });
 
   it('builds full example urls object', () => {
     const urls = buildExampleUrls(
       'chirimen-oh/chirimen-drivers',
-      'node-examples/adt7410',
+      'microbit-examples/adt7410',
       'master',
-      'schematic.png'
+      'imgs/pinbit_adt7410.png'
     );
     expect(urls.upstreamRepositoryUrl).toContain('chirimen-drivers');
     expect(urls.upstreamPathUrl).toContain('/tree/master/');
@@ -61,8 +61,8 @@ describe('buildExampleUrls', () => {
 
 describe('buildUpstreamPath', () => {
   it('joins source path and dir name', () => {
-    expect(buildUpstreamPath('node-examples', 'adt7410')).toBe(
-      'node-examples/adt7410'
+    expect(buildUpstreamPath('microbit-examples', 'adt7410')).toBe(
+      'microbit-examples/adt7410'
     );
   });
 

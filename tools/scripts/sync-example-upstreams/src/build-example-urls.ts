@@ -8,8 +8,6 @@ export type ExampleUrls = {
 
 const PLATFORM_HARDWARE: Record<string, string> = {
   'pizero-esm': 'Pi Zero',
-  node: 'Raspberry Pi',
-  'raspi-node': 'Raspberry Pi',
   'microbit-driver': 'micro:bit',
   'microbit-web': 'micro:bit',
   'legacy-gc-gpio': 'chirimen',
