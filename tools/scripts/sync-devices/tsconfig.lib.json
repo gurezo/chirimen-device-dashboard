@@ -3,10 +3,7 @@
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc/tools/scripts/sync-devices",
     "declaration": true,
-    "declarationMap": true,
-    "module": "node16",
-    "moduleResolution": "node16",
-    "types": ["node"]
+    "declarationMap": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.spec.ts", "src/**/*.test.ts"]
