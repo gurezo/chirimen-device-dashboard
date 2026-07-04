@@ -70,7 +70,7 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "issues" ]; then
             echo "issue_number=${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
-            echo "related_issue=Fixes #${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
+            echo "related_issue=Refs #${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
           else
             echo "issue_number=" >> "$GITHUB_OUTPUT"
             echo "related_issue=Part of #219" >> "$GITHUB_OUTPUT"
