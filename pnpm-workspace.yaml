@@ -25,6 +25,7 @@ minimumReleaseAgeExclude:
   - '@typescript-eslint/*'
   - '@vitest/*'
   - angular-eslint
+  - eslint
   - firebase-tools
   - memfs
   - nx
