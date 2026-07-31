@@ -835,6 +835,24 @@
     }
   },
   {
+    "id": "i2c-as7341",
+    "deviceName": "AS7341",
+    "tag": "I2C",
+    "category": "カラーセンサ",
+    "description": "ams-OSRAM製の11チャンネル分光カラーセンサ。可視光8チャンネルとClear・NIRを測定できます",
+    "image": "https://raw.githubusercontent.com/chirimen-oh/chirimen.org/master/partsImgs/as7341.jpg",
+    "product": {
+      "url": "https://akizukidenshi.com/catalog/g/g131479/",
+      "example": [
+        {
+          "hardware": "piZero",
+          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_as7341"
+        }
+      ],
+      "datasheet": "https://www.mouser.jp/datasheet/3/5912/1/AS7341_DS000504_3_00.pdf"
+    }
+  },
+  {
     "id": "i2c-veml6070",
     "deviceName": "VEML6070",
     "tag": "I2C",

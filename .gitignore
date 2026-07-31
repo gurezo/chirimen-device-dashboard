@@ -57,7 +57,9 @@ functions/lib
 firebase-debug.log
 firebase-debug.*.log
 
-generated/
+# Ignore generated outputs, but keep reports trackable for refresh PRs.
+# Use `generated/*` (not `generated/`) so negation of reports/ can take effect.
+generated/*
 !generated/reports/
 !generated/reports/**
 

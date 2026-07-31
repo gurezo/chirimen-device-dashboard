@@ -370,6 +370,26 @@
     ]
   },
   {
+    "dashboardDeviceId": "i2c-as7341",
+    "exampleDeviceId": "as7341",
+    "examples": [
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/as7341",
+        "deviceId": "as7341",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/as7341/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/as7341",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/as7341",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/as7341/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-bh1750",
     "exampleDeviceId": "bh1750",
     "examples": [

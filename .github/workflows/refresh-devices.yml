@@ -91,8 +91,8 @@ jobs:
         with:
           branch: ${{ steps.branch.outputs.name }}
           add-paths: |
-            generated/reports/**
-            data/platform-examples/**
+            generated/reports
+            data/platform-examples
             apps/web/public/devices.json
           delete-branch: true
           commit-message: |
