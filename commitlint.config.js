@@ -1,6 +1,24 @@
 module.exports = {
   extends: ['@commitlint/config-angular'],
   rules: {
+    // Angular preset omits `chore`; project Conventional Commits allow it.
+    'type-enum': [
+      2,
+      'always',
+      [
+        'build',
+        'ci',
+        'chore',
+        'docs',
+        'feat',
+        'fix',
+        'perf',
+        'refactor',
+        'revert',
+        'style',
+        'test',
+      ],
+    ],
     'scope-enum': [
       2,
       'always',
