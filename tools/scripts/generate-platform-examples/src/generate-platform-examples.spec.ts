@@ -3,6 +3,7 @@ import type { ExampleInfo } from '@chirimen-device-dashboard/shared-types';
 import {
   buildPlatformExamplesJson,
   generatePlatformExamples,
+  listNewGeneratedPlatforms,
   selectCanonicalGeneratedEntries,
 } from './generate-platform-examples';
 import type { ExampleCandidateEntry, PlatformExampleDeviceEntry } from './types';
@@ -96,6 +97,92 @@ describe('selectCanonicalGeneratedEntries', () => {
     ];
 
     expect(selectCanonicalGeneratedEntries(generated, [])).toEqual([]);
+  });
+
+  it('omits newly discovered platforms that are not in canonical data', () => {
+    const microbit = makeExample('microbit-driver', {
+      hardware: 'micro:bit',
+      status: 'legacy',
+      deviceId: 'bme680',
+    });
+    const canonical: PlatformExampleDeviceEntry[] = [
+      {
+        dashboardDeviceId: 'i2c-bme680',
+        exampleDeviceId: 'bme680',
+        examples: [microbit],
+      },
+    ];
+    const generated: PlatformExampleDeviceEntry[] = [
+      {
+        dashboardDeviceId: 'i2c-bme680',
+        exampleDeviceId: 'bme680',
+        examples: [
+          microbit,
+          makeExample('pizero-esm', {
+            deviceId: 'bme680',
+            circuitUrl: undefined,
+          }),
+        ],
+      },
+    ];
+
+    expect(selectCanonicalGeneratedEntries(generated, canonical)).toEqual([
+      {
+        dashboardDeviceId: 'i2c-bme680',
+        exampleDeviceId: 'bme680',
+        examples: [microbit],
+      },
+    ]);
+  });
+});
+
+describe('listNewGeneratedPlatforms', () => {
+  it('lists platforms that are absent from canonical data', () => {
+    const canonical: PlatformExampleDeviceEntry[] = [
+      {
+        dashboardDeviceId: 'i2c-bme680',
+        exampleDeviceId: 'bme680',
+        examples: [
+          makeExample('microbit-driver', {
+            hardware: 'micro:bit',
+            status: 'legacy',
+            deviceId: 'bme680',
+          }),
+        ],
+      },
+    ];
+    const generated: PlatformExampleDeviceEntry[] = [
+      {
+        dashboardDeviceId: 'i2c-bme680',
+        exampleDeviceId: 'bme680',
+        examples: [
+          makeExample('microbit-driver', {
+            hardware: 'micro:bit',
+            status: 'legacy',
+            deviceId: 'bme680',
+          }),
+          makeExample('pizero-esm', {
+            deviceId: 'bme680',
+            circuitUrl: undefined,
+          }),
+        ],
+      },
+      {
+        dashboardDeviceId: 'i2c-max30102',
+        exampleDeviceId: 'max30102',
+        examples: [
+          makeExample('pizero-esm', {
+            deviceId: 'max30102',
+            circuitUrl: undefined,
+          }),
+        ],
+      },
+    ];
+
+    expect(listNewGeneratedPlatforms(generated, canonical)).toEqual([
+      { dashboardDeviceId: 'i2c-bme680', platform: 'pizero-esm' },
+      { dashboardDeviceId: 'i2c-max30102', platform: 'pizero-esm' },
+    ]);
   });
 });
 
