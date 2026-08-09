@@ -124,21 +124,96 @@ export async function loadCanonicalPlatformExamples(
   }
 }
 
+/**
+ * Pick generated examples that already exist in the canonical dataset.
+ *
+ * Only device+platform pairs present in `platform-examples.json` are returned.
+ * Newly discovered platforms (review candidates) are omitted so generate can
+ * write incomplete entries to `platform-examples.generated.json` without
+ * failing hard validation.
+ */
 export function selectCanonicalGeneratedEntries(
   entries: PlatformExampleDeviceEntry[],
   canonical: PlatformExampleDeviceEntry[]
 ): PlatformExampleDeviceEntry[] {
-  const canonicalDeviceIds = new Set(
-    canonical.map((entry) => entry.dashboardDeviceId)
+  const canonicalByDevice = new Map(
+    canonical.map((entry) => [entry.dashboardDeviceId, entry])
   );
 
-  if (canonicalDeviceIds.size === 0) {
+  if (canonicalByDevice.size === 0) {
     return [];
   }
 
-  return entries.filter((entry) =>
-    canonicalDeviceIds.has(entry.dashboardDeviceId)
+  const selected: PlatformExampleDeviceEntry[] = [];
+
+  for (const entry of entries) {
+    const canonicalEntry = canonicalByDevice.get(entry.dashboardDeviceId);
+    if (!canonicalEntry) {
+      continue;
+    }
+
+    const canonicalPlatforms = new Set(
+      canonicalEntry.examples
+        .map((example) => example.platform)
+        .filter((platform): platform is string => Boolean(platform))
+    );
+
+    const knownExamples = entry.examples.filter((example) => {
+      const platform = example.platform;
+      return typeof platform === 'string' && canonicalPlatforms.has(platform);
+    });
+
+    if (knownExamples.length === 0) {
+      continue;
+    }
+
+    selected.push({
+      ...entry,
+      examples: knownExamples,
+    });
+  }
+
+  return selected;
+}
+
+/** List generated device+platform pairs that are not in the canonical dataset. */
+export function listNewGeneratedPlatforms(
+  entries: PlatformExampleDeviceEntry[],
+  canonical: PlatformExampleDeviceEntry[]
+): Array<{ dashboardDeviceId: string; platform: string }> {
+  const canonicalPlatformsByDevice = new Map(
+    canonical.map((entry) => [
+      entry.dashboardDeviceId,
+      new Set(
+        entry.examples
+          .map((example) => example.platform)
+          .filter((platform): platform is string => Boolean(platform))
+      ),
+    ])
   );
+
+  const results: Array<{ dashboardDeviceId: string; platform: string }> = [];
+
+  for (const entry of entries) {
+    const canonicalPlatforms = canonicalPlatformsByDevice.get(
+      entry.dashboardDeviceId
+    );
+
+    for (const example of entry.examples) {
+      if (!example.platform) {
+        continue;
+      }
+
+      if (!canonicalPlatforms?.has(example.platform)) {
+        results.push({
+          dashboardDeviceId: entry.dashboardDeviceId,
+          platform: example.platform,
+        });
+      }
+    }
+  }
+
+  return results;
 }
 
 export function generatePlatformExamples(
