@@ -154,6 +154,23 @@
     }
   },
   {
+    "id": "i2c-mcp9808",
+    "deviceName": "MCP9808",
+    "tag": "I2C",
+    "category": "温度センサ",
+    "description": "高精度に温度を測定できるセンサです(分解能を0.0625℃〜0.5℃の4段階で設定可能)",
+    "image": "./no_image.png",
+    "product": {
+      "url": "",
+      "example": [
+        {
+          "hardware": "piZero",
+          "code": "https://chirimen.org/pizero/esm-examples/#I2C_mcp9808"
+        }
+      ]
+    }
+  },
+  {
     "id": "i2c-amg8833",
     "deviceName": "AMG8833",
     "tag": "I2C",
@@ -846,7 +863,7 @@
       "example": [
         {
           "hardware": "piZero",
-          "code": "https://tutorial.chirimen.org/pizero/esm-examples/#I2C_as7341"
+          "code": "https://chirimen.org/pizero/esm-examples/#I2C_as7341"
         }
       ],
       "datasheet": "https://www.mouser.jp/datasheet/3/5912/1/AS7341_DS000504_3_00.pdf"
@@ -993,6 +1010,23 @@
         }
       ],
       "reference": "http://wiki.seeedstudio.com/Grove-3-Axis_Digital_Accelerometer-16g/"
+    }
+  },
+  {
+    "id": "i2c-mma7660",
+    "deviceName": "MMA7660",
+    "tag": "I2C",
+    "category": "3軸加速度センサ",
+    "description": "3軸の加速度を検出できるセンサです",
+    "image": "./no_image.png",
+    "product": {
+      "url": "",
+      "example": [
+        {
+          "hardware": "piZero",
+          "code": "https://chirimen.org/pizero/esm-examples/#I2C_mma7660"
+        }
+      ]
     }
   },
   {
@@ -1835,6 +1869,27 @@
         {
           "hardware": "chirimen",
           "code": "http://chirimen.org/chirimen/gc/top/examples/#I2C-APDS9960"
+        },
+        {
+          "hardware": "piZero",
+          "code": "https://chirimen.org/pizero/esm-examples/#I2C_apds9960"
+        }
+      ]
+    }
+  },
+  {
+    "id": "i2c-apds9930",
+    "deviceName": "APDS9930",
+    "tag": "I2C",
+    "category": "近接・環境光センサー",
+    "description": "近接・環境光を読み取るセンサー",
+    "image": "https://raw.githubusercontent.com/chirimen-oh/chirimen.org/master/partsImgs/APDS9930.jpg",
+    "product": {
+      "url": "",
+      "example": [
+        {
+          "hardware": "piZero",
+          "code": "https://chirimen.org/pizero/esm-examples/#I2C_apds9930"
         }
       ]
     }
@@ -2669,7 +2724,7 @@
           "verified": false
         }
       ],
-      "circuit": "https://tutorial.chirimen.org/pizero/esm-examples/gpio-onchange/index.html#gpio",
+      "circuit": "https://chirimen.org/pizero/esm-examples/gpio-onchange/index.html#gpio",
       "datasheet": "https://files.seeedstudio.com/wiki/Grove-Touch_Sensor/res/TTP223.pdf"
     }
   },
@@ -2938,7 +2993,12 @@
     "image": "https://raw.githubusercontent.com/chirimen-oh/chirimen.org/master/partsImgs/TB6612FNG.jpg",
     "product": {
       "url": "https://www.switch-science.com/catalog/385/",
-      "example": [],
+      "example": [
+        {
+          "hardware": "piZero",
+          "code": "https://chirimen.org/pizero/esm-examples/#GPIO_tb6612fng"
+        }
+      ],
       "datasheet": "http://doc.switch-science.com/datasheets/TB6612FNG_datasheet_ja_20141001.pdf"
     }
   },
