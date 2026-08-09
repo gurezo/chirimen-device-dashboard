@@ -7,6 +7,7 @@ import {
 import { loadUpstreamSources } from './load-upstream-sources';
 import {
   generatePlatformExamples,
+  listNewGeneratedPlatforms,
   loadCanonicalPlatformExamples,
   selectCanonicalGeneratedEntries,
 } from './generate-platform-examples';
@@ -49,6 +50,13 @@ export async function main(): Promise<void> {
   }
 
   const entries = generatePlatformExamples(allCandidates, canonical);
+
+  const newPlatforms = listNewGeneratedPlatforms(entries, canonical);
+  for (const { dashboardDeviceId, platform } of newPlatforms) {
+    console.warn(
+      `Warning: skipping hard validation for new platform candidate ${dashboardDeviceId} [${platform}] (not in canonical platform-examples.json)`
+    );
+  }
 
   const canonicalEntries = selectCanonicalGeneratedEntries(entries, canonical);
   if (canonicalEntries.length > 0) {
