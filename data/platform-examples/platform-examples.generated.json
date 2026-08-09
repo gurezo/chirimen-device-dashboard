@@ -140,6 +140,26 @@
     ]
   },
   {
+    "dashboardDeviceId": "gpio-tb6612fng",
+    "exampleDeviceId": "tb6612fng",
+    "examples": [
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/tb6612fng",
+        "deviceId": "tb6612fng",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/tb6612fng/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/tb6612fng",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/tb6612fng",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/tb6612fng/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-ads1015",
     "exampleDeviceId": "ads1015",
     "examples": [
@@ -316,6 +336,45 @@
     ]
   },
   {
+    "dashboardDeviceId": "i2c-apds9930",
+    "exampleDeviceId": "apds9930",
+    "examples": [
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/apds9930",
+        "deviceId": "apds9930",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/apds9930/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/apds9930",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/apds9930",
+        "status": "primary",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "i2c-apds9960",
+    "exampleDeviceId": "apds9960",
+    "examples": [
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/apds9960",
+        "deviceId": "apds9960",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/apds9960/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/apds9960",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/apds9960",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/apds9960/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-as3935",
     "exampleDeviceId": "as3935",
     "examples": [
@@ -474,6 +533,19 @@
         "status": "legacy",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/microbit-examples/bme680/imgs/pinbit_bme680.png",
         "verified": false
+      },
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/bme680",
+        "deviceId": "bme680",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/bme680/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/bme680",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/bme680",
+        "status": "primary",
+        "verified": false
       }
     ]
   },
@@ -561,6 +633,19 @@
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/microbit-examples/ccs811",
         "status": "legacy",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen-drivers/blob/master/microbit-examples/ccs811/imgs/pinbit_ccs811.png",
+        "verified": false
+      },
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ccs811",
+        "deviceId": "ccs811",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/ccs811/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/ccs811",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ccs811",
+        "status": "primary",
         "verified": false
       }
     ]
@@ -1028,6 +1113,26 @@
     ]
   },
   {
+    "dashboardDeviceId": "i2c-mcp9808",
+    "exampleDeviceId": "mcp9808",
+    "examples": [
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mcp9808",
+        "deviceId": "mcp9808",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/mcp9808/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/mcp9808",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mcp9808",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/mcp9808/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-mlx90614",
     "exampleDeviceId": "mlx90614",
     "examples": [
@@ -1057,6 +1162,26 @@
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mlx90614",
         "status": "primary",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/mlx90614/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "i2c-mma7660",
+    "exampleDeviceId": "mma7660",
+    "examples": [
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mma7660",
+        "deviceId": "mma7660",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/mma7660/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/mma7660",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/mma7660",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/mma7660/schematic.png",
         "verified": false
       }
     ]
@@ -1417,6 +1542,26 @@
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/scd40",
         "status": "primary",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/scd40/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "i2c-seesaw",
+    "exampleDeviceId": "seesaw",
+    "examples": [
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/seesaw",
+        "deviceId": "seesaw",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/seesaw/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/seesaw",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/seesaw",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/seesaw/schematic.png",
         "verified": false
       }
     ]
