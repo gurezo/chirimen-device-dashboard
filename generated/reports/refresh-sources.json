@@ -1,0 +1,67 @@
+{
+  "generatedAt": "2026-08-16T02:17:57.811Z",
+  "partslist": {
+    "repository": "chirimen-oh/chirimen.org",
+    "branch": "master",
+    "path": "_data/partslist.csv",
+    "commit": "351ac5984074fcdd5899c45aabe17be3019e7345"
+  },
+  "examples": [
+    {
+      "sourceId": "chirimen-org-pizero-esm",
+      "repository": "chirimen-oh/chirimen.org",
+      "branch": "master",
+      "path": "pizero/src/esm-examples",
+      "platform": "pizero-esm",
+      "commit": "351ac5984074fcdd5899c45aabe17be3019e7345"
+    },
+    {
+      "sourceId": "chirimen-drivers-microbit",
+      "repository": "chirimen-oh/chirimen-drivers",
+      "branch": "master",
+      "path": "microbit-examples",
+      "platform": "microbit-driver",
+      "commit": "3134b4f4eff7a6866cc477245720f7c7c1e10910"
+    },
+    {
+      "sourceId": "chirimen-gc-gpio",
+      "repository": "chirimen-oh/chirimen",
+      "branch": "master",
+      "path": "gc/gpio",
+      "platform": "legacy-gc-gpio",
+      "commit": "d0c272cc386ba92a96466107b555d9c856cc4402"
+    },
+    {
+      "sourceId": "chirimen-gc-i2c",
+      "repository": "chirimen-oh/chirimen",
+      "branch": "master",
+      "path": "gc/i2c",
+      "platform": "legacy-gc-i2c",
+      "commit": "d0c272cc386ba92a96466107b555d9c856cc4402"
+    },
+    {
+      "sourceId": "pre-arrangement-contributions",
+      "repository": "chirimen-oh/pre-arrangement-contributions",
+      "branch": "main",
+      "path": ".",
+      "platform": "pre-arranged",
+      "commit": "31962a12cdcf98a02fcf0ccab3f06ea83d641a9d"
+    },
+    {
+      "sourceId": "remote-connection-examples",
+      "repository": "chirimen-oh/remote-connection",
+      "branch": "master",
+      "path": "examples",
+      "platform": "remote",
+      "commit": "4ff747fe6b7632b62450d3c250e9b0e353ebe1a0"
+    },
+    {
+      "sourceId": "chirimen-micro-bit-examples",
+      "repository": "chirimen-oh/chirimen-micro-bit",
+      "branch": "master",
+      "path": "examples",
+      "platform": "microbit-web",
+      "commit": "0d4722040b0c6c2c4b64e7a07b45fb11dd70530e"
+    }
+  ]
+}
