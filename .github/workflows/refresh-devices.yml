@@ -89,6 +89,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v8
         with:
+          token: ${{ secrets.PAT_TOKEN || github.token }}
           branch: ${{ steps.branch.outputs.name }}
           add-paths: |
             generated/reports

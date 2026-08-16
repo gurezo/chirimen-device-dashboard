@@ -41,6 +41,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v8
         with:
+          token: ${{ secrets.PAT_TOKEN || github.token }}
           branch: ${{ steps.branch.outputs.name }}
           add-paths: apps/web/public/devices.json
           delete-branch: true
@@ -70,5 +71,6 @@ jobs:
         if: steps.cpr.outputs.pull-request-number != ''
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
+          token: ${{ secrets.PAT_TOKEN || github.token }}
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
           merge-method: squash
