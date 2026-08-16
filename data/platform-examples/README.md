@@ -180,6 +180,8 @@ GitHub Actions から sync / generate / validate / `devices.json` 生成を実�
 
 `sync-devices.yml`（partslist.csv 由来の `devices.json` 更新）は別 workflow です。両方が `devices.json` を更新する場合は merge 時に conflict 解消が必要になることがあります。
 
+自動 PR 作成には、リポジトリ設定で **Allow GitHub Actions to create and approve pull requests** を有効にする必要があります。詳細は [デバイス情報の更新フロー](../../docs/device-data-refresh.md#自動-pr-作成に必要な権限) を参照してください。
+
 ### 自動 PR に含まれるファイル
 
 `sync-example-upstreams` workflow が作成する PR には、おおむね以下が含まれます。

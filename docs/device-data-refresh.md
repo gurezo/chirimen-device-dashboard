@@ -43,10 +43,21 @@ flowchart TD
 | Workflow | ファイル | 役割 |
 | --- | --- | --- |
 | Refresh devices data | [`.github/workflows/refresh-devices.yml`](../.github/workflows/refresh-devices.yml) | `refresh-devices` ラベル付き issue または手動実行から、同期・生成・検証・PR 作成を行う |
+| Sync example upstreams | [`.github/workflows/sync-example-upstreams.yml`](../.github/workflows/sync-example-upstreams.yml) | 毎週または手動で upstream を同期し、差分があれば自動 PR を作成する |
+| Sync devices | [`.github/workflows/sync-devices.yml`](../.github/workflows/sync-devices.yml) | `partslist.csv` から `devices.json` を更新し、差分があれば自動 PR を作成する |
 | Deploy to Firebase Hosting | [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml) | `main` への push 後に build / deploy し、対象の反映依頼 issue を close する |
 | Generate devices.json | [`.github/workflows/generate-devices.yml`](../.github/workflows/generate-devices.yml) | PR / `main` で `devices.json` の生成ドリフトを検出する |
 | Generate platform examples | [`.github/workflows/generate-platform-examples.yml`](../.github/workflows/generate-platform-examples.yml) | Platform 別 Example 候補 JSON の生成ドリフトを検出する |
 | Validate platform examples | [`.github/workflows/validate-platform-examples.yml`](../.github/workflows/validate-platform-examples.yml) | 正本データと `devices.json` の整合性を検証する |
+
+### 自動 PR 作成に必要な権限
+
+`refresh-devices` / `sync-example-upstreams` / `sync-devices` は `peter-evans/create-pull-request` で更新 PR を作成します。次の 2 点が揃っていないと、`GitHub Actions is not permitted to create or approve pull requests` で失敗します。
+
+1. 各 workflow の `permissions` に `contents: write` と `pull-requests: write` があること
+2. リポジトリ設定 **Settings → Actions → General → Workflow permissions** で **Allow GitHub Actions to create and approve pull requests** が有効であること
+
+`GITHUB_TOKEN` では PR 作成できない場合、または自動 PR 上で他の workflow を動かしたい場合は、`repo` スコープを持つ Personal Access Token をリポジトリシークレット `PAT_TOKEN` として登録します。未設定時は `GITHUB_TOKEN` にフォールバックします。
 
 ## `refresh-devices` issue で実行される処理
 
