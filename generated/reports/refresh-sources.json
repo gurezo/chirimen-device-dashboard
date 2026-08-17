@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T02:17:57.811Z",
+  "generatedAt": "2026-08-17T11:20:37.503Z",
   "partslist": {
     "repository": "chirimen-oh/chirimen.org",
     "branch": "master",
@@ -21,7 +21,7 @@
       "branch": "master",
       "path": "microbit-examples",
       "platform": "microbit-driver",
-      "commit": "3134b4f4eff7a6866cc477245720f7c7c1e10910"
+      "commit": "cb2f380b977cdc2903e7eb0be3ac2d1f2c500ac5"
     },
     {
       "sourceId": "chirimen-gc-gpio",
