@@ -1,6 +1,6 @@
 # Upstream sync summary
 
-Generated at: 2026-08-16T02:17:57.811Z
+Generated at: 2026-08-17T11:20:37.503Z
 
 ## Overview
 
@@ -59,7 +59,7 @@ Generated at: 2026-08-16T02:17:57.811Z
 | Path | `microbit-examples` |
 | Platform | `microbit-driver` |
 | Mirror | `generated/upstreams/chirimen-drivers-microbit` |
-| Commit | `3134b4f4eff7a6866cc477245720f7c7c1e10910` |
+| Commit | `cb2f380b977cdc2903e7eb0be3ac2d1f2c500ac5` |
 | Examples detected | 24 |
 | Candidates with dashboard mapping | 23 |
 
