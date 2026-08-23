@@ -69,8 +69,22 @@ jobs:
 
       - name: Enable auto-merge
         if: steps.cpr.outputs.pull-request-number != ''
-        uses: peter-evans/enable-pull-request-automerge@v3
-        with:
-          token: ${{ secrets.PAT_TOKEN || github.token }}
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-          merge-method: squash
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN || github.token }}
+          PR_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
+        run: |
+          set +e
+          output=$(gh pr merge --squash --auto --delete-branch "$PR_NUMBER" 2>&1)
+          status=$?
+          printf '%s\n' "$output"
+          if [ "$status" -eq 0 ]; then
+            exit 0
+          fi
+          # enablePullRequestAutoMerge fails when the PR is already CLEAN
+          # (no pending required checks). Squash-merge immediately instead.
+          if printf '%s\n' "$output" | grep -qiE 'clean status|already merged|already enabled'; then
+            echo "Auto-merge is not applicable; squash-merging immediately."
+            gh pr merge --squash --delete-branch "$PR_NUMBER"
+            exit $?
+          fi
+          exit "$status"
