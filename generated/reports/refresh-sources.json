@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-17T11:20:37.503Z",
+  "generatedAt": "2026-08-23T00:18:32.172Z",
   "partslist": {
     "repository": "chirimen-oh/chirimen.org",
     "branch": "master",
     "path": "_data/partslist.csv",
-    "commit": "351ac5984074fcdd5899c45aabe17be3019e7345"
+    "commit": "eedb1627f95084e34390820242fbca4170fe3c14"
   },
   "examples": [
     {
@@ -13,7 +13,7 @@
       "branch": "master",
       "path": "pizero/src/esm-examples",
       "platform": "pizero-esm",
-      "commit": "351ac5984074fcdd5899c45aabe17be3019e7345"
+      "commit": "eedb1627f95084e34390820242fbca4170fe3c14"
     },
     {
       "sourceId": "chirimen-drivers-microbit",
