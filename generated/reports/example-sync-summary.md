@@ -1,14 +1,14 @@
 # Upstream sync summary
 
-Generated at: 2026-08-23T00:18:32.172Z
+Generated at: 2026-08-26T12:51:04.346Z
 
 ## Overview
 
 | 項目 | 値 |
 | --- | --- |
 | Sources | 7 |
-| Total candidates | 253 |
-| Mapped to dashboard device | 104 |
+| Total candidates | 261 |
+| Mapped to dashboard device | 108 |
 
 ## Sources
 
@@ -21,9 +21,9 @@ Generated at: 2026-08-23T00:18:32.172Z
 | Path | `pizero/src/esm-examples` |
 | Platform | `pizero-esm` |
 | Mirror | `generated/upstreams/chirimen-org-pizero-esm` |
-| Commit | `eedb1627f95084e34390820242fbca4170fe3c14` |
-| Examples detected | 142 |
-| Candidates with dashboard mapping | 71 |
+| Commit | `bec706c4458e98159d8e621e5dcd881578f29459` |
+| Examples detected | 150 |
+| Candidates with dashboard mapping | 75 |
 
 **Warnings**
 
@@ -48,7 +48,7 @@ Generated at: 2026-08-23T00:18:32.172Z
 - `remote_adt7410` (chirimen-org-pizero-esm): Could not resolve example device id from "remote_adt7410"
 - `remote_adxl345` (chirimen-org-pizero-esm): Could not resolve example device id from "remote_adxl345"
 - `remote_aht10` (chirimen-org-pizero-esm): Could not resolve example device id from "remote_aht10"
-- ... and 66 more
+- ... and 70 more
 
 ### chirimen-drivers-microbit
 
@@ -59,7 +59,7 @@ Generated at: 2026-08-23T00:18:32.172Z
 | Path | `microbit-examples` |
 | Platform | `microbit-driver` |
 | Mirror | `generated/upstreams/chirimen-drivers-microbit` |
-| Commit | `cb2f380b977cdc2903e7eb0be3ac2d1f2c500ac5` |
+| Commit | `ae2fe1cf82258e37fc080a5d674fd14b9e9b26f1` |
 | Examples detected | 24 |
 | Candidates with dashboard mapping | 23 |
 

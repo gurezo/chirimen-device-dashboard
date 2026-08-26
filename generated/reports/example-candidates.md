@@ -1,6 +1,6 @@
 # Example candidates report
 
-Generated at: 2026-08-23T00:18:32.172Z
+Generated at: 2026-08-26T12:51:04.346Z
 
 Review this report before merging `platform-examples.generated.json` into `platform-examples.json`.
 
@@ -67,6 +67,7 @@ Review this report before merging `platform-examples.generated.json` into `platf
 | chirimen-org-pizero-esm | `remote_camera` |
 | chirimen-org-pizero-esm | `remote_ccs811` |
 | chirimen-org-pizero-esm | `remote_dfplayer` |
+| chirimen-org-pizero-esm | `remote_drv2605l` |
 | chirimen-org-pizero-esm | `remote_ens160` |
 | chirimen-org-pizero-esm | `remote_gp2y0e03` |
 | chirimen-org-pizero-esm | `remote_gpio-inout` |
@@ -99,14 +100,17 @@ Review this report before merging `platform-examples.generated.json` into `platf
 | chirimen-org-pizero-esm | `remote_scd40` |
 | chirimen-org-pizero-esm | `remote_seesaw` |
 | chirimen-org-pizero-esm | `remote_serial_gps` |
+| chirimen-org-pizero-esm | `remote_sgp30` |
 | chirimen-org-pizero-esm | `remote_sgp40` |
 | chirimen-org-pizero-esm | `remote_sht30` |
 | chirimen-org-pizero-esm | `remote_sht30_gpioin` |
 | chirimen-org-pizero-esm | `remote_sht40` |
 | chirimen-org-pizero-esm | `remote_ssd1306` |
 | chirimen-org-pizero-esm | `remote_ssd1308` |
+| chirimen-org-pizero-esm | `remote_sths34pf80` |
 | chirimen-org-pizero-esm | `remote_tb6612fng` |
 | chirimen-org-pizero-esm | `remote_tcs34725` |
+| chirimen-org-pizero-esm | `remote_tmp117` |
 | chirimen-org-pizero-esm | `remote_tsl2561` |
 | chirimen-org-pizero-esm | `remote_tsl2591` |
 | chirimen-org-pizero-esm | `remote_veml6070` |
@@ -186,6 +190,7 @@ Review this report before merging `platform-examples.generated.json` into `platf
 | `i2c-bmp280` | bmp280 | pizero-esm | `pizero/src/esm-examples/bmp280` |
 | `i2c-ccs811` | ccs811 | pizero-esm | `pizero/src/esm-examples/ccs811` |
 | `gpio-dfplayer-mini` | dfplayer | pizero-esm | `pizero/src/esm-examples/dfplayer` |
+| `i2c-drv2605l` | drv2605l | pizero-esm | `pizero/src/esm-examples/drv2605l` |
 | `i2c-ens160` | ens160 | pizero-esm | `pizero/src/esm-examples/ens160` |
 | `i2c-gp2y0e03` | gp2y0e03 | pizero-esm | `pizero/src/esm-examples/gp2y0e03` |
 | `i2c-grove` | grove-water-level-sensor | pizero-esm | `pizero/src/esm-examples/grove-water-level-sensor` |
@@ -216,6 +221,5 @@ Review this report before merging `platform-examples.generated.json` into `platf
 | `i2c-neopixel-led-8x8` | neopixel-i2c | pizero-esm | `pizero/src/esm-examples/neopixel-i2c` |
 | `i2c-neopixel-led-12x12` | neopixel-i2c | pizero-esm | `pizero/src/esm-examples/neopixel-i2c` |
 | `i2c-neopixel-led-60x60` | neopixel-i2c | pizero-esm | `pizero/src/esm-examples/neopixel-i2c` |
-| `i2c-grove-gesture-paj7620u2` | paj7620 | pizero-esm | `pizero/src/esm-examples/paj7620` |
 
-_... and 54 more mapped candidates._
+_... and 58 more mapped candidates._
