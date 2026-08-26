@@ -651,6 +651,26 @@
     ]
   },
   {
+    "dashboardDeviceId": "i2c-drv2605l",
+    "exampleDeviceId": "drv2605l",
+    "examples": [
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/drv2605l",
+        "deviceId": "drv2605l",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/drv2605l/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/drv2605l",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/drv2605l",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/drv2605l/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-ens160",
     "exampleDeviceId": "ens160",
     "examples": [
@@ -1567,6 +1587,26 @@
     ]
   },
   {
+    "dashboardDeviceId": "i2c-sgp30",
+    "exampleDeviceId": "sgp30",
+    "examples": [
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/sgp30",
+        "deviceId": "sgp30",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/sgp30/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/sgp30",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/sgp30",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/sgp30/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-sgp40",
     "exampleDeviceId": "sgp40",
     "examples": [
@@ -1675,6 +1715,26 @@
     ]
   },
   {
+    "dashboardDeviceId": "i2c-sths34pf80",
+    "exampleDeviceId": "sths34pf80",
+    "examples": [
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/sths34pf80",
+        "deviceId": "sths34pf80",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/sths34pf80/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/sths34pf80",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/sths34pf80",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/sths34pf80/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
     "dashboardDeviceId": "i2c-tcs34725",
     "exampleDeviceId": "tcs34725",
     "examples": [
@@ -1690,6 +1750,26 @@
         "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/tcs34725",
         "status": "primary",
         "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/tcs34725/schematic.png",
+        "verified": false
+      }
+    ]
+  },
+  {
+    "dashboardDeviceId": "i2c-tmp117",
+    "exampleDeviceId": "tmp117",
+    "examples": [
+      {
+        "hardware": "Pi Zero",
+        "code": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/tmp117",
+        "deviceId": "tmp117",
+        "platform": "pizero-esm",
+        "localPath": "examples/devices/tmp117/platforms/pizero-esm",
+        "upstreamRepository": "chirimen-oh/chirimen.org",
+        "upstreamRepositoryUrl": "https://github.com/chirimen-oh/chirimen.org",
+        "upstreamPath": "pizero/src/esm-examples/tmp117",
+        "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/tmp117",
+        "status": "primary",
+        "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/tmp117/schematic.png",
         "verified": false
       }
     ]
