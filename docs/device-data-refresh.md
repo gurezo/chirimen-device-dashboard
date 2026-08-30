@@ -59,7 +59,7 @@ flowchart TD
 
 `GITHUB_TOKEN` では PR 作成できない場合、または自動 PR 上で他の workflow を動かしたい場合は、`repo` スコープを持つ Personal Access Token をリポジトリシークレット `PAT_TOKEN` として登録します。未設定時は `GITHUB_TOKEN` にフォールバックします。
 
-`sync-example-upstreams` / `sync-devices` は作成した PR に auto-merge を有効化します。必須チェックがなく PR がすでに `CLEAN` のときは GitHub が auto-merge を拒否するため、その場合は squash merge にフォールバックします。
+`sync-example-upstreams` / `sync-devices` は作成した PR に auto-merge を有効化します。必須チェックがなく PR がすでに `CLEAN` のとき、または対象ブランチに保護ルールがないときは GitHub が auto-merge を拒否するため、その場合は squash merge にフォールバックします。
 
 ## `refresh-devices` issue で実行される処理
 
