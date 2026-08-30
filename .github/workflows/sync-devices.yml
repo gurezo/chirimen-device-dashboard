@@ -81,8 +81,9 @@ jobs:
             exit 0
           fi
           # enablePullRequestAutoMerge fails when the PR is already CLEAN
-          # (no pending required checks). Squash-merge immediately instead.
-          if printf '%s\n' "$output" | grep -qiE 'clean status|already merged|already enabled'; then
+          # (no pending required checks) or the target branch has no
+          # protection rules. Squash-merge immediately instead.
+          if printf '%s\n' "$output" | grep -qiE 'clean status|already merged|already enabled|protected branch'; then
             echo "Auto-merge is not applicable; squash-merging immediately."
             gh pr merge --squash --delete-branch "$PR_NUMBER"
             exit $?
