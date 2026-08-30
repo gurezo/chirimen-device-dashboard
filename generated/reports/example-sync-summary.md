@@ -1,6 +1,6 @@
 # Upstream sync summary
 
-Generated at: 2026-08-26T12:51:04.346Z
+Generated at: 2026-08-30T00:42:58.830Z
 
 ## Overview
 
@@ -21,7 +21,7 @@ Generated at: 2026-08-26T12:51:04.346Z
 | Path | `pizero/src/esm-examples` |
 | Platform | `pizero-esm` |
 | Mirror | `generated/upstreams/chirimen-org-pizero-esm` |
-| Commit | `bec706c4458e98159d8e621e5dcd881578f29459` |
+| Commit | `9a10777ce42daf14758566ef1da519fcc772beac` |
 | Examples detected | 150 |
 | Candidates with dashboard mapping | 75 |
 
