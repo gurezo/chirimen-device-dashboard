@@ -1,6 +1,6 @@
 # Example candidates report
 
-Generated at: 2026-08-30T00:42:58.830Z
+Generated at: 2026-09-06T00:44:15.807Z
 
 Review this report before merging `platform-examples.generated.json` into `platform-examples.json`.
 
