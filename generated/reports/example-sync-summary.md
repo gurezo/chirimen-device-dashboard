@@ -1,6 +1,6 @@
 # Upstream sync summary
 
-Generated at: 2026-08-30T00:42:58.830Z
+Generated at: 2026-09-06T00:44:15.807Z
 
 ## Overview
 
@@ -21,7 +21,7 @@ Generated at: 2026-08-30T00:42:58.830Z
 | Path | `pizero/src/esm-examples` |
 | Platform | `pizero-esm` |
 | Mirror | `generated/upstreams/chirimen-org-pizero-esm` |
-| Commit | `9a10777ce42daf14758566ef1da519fcc772beac` |
+| Commit | `03160cd79648f0efbf5b424d21a2b97055a6ffb0` |
 | Examples detected | 150 |
 | Candidates with dashboard mapping | 75 |
 
@@ -59,7 +59,7 @@ Generated at: 2026-08-30T00:42:58.830Z
 | Path | `microbit-examples` |
 | Platform | `microbit-driver` |
 | Mirror | `generated/upstreams/chirimen-drivers-microbit` |
-| Commit | `ae2fe1cf82258e37fc080a5d674fd14b9e9b26f1` |
+| Commit | `1480be394deb9a44e4a81427d0ada8fdf77134a5` |
 | Examples detected | 24 |
 | Candidates with dashboard mapping | 23 |
 
