@@ -7,6 +7,12 @@ import {
 } from './certified-devices.config';
 import { isSupportedCertifiedDevicesVersion } from './certified-devices.types';
 import type { DeviceRepository } from './device.repository';
+import {
+  buildDeviceIdIndex,
+  parseCertifiedAliases,
+  resolveDeviceId,
+  type DeviceIdIndex,
+} from './resolve-device-id';
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -25,10 +31,15 @@ function isTimeoutError(error: unknown): boolean {
   );
 }
 
-async function loadDevices(
+interface DeviceCatalog {
+  devices: DeviceInfo[];
+  index: DeviceIdIndex;
+}
+
+async function loadCatalog(
   url: string,
   timeoutMs: number,
-): Promise<DeviceInfo[]> {
+): Promise<DeviceCatalog> {
   let response: Response;
   try {
     response = await fetch(url, {
@@ -61,28 +72,33 @@ async function loadDevices(
     throw loadError('unsupported version');
   }
 
-  return adaptCertifiedDevicesJson(payload);
+  const devices = adaptCertifiedDevicesJson(payload);
+  const aliases = parseCertifiedAliases(payload['aliases']);
+  return {
+    devices,
+    index: buildDeviceIdIndex(devices, aliases),
+  };
 }
 
 export class JsonDeviceRepository implements DeviceRepository {
-  private readonly devices$: Observable<DeviceInfo[]>;
+  private readonly catalog$: Observable<DeviceCatalog>;
 
   constructor(
     url = DEFAULT_CERTIFIED_DEVICES_JSON_URL,
     timeoutMs = CERTIFIED_DEVICES_FETCH_TIMEOUT_MS,
   ) {
-    this.devices$ = from(loadDevices(url, timeoutMs)).pipe(
+    this.catalog$ = from(loadCatalog(url, timeoutMs)).pipe(
       shareReplay({ bufferSize: 1, refCount: true }),
     );
   }
 
   list(): Observable<DeviceInfo[]> {
-    return this.devices$;
+    return this.catalog$.pipe(map((catalog) => catalog.devices));
   }
 
   get(id: string): Observable<DeviceInfo | null> {
-    return this.devices$.pipe(
-      map((devices) => devices.find((d) => d.id === id) ?? null),
+    return this.catalog$.pipe(
+      map((catalog) => resolveDeviceId(catalog.index, id)?.device ?? null),
     );
   }
 }
