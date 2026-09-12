@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: 📦 デバイス情報の追加・修正
+    url: https://github.com/gurezo/chirimen-certified-devices
+    about: デバイスデータの正本は chirimen-certified-devices です。Dashboard では同期しません
   - name: 💬 質問 / Q&A (Discussions)
     url: https://github.com/gurezo/chirimen-device-dashboard/discussions
     about: バグ報告・機能要望以外（質問、使い方相談）は Discussions へお願いします
