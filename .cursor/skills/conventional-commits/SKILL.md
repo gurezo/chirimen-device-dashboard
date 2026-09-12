@@ -10,7 +10,7 @@ description: Generates Conventional Commits messages and pull request titles for
 ## 目的
 
 - commit message と PR title を [Conventional Commits](https://www.conventionalcommits.org/) に統一する。
-- Angular / Nx ワークスペースの構成 (`apps/`, `libs/devices/*`, `libs/shared-types`, `tools/scripts/*`) に整合する scope を選ぶ。
+- Angular / Nx ワークスペースの構成 (`apps/`, `libs/devices/*`, `libs/shared-types`) に整合する scope を選ぶ。
 - 将来的な changelog 自動生成 / semantic-release への接続を容易にする。
 - AI が生成するメッセージの品質を安定化させる。
 
@@ -43,7 +43,6 @@ description: Generates Conventional Commits messages and pull request titles for
 - GitHub Actions ワークフロー → `ci`。
 - MCP 設定 (`.cursor/mcp.json`) → `mcp`。
 - E2E テスト → `web-e2e`。
-- デバイス JSON 同期スクリプト → `sync-devices`。
 
 詳細は `scopes.md` を参照。
 

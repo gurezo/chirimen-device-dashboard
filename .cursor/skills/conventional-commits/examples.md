@@ -56,7 +56,6 @@ ci(workspace): update github actions workflow
 ```
 build(workspace): add commitlint and husky
 build(workspace): bump nx to 22.7.1
-build(sync-devices): update devices.json from partslist.csv
 ```
 
 ### chore

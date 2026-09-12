@@ -25,7 +25,6 @@ docs(workspace): update readme quick start
 test(web): add device list smoke test
 ci(workspace): update commitlint workflow
 build(workspace): bump nx to 22.7.1
-build(sync-devices): update devices.json from partslist.csv
 ```
 
 破壊的変更を含む Valid 例:
