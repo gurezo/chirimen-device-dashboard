@@ -41,6 +41,7 @@ AI エージェント (Cursor 等) 向けの Conventional Commits ルール / Sk
 | `libs-device-detail` | devices 詳細 feature (libs/devices/device-detail) |
 | `libs-card-list`     | デバイスカード一覧 UI (libs/devices/card-list) |
 | `libs-platform-specific-examples` | Platform 別 Example UI (libs/devices/platform-specific-examples) |
+| `sync-devices`      | 削除済みツール向けの commitlint 互換 scope        |
 | `ci`                 | CI 設定変更 (GitHub Actions 等)                   |
 | `mcp`                | MCP 設定変更 (.cursor/mcp.json 等)              |
 
