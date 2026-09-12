@@ -8,6 +8,10 @@ body:
       value: |
         提案ありがとうございます！「何の課題を解決したいか → どうしたいか」を書いてもらえると助かります。
 
+        このリポジトリの Issue は Dashboard の UI（一覧・検索・詳細）や Dashboard 固有の機能改善が対象です。
+        デバイス名・製品リンク・Example などデータの追加・修正は [chirimen-certified-devices](https://github.com/gurezo/chirimen-certified-devices) へお願いします。
+        詳細は [デバイス情報の更新](https://github.com/gurezo/chirimen-device-dashboard/blob/main/docs/device-data-refresh.md) を参照してください。
+
   - type: textarea
     id: problem
     attributes:

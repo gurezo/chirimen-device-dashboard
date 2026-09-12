@@ -8,6 +8,10 @@ body:
       value: |
         ありがとうございます！再現可能な情報があると調査が速くなります。
 
+        このリポジトリの Issue は Dashboard の UI（一覧・検索・詳細）や Dashboard 固有の不具合が対象です。
+        デバイス名・製品リンク・Example などデータの追加・修正は [chirimen-certified-devices](https://github.com/gurezo/chirimen-certified-devices) へお願いします。
+        詳細は [デバイス情報の更新](https://github.com/gurezo/chirimen-device-dashboard/blob/main/docs/device-data-refresh.md) を参照してください。
+
   - type: input
     id: environment
     attributes:

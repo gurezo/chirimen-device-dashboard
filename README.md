@@ -13,7 +13,7 @@ Dashboard は実行時に Certified Devices JSON を取得して表示します�
 
 デバイス情報の追加・修正は [`chirimen-certified-devices`](https://github.com/gurezo/chirimen-certified-devices) で行ってください。Dashboard 側では同期・生成しません。
 
-報告先の区別と反映確認は [デバイス情報の更新](docs/device-data-refresh.md) を参照してください。
+本リポジトリの Issue は Dashboard 固有の不具合・機能改善向けです。報告先の区別と反映確認は [デバイス情報の更新](docs/device-data-refresh.md) を参照してください。
 
 ## Quick Start
 
