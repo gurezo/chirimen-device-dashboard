@@ -23,9 +23,10 @@
           >
             <img
               mat-card-image
-              [src]="device.image"
+              [src]="deviceImageSrc(device.image)"
               [alt]="device.deviceName"
               class="h-40 object-cover"
+              (error)="onDeviceImageError($event)"
             />
             <mat-card-header>
               <mat-card-title>{{ device.deviceName }}</mat-card-title>
