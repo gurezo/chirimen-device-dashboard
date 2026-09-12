@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-12T00:00:00.000Z",
+  "platforms": {
+    "platforms": {}
+  },
+  "aliases": {
+    "directoryRules": {
+      "single": " /",
+      "composite": " _ /",
+      "remoteSingle": "remote_ /",
+      "remoteComposite": "remote_ _ /"
+    },
+    "compositeDevices": {},
+    "remoteDevices": {},
+    "exampleNameAliases": {
+      "ADS1015": {
+        "directoryId": "ADS1015",
+        "exampleDeviceId": "ads1015",
+        "legacyExampleNames": ["I2C-ADS1015", "ads1015", "ADS1015"]
+      }
+    }
+  },
+  "devices": [
+    {
+      "id": "ADS1015",
+      "directory": "devices/ADS1015",
+      "meta": {
+        "id": "ADS1015",
+        "model": "ADS1015",
+        "tag": "I2C",
+        "category": "ADC(アナログ電圧測定)",
+        "description": "アナログ電圧を 12bit 精度のデジタル信号に変換する部品で、アナログセンサ等を利用する際に必要です",
+        "image": "",
+        "productUrl": "https://www.switch-science.com/catalog/1136/",
+        "examples": [
+          {
+            "platform": "legacy-gc-i2c",
+            "status": "archive",
+            "upstreamRepository": "chirimen-oh/chirimen",
+            "upstreamPath": "gc/i2c/i2c-ADS1015",
+            "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen/tree/master/gc/i2c/i2c-ADS1015",
+            "circuitUrl": "https://github.com/chirimen-oh/chirimen/blob/master/gc/i2c/i2c-ADS1015/schematic.png",
+            "driver": "none",
+            "verified": false,
+            "platformLabel": "Legacy CHIRIMEN GC (I2C)"
+          },
+          {
+            "platform": "pizero-esm",
+            "status": "primary",
+            "upstreamRepository": "chirimen-oh/chirimen.org",
+            "upstreamPath": "pizero/src/esm-examples/ads1015",
+            "upstreamPathUrl": "https://github.com/chirimen-oh/chirimen.org/tree/master/pizero/src/esm-examples/ads1015",
+            "circuitUrl": "https://github.com/chirimen-oh/chirimen.org/blob/master/pizero/src/esm-examples/ads1015/schematic.png",
+            "driver": "https://github.com/chirimen-oh/chirimen-drivers/tree/master/packages/ads1015",
+            "verified": false,
+            "platformLabel": "Pi Zero / Raspberry Pi (ESM)"
+          }
+        ],
+        "circuit": "https://github.com/adafruit/ADS1X15-Breakout-Board-PCBs",
+        "datasheet": "https://cdn-shop.adafruit.com/datasheets/ads1015.pdf",
+        "reference": null
+      }
+    },
+    {
+      "id": "ADT7410",
+      "directory": "devices/ADT7410",
+      "meta": {
+        "id": "ADT7410",
+        "model": "ADT7410",
+        "tag": "I2C",
+        "category": "温度センサ",
+        "description": "I2C 接続のデジタル温度センサです",
+        "image": "",
+        "productUrl": "https://www.switch-science.com/catalog/1036/",
+        "examples": [],
+        "circuit": null,
+        "datasheet": null,
+        "reference": null
+      }
+    },
+    {
+      "id": "10k",
+      "directory": "devices/10k",
+      "meta": {
+        "id": "10k",
+        "model": "10kΩ",
+        "tag": "GPIO",
+        "category": "カーボン抵抗",
+        "description": "抵抗",
+        "image": "",
+        "productUrl": null,
+        "examples": [],
+        "circuit": null,
+        "datasheet": null,
+        "reference": null
+      }
+    }
+  ]
+}
