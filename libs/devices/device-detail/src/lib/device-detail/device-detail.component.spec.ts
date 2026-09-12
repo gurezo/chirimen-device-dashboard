@@ -137,4 +137,55 @@ describe('DeviceDetailComponent', () => {
     );
     expect(compiled.querySelector('[role="alert"]')).toBeTruthy();
   });
+
+  it('falls back to the placeholder when the device image is empty', async () => {
+    TestBed.resetTestingModule();
+    await TestBed.configureTestingModule({
+      imports: [DeviceDetailComponent],
+      providers: [
+        provideRouter([]),
+        {
+          provide: DEVICE_REPOSITORY,
+          useValue: createMockRepository({ ...adt7410Device, image: '' }),
+        },
+      ],
+    }).compileComponents();
+
+    const emptyImageFixture = TestBed.createComponent(DeviceDetailComponent);
+    emptyImageFixture.componentRef.setInput('deviceId', 'i2c-adt7410');
+    emptyImageFixture.detectChanges();
+    await emptyImageFixture.whenStable();
+    emptyImageFixture.detectChanges();
+
+    const img = emptyImageFixture.nativeElement.querySelector(
+      'img[alt="ADT7410"]',
+    ) as HTMLImageElement;
+    expect(img.src.endsWith('/no_image.png')).toBe(true);
+  });
+
+  it('hides the category badge when category is empty', async () => {
+    TestBed.resetTestingModule();
+    await TestBed.configureTestingModule({
+      imports: [DeviceDetailComponent],
+      providers: [
+        provideRouter([]),
+        {
+          provide: DEVICE_REPOSITORY,
+          useValue: createMockRepository({ ...adt7410Device, category: '' }),
+        },
+      ],
+    }).compileComponents();
+
+    const emptyCategoryFixture = TestBed.createComponent(DeviceDetailComponent);
+    emptyCategoryFixture.componentRef.setInput('deviceId', 'i2c-adt7410');
+    emptyCategoryFixture.detectChanges();
+    await emptyCategoryFixture.whenStable();
+    emptyCategoryFixture.detectChanges();
+
+    const compiled = emptyCategoryFixture.nativeElement as HTMLElement;
+    const badges = Array.from(compiled.querySelectorAll('h1 + div span')).map(
+      (span) => span.textContent?.trim(),
+    );
+    expect(badges).toEqual(['I2C']);
+  });
 });
