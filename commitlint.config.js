@@ -33,6 +33,7 @@ module.exports = {
         'libs-card-list',
         'libs-device-detail',
         'libs-platform-specific-examples',
+        // Retained so this PR's earlier commits still pass commitlint on HEAD.
         'sync-devices',
         'sync-example-upstreams',
         'generate-platform-examples',

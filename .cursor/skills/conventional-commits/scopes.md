@@ -14,10 +14,11 @@ chirimen-device-dashboard で使用可能な scope の一覧と用途。`commitl
 | `libs-feature-list` | `libs/devices/feature-list` | `libs-feature-list` | デバイス一覧 feature コンポーネント |
 | `libs-card-list` | `libs/devices/card-list` | `libs-card-list` | デバイスカード一覧 UI |
 | `libs-device-detail` | `libs/devices/device-detail` | `libs-device-detail` | デバイス詳細 UI |
-| `sync-devices` | `tools/scripts/sync-devices` | `sync-devices` | `devices.json` の同期スクリプト |
-| `sync-example-upstreams` | `tools/scripts/sync-example-upstreams` | `sync-example-upstreams` | upstream example 同期スクリプト |
-| `generate-platform-examples` | `tools/scripts/generate-platform-examples` | `generate-platform-examples` | Platform 別 Example 元データ生成 |
-| `validate-platform-examples` | `tools/scripts/validate-platform-examples` | `validate-platform-examples` | Platform 別 Example validation / reports |
+| `libs-platform-specific-examples` | `libs/devices/platform-specific-examples` | `libs-platform-specific-examples` | Platform 別 Example UI |
+| `sync-devices` | `tools/scripts/sync-devices` | `sync-devices` | 削除済みツール向けの commitlint 互換 scope |
+| `sync-example-upstreams` | `tools/scripts/sync-example-upstreams` | `sync-example-upstreams` | 削除済みツール向けの commitlint 互換 scope |
+| `generate-platform-examples` | `tools/scripts/generate-platform-examples` | `generate-platform-examples` | 削除済みツール向けの commitlint 互換 scope |
+| `validate-platform-examples` | `tools/scripts/validate-platform-examples` | `validate-platform-examples` | 削除済みツール向けの commitlint 互換 scope |
 | `workspace` | リポジトリルート | (該当なし) | `package.json` / `nx.json` / `.husky/` / `commitlint.config.js` / `.cursor/` / `.agents/` / README / CONTRIBUTING 等 |
 | `ci` | `.github/workflows/` | (該当なし) | GitHub Actions ワークフロー |
 | `mcp` | `.cursor/mcp.json` 等 | (該当なし) | MCP 設定 |

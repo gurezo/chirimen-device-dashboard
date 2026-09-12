@@ -57,11 +57,7 @@ functions/lib
 firebase-debug.log
 firebase-debug.*.log
 
-# Ignore generated outputs, but keep reports trackable for refresh PRs.
-# Use `generated/*` (not `generated/`) so negation of reports/ can take effect.
-generated/*
-!generated/reports/
-!generated/reports/**
+generated/
 
 vitest.config.*.timestamp*
 

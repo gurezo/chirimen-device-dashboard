@@ -41,7 +41,7 @@ AI エージェント (Cursor 等) 向けの Conventional Commits ルール / Sk
 | `libs-device-detail` | devices 詳細 feature (libs/devices/device-detail) |
 | `libs-card-list`     | デバイスカード一覧 UI (libs/devices/card-list) |
 | `libs-platform-specific-examples` | Platform 別 Example UI (libs/devices/platform-specific-examples) |
-| `sync-devices`      | devices データ同期 (tools/scripts/sync-devices)   |
+| `sync-devices`      | 削除済みツール向けの commitlint 互換 scope        |
 | `ci`                 | CI 設定変更 (GitHub Actions 等)                   |
 | `mcp`                | MCP 設定変更 (.cursor/mcp.json 等)              |
 
@@ -53,7 +53,6 @@ fix(web): correct device list display
 docs(workspace): update readme quick start
 build(workspace): add commitlint and husky
 refactor(libs-card-list): update device card list ui
-build(sync-devices): update devices.json from partslist.csv
 ci(ci): update github actions workflow
 build(mcp): update mcp.json
 ```
