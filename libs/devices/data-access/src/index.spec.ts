@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import {
+  CERTIFIED_DEVICES_FETCH_TIMEOUT_MS,
+  CERTIFIED_DEVICES_JSON_URL,
+  DEFAULT_CERTIFIED_DEVICES_JSON_URL,
   DEVICE_REPOSITORY,
   JsonDeviceRepository,
   provideDeviceRepository,
@@ -12,6 +15,14 @@ describe('libs-data-access', () => {
 
   it('should export JsonDeviceRepository', () => {
     expect(JsonDeviceRepository).toBeDefined();
+  });
+
+  it('should export certified devices json url config', () => {
+    expect(CERTIFIED_DEVICES_JSON_URL).toBeDefined();
+    expect(DEFAULT_CERTIFIED_DEVICES_JSON_URL).toBe(
+      'https://raw.githubusercontent.com/gurezo/chirimen-certified-devices/main/generated/devices.json',
+    );
+    expect(CERTIFIED_DEVICES_FETCH_TIMEOUT_MS).toBe(10_000);
   });
 
   it('provideDeviceRepository() should return provider for DEVICE_REPOSITORY', () => {
