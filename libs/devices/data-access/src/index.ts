@@ -22,4 +22,8 @@ export {
   type CertifiedDevice,
   type CertifiedDevicesJson,
 } from './lib/certified-devices.types';
+export {
+  adaptCertifiedDevice,
+  adaptCertifiedDevicesJson,
+} from './lib/certified-device.adapter';
 
