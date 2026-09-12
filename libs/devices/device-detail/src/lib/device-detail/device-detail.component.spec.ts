@@ -121,4 +121,20 @@ describe('DeviceDetailComponent', () => {
     expect(compiled.textContent).not.toContain('I2C-ADS1015');
     expect(compiled.querySelector('table')).toBeFalsy();
   });
+
+  it('shows the requested id when the device is not found', async () => {
+    fixture.componentRef.setInput('deviceId', 'not-a-real-device');
+    fixture.detectChanges();
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent?.trim()).toBe(
+      'デバイスが見つかりません',
+    );
+    expect(compiled.textContent).toContain(
+      '「not-a-real-device」は登録されていません。',
+    );
+    expect(compiled.querySelector('[role="alert"]')).toBeTruthy();
+  });
 });

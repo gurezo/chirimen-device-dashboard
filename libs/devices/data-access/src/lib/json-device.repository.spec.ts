@@ -216,6 +216,64 @@ describe('JsonDeviceRepository', () => {
     );
   });
 
+  it('get() resolves tag-prefixed legacy ids', async () => {
+    const device = await firstValueFrom(repo.get('i2c-device-1'));
+
+    expect(device?.id).toBe('device-1');
+    expect(device?.deviceName).toBe('Test Device 1');
+  });
+
+  it('get() resolves canonical ids case-insensitively', async () => {
+    const device = await firstValueFrom(repo.get('DEVICE-1'));
+
+    expect(device?.id).toBe('device-1');
+  });
+
+  it('get() resolves certified example aliases to the canonical device', async () => {
+    const ads1015: CertifiedDevice = {
+      id: 'ADS1015',
+      directory: 'devices/ADS1015',
+      meta: {
+        id: 'ADS1015',
+        model: 'ADS1015',
+        tag: 'I2C',
+        category: 'ADC',
+        description: 'ADC',
+        image: '',
+        productUrl: '',
+        examples: [],
+        circuit: null,
+        datasheet: null,
+        reference: null,
+      },
+    };
+    fetchMock.mockResolvedValueOnce(
+      okResponse({
+        ...sampleJson,
+        aliases: {
+          ...sampleJson.aliases,
+          exampleNameAliases: {
+            ADS1015: {
+              directoryId: 'ADS1015',
+              exampleDeviceId: 'ads1015',
+              legacyExampleNames: ['I2C-ADS1015', 'ads1015', 'ADS1015'],
+            },
+          },
+        },
+        devices: [ads1015],
+      }),
+    );
+
+    const aliasRepo = new JsonDeviceRepository();
+    const byLegacy = await firstValueFrom(aliasRepo.get('i2c-ads1015'));
+    const byAlias = await firstValueFrom(aliasRepo.get('I2C-ADS1015'));
+    const byCase = await firstValueFrom(aliasRepo.get('ads1015'));
+
+    expect(byLegacy?.id).toBe('ADS1015');
+    expect(byAlias?.id).toBe('ADS1015');
+    expect(byCase?.id).toBe('ADS1015');
+  });
+
   it('errors on unsupported certified devices version', async () => {
     fetchMock.mockResolvedValueOnce(
       okResponse({

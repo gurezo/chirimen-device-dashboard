@@ -31,4 +31,12 @@ export {
   adaptCertifiedDevice,
   adaptCertifiedDevicesJson,
 } from './lib/certified-device.adapter';
+export {
+  buildDeviceIdIndex,
+  parseCertifiedAliases,
+  resolveDeviceId,
+  type DeviceIdIndex,
+  type DeviceIdMatchKind,
+  type DeviceIdResolution,
+} from './lib/resolve-device-id';
 
