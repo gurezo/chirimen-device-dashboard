@@ -5,6 +5,11 @@ export {
 export { JsonDeviceRepository } from './lib/json-device.repository';
 export { provideDeviceRepository } from './lib/providers';
 export {
+  CERTIFIED_DEVICES_FETCH_TIMEOUT_MS,
+  CERTIFIED_DEVICES_JSON_URL,
+  DEFAULT_CERTIFIED_DEVICES_JSON_URL,
+} from './lib/certified-devices.config';
+export {
   SUPPORTED_CERTIFIED_DEVICES_VERSION,
   isSupportedCertifiedDevicesVersion,
   type CertifiedExampleStatus,
