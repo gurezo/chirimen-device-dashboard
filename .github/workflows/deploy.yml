@@ -33,6 +33,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Lint
+        run: pnpm nx run-many -t lint
+
+      - name: Test
+        run: pnpm nx run-many -t test
+
       - name: Build web
         run: pnpm nx build web --configuration=production
 
