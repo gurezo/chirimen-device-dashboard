@@ -63,8 +63,16 @@
     } @else {
       <div
         class="text-[var(--mat-error-default,#d32f2f)] mb-4 p-4 bg-[rgba(211,47,47,0.08)] rounded-lg"
+        role="alert"
       >
-        デバイスが見つかりません。
+        <h1
+          class="m-0 mb-2 text-[1.25rem] font-semibold leading-tight text-[var(--mat-error-default,#d32f2f)]"
+        >
+          デバイスが見つかりません
+        </h1>
+        <p class="m-0 text-[0.9375rem] leading-relaxed">
+          「{{ deviceId() }}」は登録されていません。
+        </p>
       </div>
       <a mat-stroked-button routerLink="/" color="primary">
         <mat-icon class="mr-1">arrow_back</mat-icon>
