@@ -1,6 +1,11 @@
 import { test, expect } from '@playwright/test';
+import { mockCertifiedDevicesJson } from './support/mock-certified-devices';
 
 test.describe('Device ID / URL 互換', () => {
+  test.beforeEach(async ({ page }) => {
+    await mockCertifiedDevicesJson(page);
+  });
+
   test('canonical id shows the device detail page', async ({ page }) => {
     await page.goto('/devices/ADS1015');
 
