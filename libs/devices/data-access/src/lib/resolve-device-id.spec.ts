@@ -99,6 +99,32 @@ describe('parseCertifiedAliases', () => {
       'MX1508',
     ]);
   });
+
+  it('extracts remote device aliases from a loose payload', () => {
+    const parsed = parseCertifiedAliases({
+      remoteDevices: {
+        remote_ADT7410: {
+          baseModel: 'ADT7410',
+          models: ['ADT7410'],
+          description: 'remote ADT7410',
+        },
+        remote_sparse: {
+          baseModel: 'SPARSE',
+          description: 'no models',
+        },
+      },
+    });
+
+    expect(parsed?.remoteDevices['remote_ADT7410']).toEqual({
+      baseModel: 'ADT7410',
+      models: ['ADT7410'],
+      description: 'remote ADT7410',
+    });
+    expect(parsed?.remoteDevices['remote_sparse']).toEqual({
+      baseModel: 'SPARSE',
+      description: 'no models',
+    });
+  });
 });
 
 describe('resolveDeviceId', () => {
