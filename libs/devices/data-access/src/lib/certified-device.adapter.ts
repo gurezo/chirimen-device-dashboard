@@ -37,6 +37,10 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
+function field(record: Record<string, unknown>, key: string): unknown {
+  return record[key];
+}
+
 function asString(value: unknown, fallback = ''): string {
   return typeof value === 'string' ? value : fallback;
 }
@@ -77,10 +81,11 @@ function adaptExample(example: unknown, deviceId: string): ExampleInfo | null {
     return null;
   }
 
-  const platform = asString(example.platform);
-  const upstreamRepository = asString(example.upstreamRepository);
-  const upstreamPath = asString(example.upstreamPath);
-  const upstreamPathUrl = asString(example.upstreamPathUrl);
+  const platform = asString(field(example, 'platform'));
+  const upstreamRepository = asString(field(example, 'upstreamRepository'));
+  const upstreamPath = asString(field(example, 'upstreamPath'));
+  const upstreamPathUrl = asString(field(example, 'upstreamPathUrl'));
+  const verified = field(example, 'verified');
   const info: ExampleInfo = {
     hardware: platform ? hardwareForPlatform(platform) : '',
     code: upstreamPathUrl,
@@ -106,61 +111,73 @@ function adaptExample(example: unknown, deviceId: string): ExampleInfo | null {
     info.upstreamPathUrl = upstreamPathUrl;
   }
 
-  info.status = adaptStatus(example.status);
+  info.status = adaptStatus(field(example, 'status'));
 
-  const circuitUrl = optionalUrl(example.circuitUrl);
+  const circuitUrl = optionalUrl(field(example, 'circuitUrl'));
   if (circuitUrl) {
     info.circuitUrl = circuitUrl;
   }
 
-  info.verified = typeof example.verified === 'boolean' ? example.verified : false;
+  info.verified = typeof verified === 'boolean' ? verified : false;
 
   return info;
 }
 
-export function adaptCertifiedDevice(device: CertifiedDevice): DeviceInfo {
-  const record = device as unknown as Record<string, unknown>;
-  const meta = isRecord(record.meta) ? record.meta : {};
-  const id = asString(record.id) || asString(meta.id);
+function adaptCertifiedDeviceRecord(
+  record: Record<string, unknown>,
+): DeviceInfo {
+  const metaValue = field(record, 'meta');
+  const meta = isRecord(metaValue) ? metaValue : {};
+  const id = asString(field(record, 'id')) || asString(field(meta, 'id'));
+  const examples = field(meta, 'examples');
   const product: ProductInfo = {
-    url: asString(meta.productUrl).trim(),
-    example: Array.isArray(meta.examples)
-      ? meta.examples
+    url: asString(field(meta, 'productUrl')).trim(),
+    example: Array.isArray(examples)
+      ? examples
           .map((example) => adaptExample(example, id))
           .filter((example): example is ExampleInfo => example !== null)
       : [],
   };
 
-  const circuit = optionalUrl(meta.circuit);
+  const circuit = optionalUrl(field(meta, 'circuit'));
   if (circuit) {
     product.circuit = circuit;
   }
-  const datasheet = optionalUrl(meta.datasheet);
+  const datasheet = optionalUrl(field(meta, 'datasheet'));
   if (datasheet) {
     product.datasheet = datasheet;
   }
-  const reference = optionalUrl(meta.reference);
+  const reference = optionalUrl(field(meta, 'reference'));
   if (reference) {
     product.reference = reference;
   }
 
   return {
     id,
-    deviceName: asString(meta.model) || id,
-    tag: adaptTag(meta.tag),
-    category: asString(meta.category),
-    description: asString(meta.description),
-    image: asString(meta.image),
+    deviceName: asString(field(meta, 'model')) || id,
+    tag: adaptTag(field(meta, 'tag')),
+    category: asString(field(meta, 'category')),
+    description: asString(field(meta, 'description')),
+    image: asString(field(meta, 'image')),
     product,
   };
 }
 
+export function adaptCertifiedDevice(device: CertifiedDevice): DeviceInfo {
+  return adaptCertifiedDeviceRecord(
+    device as unknown as Record<string, unknown>,
+  );
+}
+
 export function adaptCertifiedDevicesJson(input: unknown): DeviceInfo[] {
-  if (!isRecord(input) || !Array.isArray(input.devices)) {
+  if (!isRecord(input)) {
     return [];
   }
 
-  return input.devices
-    .filter(isRecord)
-    .map((device) => adaptCertifiedDevice(device as CertifiedDevice));
+  const devices = field(input, 'devices');
+  if (!Array.isArray(devices)) {
+    return [];
+  }
+
+  return devices.filter(isRecord).map(adaptCertifiedDeviceRecord);
 }
