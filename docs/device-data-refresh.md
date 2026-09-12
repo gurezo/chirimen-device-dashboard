@@ -17,9 +17,9 @@ Dashboard リポジトリに反映依頼 issue を立てる必要はありませ
 | 内容 | 報告先 |
 | --- | --- |
 | デバイス名・製品リンク・Example などデータの追加・修正・不備 | [`chirimen-certified-devices`](https://github.com/gurezo/chirimen-certified-devices) |
-| 一覧・検索・詳細など Dashboard UI の不具合 | 本リポジトリの [バグ報告](https://github.com/gurezo/chirimen-device-dashboard/issues/new?template=bug_report.ja.yml) |
+| 一覧・検索・詳細など Dashboard UI の不具合・機能改善 | 本リポジトリの [バグ報告](https://github.com/gurezo/chirimen-device-dashboard/issues/new?template=bug_report.ja.yml) / [機能要望](https://github.com/gurezo/chirimen-device-dashboard/issues/new?template=feature_request.ja.yml) |
 
-GitHub の Issue 作成画面にも、デバイス情報の追加・修正向けの案内があります。
+本リポジトリの Issue 作成画面は Dashboard 固有の不具合・機能改善のみを対象とします。デバイス情報の追加・修正は [`chirimen-certified-devices`](https://github.com/gurezo/chirimen-certified-devices) で行ってください。
 
 ## データフロー
 

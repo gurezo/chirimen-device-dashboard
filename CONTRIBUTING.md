@@ -1,5 +1,11 @@
 # コントリビューションガイド
 
+## Issue の対象
+
+本リポジトリの Issue は Dashboard の UI（一覧・検索・詳細）や Dashboard 固有の不具合・機能改善が対象です。
+
+デバイス名・製品リンク・Example などデータの追加・修正は [`chirimen-certified-devices`](https://github.com/gurezo/chirimen-certified-devices) で行ってください。報告先の区別は [デバイス情報の更新](docs/device-data-refresh.md) を参照してください。
+
 ## コミットメッセージガイドライン
 
 本プロジェクトでは [Conventional Commits](https://www.conventionalcommits.org/) に準拠したコミットメッセージを採用しています。
