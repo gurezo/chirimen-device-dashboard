@@ -5,12 +5,12 @@
 ## 前提
 
 - Node.js 24
-- pnpm 11.8.0
+- pnpm 11.24.0
 
 `package.json` の `packageManager` は次の値です。
 
 ```text
-pnpm@11.8.0
+pnpm@11.24.0
 ```
 
 ## セットアップ
@@ -42,16 +42,11 @@ pnpm nx test libs-state
 pnpm nx affected -t lint,build,test
 ```
 
-## デバイスデータ関連コマンド
+## デバイスデータ
 
-| 目的 | コマンド |
-| --- | --- |
-| upstream example repository を同期 | `pnpm sync:example-upstreams` |
-| Platform 別 Example 候補を生成 | `pnpm generate:platform-examples` |
-| Platform 別 Example を検証 | `pnpm validate:platform-examples` |
-| `devices.json` を生成 | `pnpm generate:devices` |
+デバイスデータは [`chirimen-certified-devices/generated/devices.json`](https://github.com/gurezo/chirimen-certified-devices/blob/main/generated/devices.json) から実行時に取得します。このリポジトリで同期・生成するコマンドはありません。
 
-デバイス情報の更新フロー全体は [デバイス情報の更新フロー](device-data-refresh.md) を参照してください。
+データソースと修正先は [デバイス情報の更新](device-data-refresh.md) を参照してください。
 
 ## テスト
 
