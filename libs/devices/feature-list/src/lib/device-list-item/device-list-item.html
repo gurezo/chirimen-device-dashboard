@@ -1,8 +1,9 @@
 <div>
   <img
-    [src]="device().image"
+    [src]="deviceImageSrc(device().image)"
     [alt]="device().deviceName"
     class="w-12 h-12 object-cover rounded"
+    (error)="onDeviceImageError($event)"
   />
 </div>
 <div>{{ device().deviceName }}</div>
