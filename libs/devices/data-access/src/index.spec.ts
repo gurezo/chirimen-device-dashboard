@@ -25,12 +25,18 @@ describe('libs-data-access', () => {
     expect(CERTIFIED_DEVICES_FETCH_TIMEOUT_MS).toBe(10_000);
   });
 
-  it('provideDeviceRepository() should return provider for DEVICE_REPOSITORY', () => {
-    const provider = provideDeviceRepository() as {
-      provide: typeof DEVICE_REPOSITORY;
-      useClass: typeof JsonDeviceRepository;
-    };
-    expect(provider.provide).toBe(DEVICE_REPOSITORY);
-    expect(provider.useClass).toBe(JsonDeviceRepository);
+  it('provideDeviceRepository() should return providers for URL and repository', () => {
+    const providers = provideDeviceRepository();
+
+    expect(providers).toEqual([
+      {
+        provide: CERTIFIED_DEVICES_JSON_URL,
+        useValue: DEFAULT_CERTIFIED_DEVICES_JSON_URL,
+      },
+      {
+        provide: DEVICE_REPOSITORY,
+        useFactory: expect.any(Function),
+      },
+    ]);
   });
 });

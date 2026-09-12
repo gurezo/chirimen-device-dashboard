@@ -1,20 +1,80 @@
-import { Observable, of, shareReplay, map, catchError, from } from 'rxjs';
+import { Observable, shareReplay, map, from } from 'rxjs';
 import type { DeviceInfo } from '@chirimen-device-dashboard/shared-types';
+import { adaptCertifiedDevicesJson } from './certified-device.adapter';
+import {
+  CERTIFIED_DEVICES_FETCH_TIMEOUT_MS,
+  DEFAULT_CERTIFIED_DEVICES_JSON_URL,
+} from './certified-devices.config';
+import { isSupportedCertifiedDevicesVersion } from './certified-devices.types';
 import type { DeviceRepository } from './device.repository';
 
-const DEVICES_JSON_PATH = '/devices.json';
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
 
-function loadDevices(): Promise<DeviceInfo[]> {
-  return fetch(DEVICES_JSON_PATH).then((res) =>
-    res.ok ? (res.json() as Promise<DeviceInfo[]>) : Promise.resolve([]),
+function loadError(reason: string): Error {
+  return new Error(`Failed to load devices: ${reason}`);
+}
+
+function isTimeoutError(error: unknown): boolean {
+  return (
+    typeof error === 'object' &&
+    error !== null &&
+    'name' in error &&
+    error.name === 'TimeoutError'
   );
 }
 
+async function loadDevices(
+  url: string,
+  timeoutMs: number,
+): Promise<DeviceInfo[]> {
+  let response: Response;
+  try {
+    response = await fetch(url, {
+      cache: 'default',
+      signal: AbortSignal.timeout(timeoutMs),
+    });
+  } catch (error) {
+    if (isTimeoutError(error)) {
+      throw loadError('timeout');
+    }
+    throw error instanceof Error ? error : loadError('network error');
+  }
+
+  if (!response.ok) {
+    throw loadError(`HTTP ${response.status}`);
+  }
+
+  let payload: unknown;
+  try {
+    payload = await response.json();
+  } catch {
+    throw loadError('malformed JSON');
+  }
+
+  if (!isRecord(payload) || !Array.isArray(payload['devices'])) {
+    throw loadError('malformed JSON');
+  }
+
+  if (!isSupportedCertifiedDevicesVersion(payload['version'])) {
+    throw loadError('unsupported version');
+  }
+
+  return adaptCertifiedDevicesJson(payload);
+}
+
 export class JsonDeviceRepository implements DeviceRepository {
-  private readonly devices$ = from(loadDevices()).pipe(
-    shareReplay({ bufferSize: 1, refCount: true }),
-    catchError(() => of([] as DeviceInfo[])),
-  );
+  private readonly devices$: Observable<DeviceInfo[]>;
+
+  constructor(
+    url = DEFAULT_CERTIFIED_DEVICES_JSON_URL,
+    timeoutMs = CERTIFIED_DEVICES_FETCH_TIMEOUT_MS,
+  ) {
+    this.devices$ = from(loadDevices(url, timeoutMs)).pipe(
+      shareReplay({ bufferSize: 1, refCount: true }),
+    );
+  }
 
   list(): Observable<DeviceInfo[]> {
     return this.devices$;
