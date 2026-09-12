@@ -26,9 +26,10 @@
             class="bg-white md:sticky md:top-4 rounded-xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.08)] border border-black/6 dark:bg-white/5 dark:border-white/[0.08] dark:shadow-[0_1px_3px_rgba(0,0,0,0.2)]"
           >
             <img
-              [src]="result.device.image"
+              [src]="deviceImageSrc(result.device.image)"
               [alt]="result.device.deviceName"
               class="block w-full max-w-[280px] h-auto aspect-square object-contain mx-auto"
+              (error)="onDeviceImageError($event)"
             />
           </div>
           <div class="min-w-0">
@@ -42,10 +43,12 @@
                 class="text-[0.8125rem] font-medium py-1.5 px-3 bg-black/6 rounded-md text-black/70 dark:bg-white/10 dark:text-white/80"
                 >{{ result.device.tag }}</span
               >
-              <span
-                class="text-[0.8125rem] font-medium py-1.5 px-3 bg-black/6 rounded-md text-black/70 dark:bg-white/10 dark:text-white/80"
-                >{{ result.device.category }}</span
-              >
+              @if (result.device.category) {
+                <span
+                  class="text-[0.8125rem] font-medium py-1.5 px-3 bg-black/6 rounded-md text-black/70 dark:bg-white/10 dark:text-white/80"
+                  >{{ result.device.category }}</span
+                >
+              }
             </div>
             @if (result.device.description) {
               <p

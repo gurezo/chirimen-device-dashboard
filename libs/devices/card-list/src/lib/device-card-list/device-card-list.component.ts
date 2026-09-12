@@ -6,6 +6,15 @@ import { RouterModule } from '@angular/router';
 import { DeviceListStore } from '@chirimen-device-dashboard/libs-state';
 import { TruncatePipe } from '../truncate.pipe';
 
+const DEVICE_IMAGE_PLACEHOLDER = '/no_image.png';
+
+function isPlaceholderImageSrc(img: HTMLImageElement): boolean {
+  return (
+    img.getAttribute('src') === DEVICE_IMAGE_PLACEHOLDER ||
+    img.src.endsWith(DEVICE_IMAGE_PLACEHOLDER)
+  );
+}
+
 @Component({
   selector: 'choh-device-card-list',
   standalone: true,
@@ -28,4 +37,16 @@ export class DeviceCardListComponent {
   readonly filteredDevices$ = this.store.filteredDevices$;
   readonly loading$ = this.store.loading$;
   readonly error$ = this.store.error$;
+
+  deviceImageSrc(image: string): string {
+    return image.trim() ? image : DEVICE_IMAGE_PLACEHOLDER;
+  }
+
+  onDeviceImageError(event: Event): void {
+    const img = event.target as HTMLImageElement | null;
+    if (!img || isPlaceholderImageSrc(img)) {
+      return;
+    }
+    img.src = DEVICE_IMAGE_PLACEHOLDER;
+  }
 }

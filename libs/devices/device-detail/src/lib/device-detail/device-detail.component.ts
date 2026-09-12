@@ -14,6 +14,15 @@ import { catchError, map, of, switchMap } from 'rxjs';
 import { DEVICE_REPOSITORY } from '@chirimen-device-dashboard/libs-data-access';
 import { ProductInfoComponent } from '../product-info/product-info.component';
 
+const DEVICE_IMAGE_PLACEHOLDER = '/no_image.png';
+
+function isPlaceholderImageSrc(img: HTMLImageElement): boolean {
+  return (
+    img.getAttribute('src') === DEVICE_IMAGE_PLACEHOLDER ||
+    img.src.endsWith(DEVICE_IMAGE_PLACEHOLDER)
+  );
+}
+
 @Component({
   selector: 'choh-device-detail',
   standalone: true,
@@ -32,6 +41,18 @@ export class DeviceDetailComponent {
   readonly deviceId = input.required<string>();
 
   private readonly repository = inject(DEVICE_REPOSITORY);
+
+  deviceImageSrc(image: string): string {
+    return image.trim() ? image : DEVICE_IMAGE_PLACEHOLDER;
+  }
+
+  onDeviceImageError(event: Event): void {
+    const img = event.target as HTMLImageElement | null;
+    if (!img || isPlaceholderImageSrc(img)) {
+      return;
+    }
+    img.src = DEVICE_IMAGE_PLACEHOLDER;
+  }
 
   readonly result$ = toObservable(this.deviceId).pipe(
     switchMap((id) =>

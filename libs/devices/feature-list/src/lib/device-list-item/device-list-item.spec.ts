@@ -34,4 +34,20 @@ describe('DeviceListItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('falls back to the placeholder when the device image is empty', () => {
+    fixture.componentRef.setInput('device', { ...mockDevice, image: '' });
+    fixture.detectChanges();
+
+    const img = fixture.nativeElement.querySelector('img') as HTMLImageElement;
+    expect(img.src.endsWith('/no_image.png')).toBe(true);
+  });
+
+  it('falls back to the placeholder when the device image fails to load', () => {
+    const img = fixture.nativeElement.querySelector('img') as HTMLImageElement;
+    img.dispatchEvent(new Event('error'));
+    fixture.detectChanges();
+
+    expect(img.src.endsWith('/no_image.png')).toBe(true);
+  });
 });
