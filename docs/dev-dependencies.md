@@ -1,6 +1,8 @@
 # devDependencies とビルド・テスト設定の利用経路
 
-Issue #280 の調査記録。削除判断の材料であり、この文書の作成時点では依存・コード・設定を削除していない。
+Issue #280 の調査記録。削除判断の材料であり、調査の記録時点では依存・コード・設定を削除していない。
+
+Issue #282 で、下の変更単位 1 から 6 を実施した。要追加確認の項目は外していない。
 
 調査日: 2026-10-11
 
@@ -222,7 +224,7 @@ PostCSS の設定ファイルは無い。`web` の build が Tailwind を処理�
 
 ## 判定
 
-判定は「維持／削除候補／要追加確認／既に存在しない」のいずれか。依存も設定も、この文書では削除していない。削除候補だけを、混ぜない変更単位で Issue #282 に渡す。
+判定は「維持／削除候補／要追加確認／既に存在しない」のいずれか。調査の記録時点では依存も設定も削除していない。#282 で削除した単位だけ、判定を「既に存在しない」に更新した。
 
 ベースラインで「維持」または「既に存在しない」としたものは、判定を変えない。
 
@@ -234,7 +236,7 @@ PostCSS の設定ファイルは無い。`web` の build が Tailwind を処理�
 | `@nx/vite` | 4 つの lib 設定が plugin を import する | 上記「`@nx/vite`」。`@nx/web` の optional peer でもある | 維持 | なし |
 | `@nx/devkit` | `playwright.config.ts` の `workspaceRoot`。各 Nx パッケージの dependency | 上記「`@nx/devkit`」 | 維持 | なし |
 | `@nx/workspace` | `@nx/js` の dependency | 設定ファイルは import しない。直接宣言を外してもパッケージは `@nx/js` 経由で残る | 維持 | なし。直接宣言の整理は #282 に渡さない |
-| `@nx/node` | 現行の executor、plugin、import に無い | `pnpm why` の依存元はワークスペースだけ。peer の `express` / `koa` / `fastify` も無い | 削除候補 | #282 単位 1 |
+| `@nx/node` | 現行の executor、plugin、import に無い | `pnpm why` の依存元はワークスペースだけ。peer の `express` / `koa` / `fastify` も無い | 既に存在しない | なし。#282 単位 1 で直接宣言を外した |
 | `@angular/build` | `web` の build / serve / test。`libs-card-list` と `libs-state` の test | `project.json` | 維持 | なし |
 | `@angular/compiler-cli` | `@angular/build` の必須 peer | アプリのソースは import しない | 維持 | なし |
 | `@angular/cli` | `.cursor/mcp.json` と `.vscode/mcp.json` の `npx @angular/cli mcp` | scripts の `ng` は無い。build executor は `@angular/build` | 維持 | なし |
@@ -243,31 +245,31 @@ PostCSS の設定ファイルは無い。`web` の build が Tailwind を処理�
 | `vite`, `vitest` | 設定の `defineConfig` と、Nx / Analog の peer | 上記「Vite / Analog / Vitest」 | 維持 | なし |
 | `@analogjs/vite-plugin-angular`, `@analogjs/vitest-angular` | Vitest / Vite 設定と、三つの `test-setup.ts` | `data-access` の設定は Analog を import しない | 維持 | なし |
 | `@vitest/coverage-v8` | 4 lib の `coverage.provider: 'v8'`。vitest の optional peer | CI と scripts は `--coverage` を付けない。provider の行が残るあいだは外さない | 維持 | なし |
-| `@vitest/ui` | 起動する script、workflow、設定が無い | vitest の optional peer。直接宣言を外すと、optional peer は自動では入らない | 削除候補 | #282 単位 3 |
+| `@vitest/ui` | 起動する script、workflow、設定が無い | vitest の optional peer。直接宣言を外すと、optional peer は自動では入らない | 既に存在しない | なし。#282 単位 3 で直接宣言を外した |
 | `@oxc-project/runtime` | 静的な import は無い。Analog の sourcemap plugin が `vite.transformWithOxc` を呼ぶ | 配布ファイルにパッケージ名は無い。変換結果が helper を import するかは、パッケージを外したテストを回していない | 要追加確認 | なし。#282 には渡さない |
 | `@swc/core`, `@swc-node/register`, `@swc/helpers` | `nx` と `@swc/core` の optional peer | ソースも executor 名も参照しない。Knip は未使用にしていない。外した状態の Nx 実行はしていない | 維持 | なし |
 | `postcss` | `web` の build が Tailwind 処理で `require('postcss')` する | `@angular/build` の optional peer。`tailwindcss` の dependency | 維持 | なし |
-| `autoprefixer` | PostCSS 設定は無い。Tailwind 経路は autoprefixer を足さない | `pnpm why` の依存元はワークスペースだけ | 削除候補 | #282 単位 2 |
+| `autoprefixer` | PostCSS 設定は無い。Tailwind 経路は autoprefixer を足さない | `pnpm why` の依存元はワークスペースだけ | 既に存在しない | なし。#282 単位 2 で直接宣言を外した。`postcss` と `tailwindcss` は残した |
 | `@eslint/js` | `@nx/eslint-plugin` の flat config が `require` する | プラグイン自身の dependency には無い。ワークスペースの直接宣言が解決に必要 | 維持 | なし。影響は lint |
 | `angular-eslint`, `typescript-eslint` | Angular の三つの ESLint 設定と、プラグインの `flat/angular` | `typescript-eslint` は `angular-eslint` の必須 peer | 維持 | なし。影響は lint |
 | `@typescript-eslint/utils` | プラグイン、`angular-eslint`、`typescript-eslint` の dependency | ソースは import しない。直接宣言を外してもパッケージは残る | 維持 | なし |
 | `prettier`, `eslint-config-prettier` | 両方が解決できるとき、プラグインが `eslint-config-prettier` を lint 設定へ足す | `.prettierrc` がある。format script は無い | 維持 | なし。影響は lint |
-| `@commitlint/config-conventional` | `commitlint.config.js` は extend しない | CLI の dependency ではある。直接宣言を外してもパッケージは推移で残り得る | 削除候補 | #282 単位 4。影響は commitlint。CLI と angular 設定は残す |
-| `firebase-tools` | Deploy workflow は `npm install -g firebase-tools` のあとに `firebase deploy` する | ワークスペースの bin をそのステップは使わない。script も無い | 削除候補 | #282 単位 5。workflow は変えない |
+| `@commitlint/config-conventional` | `commitlint.config.js` は extend しない | CLI の dependency ではある。直接宣言を外してもパッケージは推移で残り得る | 既に存在しない | なし。#282 単位 4 で直接宣言だけを外した。CLI と angular 設定は残した |
+| `firebase-tools` | Deploy workflow は `npm install -g firebase-tools` のあとに `firebase deploy` する | ワークスペースの bin をそのステップは使わない。script も無い | 既に存在しない | なし。#282 単位 5 で直接宣言を外した。workflow は変えていない |
 | `start`, `serve` | どちらも `nx serve web` | README は `pnpm start`。開発文書は両方 | 維持 | なし。未使用ではない |
 | ルート `vitest.config.ts` | `test.projects` が lib の設定を集める | `nx test` は引数にしない | 維持 | なし。Nx の test とは別の入口 |
 | `apps/web/vitest.config.ts` | IDE の `vitest.rootConfig` と、ルートの `test.projects` | `nx test web` の executor はこのファイルを指定しない | 維持 | なし |
-| `nx.json` の実在しない ESLint 入力 | `@nx/eslint:lint` のキャッシュ入力と、`production` の `.eslintrc.json` 除外 | `.eslintrc.json`、`.eslintignore`、`tools/eslint-rules/` は無い | 削除候補 | #282 単位 6。パッケージ削除とは分け、lint のルールは変えない |
+| `nx.json` の実在しない ESLint 入力 | `@nx/eslint:lint` のキャッシュ入力と、`production` の `.eslintrc.json` 除外 | `.eslintrc.json`、`.eslintignore`、`tools/eslint-rules/` は無い | 既に存在しない | なし。#282 単位 6 で入力と除外だけを外した。lint のルールは変えていない |
 | `nx.json` の `generators` | 新規生成の既定 | 既存ターゲットの実行経路ではない。既存の test executor とは一致しないプロジェクトがある | 維持 | なし |
 | lint の `@nx/eslint:lint` と plugin 推論 | どちらも ESLint を実行する | プロジェクトごとに executor が分かれる。片方を消す根拠は無い | 維持 | なし |
 
 ## #282 に渡す変更単位
 
-単位は混ぜない。どれも、この文書の作成時点では未実施である。
+単位は混ぜない。Issue #282 で 6 単位とも実施した。
 
-1. `@nx/node` を `devDependencies` から外す。設定ファイルは変えない。現行の build / test / lint / e2e の executor には出ない。外したあとに `pnpm nx show projects` と `pnpm nx build web` で、解決が壊れないことを見る。
-2. `autoprefixer` を `devDependencies` から外す。`postcss` と `tailwindcss` は残す。確認は `pnpm nx build web`。Tailwind の処理が PostCSS に autoprefixer を足していないことを、ビルドが通ることで見る。
-3. `@vitest/ui` を `devDependencies` から外す。`@vitest/coverage-v8` と `coverage.provider` は残す。確認は既定の test（`--ui` も `--coverage` も付けない）。
-4. `@commitlint/config-conventional` の直接宣言だけを外す。`@commitlint/cli` と `@commitlint/config-angular` は残す。確認は `pnpm exec commitlint`。パッケージが CLI の依存として lockfile に残ることは、削除の失敗ではない。
-5. `firebase-tools` を `devDependencies` から外す。[deploy.yml](../.github/workflows/deploy.yml) は変えない。script が無いので、外すと `pnpm exec firebase` は使えなくなる。Deploy が使うのはグローバルインストールの CLI である。
-6. [nx.json](../nx.json) から、実在しない `.eslintrc.json`、`.eslintignore`、`tools/eslint-rules/**/*` の入力と、`production` にある `.eslintrc.json` の除外だけを外す。`eslint.config.mjs` の入力と除外は残す。確認は `pnpm nx lint web`。依存パッケージは変えない。
+1. `@nx/node` を `devDependencies` から外した。設定ファイルは変えていない。`pnpm nx show projects` は 10 プロジェクトを返し、`pnpm nx build web` は成功した。
+2. `autoprefixer` を `devDependencies` から外した。`postcss` と `tailwindcss` は残した。`pnpm nx build web` は成功し、styles の成果物サイズは外す前と同じだった。
+3. `@vitest/ui` を `devDependencies` から外した。`@vitest/coverage-v8` と `coverage.provider` は残した。既定の `pnpm test`（`--ui` も `--coverage` も付けない）は成功した。
+4. `@commitlint/config-conventional` の直接宣言だけを外した。`@commitlint/cli` と `@commitlint/config-angular` は残した。`pnpm exec commitlint` は成功した。パッケージは CLI の依存として lockfile に残っている。
+5. `firebase-tools` を `devDependencies` から外した。[deploy.yml](../.github/workflows/deploy.yml) は変えていない。Deploy が使うのはグローバルインストールの CLI である。
+6. [nx.json](../nx.json) から、実在しない `.eslintrc.json`、`.eslintignore`、`tools/eslint-rules/**/*` の入力と、`production` にある `.eslintrc.json` の除外だけを外した。`eslint.config.mjs` の入力と除外は残した。`pnpm nx lint web` は成功した。依存パッケージはこの単位では変えていない。
