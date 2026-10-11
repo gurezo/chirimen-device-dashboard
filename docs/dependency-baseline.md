@@ -80,3 +80,57 @@ pnpm nx graph --print
 | `libs-platform-specific-examples` | `shared-types` | static |
 
 依存先を持たないプロジェクトは `shared-types` と `chirimen-device-dashboard`。`web` から `libs-platform-specific-examples` への直接依存は無く、`libs-device-detail` 経由である。
+
+## package.json の分類
+
+依存はすべてルート [package.json](../package.json) にあり、ライブラリごとの `package.json` は無い。[pnpm-workspace.yaml](../pnpm-workspace.yaml) の `packages` は空配列で、pnpm ワークスペースのパッケージはルートのみである。ここでの分類は宣言上の用途であり、未使用の断定はしない。
+
+`package.json` の `nx.includedScripts` は `[]` なので、npm scripts は Nx ターゲットとして自動登録されない。
+
+### scripts
+
+| script | コマンド | 用途 |
+| --- | --- | --- |
+| `prepare` | `husky` | Git フックのインストール |
+| `start` | `nx serve web` | `web` の開発サーバー |
+| `serve` | `nx serve web` | `start` と同じ Nx ターゲット |
+| `serve:all` | `nx run-many --target=serve --all` | `serve` ターゲットを持つ全プロジェクト |
+| `build` | `nx build web` | `web` のビルド |
+| `build:all` | `nx run-many --target=build --all` | `build` ターゲットを持つ全プロジェクト |
+| `test` | `nx test web` | `web` のユニットテスト |
+| `test:all` | `nx run-many --target=test --all` | `test` ターゲットを持つ全プロジェクト |
+| `lint` | `nx lint web` | `web` の lint |
+| `lint:all` | `nx run-many --target=lint --all` | `lint` ターゲットを持つ全プロジェクト |
+| `e2e` | `nx e2e web-e2e` | Playwright E2E |
+
+### dependencies
+
+実行時依存は 11 件。いずれも Angular アプリケーションの実行時パッケージである。
+
+| 分類 | パッケージ |
+| --- | --- |
+| Angular フレームワーク | `@angular/animations`, `@angular/common`, `@angular/compiler`, `@angular/core`, `@angular/forms`, `@angular/platform-browser`, `@angular/router` |
+| Angular UI | `@angular/cdk`, `@angular/material` |
+| 状態管理 | `@ngrx/component-store` |
+| 非同期 | `rxjs` |
+
+宣言バージョンは Angular 関連が `22.2.2`、`@ngrx/component-store` が `22.0.1`、`rxjs` が `~7.8.2`。
+
+### devDependencies
+
+開発依存は 50 件。用途で分けると次のとおり。
+
+| 分類 | パッケージ |
+| --- | --- |
+| Angular CLI / ビルド | `@angular/build`, `@angular/cli`, `@angular/compiler-cli`, `@angular/language-service`, `@angular-devkit/core`, `@angular-devkit/schematics`, `@schematics/angular` |
+| Nx | `nx`, `@nx/angular`, `@nx/devkit`, `@nx/eslint`, `@nx/eslint-plugin`, `@nx/js`, `@nx/node`, `@nx/playwright`, `@nx/vite`, `@nx/vitest`, `@nx/web`, `@nx/workspace` |
+| Vite / Vitest / Analog | `vite`, `vitest`, `@vitest/coverage-v8`, `@vitest/ui`, `@analogjs/vite-plugin-angular`, `@analogjs/vitest-angular`, `jsdom` |
+| E2E | `@playwright/test`, `eslint-plugin-playwright` |
+| Lint | `eslint`, `@eslint/js`, `angular-eslint`, `typescript-eslint`, `@typescript-eslint/utils`, `eslint-config-prettier` |
+| 型とトランスパイル | `typescript`, `tslib`, `@types/node`, `@swc/core`, `@swc/helpers`, `@swc-node/register`, `@oxc-project/runtime` |
+| スタイル | `tailwindcss`, `postcss`, `autoprefixer` |
+| フォーマット | `prettier` |
+| コミット規約 | `husky`, `@commitlint/cli`, `@commitlint/config-angular`, `@commitlint/config-conventional` |
+| デプロイ CLI | `firebase-tools` |
+
+Nx 関連は `23.3.0`、Angular ツールチェーンは `22.2.2`（`@schematics/angular` は `~22.2.2`、`angular-eslint` は `22.5.0`）。`typescript` は `~6.0.3`。
