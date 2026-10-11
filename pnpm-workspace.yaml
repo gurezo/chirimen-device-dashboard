@@ -27,8 +27,11 @@ minimumReleaseAgeExclude:
   - '@vitest/*'
   - angular-eslint
   - axios
+  - data-urls
   - eslint
+  - eslint-plugin-playwright
   - firebase-tools
+  - jsdom
   - memfs
   - nx
   - playwright
@@ -37,11 +40,13 @@ minimumReleaseAgeExclude:
   - prettier
   - tinyglobby
   - tmp
+  - tr46
   - tsx
   - typescript
   - typescript-eslint
   - vite
   - vitest
+  - whatwg-url
 
 # 悪意のあるリリースは1週間以内に発見され、レジストリから削除される為
 # config = 7 day x 24h x 60 min
