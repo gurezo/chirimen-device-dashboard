@@ -283,7 +283,7 @@ Knip が未使用 devDependency とした 14 件:
 | `commitlint` の削除済みツール scope | `commitlint.config.js` の `scope-enum` | 過去コミット検証用のコメント | 維持 | なし |
 | `chirimen-device-dashboard:build`（`echo 'Build complete'`） | `pnpm build:all` と、ルートが affected のときの `nx affected -t build` | ルート [project.json](../project.json)。他プロジェクトの成果物は作らない。更新後の判定は [apps / libs の入口](apps-libs-code.md) | 要追加確認 | #281 |
 | `start` と `serve` | どちらも `nx serve web` | [package.json](../package.json) の scripts。更新後の判定は [devDependencies とビルド・テスト設定の利用経路](dev-dependencies.md) | 要追加確認 | #280 |
-| [docs/development.md](development.md) の pnpm バージョン | 開発手順の説明 | 文書は `11.24.0`、`package.json` の `packageManager` と実行時は `12.11.2` | 要追加確認 | #283 |
+| [docs/development.md](development.md) の pnpm バージョン | 開発手順の説明 | 文書は `11.24.0` だった。`package.json` の `packageManager` と実行時の `12.11.2` に合わせた。手順は [未使用依存の検出手順](unused-dependency-check.md) | 維持 | なし |
 | `axios` | なし | `package.json` に無い。#279 の調査候補。更新後の判定は [runtime dependencies の使用箇所](runtime-dependencies.md) | 既に存在しない | #279 |
 | `tsx`, `yaml` | なし | `package.json` に無い。#280 の調査候補。更新後の判定は [devDependencies とビルド・テスト設定の利用経路](dev-dependencies.md) | 既に存在しない | #280 |
 | `@ngrx/component-store` | `DeviceListStore` | [libs/devices/state/src/lib/device-list.store.ts](../libs/devices/state/src/lib/device-list.store.ts)。更新後の判定は [runtime dependencies の使用箇所](runtime-dependencies.md) | 維持 | #279 |

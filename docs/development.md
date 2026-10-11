@@ -5,12 +5,12 @@
 ## 前提
 
 - Node.js 24
-- pnpm 11.24.0
+- pnpm 12.11.2
 
 `package.json` の `packageManager` は次の値です。
 
 ```text
-pnpm@11.24.0
+pnpm@12.11.2
 ```
 
 ## セットアップ
