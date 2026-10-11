@@ -6,7 +6,7 @@ Issue #279 の調査記録。削除判断の材料であり、この文書の作
 
 起点: `main` の `d555e62863cb3313b709fb1ba3f33f1cd30d8240`（`d555e62 docs(workspace): データ同期と example 生成ツールの利用状況を記録する (#285)`）
 
-前提は [依存関係・Nx 構成のベースライン](dependency-baseline.md) である。ベースラインは import の有無を一行で「維持」または「要追加確認」とした。この文書は、アプリ・ライブラリ・テスト・設定の使用箇所をパッケージごとに残す。
+前提は [依存関係・Nx 構成のベースライン](dependency-baseline.md) である。ベースラインは import の有無を一行で「維持」または「要追加確認」とした。この文書は、使用箇所に加え、直接依存と peer の違い、および削除可否の判定を残す。
 
 ## 再現コマンド
 
@@ -124,3 +124,49 @@ Material の import は次のとおり。テンプレートは対応する `*.ht
 | SSR（`server.ts`、`@angular/ssr` の直接依存） | 無い。`@angular/build` の optional peer に `@angular/ssr` があるだけで、`package.json` には無い |
 | `tools/scripts/` | ソースは無い（#278）。runtime dependency の import は無い |
 | `axios` | `package.json` の依存に無い。上記の除外リストの文字列だけが残る |
+
+## 直接依存と peer
+
+根拠は [pnpm-lock.yaml](../pnpm-lock.yaml) のパッケージメタデータである。`settings.autoInstallPeers` は `true` なので、peer は宣言を外してもインストールされ得る。宣言が無いことと、パッケージが不要であることは別である。
+
+| パッケージ | 誰の peer か | optional | このリポジトリでの意味 |
+| --- | --- | --- | --- |
+| `@angular/animations` | `@angular/platform-browser@22.2.2` | はい | `provideAnimations()` が `animations.mjs` を通して `@angular/animations/browser` を読む。使わないアプリなら外せる peer だが、このアプリは呼んでいる |
+| `@angular/cdk` | `@angular/material@22.2.2` | いいえ（`peerDependenciesMeta` が無い） | 画面の Material が `fesm2022` から CDK を import する。直接 import が無いことは未使用の根拠にしない |
+| `@angular/compiler` | `@angular/core@22.2.2` | はい | AOT の実行時には必須ではない |
+| `@angular/compiler` | `@angular/compiler-cli@22.2.2` | いいえ | compiler-cli は devDependency。peer は必須 |
+| `@angular/compiler` | `@angular/build@22.2.2` | いいえ（optional の一覧に無い） | build は devDependency。ユニットテストは仮想モジュールで `import '@angular/compiler'` する |
+| `@angular/forms` | `@angular/material@22.2.2` と `@angular/cdk@22.2.2` | いいえ | アプリも `FormsModule` を import する。Material の `input.mjs` も `@angular/forms` を import する |
+
+lockfile の `@angular/animations@22.2.2` には `deprecated` がある。文言は、`animate.enter` と `animate.leave` を使うよう案内し、https://v22.angular.dev/guide/animations を指す。非推奨は、このアプリが `provideAnimations()` を呼んでいないことではない。テンプレートに `animate.enter` / `animate.leave` は無い。`provideAnimations` をやめる置き換えは、未使用依存の削除とは別の作業である。
+
+`@angular/compiler` を本番のブラウザ束に足すのは、`@angular/build` が JIT のときだけである。`web` の build は `aot` を `false` にしていない。schema の既定は `true` なので、この設定では polyfill に `@angular/compiler` は入らない。削除はできない。テスト、compiler-cli、`@angular/build` がパッケージを必要とする。これらは開発時のインストールで足りる。`dependencies` から `devDependencies` へ移すことは、ブラウザ実行時の import が無いことと矛盾しない。移す作業と、移したあとの build / test は、この文書では行っていない。
+
+重複として外せる組は無い。
+
+| 見比べたもの | 違い |
+| --- | --- |
+| `@angular/animations` と `@angular/platform-browser/animations` | 後者は入口である。実装は前者のパッケージを import する |
+| `@angular/compiler` と `@angular/compiler-cli` | 前者はテストと JIT 用のパッケージ。後者は AOT の CLI で、すでに devDependency。compiler-cli は前者を必須 peer に持つ |
+| `@angular/cdk` と `@angular/material` | Material が CDK を必須 peer に持つ。同じ役割の二つではない |
+
+Knip は #277 で runtime の unused dependencies を報告していない。ここでの判定には使っていない。
+
+## 判定
+
+判定は「維持／削除候補／devDependency 移動候補／既に存在しない」のいずれか。削除候補は無い。依存の削除と、compiler の devDependency への移動は、この文書では行っていない。移動候補だけを Issue #282 に渡す。
+
+| 対象 | 利用経路 | 根拠 | 判定 | 後続 |
+| --- | --- | --- | --- | --- |
+| `axios` | なし | `package.json` の依存に無い。`minimumReleaseAgeExclude` の文字列は依存ではない | 既に存在しない | なし |
+| `@angular/animations` | `provideAnimations()` とテストの `provideNoopAnimations()` | platform-browser の optional peer を、アプリが実際に呼んでいる。lockfile の `deprecated` は未使用を意味しない | 維持 | なし。`animate.enter` への置き換えはこの調査の削除対象にしない |
+| `@angular/cdk` | Material の `fesm2022` が import | Material の必須 peer。`apps/` と `libs/` に直接 import は無い | 維持 | なし |
+| `@angular/compiler` | 4 つの `test-setup.ts` と、`@angular/build:unit-test` の仮想 import | 削除するとテストと、compiler-cli / `@angular/build` の必須 peer が欠ける。本番入口は import せず、AOT 既定ではブラウザ polyfill にも入らない | devDependency 移動候補 | #282。移動のあと build と test で確認する。削除はしない |
+| `@angular/forms` | `FormsModule` と Material の `input.mjs` | アプリの import と Material の必須 peer | 維持 | なし |
+| `@angular/material` | 画面コンポーネントと [styles.scss](../apps/web/src/styles.scss) | 上記 Material の表 | 維持 | なし |
+| `@angular/common` | `AsyncPipe` | 3 コンポーネント | 維持 | なし |
+| `@angular/core` | コンポーネント、DI、`TestBed` | `apps/` と `libs/` の 35 ファイル | 維持 | なし |
+| `@angular/platform-browser` | `bootstrapApplication`、`DomSanitizer`、animations / testing の入口 | [main.ts](../apps/web/src/main.ts) ほか | 維持 | なし |
+| `@angular/router` | ルート、ガード、`RouterModule` | 15 ファイル | 維持 | なし |
+| `rxjs` | リポジトリ、ストア、ガード、詳細ページ | `from 'rxjs'` が 12 ファイル | 維持 | なし |
+| `@ngrx/component-store` | `DeviceListStore` | [device-list.store.ts](../libs/devices/state/src/lib/device-list.store.ts) | 維持 | なし |
