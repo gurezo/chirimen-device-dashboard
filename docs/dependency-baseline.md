@@ -284,14 +284,14 @@ Knip が未使用 devDependency とした 14 件:
 | `chirimen-device-dashboard:build`（`echo 'Build complete'`） | `pnpm build:all` と、ルートが affected のときの `nx affected -t build` | ルート [project.json](../project.json)。他プロジェクトの成果物は作らない | 要追加確認 | #281 |
 | `start` と `serve` | どちらも `nx serve web` | [package.json](../package.json) の scripts | 要追加確認 | #280 |
 | [docs/development.md](development.md) の pnpm バージョン | 開発手順の説明 | 文書は `11.24.0`、`package.json` の `packageManager` と実行時は `12.11.2` | 要追加確認 | #283 |
-| `axios` | なし | `package.json` に無い。#279 の調査候補 | 既に存在しない | #279 |
+| `axios` | なし | `package.json` に無い。#279 の調査候補。更新後の判定は [runtime dependencies の使用箇所](runtime-dependencies.md) | 既に存在しない | #279 |
 | `tsx`, `yaml` | なし | `package.json` に無い。#280 の調査候補 | 既に存在しない | #280 |
-| `@ngrx/component-store` | `DeviceListStore` | [libs/devices/state/src/lib/device-list.store.ts](../libs/devices/state/src/lib/device-list.store.ts) | 維持 | #279 |
-| `@angular/animations` | 直接 import は未確認。アプリは `provideAnimations` を `@angular/platform-browser/animations` から使う | [apps/web/src/app/app.config.ts](../apps/web/src/app/app.config.ts) と `package.json` | 要追加確認 | #279 |
-| `@angular/compiler` | テストの `test-setup.ts` が import | `apps/web` と一部 lib の `src/test-setup.ts` | 要追加確認 | #279 |
-| `@angular/cdk` | この調査の import 検索では `package.json` 以外に無し | `apps/` と `libs/` の `*.ts` / `*.html`。Material の推移的依存の可能性は未確認 | 要追加確認 | #279 |
-| `@angular/forms`, `@angular/material` | 画面コンポーネントの import | 例: [device-list-page.component.ts](../apps/web/src/app/pages/device-list-page/device-list-page.component.ts)、[device-detail.component.ts](../libs/devices/device-detail/src/lib/device-detail/device-detail.component.ts) | 維持 | #279 |
-| `@angular/common`, `@angular/core`, `@angular/platform-browser`, `@angular/router`, `rxjs` | アプリとライブラリの import | `apps/` と `libs/` の TypeScript。Knip は unused dependencies を報告していない | 維持 | #279 |
+| `@ngrx/component-store` | `DeviceListStore` | [libs/devices/state/src/lib/device-list.store.ts](../libs/devices/state/src/lib/device-list.store.ts)。更新後の判定は [runtime dependencies の使用箇所](runtime-dependencies.md) | 維持 | #279 |
+| `@angular/animations` | 直接 import は未確認。アプリは `provideAnimations` を `@angular/platform-browser/animations` から使う | [apps/web/src/app/app.config.ts](../apps/web/src/app/app.config.ts) と `package.json`。更新後の判定は [runtime dependencies の使用箇所](runtime-dependencies.md) | 要追加確認 | #279 |
+| `@angular/compiler` | テストの `test-setup.ts` が import | `apps/web` と一部 lib の `src/test-setup.ts`。更新後の判定は [runtime dependencies の使用箇所](runtime-dependencies.md) | 要追加確認 | #279 |
+| `@angular/cdk` | この調査の import 検索では `package.json` 以外に無し | `apps/` と `libs/` の `*.ts` / `*.html`。Material の推移的依存の可能性は未確認。更新後の判定は [runtime dependencies の使用箇所](runtime-dependencies.md) | 要追加確認 | #279 |
+| `@angular/forms`, `@angular/material` | 画面コンポーネントの import | 例: [device-list-page.component.ts](../apps/web/src/app/pages/device-list-page/device-list-page.component.ts)、[device-detail.component.ts](../libs/devices/device-detail/src/lib/device-detail/device-detail.component.ts)。更新後の判定は [runtime dependencies の使用箇所](runtime-dependencies.md) | 維持 | #279 |
+| `@angular/common`, `@angular/core`, `@angular/platform-browser`, `@angular/router`, `rxjs` | アプリとライブラリの import | `apps/` と `libs/` の TypeScript。Knip は unused dependencies を報告していない。更新後の判定は [runtime dependencies の使用箇所](runtime-dependencies.md) | 維持 | #279 |
 | `@nx/js`, `@nx/web`, `@nx/vitest`, `@nx/playwright`, `@nx/eslint`, `@nx/angular` | executor、ESLint plugin、Tailwind 設定 | 実行経路の節と [apps/web/tailwind.config.js](../apps/web/tailwind.config.js) | 維持 | #280 |
 | `@nx/node` | node アプリケーションは無い | devDependency。Knip が未使用と報告 | 要追加確認 | #280 |
 | `@nx/vite` | `vite.config.*` は無い。テストの一部は `@nx/vitest:test` | devDependency。Vitest パッケージとは別 | 要追加確認 | #280 |
