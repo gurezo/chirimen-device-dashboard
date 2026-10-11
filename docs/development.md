@@ -70,3 +70,7 @@ pnpm nx affected -t lint,build,test
 ```
 
 ドキュメントのみの変更では build / test の実行は必須ではありませんが、リンクや Mermaid 図が GitHub 上で読めることを確認してください。
+
+## 未使用依存の確認
+
+依存や未参照コードを調べるときは、[未使用依存の検出手順](unused-dependency-check.md) に従います。Knip は依存にも CI にも入れていません。

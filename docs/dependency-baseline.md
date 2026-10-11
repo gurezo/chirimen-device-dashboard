@@ -305,4 +305,4 @@ Knip が未使用 devDependency とした 14 件:
 | SWC 3 パッケージ（`@swc/core`, `@swc/helpers`, `@swc-node/register`） | Nx の実行時に使われ得る | `package.json`。Knip は未使用と報告していない。更新後の判定は [devDependencies とビルド・テスト設定の利用経路](dev-dependencies.md) | 要追加確認 | #280 |
 | Knip の未使用ファイルと未使用 export | Angular の入口、E2E、公開 API | 上記 Knip の節。入口ファイルはビルドとルーティングで使われる。更新後の判定は [apps / libs の入口](apps-libs-code.md) | 要追加確認 | #281 |
 | `tools/ai-migrations/` | Nx マイグレーション用の手順書。アプリの実行経路には無い | `git ls-files` に 5 ファイル。更新後の判定は [apps / libs の入口](apps-libs-code.md) | 要追加確認 | #281 |
-| Knip のワークスペース依存としての導入 | 未導入。`pnpm dlx` のみ | 入口ファイルと Playwright 設定を未使用と誤検知した | 要追加確認 | #283 |
+| Knip のワークスペース依存としての導入 | 未導入。`pnpm dlx` のみ。CI の対象にもしていない | 入口ファイルと Playwright 設定を未使用と誤検知した。依存にも CI にも入れない。手順は [未使用依存の検出手順](unused-dependency-check.md) | 維持 | なし |
