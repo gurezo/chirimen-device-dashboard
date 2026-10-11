@@ -281,7 +281,7 @@ Knip が未使用 devDependency とした 14 件:
 | Nx プロジェクト 10 件（`web` から `chirimen-device-dashboard`） | `pnpm nx show projects` とプロジェクト依存の節 | グラフ上の依存と各 `project.json` | 維持 | なし |
 | `sync-devices` ほか 3 ツールのソース、`generate:devices`、`refresh-devices` workflow | 呼び出し元なし | 上記「既存の削除」。呼び出し元と Example 表示との違いは [データ同期・Example 生成ツールの利用状況](data-sync-example-tools.md) | 既に存在しない | #278 |
 | `commitlint` の削除済みツール scope | `commitlint.config.js` の `scope-enum` | 過去コミット検証用のコメント | 維持 | なし |
-| `chirimen-device-dashboard:build`（`echo 'Build complete'`） | `pnpm build:all` と、ルートが affected のときの `nx affected -t build` | ルート [project.json](../project.json)。他プロジェクトの成果物は作らない | 要追加確認 | #281 |
+| `chirimen-device-dashboard:build`（`echo 'Build complete'`） | `pnpm build:all` と、ルートが affected のときの `nx affected -t build` | ルート [project.json](../project.json)。他プロジェクトの成果物は作らない。更新後の判定は [apps / libs の入口](apps-libs-code.md) | 要追加確認 | #281 |
 | `start` と `serve` | どちらも `nx serve web` | [package.json](../package.json) の scripts。更新後の判定は [devDependencies とビルド・テスト設定の利用経路](dev-dependencies.md) | 要追加確認 | #280 |
 | [docs/development.md](development.md) の pnpm バージョン | 開発手順の説明 | 文書は `11.24.0`、`package.json` の `packageManager` と実行時は `12.11.2` | 要追加確認 | #283 |
 | `axios` | なし | `package.json` に無い。#279 の調査候補。更新後の判定は [runtime dependencies の使用箇所](runtime-dependencies.md) | 既に存在しない | #279 |
@@ -303,6 +303,6 @@ Knip が未使用 devDependency とした 14 件:
 | `@commitlint/config-conventional` | `commitlint.config.js` は `@commitlint/config-angular` だけを extend | devDependency。Knip が未使用と報告。更新後の判定は [devDependencies とビルド・テスト設定の利用経路](dev-dependencies.md) | 要追加確認 | #280 |
 | Knip が未使用とした残りの devDependencies（`@angular/cli`, `@angular/language-service`, `@eslint/js`, `@nx/devkit`, `@nx/workspace`, `@oxc-project/runtime`, `@typescript-eslint/utils`, `angular-eslint`, `prettier`, `typescript-eslint`） | ESLint、IDE、Nx、Analog からの参照があり得る | Knip のみ。設定ファイルの直接参照は未完了。更新後の判定は [devDependencies とビルド・テスト設定の利用経路](dev-dependencies.md) | 要追加確認 | #280 |
 | SWC 3 パッケージ（`@swc/core`, `@swc/helpers`, `@swc-node/register`） | Nx の実行時に使われ得る | `package.json`。Knip は未使用と報告していない。更新後の判定は [devDependencies とビルド・テスト設定の利用経路](dev-dependencies.md) | 要追加確認 | #280 |
-| Knip の未使用ファイルと未使用 export | Angular の入口、E2E、公開 API | 上記 Knip の節。入口ファイルはビルドとルーティングで使われる | 要追加確認 | #281 |
-| `tools/ai-migrations/` | Nx マイグレーション用の手順書。アプリの実行経路には無い | `git ls-files` に 5 ファイル | 要追加確認 | #281 |
+| Knip の未使用ファイルと未使用 export | Angular の入口、E2E、公開 API | 上記 Knip の節。入口ファイルはビルドとルーティングで使われる。更新後の判定は [apps / libs の入口](apps-libs-code.md) | 要追加確認 | #281 |
+| `tools/ai-migrations/` | Nx マイグレーション用の手順書。アプリの実行経路には無い | `git ls-files` に 5 ファイル。更新後の判定は [apps / libs の入口](apps-libs-code.md) | 要追加確認 | #281 |
 | Knip のワークスペース依存としての導入 | 未導入。`pnpm dlx` のみ | 入口ファイルと Playwright 設定を未使用と誤検知した | 要追加確認 | #283 |

@@ -69,7 +69,7 @@ chirimen-device-dashboard
 | `@chirimen-device-dashboard/libs-device-detail` | [libs/devices/device-detail/src/index.ts](../libs/devices/device-detail/src/index.ts) |
 | `@chirimen-device-dashboard/libs-platform-specific-examples` | [libs/devices/platform-specific-examples/src/index.ts](../libs/devices/platform-specific-examples/src/index.ts) |
 
-`pnpm nx show projects` にはルートの `chirimen-device-dashboard` も出る。中身は [project.json](../project.json) の `echo` だけであり、`apps/` と `libs/` のソースではない。この文書の候補には入れない。
+`pnpm nx show projects` にはルートの `chirimen-device-dashboard` も出る。中身は [project.json](../project.json) の `echo` だけであり、`apps/` と `libs/` のソースではない。ベースラインが #281 に渡した target なので、判定の節で別に書く。
 
 ## 公開 barrel
 
@@ -309,7 +309,10 @@ Example の広い幅の表と、狭い幅の `choh-platform-specific-example-car
 | `libs-data-access` の、外から import されない barrel export | 未使用 | 上記「公開 export」。クラスと関数の多くはライブラリ内の本番が使う。Certified 型のコメントは UI に import させない、と書いている | 要追加確認 | なし。公開 API の縮小は #282 に渡さない |
 | `ProductInfoComponent`、一覧の行とヘッダ、`TruncatePipe`、Example の関数とカード | 未使用ではない | 上記「中で使っているもの」 | 維持 | なし |
 | 三つの `index.spec.ts` | 未使用ではない | テストとしては存在する。ライブラリは import しない | 維持 | なし。本番の未使用根拠にしない |
-| ルートの `chirimen-device-dashboard` | 未使用ではない | `echo` の target だけ。`apps/` と `libs/` のソースではない | 維持 | なし |
+| ルートの `chirimen-device-dashboard` | 責務 | `defaultProject`。ソースは `apps/` と `libs/` に無い | 維持 | なし |
+| `chirimen-device-dashboard:build` の `echo` | 未使用ではない | `pnpm build` は `nx build web` であり、この target を走らせない。`pnpm build:all` と、ルートが affected のときの `nx affected -t build` は走らせる。成果物は作らない | 要追加確認 | なし。#282 には渡さない |
+| Knip が未使用とした入口ファイル | 未使用ではない | [dependency-baseline.md](dependency-baseline.md) の Knip の節。`main.ts`、ルート、ページ、Playwright 設定、各 `index.ts` は、この文書の入口にある | 維持 | なし。Knip の一覧は #282 に渡さない |
+| `tools/ai-migrations/` の 5 ファイル | 未使用ではない | `apps/` と `libs/` からの import は無い。Nx のマイグレーション手順であり、実行経路ではない | 要追加確認 | なし。#282 には渡さない |
 
 `adaptCertifiedDevice` は、外から import されない barrel export の一行に含む。本番の JSON 変換は `adaptCertifiedDevicesJson` である。関数自体はスペックが呼ぶ。クラス `JsonDeviceRepository` も同じ行に含む。消してよいのは、外向けの再 export かどうかであり、provider が `new` するクラスではない。
 
