@@ -1,6 +1,8 @@
 # runtime dependencies の使用箇所
 
-Issue #279 の調査記録。削除判断の材料であり、この文書の作成時点では依存・コード・設定を削除していない。
+Issue #279 の調査記録。削除判断の材料であり、調査の記録時点では依存・コード・設定を削除していない。
+
+Issue #282 で `@angular/compiler` を `dependencies` から `devDependencies` へ移した。削除はしていない。それ以外の判定は、この調査のままである。
 
 調査日: 2026-10-11
 
@@ -140,7 +142,7 @@ Material の import は次のとおり。テンプレートは対応する `*.ht
 
 lockfile の `@angular/animations@22.2.2` には `deprecated` がある。文言は、`animate.enter` と `animate.leave` を使うよう案内し、https://v22.angular.dev/guide/animations を指す。非推奨は、このアプリが `provideAnimations()` を呼んでいないことではない。テンプレートに `animate.enter` / `animate.leave` は無い。`provideAnimations` をやめる置き換えは、未使用依存の削除とは別の作業である。
 
-`@angular/compiler` を本番のブラウザ束に足すのは、`@angular/build` が JIT のときだけである。`web` の build は `aot` を `false` にしていない。schema の既定は `true` なので、この設定では polyfill に `@angular/compiler` は入らない。削除はできない。テスト、compiler-cli、`@angular/build` がパッケージを必要とする。これらは開発時のインストールで足りる。`dependencies` から `devDependencies` へ移すことは、ブラウザ実行時の import が無いことと矛盾しない。移す作業と、移したあとの build / test は、この文書では行っていない。
+`@angular/compiler` を本番のブラウザ束に足すのは、`@angular/build` が JIT のときだけである。`web` の build は `aot` を `false` にしていない。schema の既定は `true` なので、この設定では polyfill に `@angular/compiler` は入らない。削除はできない。テスト、compiler-cli、`@angular/build` がパッケージを必要とする。これらは開発時のインストールで足りる。`dependencies` から `devDependencies` へ移すことは、ブラウザ実行時の import が無いことと矛盾しない。#282 で `22.2.2` のまま移した。`test-setup.ts` の import は残している。
 
 重複として外せる組は無い。
 
@@ -154,14 +156,14 @@ Knip は #277 で runtime の unused dependencies を報告していない。こ
 
 ## 判定
 
-判定は「維持／削除候補／devDependency 移動候補／既に存在しない」のいずれか。削除候補は無い。依存の削除と、compiler の devDependency への移動は、この文書では行っていない。移動候補だけを Issue #282 に渡す。
+判定は「維持／削除候補／devDependency 移動候補／既に存在しない」のいずれか。削除候補は無い。`@angular/compiler` の devDependency への移動は #282 で実施した。それ以外の依存は削除していない。
 
 | 対象 | 利用経路 | 根拠 | 判定 | 後続 |
 | --- | --- | --- | --- | --- |
 | `axios` | なし | `package.json` の依存に無い。`minimumReleaseAgeExclude` の文字列は依存ではない | 既に存在しない | なし |
 | `@angular/animations` | `provideAnimations()` とテストの `provideNoopAnimations()` | platform-browser の optional peer を、アプリが実際に呼んでいる。lockfile の `deprecated` は未使用を意味しない | 維持 | なし。`animate.enter` への置き換えはこの調査の削除対象にしない |
 | `@angular/cdk` | Material の `fesm2022` が import | Material の必須 peer。`apps/` と `libs/` に直接 import は無い | 維持 | なし |
-| `@angular/compiler` | 4 つの `test-setup.ts` と、`@angular/build:unit-test` の仮想 import | 削除するとテストと、compiler-cli / `@angular/build` の必須 peer が欠ける。本番入口は import せず、AOT 既定ではブラウザ polyfill にも入らない | devDependency 移動候補 | #282。移動のあと build と test で確認する。削除はしない |
+| `@angular/compiler` | 4 つの `test-setup.ts` と、`@angular/build:unit-test` の仮想 import | 削除するとテストと、compiler-cli / `@angular/build` の必須 peer が欠ける。本番入口は import せず、AOT 既定ではブラウザ polyfill にも入らない | 維持 | なし。#282 で `devDependencies` へ移した。削除はしていない |
 | `@angular/forms` | `FormsModule` と Material の `input.mjs` | アプリの import と Material の必須 peer | 維持 | なし |
 | `@angular/material` | 画面コンポーネントと [styles.scss](../apps/web/src/styles.scss) | 上記 Material の表 | 維持 | なし |
 | `@angular/common` | `AsyncPipe` | 3 コンポーネント | 維持 | なし |
