@@ -15,7 +15,16 @@ git rev-parse HEAD
 node -v
 pnpm -v
 pnpm nx show projects --json
+git grep -n -w -e 'ExampleInfoComponent' -e 'choh-example-info' \
+  -e 'setFilterTag' -e 'setFilterCategory' -e 'loadDevices' \
+  -e 'loadDevicesIfNeeded' -e 'adaptCertifiedDevice' \
+  -e 'JsonDeviceRepository' -e 'provideDeviceRepository' \
+  -e 'DEVICE_REPOSITORY' \
+  -- ':!docs' ':!.cursor' ':!.agents' ':!.github/skills' ':!.opencode' \
+  ':!pnpm-lock.yaml'
 ```
+
+`git grep` から調査記録、エージェント用スキル、lockfile を外した。`-w` は `loadDevices` を `loadDevicesIfNeeded` と分け、`adaptCertifiedDevice` を `adaptCertifiedDevicesJson` と分ける。`CERTIFIED_DEVICES_JSON_URL` は E2E の同名の文字列定数にも当たるので、トークンかどうかは import を見て分けた。
 
 実行時は Node.js `v24.16.0`、pnpm `12.11.2`。`pnpm nx show projects --json` は次の 10 件を返した。
 
@@ -143,3 +152,93 @@ standalone の `imports` とテンプレートが、セレクタの本番のつ�
 | `choh-example-info` | `ExampleInfoComponent` | この節で読んだテンプレートには無い |
 
 `TruncatePipe` にセレクタは無い。[device-card-list.component.html](../libs/devices/card-list/src/lib/device-card-list/device-card-list.component.html) が `truncate` パイプとして使う。カード一覧の `imports` に入っている。
+
+## 未参照の検索
+
+この節は、入口に載ったシンボルのうち、本番のテンプレート、`loadComponent`、DI、他ライブラリの import に出ないものを記録する。テストだけの参照は、本番の呼び出し元には数えない。動的 import は [app.routes.ts](../apps/web/src/app/app.routes.ts) の二つの `loadComponent` だけである。`example-info` を `import()` する箇所は無い。
+
+### `ExampleInfoComponent`
+
+| 確認 | 結果 |
+| --- | --- |
+| 呼び出し元 | クラス名は [example-info.component.ts](../libs/devices/device-detail/src/lib/example-info/example-info.component.ts) と [example-info.component.spec.ts](../libs/devices/device-detail/src/lib/example-info/example-info.component.spec.ts) だけ。スペックは `TestBed` でこのコンポーネントだけを作る |
+| セレクタ | `choh-example-info` は宣言側だけにある。他のテンプレートには無い |
+| 動的参照 | `templateUrl` は同じディレクトリの html を指す静的な文字列。ルートの `loadComponent` には入らない |
+| 公開 API | [libs-device-detail の barrel](../libs/devices/device-detail/src/index.ts) は `DeviceDetailComponent` だけを出す。このコンポーネントは公開していない |
+
+詳細の本番経路は [product-info.component.ts](../libs/devices/device-detail/src/lib/product-info/product-info.component.ts) が `PlatformSpecificExamplesComponent` を描く。[example-info.component.html](../libs/devices/device-detail/src/lib/example-info/example-info.component.html) は `example().hardware` と `example().code` を表示する。`hardware` は検索インデックスも読む。[device-list.store.ts](../libs/devices/state/src/lib/device-list.store.ts) の `buildSearchIndex` が `example.hardware` を語に含める。`code` を表示している本番テンプレートは、このコンポーネントだけである。adapter は `ExampleInfo.code` に `upstreamPathUrl` を入れている。型と adapter の代入は、このコンポーネントが無くても残る。
+
+同じディレクトリのファイルは ts、html、spec の三つである。スタイルファイルは無い。
+
+### Store のメソッド
+
+[device-list.store.ts](../libs/devices/state/src/lib/device-list.store.ts) のクラスは公開 API である。メソッドごとに外からの呼び出しを分けた。[device-list.store.spec.ts](../libs/devices/state/src/lib/device-list.store.spec.ts) が呼ぶのは検索の `filteredDevices$` だけである。`setFilterTag`、`setFilterCategory`、`loadDevices` のテストは無い。
+
+| シンボル | 定義の外 | 動的参照 | 公開 API |
+| --- | --- | --- | --- |
+| `setQuery` | [device-list-page.component.ts](../apps/web/src/app/pages/device-list-page/device-list-page.component.ts) と store のスペック | 無し | `DeviceListStore` のメソッド |
+| `setViewMode` | 一覧ページの ts と html | 無し | 同上 |
+| `loadDevicesIfNeeded` | 一覧ページの `ngOnInit` | 無し | 同上 |
+| `viewMode$`、`query$` | 一覧ページが `toSignal` する | 無し | 同上 |
+| `filteredDevices$`、`loading$`、`error$` | table と card が読む。feature-list のスペックは同名のモックを持つ | 無し | 同上 |
+| `devices$` | `filteredDevices$` の入力だけ | 無し | 同上。外は `filteredDevices$` を読む |
+| `setFilterTag`、`setFilterCategory` | 定義だけ | 無し | 同上 |
+| `filterTag$`、`filterCategory$` | `filteredDevices$` の入力だけ | 無し | 同上 |
+| `loadDevices` | 定義だけ。`loadDevicesIfNeeded` とは別の effect | 無し | 同上 |
+
+`filterTag` と `filterCategory` の初期値は `undefined` である。setter が無いので、`filteredDevices$` の tag / category 分岐は、今の起動経路では常に通過する。state のフィールド自体は `filteredDevices$` が読んでいる。setter が未使用でも、フィールドをまとめて消す根拠にはしない。
+
+`loadDevices` と `loadDevicesIfNeeded` は、どちらも `repository.list()` の成功で `loaded: true` にし、失敗で `error` を入れる。違いは、後者が `loaded` のとき `EMPTY` で抜けることだけである。一覧が呼ぶのは後者だけである。二つの effect のどちらを残すかは、未使用の判定とは別に次の節で扱う。
+
+`DeviceListState` は barrel に無い。store ファイルの中だけが使う。未使用ではない。
+
+### `libs-data-access` の公開 export
+
+ライブラリの外が barrel から import しているのは、次だけである。
+
+| export | 外の import |
+| --- | --- |
+| `provideDeviceRepository` | [app.config.ts](../apps/web/src/app/app.config.ts) |
+| `DEVICE_REPOSITORY` | ガード、詳細コンポーネント、store。スペックも同じトークンを差し替える |
+| `DeviceRepository` | ガード、詳細、カード一覧、store のスペックがモックの型に使う |
+
+それ以外の barrel export は、`libs-data-access` の中と、その barrel の再 export に閉じる。E2E の `CERTIFIED_DEVICES_JSON_URL` は [mock-certified-devices.ts](../apps/web-e2e/src/support/mock-certified-devices.ts) の文字列であり、[certified-devices.config.ts](../libs/devices/data-access/src/lib/certified-devices.config.ts) の `InjectionToken` ではない。
+
+クラスと関数で、ライブラリの中では使われているものは次である。公開 export を外しても、中の参照は残る。
+
+| シンボル | ライブラリ内の本番 | 公開 export の外からの import |
+| --- | --- | --- |
+| `JsonDeviceRepository` | [providers.ts](../libs/devices/data-access/src/lib/providers.ts) が `new` する | 無し |
+| `adaptCertifiedDevicesJson` | [json-device.repository.ts](../libs/devices/data-access/src/lib/json-device.repository.ts) | 無し |
+| `isSupportedCertifiedDevicesVersion` | 同じ repository。定数 `SUPPORTED_CERTIFIED_DEVICES_VERSION` と比較する | 無し。定数は型ファイルとスペックと barrel |
+| `CERTIFIED_DEVICES_FETCH_TIMEOUT_MS`、`DEFAULT_CERTIFIED_DEVICES_JSON_URL` | repository と provider | 無し。トークン `CERTIFIED_DEVICES_JSON_URL` も provider の中だけ |
+| `buildDeviceIdIndex`、`parseCertifiedAliases`、`resolveDeviceId`、`DeviceIdIndex` | repository | 無し |
+| `CertifiedDevice` | adapter の引数。スペックも使う | 無し |
+| `CertifiedDevicesJson` | スペックのフィクスチャ型。repository は `unknown` を adapter に渡す | 無し |
+| `CertifiedAliases` | [resolve-device-id.ts](../libs/devices/data-access/src/lib/resolve-device-id.ts) | 無し |
+
+`adaptCertifiedDevice` は [certified-device.adapter.ts](../libs/devices/data-access/src/lib/certified-device.adapter.ts) と、そのスペックと barrel だけである。JSON 全体を変換する本番は `adaptCertifiedDevicesJson` であり、こちらは非公開の `adaptCertifiedDeviceRecord` を map する。`adaptCertifiedDevice` はその関数を一件分だけ包む。
+
+`DeviceIdMatchKind` と `DeviceIdResolution` は `resolveDeviceId` の戻り値である。定義と barrel 以外には、名前としては出ない。戻り値の形としては repository が `device` を読む。
+
+Certified の入れ子の型（`CertifiedExample`、`CertifiedDeviceMeta`、`CertifiedPlatform` など）は、[certified-devices.types.ts](../libs/devices/data-access/src/lib/certified-devices.types.ts) の型グラフの中で互いに参照される。ファイル先頭のコメントは、UI はこの型を import せず adapter を通す、と書いてある。`apps/` と他の lib からの import は無い。型グラフのメンバーであることと、barrel が公開していることは別である。公開をやめるかどうかは、参照が無いことだけでは決めない。
+
+### ルートの `title`
+
+[app.ts](../apps/web/src/app/app.ts) の `protected title = 'web'` は、テンプレートにもスペックにも出ない。[app.html](../apps/web/src/app/app.html) はヘッダと `router-outlet` だけである。[index.html](../apps/web/src/index.html) の `<title>` は別の文字列である。公開 export ではなく、コンポーネントのフィールドである。
+
+### 中で使っているもの
+
+次は、barrel の外であっても本番の `imports` かテンプレートか store から届く。未使用ではない。
+
+| シンボル | 本番の呼び出し元 |
+| --- | --- |
+| `ProductInfoComponent` | 詳細コンポーネントの `imports` |
+| `DeviceListHeaderComponent`、`DeviceListItemComponent` | table の `imports` とテンプレート |
+| `TruncatePipe` | card の `imports` と `truncate` パイプ |
+| `PlatformSpecificExampleCardComponent` | 狭い幅のテンプレート。広い幅は同じ親が表をインラインで描く |
+| `compareExampleStatus`、`getExampleStatusLabel`、`getExampleStatusClasses` | Example 一覧とカード |
+| `isPlatformSpecificExample` | Example 一覧の `computed`。adapter のスペックも使う |
+| `DeviceInfo`、`ProductInfo`、`ExampleInfo`、`ExampleStatus` | adapter、store、詳細、Example UI |
+
+[index.spec.ts](../libs/devices/feature-list/src/index.spec.ts)、[libs-card-list の index.spec.ts](../libs/devices/card-list/src/index.spec.ts)、[libs-state の index.spec.ts](../libs/devices/state/src/index.spec.ts) は `expect(true).toBe(true)` だけである。barrel もコンポーネントも import しない。テストターゲットのファイルではある。本番コードの参照根拠にはしない。
