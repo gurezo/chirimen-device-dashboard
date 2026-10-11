@@ -134,3 +134,94 @@ pnpm nx graph --print
 | デプロイ CLI | `firebase-tools` |
 
 Nx 関連は `23.3.0`、Angular ツールチェーンは `22.2.2`（`@schematics/angular` は `~22.2.2`、`angular-eslint` は `22.5.0`）。`typescript` は `~6.0.3`。
+
+## 実行経路
+
+ターゲットの有無は `pnpm nx show projects --withTarget=<target>`、plugin 由来の executor は `pnpm nx show project <project> --json` で確認した。
+
+### nx.json
+
+[nx.json](../nx.json) の plugin は `@nx/eslint/plugin` のみで、`targetName` は `lint`。`targetDefaults` は次の executor にキャッシュを付ける。
+
+| executor | 追加設定 |
+| --- | --- |
+| `@angular/build:application` | `dependsOn: ["^build"]`、入力は `production` |
+| `@nx/eslint:lint` | ワークスペースの ESLint 設定を入力に含める |
+| `@angular/build:unit-test` | `watch: false` |
+| `@nx/vitest:test` | 入力は `default` と `^production` |
+
+`defaultProject` は `chirimen-device-dashboard`。`generators` は新規生成時の既定（Playwright、ESLint、SCSS、Vitest）であり、既存プロジェクトの実行経路ではない。
+
+### ターゲットと executor
+
+`project.json` に書いた executor と、ESLint plugin が推論した executor を分けて示す。推論された lint は `nx:run-commands` で、各プロジェクト直下の `eslint .` を実行する。
+
+| プロジェクト | ターゲット | executor | 定義 |
+| --- | --- | --- | --- |
+| `web` | `build` | `@angular/build:application` | `apps/web/project.json` |
+| `web` | `serve` | `@angular/build:dev-server` | 同上。ポート 4200 |
+| `web` | `serve-static` | `@nx/web:file-server` | 同上。`dist/apps/web/browser` |
+| `web` | `test` | `@angular/build:unit-test` | 同上 |
+| `web` | `lint` | `@nx/eslint:lint` | 同上 |
+| `web-e2e` | `e2e` | `@nx/playwright:playwright` | `apps/web-e2e/project.json`。設定は `apps/web-e2e/playwright.config.ts`。暗黙依存は `web` |
+| `web-e2e` | `lint` | `nx:run-commands` | ESLint plugin |
+| `shared-types` | `build` | `@nx/js:tsc` | `libs/shared-types/project.json` |
+| `shared-types` | `lint` | `nx:run-commands` | ESLint plugin |
+| `libs-data-access` | `build` | `@nx/js:tsc` | `libs/devices/data-access/project.json` |
+| `libs-data-access` | `test` | `@nx/vitest:test` | 同上 |
+| `libs-data-access` | `lint` | `nx:run-commands` | ESLint plugin |
+| `libs-state` | `build` | `@nx/js:tsc` | `libs/devices/state/project.json` |
+| `libs-state` | `test` | `@angular/build:unit-test` | 同上 |
+| `libs-state` | `lint` | `nx:run-commands` | ESLint plugin |
+| `libs-feature-list` | `build` | `@nx/js:tsc` | `libs/devices/feature-list/project.json` |
+| `libs-feature-list` | `test` | `@nx/vitest:test` | 同上 |
+| `libs-feature-list` | `lint` | `nx:run-commands` | ESLint plugin |
+| `libs-card-list` | `build` | `@nx/js:tsc` | `libs/devices/card-list/project.json` |
+| `libs-card-list` | `test` | `@angular/build:unit-test` | 同上 |
+| `libs-card-list` | `lint` | `nx:run-commands` | ESLint plugin |
+| `libs-device-detail` | `build` | `@nx/js:tsc` | `libs/devices/device-detail/project.json` |
+| `libs-device-detail` | `test` | `@nx/vitest:test` | 同上 |
+| `libs-device-detail` | `lint` | `@nx/eslint:lint` | 同上 |
+| `libs-platform-specific-examples` | `build` | `@nx/js:tsc` | `libs/devices/platform-specific-examples/project.json` |
+| `libs-platform-specific-examples` | `test` | `@nx/vitest:test` | 同上 |
+| `libs-platform-specific-examples` | `lint` | `@nx/eslint:lint` | 同上 |
+| `chirimen-device-dashboard` | `build` | `nx:run-commands` | ルート [project.json](../project.json)。コマンドは `echo 'Build complete'` |
+
+`test` が無いのは `shared-types`、`web-e2e`、`chirimen-device-dashboard`。`serve` と `serve-static` は `web` のみ。`e2e` は `web-e2e` のみ。`build` は `web-e2e` 以外の 9 プロジェクトにある。
+
+ライブラリの build は `generatePackageJson: false`（`shared-types` は当該オプション自体が無い）。
+
+### Vitest
+
+| ファイル | 役割 |
+| --- | --- |
+| [vitest.config.ts](../vitest.config.ts) | ルート設定。`**/vite.config.*` と `**/vitest.config.*` を Vitest の project として読む |
+| [apps/web/vitest.config.ts](../apps/web/vitest.config.ts) | `@analogjs/vite-plugin-angular` と `jsdom`。`src/**/*.spec.ts` と `src/**/*.test.ts` を対象にする |
+
+`vite.config.*` はリポジトリ内に無い。`@nx/vitest:test` を使うのは `libs-data-access`、`libs-feature-list`、`libs-device-detail`、`libs-platform-specific-examples`。`web`、`libs-card-list`、`libs-state` の test は `@angular/build:unit-test` である。
+
+### スタイル
+
+[apps/web/src/styles.scss](../apps/web/src/styles.scss) は `@tailwind` ディレクティブを持つ。[apps/web/tailwind.config.js](../apps/web/tailwind.config.js) は `tailwindcss` と `@nx/angular/tailwind` を参照する。`postcss.config.*` はリポジトリ内に無い。
+
+### Firebase
+
+| ファイル | 実行経路 |
+| --- | --- |
+| [firebase.json](../firebase.json) | Hosting の公開ディレクトリは `dist/apps/web/browser`。SPA rewrite あり。Storage rules は `storage.rules`。Emulator は auth `9099`、hosting `5002`、storage `9199`、UI `4100` |
+| [.firebaserc](../.firebaserc) | default project は `chirimen-device-dashboard` |
+
+`package.json` に Firebase を起動する script は無い。Emulator を呼ぶ workflow も無い。
+
+### GitHub Actions と Git フック
+
+| 経路 | 起動条件 | 実行コマンド |
+| --- | --- | --- |
+| [.github/workflows/ci.yml](../.github/workflows/ci.yml) | `main` への pull_request | `pnpm install --frozen-lockfile`、`pnpm nx affected -t lint,build,test`。Node.js 24。E2E は走らない |
+| [.github/workflows/deploy.yml](../.github/workflows/deploy.yml) | `main` への push、または `workflow_dispatch` | `pnpm install --frozen-lockfile`、`pnpm nx run-many -t lint`、`pnpm nx run-many -t test`、`pnpm nx build web --configuration=production`、`npm install -g firebase-tools`、`firebase deploy --only hosting` |
+| [.github/workflows/commitlint.yml](../.github/workflows/commitlint.yml) | `main` への pull_request | `pnpm install --frozen-lockfile`、`pnpm exec commitlint --from <base> --to <head>` |
+| [.husky/commit-msg](../.husky/commit-msg) | `git commit` | `pnpm exec commitlint --edit` |
+
+Deploy はワークスペースの `firebase-tools` ではなく、`npm install -g firebase-tools` で入れた CLI を使う。Hosting 以外（Storage rules、Emulator）はこの workflow の deploy 対象に含まれない。
+
+`pnpm build:all`（`nx run-many --target=build --all`）と、ルートが affected になったときの `pnpm nx affected -t build` は、`chirimen-device-dashboard:build` の `echo 'Build complete'` も含む。
