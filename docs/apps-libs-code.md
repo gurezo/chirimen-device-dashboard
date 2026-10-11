@@ -1,6 +1,8 @@
 # apps / libs の入口
 
-Issue #281 の調査記録。削除判断の材料であり、この文書の作成時点ではコードを削除していない。
+Issue #281 の調査記録。削除判断の材料であり、調査の記録時点ではコードを削除していない。
+
+Issue #282 で `ExampleInfoComponent` の ts、html、spec を削除した。それ以外の判定は、この調査のままである。
 
 調査日: 2026-10-11
 
@@ -95,7 +97,7 @@ barrel に無い本番の型とクラスは次のとおりである。呼び出�
 | [device-list-item.ts](../libs/devices/feature-list/src/lib/device-list-item/device-list-item.ts) | `DeviceListItemComponent` |
 | [truncate.pipe.ts](../libs/devices/card-list/src/lib/truncate.pipe.ts) | `TruncatePipe` |
 | [product-info.component.ts](../libs/devices/device-detail/src/lib/product-info/product-info.component.ts) | `ProductInfoComponent` |
-| [example-info.component.ts](../libs/devices/device-detail/src/lib/example-info/example-info.component.ts) | `ExampleInfoComponent` |
+| `example-info.component.ts`（#282 で削除） | `ExampleInfoComponent` |
 | [example-status.ts](../libs/devices/platform-specific-examples/src/lib/example-status.ts) | `compareExampleStatus`、`getExampleStatusLabel`、`getExampleStatusClasses` |
 | [platform-specific-example-card.component.ts](../libs/devices/platform-specific-examples/src/lib/platform-specific-example-card/platform-specific-example-card.component.ts) | `PlatformSpecificExampleCardComponent`、`PlatformSpecificExample` |
 | [device-list.store.ts](../libs/devices/state/src/lib/device-list.store.ts) | `DeviceListState`。`DeviceListStore` と `ViewMode` は barrel が出す |
@@ -149,7 +151,7 @@ standalone の `imports` とテンプレートが、セレクタの本番のつ�
 | `choh-product-info` | `ProductInfoComponent` | [device-detail.component.html](../libs/devices/device-detail/src/lib/device-detail/device-detail.component.html) |
 | `choh-platform-specific-examples` | `PlatformSpecificExamplesComponent` | [product-info.component.html](../libs/devices/device-detail/src/lib/product-info/product-info.component.html) |
 | `choh-platform-specific-example-card` | `PlatformSpecificExampleCardComponent` | [platform-specific-examples.component.html](../libs/devices/platform-specific-examples/src/lib/platform-specific-examples/platform-specific-examples.component.html) の狭い幅。広い幅の表は同じファイルがインラインで描く |
-| `choh-example-info` | `ExampleInfoComponent` | この節で読んだテンプレートには無い |
+| `choh-example-info` | `ExampleInfoComponent` | #282 で削除。調査時点のテンプレートには無かった |
 
 `TruncatePipe` にセレクタは無い。[device-card-list.component.html](../libs/devices/card-list/src/lib/device-card-list/device-card-list.component.html) が `truncate` パイプとして使う。カード一覧の `imports` に入っている。
 
@@ -159,16 +161,18 @@ standalone の `imports` とテンプレートが、セレクタの本番のつ�
 
 ### `ExampleInfoComponent`
 
+#282 で ts、html、spec を削除した。以下は削除前の確認である。
+
 | 確認 | 結果 |
 | --- | --- |
-| 呼び出し元 | クラス名は [example-info.component.ts](../libs/devices/device-detail/src/lib/example-info/example-info.component.ts) と [example-info.component.spec.ts](../libs/devices/device-detail/src/lib/example-info/example-info.component.spec.ts) だけ。スペックは `TestBed` でこのコンポーネントだけを作る |
-| セレクタ | `choh-example-info` は宣言側だけにある。他のテンプレートには無い |
-| 動的参照 | `templateUrl` は同じディレクトリの html を指す静的な文字列。ルートの `loadComponent` には入らない |
-| 公開 API | [libs-device-detail の barrel](../libs/devices/device-detail/src/index.ts) は `DeviceDetailComponent` だけを出す。このコンポーネントは公開していない |
+| 呼び出し元 | クラス名はコンポーネントの ts と spec だけだった。スペックは `TestBed` でこのコンポーネントだけを作っていた |
+| セレクタ | `choh-example-info` は宣言側だけにあった。他のテンプレートには無かった |
+| 動的参照 | `templateUrl` は同じディレクトリの html を指す静的な文字列だった。ルートの `loadComponent` には入らなかった |
+| 公開 API | [libs-device-detail の barrel](../libs/devices/device-detail/src/index.ts) は `DeviceDetailComponent` だけを出す。このコンポーネントは公開していなかった |
 
-詳細の本番経路は [product-info.component.ts](../libs/devices/device-detail/src/lib/product-info/product-info.component.ts) が `PlatformSpecificExamplesComponent` を描く。[example-info.component.html](../libs/devices/device-detail/src/lib/example-info/example-info.component.html) は `example().hardware` と `example().code` を表示する。`hardware` は検索インデックスも読む。[device-list.store.ts](../libs/devices/state/src/lib/device-list.store.ts) の `buildSearchIndex` が `example.hardware` を語に含める。`code` を表示している本番テンプレートは、このコンポーネントだけである。adapter は `ExampleInfo.code` に `upstreamPathUrl` を入れている。型と adapter の代入は、このコンポーネントが無くても残る。
+詳細の本番経路は [product-info.component.ts](../libs/devices/device-detail/src/lib/product-info/product-info.component.ts) が `PlatformSpecificExamplesComponent` を描く。削除前の html は `example().hardware` と `example().code` を表示していた。`hardware` は検索インデックスも読む。[device-list.store.ts](../libs/devices/state/src/lib/device-list.store.ts) の `buildSearchIndex` が `example.hardware` を語に含める。`code` を表示していた本番テンプレートは、このコンポーネントだけだった。adapter は `ExampleInfo.code` に `upstreamPathUrl` を入れている。型と adapter の代入は残している。
 
-同じディレクトリのファイルは ts、html、spec の三つである。スタイルファイルは無い。
+同じディレクトリのファイルは ts、html、spec の三つだった。スタイルファイルは無かった。
 
 ### Store のメソッド
 
@@ -286,17 +290,17 @@ Example の広い幅の表と、狭い幅の `choh-platform-specific-example-car
 
 `localPath` は [data-sync-example-tools.md](data-sync-example-tools.md) が、adapter は代入せず、任意プロパティとテストフィクスチャに残る、と記録済みである。この文書では判定を変えない。
 
-[device.ts](../libs/shared-types/src/lib/device.ts) の `hardware` は「移行過渡期では削除しない」とコメントがある。検索インデックスが本番で読む。`code` は必須プロパティで、adapter が `upstreamPathUrl` を入れる。表示している本番テンプレートは `ExampleInfoComponent` だけである。型から外すかどうかは、そのコンポーネントの有無とは別の公開 API の判断である。
+[device.ts](../libs/shared-types/src/lib/device.ts) の `hardware` は「移行過渡期では削除しない」とコメントがある。検索インデックスが本番で読む。`code` は必須プロパティで、adapter が `upstreamPathUrl` を入れる。削除前に `code` を表示していた本番テンプレートは `ExampleInfoComponent` だけだった。#282 でそのコンポーネントは削除した。型から外すかどうかは、公開 API の判断のままである。
 
 ## 判定
 
-判定は「維持／削除候補／要追加確認／既に存在しない」のいずれか。種別は「未使用」「重複」「互換」「責務」である。責務は、見た目や取得が近くても呼び出し元と返すものが違うものである。この文書では削除していない。
+判定は「維持／削除候補／要追加確認／既に存在しない」のいずれか。種別は「未使用」「重複」「互換」「責務」である。責務は、見た目や取得が近くても呼び出し元と返すものが違うものである。調査の記録時点では削除していない。`ExampleInfoComponent` だけは #282 で削除し、判定を「既に存在しない」に更新した。
 
 #282 に渡すのは、本番から参照が無いファイルだけである。公開 export の縮小、フィクスチャの統合、filter の state、`loadDevices` の削除は渡さない。
 
 | 対象 | 種別 | 根拠 | 判定 | 後続 |
 | --- | --- | --- | --- | --- |
-| `ExampleInfoComponent` と html と spec | 未使用 | 上記「`ExampleInfoComponent`」。barrel は出していない。`loadComponent` にも他のテンプレートにも無い | 削除候補 | #282 単位 1 |
+| `ExampleInfoComponent` と html と spec | 未使用 | 上記「`ExampleInfoComponent`」。barrel は出していない。`loadComponent` にも他のテンプレートにも無い | 既に存在しない | なし。#282 で削除した |
 | `App` の `title` | 未使用 | [app.ts](../apps/web/src/app/app.ts) のフィールドだけ。テンプレートは読まない | 削除候補 | なし。ファイルでも公開 export でもないので #282 には渡さない |
 | `setFilterTag`、`setFilterCategory` | 未使用 | 定義だけ。`filterTag$` と `filterCategory$` は `filteredDevices$` が読む | 要追加確認 | なし。state ごと消さない |
 | `loadDevices` | 重複 | 呼び出しは `loadDevicesIfNeeded` だけ。中の取得とエラー処理は似ている | 要追加確認 | なし。残す effect は設計判断 |
@@ -318,6 +322,6 @@ Example の広い幅の表と、狭い幅の `choh-platform-specific-example-car
 
 ## #282 に渡す変更単位
 
-単位は一つである。この文書の作成時点では未実施である。
+単位は一つである。Issue #282 で実施した。
 
-1. [example-info.component.ts](../libs/devices/device-detail/src/lib/example-info/example-info.component.ts)、[example-info.component.html](../libs/devices/device-detail/src/lib/example-info/example-info.component.html)、[example-info.component.spec.ts](../libs/devices/device-detail/src/lib/example-info/example-info.component.spec.ts) を削除する。触らないものは、`ProductInfoComponent`、`PlatformSpecificExamplesComponent`、`ExampleInfo` 型、adapter の `code` 代入、store の `hardware` 検索である。削除前に `git grep -n -w -e ExampleInfoComponent -e choh-example-info -- ':!docs'` が、この三ファイル以外を返さないことを見る。確認は `pnpm nx test libs-device-detail` と `pnpm nx test web`。barrel とルートは変えない。
+1. `example-info.component.ts`、`example-info.component.html`、`example-info.component.spec.ts` を削除した。触らないものは、`ProductInfoComponent`、`PlatformSpecificExamplesComponent`、`ExampleInfo` 型、adapter の `code` 代入、store の `hardware` 検索である。削除前に `git grep -n -w -e ExampleInfoComponent -e choh-example-info -- ':!docs'` が、この三ファイル以外を返さないことを見た。barrel とルートは変えていない。
