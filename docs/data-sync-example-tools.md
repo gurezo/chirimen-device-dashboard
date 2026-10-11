@@ -60,3 +60,54 @@ Issue の調査候補と、それらが書いていた生成物・workflow を�
 | `generated/upstreams/` | 旧 Example 同期のチェックアウト残骸（upstream リポジトリのディレクトリ） | [.gitignore](../.gitignore) の `generated/` |
 
 `git ls-files generated` は空である。`generated/upstreams/` をアプリやテストが読む参照は、`apps/` と `libs/` に無い。
+
+## デバイス取得の経路
+
+デバイス情報の生成は、このリポジトリには残っていない。実行時の取得先は [`chirimen-certified-devices` の `generated/devices.json`](https://github.com/gurezo/chirimen-certified-devices/blob/main/generated/devices.json) である。
+
+| 段階 | 場所 | 役割 |
+| --- | --- | --- |
+| URL | [certified-devices.config.ts](../libs/devices/data-access/src/lib/certified-devices.config.ts) の `DEFAULT_CERTIFIED_DEVICES_JSON_URL` | GitHub raw の `generated/devices.json` |
+| 起動 | [app.config.ts](../apps/web/src/app/app.config.ts) の `provideDeviceRepository()` | `JsonDeviceRepository` をその URL で作る |
+| 取得 | [json-device.repository.ts](../libs/devices/data-access/src/lib/json-device.repository.ts) | `fetch` で JSON を読み、version を確認してから adapter に渡す。結果は `shareReplay` で再利用する |
+| 変換 | [certified-device.adapter.ts](../libs/devices/data-access/src/lib/certified-device.adapter.ts) の `adaptExample` | `meta.examples` を `ExampleInfo` にする。`platform`、`upstreamRepository`、`upstreamPath`、`upstreamPathUrl`、`status`、`circuitUrl`、`verified` を写す |
+| 説明 | [README.md](../README.md)、[device-data-refresh.md](device-data-refresh.md)、[architecture.md](architecture.md)、[development.md](development.md) | Dashboard 側では同期・生成しない、と既に書いてある |
+
+`adaptExample` は `localPath` を設定しない。`localPath` が残っているのは `ExampleInfo` の任意プロパティと、テスト用フィクスチャだけである。表示は upstream の URL を使う。
+
+[`chirimen-certified-devices` の README](https://github.com/gurezo/chirimen-certified-devices) では、生成は次のコマンドとしてそのリポジトリに残っている。
+
+```text
+pnpm sync:devices
+pnpm validate:devices
+pnpm generate:devices
+```
+
+入力は `chirimen.org` の partslist と、そのリポジトリの `data/supplemental-devices.yml`、`devices/**/meta.yml` である。出力は `generated/devices.json` で、Dashboard はこれを実行時に取得する。このリポジトリに同じコマンドや同じ生成物は無い。
+
+## Example 表示の経路
+
+Example の生成・upstream 同期と、画面上の Example 表示は別である。表示に必要なのは `libs-platform-specific-examples` であり、削除済みの 4 ツールではない。
+
+| 段階 | 場所 | 役割 |
+| --- | --- | --- |
+| 入力 | adapter が作った `ProductInfo.example` | Certified Devices JSON の `examples` 配列 |
+| 詳細画面 | [product-info.component.html](../libs/devices/device-detail/src/lib/product-info/product-info.component.html) | `example` が 1 件以上なら `choh-platform-specific-examples` を出す |
+| 絞り込み | [platform-specific-examples.component.ts](../libs/devices/platform-specific-examples/src/lib/platform-specific-examples/platform-specific-examples.component.ts) | `isPlatformSpecificExample` を通し、`platform`、`upstreamRepository`、`upstreamPath`、`upstreamPathUrl`、`status` が揃ったものだけを status 順に並べる |
+| 型 | [device.ts](../libs/shared-types/src/lib/device.ts) の `isPlatformSpecificExample` | 上記 5 項目が truthy であることを見る。ローカルファイルの存在は見ない |
+
+カードが開くリンクは `upstreamPathUrl` と `circuitUrl` であり、`generated/upstreams/` や `data/platform-examples/` ではない。
+
+## 呼び出し元
+
+GitHub Actions、テスト、ローカル開発、公開アプリのどれも、削除済みツールを起動しない。
+
+| 経路 | ツールを呼ぶか | 実際に使うもの |
+| --- | --- | --- |
+| [ci.yml](../.github/workflows/ci.yml) | 呼ばない | `pnpm nx affected -t lint,build,test` |
+| [deploy.yml](../.github/workflows/deploy.yml) | 呼ばない | lint、test、`pnpm nx build web --configuration=production`、Firebase Hosting |
+| [commitlint.yml](../.github/workflows/commitlint.yml) | 呼ばない | PR のコミットメッセージ検証 |
+| `package.json` の `start` / `serve` / `build` / `test` / `e2e` | 呼ばない | `web` と `web-e2e` の Nx ターゲット |
+| ユニットテスト | 呼ばない | adapter と Example UI はフィクスチャの `ExampleInfo` を使う |
+| E2E | 呼ばない | [mock-certified-devices.ts](../apps/web-e2e/src/support/mock-certified-devices.ts) が上記 JSON の URL をフィクスチャで返す |
+| 公開アプリ | 呼ばない | ビルド済みの `web` が、起動時に Certified Devices JSON を `fetch` する |
