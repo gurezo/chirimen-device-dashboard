@@ -39,6 +39,7 @@ pnpm nx graph
 | --- | --- |
 | [デバイス情報の更新](docs/device-data-refresh.md) | データソース、修正先、報告先の区別、反映確認 |
 | [開発環境とコマンド](docs/development.md) | セットアップ、build / test / lint |
+| [未使用依存の検出手順](docs/unused-dependency-check.md) | 手動の検査手順、Knip を入れない理由、誤検知の扱い |
 | [アーキテクチャ](docs/architecture.md) | Nx workspace 構造、project 一覧、依存関係、データフロー |
 | [AI エージェント向け設定](docs/ai-agent-setup.md) | Cursor Skills / Rules、Nx AI Agents、Conventional Commits |
 

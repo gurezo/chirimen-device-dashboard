@@ -96,3 +96,5 @@ BREAKING CHANGE: Connection behavior has been changed
 - **PR 時**: GitHub Actions の `commitlint` ワークフローで、PR に含まれる全コミットが検証されます。
 
 問題がある場合は、エラーメッセージに従ってメッセージを修正してください。
+
+未使用の依存や未参照コードを調べるときは、[開発環境とコマンド](docs/development.md) の手順に従ってください。
