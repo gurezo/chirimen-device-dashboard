@@ -242,3 +242,79 @@ Certified の入れ子の型（`CertifiedExample`、`CertifiedDeviceMeta`、`Cer
 | `DeviceInfo`、`ProductInfo`、`ExampleInfo`、`ExampleStatus` | adapter、store、詳細、Example UI |
 
 [index.spec.ts](../libs/devices/feature-list/src/index.spec.ts)、[libs-card-list の index.spec.ts](../libs/devices/card-list/src/index.spec.ts)、[libs-state の index.spec.ts](../libs/devices/state/src/index.spec.ts) は `expect(true).toBe(true)` だけである。barrel もコンポーネントも import しない。テストターゲットのファイルではある。本番コードの参照根拠にはしない。
+
+## 重複
+
+未使用と重複は分けて記録する。重複は、どちらを残すかが設計判断である。参照が少ないことだけでは削除候補にしない。
+
+### テストの Example フィクスチャ
+
+同じ三件の platform example と、同じ二件の legacy example が、二つのファイルにある。並びは同じではない。
+
+| ファイル | export | 並び |
+| --- | --- | --- |
+| [device-detail の fixture](../libs/devices/device-detail/src/lib/testing/platform-examples.fixture.ts) | `adt7410PlatformExamples`、`legacyOnlyExamples` | Pi Zero、micro:bit、chirimen |
+| [platform-specific-examples の fixture](../libs/devices/platform-specific-examples/src/lib/testing/platform-examples.fixture.ts) | 上に加え `mixedExamples` | chirimen、micro:bit、Pi Zero |
+
+`legacyOnlyExamples` の二件は一致する。`adt7410PlatformExamples` は同じ三件で、添字が違う。[platform-specific-example-card.component.spec.ts](../libs/devices/platform-specific-examples/src/lib/platform-specific-example-card/platform-specific-example-card.component.spec.ts) は `[2]` を Pi Zero として使う。device-detail 側の `[2]` は chirimen である。ファイルを差し替えると、その添字の意味が変わる。
+
+呼び出しはテストだけである。
+
+| フィクスチャ | 誰が読むか |
+| --- | --- |
+| device-detail | [device-detail.component.spec.ts](../libs/devices/device-detail/src/lib/device-detail/device-detail.component.spec.ts) |
+| platform-specific-examples | Example 一覧のスペックと、カードのスペック |
+| インライン | [product-info.component.spec.ts](../libs/devices/device-detail/src/lib/product-info/product-info.component.spec.ts) が Pi Zero 一件と `legacyOnlyExamples` をファイル内に持つ |
+
+本番はこれらの配列を import しない。テストデータの重複であり、未使用ファイルではない。
+
+### `loadDevices` と `loadDevicesIfNeeded`
+
+両方とも `repository.list()` を呼ぶ。成功時は `loaded: true`、失敗時は `error` である。`loadDevicesIfNeeded` は `loaded` なら `EMPTY` で戻る。一覧の `ngOnInit` が呼ぶのはこちらだけである。`loadDevices` に呼び出し元は無い。残す effect を決めるのは設計判断なので、未使用ファイルとしては扱わない。
+
+### `list` と `get`
+
+[DeviceRepository](../libs/devices/data-access/src/lib/device.repository.ts) の `list` は一覧の store が使う。`get` は詳細コンポーネントとレガシー ID のガードが使う。どちらも [json-device.repository.ts](../libs/devices/data-access/src/lib/json-device.repository.ts) の `catalog$` を読む。`catalog$` は `loadCatalog` の `fetch` を `shareReplay({ bufferSize: 1, refCount: true })` する。メソッドの仕事は違う。一覧は `DeviceInfo[]`、詳細とガードは ID 解決後の一件である。一方を未使用にしない。
+
+### 見た目が近い UI
+
+一覧の table と card は、同じ `filteredDevices$` を別の見た目で出す。一覧ページが `viewMode` で切り替える。両方とも本番の経路にある。
+
+Example の広い幅の表と、狭い幅の `choh-platform-specific-example-card` も、同じ `platformSpecificExamples()` を幅で分けている。カードだけが未使用ではない。
+
+## 再判定しないもの
+
+`localPath` は [data-sync-example-tools.md](data-sync-example-tools.md) が、adapter は代入せず、任意プロパティとテストフィクスチャに残る、と記録済みである。この文書では判定を変えない。
+
+[device.ts](../libs/shared-types/src/lib/device.ts) の `hardware` は「移行過渡期では削除しない」とコメントがある。検索インデックスが本番で読む。`code` は必須プロパティで、adapter が `upstreamPathUrl` を入れる。表示している本番テンプレートは `ExampleInfoComponent` だけである。型から外すかどうかは、そのコンポーネントの有無とは別の公開 API の判断である。
+
+## 判定
+
+判定は「維持／削除候補／要追加確認／既に存在しない」のいずれか。種別は「未使用」「重複」「互換」「責務」である。責務は、見た目や取得が近くても呼び出し元と返すものが違うものである。この文書では削除していない。
+
+#282 に渡すのは、本番から参照が無いファイルだけである。公開 export の縮小、フィクスチャの統合、filter の state、`loadDevices` の削除は渡さない。
+
+| 対象 | 種別 | 根拠 | 判定 | 後続 |
+| --- | --- | --- | --- | --- |
+| `ExampleInfoComponent` と html と spec | 未使用 | 上記「`ExampleInfoComponent`」。barrel は出していない。`loadComponent` にも他のテンプレートにも無い | 削除候補 | #282 単位 1 |
+| `App` の `title` | 未使用 | [app.ts](../apps/web/src/app/app.ts) のフィールドだけ。テンプレートは読まない | 削除候補 | なし。ファイルでも公開 export でもないので #282 には渡さない |
+| `setFilterTag`、`setFilterCategory` | 未使用 | 定義だけ。`filterTag$` と `filterCategory$` は `filteredDevices$` が読む | 要追加確認 | なし。state ごと消さない |
+| `loadDevices` | 重複 | 呼び出しは `loadDevicesIfNeeded` だけ。中の取得とエラー処理は似ている | 要追加確認 | なし。残す effect は設計判断 |
+| 二つの Example フィクスチャと product-info のインライン | 重複 | 上記「テストの Example フィクスチャ」。添字の意味が違う | 要追加確認 | なし。統合は #282 に渡さない |
+| `list` と `get` | 責務 | 同じ `catalog$`。返す形と呼び出し元が違う | 維持 | なし |
+| table と card、Example の表とカード | 責務 | `viewMode` と幅で両方を描く | 維持 | なし |
+| `hardware` | 互換 | コメントと検索インデックス。#278 の対象ではないが、コメントが削除を止めている | 維持 | なし |
+| `localPath` | 互換 | [data-sync-example-tools.md](data-sync-example-tools.md) | 維持 | なし |
+| `code` | 互換 | 必須プロパティ。adapter が代入する。表示は未使用コンポーネントだけ | 要追加確認 | なし。型の削除は #282 に渡さない |
+| `libs-data-access` の、外から import されない barrel export | 未使用 | 上記「公開 export」。クラスと関数の多くはライブラリ内の本番が使う。Certified 型のコメントは UI に import させない、と書いている | 要追加確認 | なし。公開 API の縮小は #282 に渡さない |
+| `ProductInfoComponent`、一覧の行とヘッダ、`TruncatePipe`、Example の関数とカード | 未使用ではない | 上記「中で使っているもの」 | 維持 | なし |
+| 三つの `index.spec.ts` | 未使用ではない | テストとしては存在する。ライブラリは import しない | 維持 | なし。本番の未使用根拠にしない |
+| ルートの `chirimen-device-dashboard` | 未使用ではない | `echo` の target だけ。`apps/` と `libs/` のソースではない | 維持 | なし |
+
+`adaptCertifiedDevice` は、外から import されない barrel export の一行に含む。本番の JSON 変換は `adaptCertifiedDevicesJson` である。関数自体はスペックが呼ぶ。クラス `JsonDeviceRepository` も同じ行に含む。消してよいのは、外向けの再 export かどうかであり、provider が `new` するクラスではない。
+
+## #282 に渡す変更単位
+
+単位は一つである。この文書の作成時点では未実施である。
+
+1. [example-info.component.ts](../libs/devices/device-detail/src/lib/example-info/example-info.component.ts)、[example-info.component.html](../libs/devices/device-detail/src/lib/example-info/example-info.component.html)、[example-info.component.spec.ts](../libs/devices/device-detail/src/lib/example-info/example-info.component.spec.ts) を削除する。触らないものは、`ProductInfoComponent`、`PlatformSpecificExamplesComponent`、`ExampleInfo` 型、adapter の `code` 代入、store の `hardware` 検索である。削除前に `git grep -n -w -e ExampleInfoComponent -e choh-example-info -- ':!docs'` が、この三ファイル以外を返さないことを見る。確認は `pnpm nx test libs-device-detail` と `pnpm nx test web`。barrel とルートは変えない。
