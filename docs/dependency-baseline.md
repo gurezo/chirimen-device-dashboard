@@ -279,7 +279,7 @@ Knip が未使用 devDependency とした 14 件:
 | 対象 | 利用経路 | 根拠 | 判定 | 後続 Issue |
 | --- | --- | --- | --- | --- |
 | Nx プロジェクト 10 件（`web` から `chirimen-device-dashboard`） | `pnpm nx show projects` とプロジェクト依存の節 | グラフ上の依存と各 `project.json` | 維持 | なし |
-| `sync-devices` ほか 3 ツールのソース、`generate:devices`、`refresh-devices` workflow | 呼び出し元なし | 上記「既存の削除」 | 既に存在しない | #278 |
+| `sync-devices` ほか 3 ツールのソース、`generate:devices`、`refresh-devices` workflow | 呼び出し元なし | 上記「既存の削除」。呼び出し元と Example 表示との違いは [データ同期・Example 生成ツールの利用状況](data-sync-example-tools.md) | 既に存在しない | #278 |
 | `commitlint` の削除済みツール scope | `commitlint.config.js` の `scope-enum` | 過去コミット検証用のコメント | 維持 | なし |
 | `chirimen-device-dashboard:build`（`echo 'Build complete'`） | `pnpm build:all` と、ルートが affected のときの `nx affected -t build` | ルート [project.json](../project.json)。他プロジェクトの成果物は作らない | 要追加確認 | #281 |
 | `start` と `serve` | どちらも `nx serve web` | [package.json](../package.json) の scripts | 要追加確認 | #280 |
