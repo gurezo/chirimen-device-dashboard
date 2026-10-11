@@ -1,0 +1,158 @@
+# devDependencies とビルド・テスト設定の利用経路
+
+Issue #280 の調査記録。削除判断の材料であり、この文書の作成時点では依存・コード・設定を削除していない。
+
+調査日: 2026-10-11
+
+起点: `main` の `fd71980b874d92742c33d0c587484a0d99d9a1bf`（`fd71980 docs(workspace): record runtime dependency usage (#286)`）
+
+前提は [依存関係・Nx 構成のベースライン](dependency-baseline.md) である。ベースラインは一部の devDependency を「維持」または「要追加確認」で #280 に渡した。この文書は、executor、plugin、設定ファイル、CI、lockfile 上の peer を照合する。import の有無だけでは未使用にしない。
+
+## 再現コマンド
+
+```bash
+git rev-parse HEAD
+node -v
+pnpm -v
+git grep -n -e '@nx/node' -e '@nx/vite' -e '@nx/devkit' -e '@nx/workspace' \
+  -e '@angular/cli' -e '@angular/language-service' \
+  -e '@angular-devkit/core' -e '@angular-devkit/schematics' -e '@schematics/angular' \
+  -e '@angular/build' -e '@angular/compiler-cli' \
+  -e '@analogjs/vite-plugin-angular' -e '@analogjs/vitest-angular' \
+  -e '@vitest/coverage-v8' -e '@vitest/ui' \
+  -e '@swc/core' -e '@swc/helpers' -e '@swc-node/register' \
+  -e 'autoprefixer' -e 'firebase-tools' \
+  -e '@commitlint/config-conventional' -e '@commitlint/config-angular' \
+  -e '@eslint/js' -e '@oxc-project/runtime' -e '@typescript-eslint/utils' \
+  -e 'angular-eslint' -e 'typescript-eslint' \
+  -- ':!docs' ':!.cursor' ':!.agents' ':!.github/skills' ':!.opencode' \
+  ':!pnpm-lock.yaml' ':!tools/ai-migrations' ':!package.json'
+pnpm why <package> --depth 1
+```
+
+実行時は Node.js `v24.16.0`、pnpm `12.11.2`。`git grep` から調査記録、エージェント用スキル、lockfile、マイグレーション手順、宣言そのものを外した。`.cursor/mcp.json` は外部 CLI の起動なので、除外した grep とは別に読んだ。peer の有無は、インストール済みパッケージの `package.json` を読んだ。
+
+## ベースラインで決着しているもの
+
+再調査はしない。根拠は [dependency-baseline.md](dependency-baseline.md) の判定表である。
+
+| 対象 | ベースラインの判定 |
+| --- | --- |
+| `@nx/js`, `@nx/web`, `@nx/vitest`, `@nx/playwright`, `@nx/eslint`, `@nx/angular` | 維持 |
+| `tailwindcss`, `jsdom`, `eslint-plugin-playwright` | 維持 |
+| `tsx`, `yaml` | 既に存在しない |
+
+`tailwindcss` の入口は [apps/web/src/styles.scss](../apps/web/src/styles.scss) の `@tailwind` と [apps/web/tailwind.config.js](../apps/web/tailwind.config.js) のままである。`jsdom` は Vitest 設定の `environment: 'jsdom'` にある。`eslint-plugin-playwright` は [apps/web-e2e/eslint.config.mjs](../apps/web-e2e/eslint.config.mjs) が import する。
+
+## 宣言
+
+開発依存はルート [package.json](../package.json) の `devDependencies` に 50 件ある。ライブラリごとの `package.json` は無い。[pnpm-workspace.yaml](../pnpm-workspace.yaml) の `minimumReleaseAgeExclude` にパッケージ名の文字列があっても、それは依存の宣言ではない。`allowBuilds` の `@swc/core: false` はインストール時のビルドスクリプトを止める設定であり、依存を外す設定ではない。
+
+## Nx
+
+### `@nx/node`
+
+`@nx/node:*` の executor は `project.json` に無い。`nx.json` の plugin にも無い。`apps/` と `libs/` からの import は無い。`pnpm why @nx/node --depth 1` の依存元はワークスペースの devDependency だけである。
+
+インストール済み `@nx/node@23.3.0` の peer は `express`、`koa`、`fastify` で、いずれも optional。このリポジトリの `package.json` にその三つは無い。
+
+### `@nx/vite`
+
+ベースラインは `vite.config.*` が無いと書いた。起点のツリーには次の設定があり、いずれも `@nx/vite/plugins/nx-tsconfig-paths.plugin` と `nx-copy-assets.plugin` を import する。
+
+| ファイル | テスト executor |
+| --- | --- |
+| [libs/devices/data-access/vitest.config.mts](../libs/devices/data-access/vitest.config.mts) | `@nx/vitest:test` |
+| [libs/devices/feature-list/vitest.config.mts](../libs/devices/feature-list/vitest.config.mts) | `@nx/vitest:test` |
+| [libs/devices/device-detail/vite.config.mts](../libs/devices/device-detail/vite.config.mts) | `@nx/vitest:test` |
+| [libs/devices/platform-specific-examples/vite.config.mts](../libs/devices/platform-specific-examples/vite.config.mts) | `@nx/vitest:test` |
+
+`pnpm why @nx/vite --depth 1` では、ワークスペースに加え `@nx/web@23.3.0` が依存元に出る。`@nx/web@23.3.0` の `peerDependencies` では `@nx/vite` は optional である。`web` の `serve-static` は `@nx/web:file-server` である。設定ファイルの import は、この optional peer とは別の経路である。
+
+### `@nx/devkit`
+
+[apps/web-e2e/playwright.config.ts](../apps/web-e2e/playwright.config.ts) が `workspaceRoot` を `@nx/devkit` から import する。`pnpm why` では `@nx/angular`、`@nx/eslint`、`@nx/eslint-plugin`、`@nx/js`、`@nx/playwright`、`@nx/vite`、`@nx/vitest`、`@nx/web`、`@nx/workspace` も依存元である。
+
+### `@nx/workspace`
+
+`apps/` と `libs/` の設定は `@nx/workspace` を import しない。`nx.json` の plugin 一覧にも無い。インストール済み `@nx/workspace@23.3.0` に `nx` プラグイン欄は無い。`pnpm why` の依存元はワークスペースと `@nx/js@23.3.0` である。`@nx/js@23.3.0` の `dependencies` に `@nx/workspace` がある。
+
+## Angular CLI / DevKit / Schematics
+
+| パッケージ | ワークスペースからの参照 | 他パッケージとの関係 |
+| --- | --- | --- |
+| `@angular/build` | `web` の `build` / `serve` / `test`、`libs-card-list` と `libs-state` の `test`。executor は `@angular/build:application`、`dev-server`、`unit-test` | `@nx/angular` の optional peer |
+| `@angular/compiler-cli` | アプリのソースは import しない | `@angular/build@22.2.2` の必須 peer |
+| `@angular/cli` | [.cursor/mcp.json](../.cursor/mcp.json) と [.vscode/mcp.json](../.vscode/mcp.json) が `npx -y @angular/cli mcp` を起動する。`package.json` の scripts に `ng` は無い | `pnpm why` の依存元はワークスペースだけ。bin は `ng` |
+| `@angular/language-service` | `package.json` 以外に無い。`tsconfig` はプラグインとして書いていない。[.vscode/extensions.json](../.vscode/extensions.json) の推奨は Playwright、Prettier、Vitest である | `pnpm why` の依存元はワークスペースだけ |
+| `@angular-devkit/core` | ソースからの import は無い | `@nx/angular@23.3.0` の必須 peer。`@angular/cli` の dependency |
+| `@angular-devkit/schematics` | ソースからの import は無い | `@nx/angular` の必須 peer。`@analogjs/vitest-angular` の必須 peer。`@angular/cli` の dependency |
+| `@schematics/angular` | ソースからの import は無い | `@nx/angular` の必須 peer。`@angular/cli` の dependency |
+
+`@nx/angular` の必須 peer に `peerDependenciesMeta` は無い。`@angular-devkit/build-angular` は optional peer で、`package.json` には無い。
+
+## Vite / Analog / Vitest
+
+| パッケージ | 参照 | peer |
+| --- | --- | --- |
+| `vite` | `vitest.config.*` と `vite.config.mts` が `vite` の `defineConfig` を import する | `@nx/vite` の必須 peer。`vitest@5.0.3` の必須 peer |
+| `vitest` | ルート [vitest.config.ts](../vitest.config.ts) と [apps/web/vitest.config.ts](../apps/web/vitest.config.ts) が `vitest/config` を import する | `@analogjs/vitest-angular` の必須 peer。`@nx/vitest` と `@angular/build` の optional peer |
+| `@analogjs/vite-plugin-angular` | `apps/web/vitest.config.ts`、`feature-list` の `vitest.config.mts`、`device-detail` と `platform-specific-examples` の `vite.config.mts` | `vite` は optional peer |
+| `@analogjs/vitest-angular` | `feature-list`、`device-detail`、`platform-specific-examples` の `src/test-setup.ts` が `setup-snapshots` と `setup-testbed` を import する | 上記の必須 peer |
+| `@vitest/coverage-v8` | 4 つの lib 設定が `coverage.provider: 'v8'` を書く。`package.json` の scripts と GitHub Actions は `--coverage` を付けない | `vitest@5.0.3` の optional peer |
+| `@vitest/ui` | scripts、workflow、Vitest 設定に `ui` も `--ui` も無い。reporter は `default` | `vitest@5.0.3` の optional peer |
+| `@oxc-project/runtime` | リポジトリのソースに import は無い。Analog、Vite、`@angular/build`、`@nx/*`、`vitest` の配布ファイルにもパッケージ名の文字列は無い | `pnpm why` の依存元はワークスペースだけ |
+
+`data-access` の Vitest 設定は Analog を import しない。`@nx/vitest:test` を使うのは `libs-data-access`、`libs-feature-list`、`libs-device-detail`、`libs-platform-specific-examples` である。
+
+インストール済み `@analogjs/vite-plugin-angular@2.8.0` の `angular-vitest-plugin.js` は、`vite.rolldownVersion` があるとき fesm の es2016 下げをスキップする。同じファイルの `angularVitestEsbuildPlugin` は、そのとき `oxc` を `false` にする。`angularVitestSourcemapPlugin` は、一部の `.ts` に `vite.transformWithOxc` を呼ぶ。呼び出しに `target` は無い。
+
+## SWC
+
+| パッケージ | `pnpm why` の依存元 | インストール済みパッケージの関係 |
+| --- | --- | --- |
+| `@swc/core` | ワークスペース、`nx`、`@swc-node/register`、`@swc-node/core` | `nx@23.3.0` の optional peer `^1.15.8` |
+| `@swc-node/register` | ワークスペース、`nx` | `nx@23.3.0` の optional peer `^1.11.1` |
+| `@swc/helpers` | ワークスペース、`@swc/core` | `@swc/core@1.16.13` の optional peer `>=0.5.17` |
+
+`apps/` と `libs/` は三つのパッケージを import しない。ライブラリの build は `@nx/js:tsc`、`web` の build は `@angular/build:application` である。Knip は #277 でこの三つを未使用 devDependency にしていない。
+
+## CSS
+
+`postcss.config.*` と `.postcssrc.json` は無い。
+
+`@angular/build@22.2.2` の `postcss-configuration.js` は、`tailwind.config.js` があると `tailwindcss` を解決する。`stylesheet-plugin-factory.js` は、Tailwind の設定があるとき `require('postcss')` し、PostCSS のプラグインとして Tailwind だけを足す。`autoprefixer` の文字列はこの経路に無い。
+
+| パッケージ | 関係 |
+| --- | --- |
+| `postcss` | `@angular/build@22.2.2` の optional peer。`tailwindcss@3.4.19` の dependency。`autoprefixer` の必須 peer |
+| `autoprefixer` | `pnpm why` の依存元はワークスペースだけ。`tailwindcss` の dependency には無い |
+
+[apps/web/src/styles.scss](../apps/web/src/styles.scss) は `@tailwind` を持つので、`web` の build は上の Tailwind 経路に入る。
+
+## ツールと Lint
+
+### `firebase-tools`
+
+[.github/workflows/deploy.yml](../.github/workflows/deploy.yml) は `pnpm install --frozen-lockfile` のあと、`npm install -g firebase-tools` を実行し、その `firebase deploy` を使う。`package.json` に `firebase` を呼ぶ script は無い。`pnpm why firebase-tools` の依存元はワークスペースだけである。bin は `firebase`。
+
+### `@commitlint/config-conventional`
+
+[commitlint.config.js](../commitlint.config.js) の `extends` は `@commitlint/config-angular` だけである。インストール済み `@commitlint/config-angular@21.2.3` の dependency に `@commitlint/config-conventional` は無い。`@commitlint/cli@21.2.3` の dependency にはある。Husky と [commitlint.yml](../.github/workflows/commitlint.yml) が起動するのは `commitlint` CLI である。
+
+### ESLint 関連
+
+ルート [eslint.config.mjs](../eslint.config.mjs) は `@nx/eslint-plugin` の `flat/base`、`flat/typescript`、`flat/javascript` を広げる。Angular 用の三つの設定（[apps/web/eslint.config.mjs](../apps/web/eslint.config.mjs)、[libs/devices/device-detail/eslint.config.mjs](../libs/devices/device-detail/eslint.config.mjs)、[libs/devices/platform-specific-examples/eslint.config.mjs](../libs/devices/platform-specific-examples/eslint.config.mjs)）は、それに加えて `flat/angular` と `flat/angular-template` を広げる。
+
+| パッケージ | 経路 |
+| --- | --- |
+| `@eslint/js` | `@nx/eslint-plugin` の `flat-configs/javascript.js` と `typescript.js` が `require("@eslint/js")` する。プラグインの `package.json` はこのパッケージを dependency に書いていない。`pnpm why` の依存元はワークスペースだけである |
+| `angular-eslint` | 同じプラグインの `flat-configs/angular.js` が `require("angular-eslint")` する。上記三つの ESLint 設定が `@angular-eslint/*` ルールを書く |
+| `typescript-eslint` | `flat-configs/angular.js` が `require("typescript-eslint")` する。`angular-eslint@22.5.0` の必須 peer |
+| `@typescript-eslint/utils` | `@nx/eslint-plugin`、`angular-eslint`、`typescript-eslint` の dependency |
+| `prettier` | プラグインの `javascript.js` と `typescript.js` は、`prettier` と `eslint-config-prettier` の両方が解決できるとき `eslint-config-prettier` を設定へ足す。[.prettierrc](../.prettierrc) と [.prettierignore](../.prettierignore) がある。推奨拡張は [.vscode/extensions.json](../.vscode/extensions.json)。`package.json` に format script は無い |
+| `eslint-config-prettier` | 上の分岐で `require` される。`@nx/eslint-plugin` の optional peer |
+
+## `start` と `serve`
+
+[package.json](../package.json) の `start` と `serve` はどちらも `nx serve web` である。[README.md](../README.md) は `pnpm start` を書く。[docs/development.md](development.md) は両方をコマンド表に載せる。`web` の `serve` ターゲットは `@angular/build:dev-server` で、ポートは 4200 である。
