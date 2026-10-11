@@ -13,6 +13,7 @@ minimumReleaseAgeExclude:
   - '@eslint/*'
   - '@inquirer/*'
   - '@jsonjoy.com/*'
+  - '@modelcontextprotocol/*'
   - '@ngtools/*'
   - '@ngrx/*'
   - '@nx/*'
