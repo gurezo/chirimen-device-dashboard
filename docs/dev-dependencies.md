@@ -156,3 +156,66 @@ pnpm why <package> --depth 1
 ## `start` と `serve`
 
 [package.json](../package.json) の `start` と `serve` はどちらも `nx serve web` である。[README.md](../README.md) は `pnpm start` を書く。[docs/development.md](development.md) は両方をコマンド表に載せる。`web` の `serve` ターゲットは `@angular/build:dev-server` で、ポートは 4200 である。
+
+## 設定の重複と、実在しない入力
+
+削除はしていない。ここでの「実在しない」は、設定が指すファイルが git 上に無いことである。
+
+### `nx.json` の入力
+
+[nx.json](../nx.json) の `namedInputs.production` は、各プロジェクトの `.eslintrc.json` を build の入力から外す。`.eslintrc.json` はリポジトリに無い。同じ配列の `eslint.config.mjs` 除外は、そのファイルを持つプロジェクトに効く。
+
+`targetDefaults` の `@nx/eslint:lint` は、次のパスをキャッシュ入力にする。
+
+| 入力 | git 上 |
+| --- | --- |
+| `{workspaceRoot}/.eslintrc.json` | 無い |
+| `{workspaceRoot}/.eslintignore` | 無い |
+| `{workspaceRoot}/eslint.config.mjs` | ある |
+| `{workspaceRoot}/tools/eslint-rules/**/*` | ディレクトリが無い |
+
+この executor を `project.json` に書くのは `web`、`libs-device-detail`、`libs-platform-specific-examples` である。他プロジェクトの lint は、ベースラインのとおり `@nx/eslint/plugin` が推論した `nx:run-commands` であり、上の `targetDefaults` の入力一覧とは executor 名が違う。
+
+`angular.json` は無い。Angular のターゲットは各 `project.json` と `nx.json` にある。
+
+### `generators`
+
+[nx.json](../nx.json) の `generators` は、新規生成時の既定である。既存プロジェクトの build / test / lint はここを読まない。
+
+| 生成対象 | 既定 | 既存プロジェクト |
+| --- | --- | --- |
+| `@nx/angular:application` の `unitTestRunner` | `vitest-angular` | `web` の test は `@angular/build:unit-test` |
+| `@nx/angular:library` の `unitTestRunner` | `vitest-analog` | `libs-card-list` と `libs-state` の test は `@angular/build:unit-test`。`libs-data-access` は `@nx/vitest:test` で、Analog を import しない |
+
+### lint の二つの定義
+
+| 定義 | プロジェクト | 設定ファイル |
+| --- | --- | --- |
+| `project.json` の `@nx/eslint:lint` | `web`、`libs-device-detail`、`libs-platform-specific-examples` | 各ディレクトリの `eslint.config.mjs` がルート設定を広げ、`flat/angular` を足す |
+| plugin 推論の `nx:run-commands` | ベースラインが記録した残り（`web-e2e`、`shared-types`、`libs-data-access`、`libs-state`、`libs-feature-list`、`libs-card-list`） | `web-e2e` だけが自分の `eslint.config.mjs` を持つ。他の五つのディレクトリに `eslint.config.mjs` は無い |
+
+`web-e2e` は plugin の lint と、自分の ESLint 設定の両方を持つ。明示した `@nx/eslint:lint` と、plugin の `targetName: lint` は同じターゲット名である。一つのプロジェクトに lint が二つ定義されている、という `nx show` の再実行はこの文書ではしていない。executor の分かれ方はベースラインの表と、現在の `project.json` の明示 executor で一致する。
+
+### Vitest と Vite の設定
+
+| ファイル | 誰が読むか |
+| --- | --- |
+| [vitest.config.ts](../vitest.config.ts) | `test.projects` が `**/vite.config.{mjs,js,ts,mts}` と `**/vitest.config.{mjs,js,ts,mts}` を読む。`package.json` の `test` は `nx test web` であり、このファイルを引数にしない |
+| [apps/web/vitest.config.ts](../apps/web/vitest.config.ts) | [.vscode/settings.json](../.vscode/settings.json) の `vitest.rootConfig`。ルートの `test.projects` にもマッチする。`web` の test executor は `@angular/build:unit-test` で、`project.json` にこのファイルを指定していない |
+| `libs-data-access` と `libs-feature-list` の `vitest.config.mts` | `@nx/vitest:test` |
+| `libs-device-detail` と `libs-platform-specific-examples` の `vite.config.mts` | `@nx/vitest:test` |
+| `libs-card-list`、`libs-state` | ローカルの Vitest / Vite 設定は無い。test は `@angular/build:unit-test` |
+
+`@angular/build@22.2.2` の unit-test schema に、`vitest.config.ts` を指定する項目は無い。runner は Vitest 設定をメモリ上で組み立てる。`apps/web/vitest.config.ts` の Analog プラグインは、IDE の Vitest 拡張と、ルートの `test.projects` から起動したときの設定である。
+
+同じ `@nx/vitest:test` でも、ファイル名は `vitest.config.mts` と `vite.config.mts` に分かれる。どちらもルートの `test.projects` にマッチする。
+
+coverage の `provider: 'v8'` は、上記 4 lib の設定と、`device-detail` / `feature-list` / `platform-specific-examples` の `project.json` にある `reportsDirectory` に対応する。`reportsDirectory` は coverage を常時オンにするフラグではない。CI の test は `--coverage` を付けない。
+
+### Tailwind と PostCSS
+
+PostCSS の設定ファイルは無い。`web` の build が Tailwind を処理するとき、`@angular/build` は PostCSS に Tailwind だけを載せる。`autoprefixer` をそのチェーンへ足す設定は、リポジトリ側にも builder のこの分岐にも無い。
+
+### script の対
+
+`start` と `serve` は同じ Nx ターゲットを指す。文書上の入口は両方にある。詳細は前の節。
