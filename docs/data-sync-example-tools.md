@@ -111,3 +111,45 @@ GitHub Actions、テスト、ローカル開発、公開アプリのどれも、
 | ユニットテスト | 呼ばない | adapter と Example UI はフィクスチャの `ExampleInfo` を使う |
 | E2E | 呼ばない | [mock-certified-devices.ts](../apps/web-e2e/src/support/mock-certified-devices.ts) が上記 JSON の URL をフィクスチャで返す |
 | 公開アプリ | 呼ばない | ビルド済みの `web` が、起動時に Certified Devices JSON を `fetch` する |
+
+## commitlint の scope
+
+`commitlint.config.js` の `scope-enum` には、削除済みツール名が残っている。
+
+| scope | 設定 | 説明 |
+| --- | --- | --- |
+| `sync-devices` | [commitlint.config.js](../commitlint.config.js)、[scopes.md](../.cursor/skills/conventional-commits/scopes.md)、[CONTRIBUTING.md](../CONTRIBUTING.md) | 削除済みツール向けの互換 scope |
+| `sync-example-upstreams` | `commitlint.config.js` と `scopes.md` | 同上 |
+| `generate-platform-examples` | `commitlint.config.js` と `scopes.md` | 同上 |
+| `validate-platform-examples` | `commitlint.config.js` と `scopes.md` | 同上 |
+
+`main` には、これらの scope を使ったコミットが残っている。例: `1d8dbdc chore(sync-example-upstreams): update platform example sync artifacts (#252)`、`18a8a4b chore(sync-devices): refresh devices data`。
+
+[commitlint.yml](../.github/workflows/commitlint.yml) は、PR の base から head までだけを検証する。通常の PR では、すでに `main` にある過去コミットは再検証されない。scope を外すと、その scope のコミットが PR の範囲に入ったときに commitlint が失敗する。[commitlint.config.js](../commitlint.config.js) のコメントは、その scope を戻した PR の先行コミットが HEAD の検証を通るよう残した、と書いている。
+
+[CONTRIBUTING.md](../CONTRIBUTING.md) のスコープ表と [.cursor/rules/commits/42-chirimen-device-dashboard-scope.mdc](../.cursor/rules/commits/42-chirimen-device-dashboard-scope.mdc) は `sync-devices` だけを載せ、他の 3 scope は載せていない。`commitlint.config.js` と `scopes.md` は 4 つとも載せている。表の抜けであり、scope 自体の削除理由にはしない。
+
+## 判定
+
+判定は「維持／削除候補／既に存在しない／要確認」のいずれか。この調査で「削除候補」とした対象は無い。Issue #282（S6）へ渡す削除対象も無い。
+
+Example 表示とデバイス取得を維持するために必要なのは、次の現存する経路である。
+
+- `libs-data-access` が Certified Devices JSON を `fetch` し、`adaptExample` で `ExampleInfo` にする
+- `libs-device-detail` が `ProductInfo.example` を `libs-platform-specific-examples` に渡す
+- 生成コマンド（`sync:devices`、`validate:devices`、`generate:devices`）と `generated/devices.json` の更新は `chirimen-certified-devices` に残す
+
+| 対象 | 利用経路 | 根拠 | 判定 | 後続 |
+| --- | --- | --- | --- | --- |
+| `sync-devices` のソース、Nx target、workflow、`apps/web/public/devices.json` | なし | 上記「対象の現存」。削除は #268 | 既に存在しない | なし |
+| `generate:devices` | なし | `package.json` の `scripts` に無い。同名コマンドは `chirimen-certified-devices` にある | 既に存在しない | なし |
+| `sync-example-upstreams` のソース、workflow、`data/example-upstreams/` | なし | #268。ローカルの `generated/upstreams/` は `generated/` で ignore され、表示は読まない | 既に存在しない | なし |
+| `generate-platform-examples` のソース、workflow、`data/platform-examples/` | なし | #268 | 既に存在しない | なし |
+| `validate-platform-examples` のソース、workflow、`generated/reports/` | なし | #268 | 既に存在しない | なし |
+| `refresh-devices` workflow | なし | #269 | 既に存在しない | なし |
+| 作業ツリーの `tools/scripts/*/node_modules` と `generated/upstreams/` | アプリ・CI・テストは未使用 | git 未追跡。ignore 済み | 既に存在しない | なし。未追跡のため S6 の削除対象にしない |
+| commitlint の 4 scope | 過去コミットの検証 | `scope-enum` と `main` 上の該当コミット | 維持 | なし |
+| CONTRIBUTING と cursor scope ルールの表が `sync-devices` のみ | 文書の一覧 | 他 3 scope は `commitlint.config.js` と `scopes.md` にある | 要確認 | 削除ではない。表を揃えるなら別の文書修正 |
+| `libs-data-access` の Certified Devices JSON 取得 | `web` の起動時 `fetch` | デバイス取得の節 | 維持 | なし |
+| `libs-platform-specific-examples` | デバイス詳細の Example 表示 | Example 表示の節。生成ツールは使わない | 維持 | なし |
+| `chirimen-certified-devices` の `sync:devices` / `validate:devices` / `generate:devices` | そのリポジトリの README に記載された生成 | Dashboard の外。このリポジトリから呼ぶ workflow は無い | 維持 | なし。このリポジトリの S6 では削除しない |
