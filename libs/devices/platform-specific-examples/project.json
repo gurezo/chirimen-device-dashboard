@@ -23,14 +23,23 @@
       }
     },
     "test": {
-      "executor": "@nx/vitest:test",
-      "outputs": ["{options.reportsDirectory}"],
+      "outputs": [
+        "{projectRoot}/{options.coverage.reportsDirectory}",
+        "{workspaceRoot}/coverage/libs/devices/platform-specific-examples"
+      ],
       "options": {
-        "reportsDirectory": "{projectRoot}/../../../coverage/libs/devices/platform-specific-examples"
+        "coverage.reportsDirectory": "../../../../../coverage/libs/devices/platform-specific-examples"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint"
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/eslint.config.mjs",
+        {
+          "externalDependencies": ["eslint"]
+        }
+      ]
     }
   }
 }
