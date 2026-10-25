@@ -1,9 +1,5 @@
 packages: []
 
-# @angular/compiler-cli@22.2.3 のバンドルは encodeRangeMappings を import するが、
-# 宣言された依存 ^1.4.14 は 1.5.5 に解決され、その export が無い。
-overrides:
-  '@angular/compiler-cli>@jridgewell/sourcemap-codec': 1.6.0
 
 # 明示設定時は strict がデフォルト true のため、lockfile 再生成時に exclude が自動追記される
 minimumReleaseAgeStrict: false
