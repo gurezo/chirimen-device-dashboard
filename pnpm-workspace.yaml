@@ -1,5 +1,6 @@
 packages: []
 
+
 # 明示設定時は strict がデフォルト true のため、lockfile 再生成時に exclude が自動追記される
 minimumReleaseAgeStrict: false
 

@@ -17,24 +17,12 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },
-    "@nx/eslint:lint": {
-      "cache": true,
-      "inputs": [
-        "default",
-        "^default",
-        "{workspaceRoot}/eslint.config.mjs"
-      ]
-    },
     "@angular/build:unit-test": {
       "cache": true,
       "inputs": ["default", "^production"],
       "options": {
         "watch": false
       }
-    },
-    "@nx/vitest:test": {
-      "cache": true,
-      "inputs": ["default", "^production"]
     }
   },
   "plugins": [
@@ -42,6 +30,26 @@
       "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/vitest",
+      "options": {
+        "testMode": "watch",
+        "testTargetName": "test"
+      },
+      "include": [
+        "libs/devices/data-access/**/*",
+        "libs/devices/device-detail/**/*",
+        "libs/devices/feature-list/**/*",
+        "libs/devices/platform-specific-examples/**/*"
+      ]
+    },
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e",
+        "ciTargetName": "e2e-ci"
       }
     }
   ],
@@ -60,5 +68,9 @@
       "style": "scss"
     }
   },
-  "analytics": true
+  "analytics": true,
+  "nxCloudId": "6addbcf653805b98ef6abd39",
+  "affected": {
+    "legacy": true
+  }
 }

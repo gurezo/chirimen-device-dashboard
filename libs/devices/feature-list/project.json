@@ -7,9 +7,7 @@
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/devices/feature-list",
         "main": "libs/devices/feature-list/src/index.ts",
@@ -24,12 +22,12 @@
       }
     },
     "test": {
-      "executor": "@nx/vitest:test",
       "outputs": [
-        "{options.reportsDirectory}"
+        "{projectRoot}/{options.coverage.reportsDirectory}",
+        "{workspaceRoot}/coverage/libs/devices/feature-list"
       ],
       "options": {
-        "reportsDirectory": "{projectRoot}/../../../coverage/libs/devices/feature-list"
+        "coverage.reportsDirectory": "../../../../../coverage/libs/devices/feature-list"
       },
       "configurations": {
         "ci": {

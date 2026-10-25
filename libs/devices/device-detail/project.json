@@ -8,9 +8,7 @@
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/devices/device-detail",
         "main": "libs/devices/device-detail/src/index.ts",
@@ -25,16 +23,23 @@
       }
     },
     "test": {
-      "executor": "@nx/vitest:test",
       "outputs": [
-        "{options.reportsDirectory}"
+        "{projectRoot}/{options.coverage.reportsDirectory}",
+        "{workspaceRoot}/coverage/libs/devices/device-detail"
       ],
       "options": {
-        "reportsDirectory": "{projectRoot}/../../../coverage/libs/devices/device-detail"
+        "coverage.reportsDirectory": "../../../../../coverage/libs/devices/device-detail"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint"
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/eslint.config.mjs",
+        {
+          "externalDependencies": ["eslint"]
+        }
+      ]
     }
   }
 }
